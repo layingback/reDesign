@@ -1,0 +1,627 @@
+/*
+ Right to Left stylesheet
+ You can overwrite anything here
+*/
+
+body {
+  /*direction: rtl;*/
+}
+
+.float_left {
+	float: right;
+}
+.float_right {
+	float: left;
+}
+
+#head {
+	background-image: url('../../images/rtl/backgrounds/header/header_bg.jpg');
+	background-position: bottom right;
+}
+
+#head h1 {
+    float: right;
+}
+#head h1 a {
+    margin-left: 0;
+    margin-right: 20px;
+}
+
+#langselection {
+    right: auto;
+    left: 7px;
+}
+
+#languages_popup {
+    right: auto;
+    left: 7px;
+}
+
+#languages_popup span {
+    float: right;
+    padding-left: 0;
+    padding-right: 5px;
+}
+
+form#headsearch {
+    right: auto;
+    left: 0;
+    margin-right: 0;
+    margin-left: 30px;
+}
+
+form.special em, form.special b, form.special tt, form.special i {
+    float: right;
+    background-image: url('../../images/backgrounds/header/searchbox_r.gif');
+}
+
+form.special input.specialtext {
+    float: right;
+}
+
+form.special b {
+    background-image: url('../../images/backgrounds/header/searchbox_l.gif');
+}
+
+form.special tt {
+    margin-left: 0;
+    margin-right: 5px;
+    background-image: url('../../images/backgrounds/header/searchbutton_r.gif');
+}
+
+form.special button {
+    float: right;
+}
+
+form.special i {
+    background-image: url('../../images/backgrounds/header/searchbutton_l.gif');
+}
+
+#log_in_box {
+    right: auto;
+    left: 0;
+    margin-right: 0;
+    margin-left: 30px;
+    padding: 0;
+}
+
+#log_in_box div, #log_in_page div {
+    float: right;
+    margin-left: 0;
+    margin-right: 5px;
+}
+
+#log_in_box div label, #log_in_page div label {
+    clear: left;
+}
+
+#log_in_box div .losspass, #log_in_page div .sublink {
+    float: right;
+    clear: right;
+}
+
+#log_in_box .closebutton {
+    float: right;
+}
+
+div.breadcrumb_trail {
+    right: auto;
+    left: 0;
+    margin-right: 0;
+    margin-left: 30px;
+    text-align: right;
+}
+
+#headertools {
+    right: auto;
+    left: 0;
+    margin-right: 0;
+    margin-left: 15px;
+}
+
+#headertools #userinfo {
+    float: right;
+}
+
+/* Left to right */
+#pe600 {
+    float: right;
+    padding-left: 0;
+    padding-right: 10px;
+}
+#pe600 .block {
+    border-right: none;
+    border-left: 1px solid #B1B1B1;
+}
+
+/* Right to left */
+#pe601 {
+    float: left;
+    padding-right: 0;
+    padding-left: 10px;
+}
+#pe601 .block {
+    border-left: none;
+    border-right: 1px solid #B1B1B1;
+}
+
+.block h2 kbd {
+    float: left;
+    margin-right: 0;
+    margin-left: 2px;
+}
+
+.centerblock h2 {
+	float: left;
+	margin-right: 0;
+	margin-left: 10px;
+}
+
+.centerblock h2 kbd {
+	float: left;
+	margin-right: 0;
+	margin-left: 2px;
+}
+
+.message .date {
+  float: left;
+}
+
+.message .date small {
+  right: auto;
+  left: 10px;
+}
+
+.storycontent {
+	padding-left: 15px;
+	padding-right: 5px;
+}
+
+.storydetails, .storylinks {
+	text-align: right;
+}
+
+.storydetails li, .storylinks li {
+	padding-right: 0;
+	padding-left: 3px;
+}
+
+.smallrating span {
+	float: right;
+}
+
+.avatar_name {
+	float: left;
+}
+
+.avatar_img {
+	float: left;
+	clear: left;
+}
+
+.combox1, .combox2 {
+	margin-left: 0;
+	margin-right: 10px;
+}
+
+.cominnerbox {
+	margin-left: 0;
+	margin-right: 10px;
+}
+
+.comfooter {
+	text-align: left;
+}
+
+th.cat {
+	text-align: right;
+}
+
+h2.cattitle span.plusminus {
+	float: left;
+}
+
+.afterposts .leftinfo {
+	float: right;
+	text-align: right;
+}
+
+.afterposts .rightinfo {
+	float: left;
+	text-align: left;
+}
+
+.quickreply label {
+	padding-left: 0;
+	padding-right: 4px;
+	margin-right: 0;
+	margin-left: 4px;
+}
+
+.quickreply .subm, .post_reply .subm {
+	margin-right: 0;
+	margin-left: 4px;
+}
+
+.topic_admin a {
+	float: right;
+}
+
+.post_reply .options label {
+	padding-left: 0;
+	padding-right: 4px;
+	margin-right: 0;
+	margin-left: 4px;
+}
+
+.forumblock {
+	margin-left: 0;
+	margin-right: 10px;
+}
+
+.forumblock img.folder {
+	float: right;
+	margin-right: 0;
+	margin-left: 5px;
+}
+
+.last_post {
+	float: left;
+	text-align: left;
+}
+
+.last_post span {
+	float: left;
+}
+
+.topicsposts {
+	text-align: left;
+	clear: left;
+	margin-right: 0;
+	margin-left: 10px;
+	right: auto;
+	left: 0;
+}
+
+.topicsposts .topicsposts_name {
+	float: left;
+	margin-right: 0;
+	margin-left: 3px;
+	text-align: left;
+}
+
+.topicsposts .topicsposts_numbers {
+	float: left;
+	text-align: right;
+}
+
+div.forumdesc {
+	float: right;
+	clear: right;
+}
+
+.topic_header {
+	padding-left: 4px;
+	padding-right: 8px;
+}
+
+.topic_header b.corner-lt, .topic_header span.corners-bottom {
+	margin-left: -4px;
+}
+.topic_header b.corner-rt, .topic_header span.corners-bottom {
+	margin-right: -8px;
+}
+
+.moderators {
+	text-align: left;
+	clear: left;
+	margin-right: 0;
+	margin-left: 10px;
+	right: auto;
+	left: 0;
+}
+
+div.forumlegend img {
+	margin-left: 3px;
+	margin-right: 11px;
+}
+
+ul.forumlegend li {
+	float: right;
+	margin-right: 0;
+	margin-left: 10px;
+}
+
+ul.forumlegend img {
+	margin-right: 0;
+	margin-left: 4px;
+}
+
+.attachtable {
+	margin-left: 0;
+	margin-right: 2.5%;
+}
+
+.attachtable li {
+	padding-left: 5px;
+	padding-right: 10px;
+}
+
+blockquote {
+	background-image: url('../../images/bbcode/quote_left.png');
+	background-position: top right;
+	padding-left: 3px;
+	padding-right: 40px;
+}
+
+blockquote .name {
+	right: auto;
+	left: 0;
+}
+
+.bbcode, .bbphp {
+	clear: left;
+}
+
+.bbchead, .bbphphead {
+	padding-left: 0;
+	padding-right: 3px;
+}
+
+.bbphphead {
+	background-image: url('../../images/bbcode/bbcode_php.gif');
+	background-position: top left;
+}
+
+.pagination ul {
+	text-align: left;
+}
+
+div#messagesbox {
+	right: auto;
+	left: 0;
+}
+
+#footer .tasks {
+	text-align: right;
+}
+
+#footer .tasks .info {
+	float: right;
+}
+
+#footer a.navtop {
+	float: left;
+	background-position: right center;
+	padding-left: 0;
+	padding-right: 10px;
+}
+
+#footer a.navtop:hover {
+	background-position: right top;
+}
+
+#menu {
+    left: auto;
+    right: 15px;
+}
+
+* html #menu {
+    left: 0;
+    right: auto;
+    margin-right: 15px;
+}
+
+#menu li {
+	float: right;
+	margin-left: 5px;
+	margin-right: 0;
+	padding-right: 0;
+	padding-left: 12px;
+}
+
+#menu a {
+	float: right;/* \*/float: none;/*  */
+}
+
+/* START cpgmm.css override */
+#menu li {
+	background-position: top left;
+}
+
+#menu li:hover {
+	background-position: left 1px;
+}
+
+#menu li ul {
+	text-align: right;
+	margin-right: -12px;
+}
+
+#menu li ul li, #menu li ul li:hover {
+	text-align: right;
+}
+
+#menu li ul li a.submenu, #menu li ul li:hover li a.submenu {
+	background-image: url('../../images/rtl/backgrounds/header/menu/arrow_left.gif');
+	background-position: 2% top;
+}
+#menu li ul li:hover a.submenu, #menu li ul li li:hover a.submenu {
+	background-position: 2% -22px;
+}
+
+#menu li ul li a {
+	padding-left: 0;
+	padding-right: 24px;
+	text-align: right;
+}
+
+#menu li ul li span {
+	float: right;
+	margin-left: 0;
+	margin-right: 3px;
+	background-position: center right !important;
+}
+
+#menu ul li ul li ul {
+	left: auto;
+	right: 100%;
+}
+/* END cpgmm.css override */
+
+#tabs ul {
+	padding-right: 8px;
+}
+
+#tabs li {
+	float: right;
+	margin-left: 2px;
+	margin-right: 0;
+}
+
+div.buttons {
+	float: right;
+}
+
+div.buttons a {
+	float: right;
+	margin-right: 0;
+	margin-left: 5px;
+}
+
+a.forumbutton {
+	float: right;
+}
+
+.replypm {
+	float: right;
+	margin-right: 0;
+	margin-left: 5px;
+}
+
+.button a {
+	margin-right: 0;
+	margin-left: 4px;
+}
+
+a.button {
+	margin-right: 0;
+	margin-left: 4px;
+}
+
+a.button img {
+	padding-right: 0;
+	padding-left: 4px;
+}
+
+th, .thHead, .catHead, .catSides, .catleft, .catright, .catbottom, .catBottom, .thSides,
+.thleft, .thright, .thtop, .thbottom, .thCornerL, .thCornerR, td.cat {
+	border-left: 0;
+	border-right: 1px solid #FFF;
+}
+
+table.forumline td.row1 table td[align="right"] {
+	text-align: left;
+}
+
+.topicrow table th, .topicrow table .tableh1, .topicrow table .tableh2 {
+	padding-right: 0;
+	padding-left: 4px;
+}
+
+fieldset.polls dt {
+	text-align: right;
+	float: right;
+	border-left: none;
+}
+
+fieldset.polls dd {
+	float: right;
+	border-right: none;
+	margin-right: 0;
+}
+
+fieldset.polls dd div {
+	text-align: left;
+}
+
+.wip_postbody {
+	float: right;
+}
+
+ul.post-tasks {
+	float: left;
+}
+
+ul.post-tasks li {
+	float: right;
+}
+
+p.wip_postdetails {
+	margin-left: 15em;
+	margin-right: 0;
+}
+
+.wip_profile {
+	border-left: 0;
+	border-right: 1px solid #FFFFFF;
+	float: left;
+}
+
+.wip_profile dd, .wip_profile dt {
+	margin-right: 8px;
+}
+
+.online {
+	background-position: 0 0;
+}
+
+ul.profile-icons li {
+	float: right;
+	margin-left: 6px;
+	margin-right: 0;
+}
+
+.back2top {
+}
+
+a.top {
+	float: left;
+}
+
+.left-box {
+	float: right;
+	text-align: right;
+}
+
+
+.right-box {
+	float: left;
+	text-align: left;
+}
+
+a.left {
+	background-image: url('../../images/rtl/forums/arrow_right.gif');
+	background-position: 100% 7px;
+	margin-left: 0;
+	margin-right: 5px;
+}
+
+a.left, a.left:active, a.left:visited {
+	padding-left: 0;
+	padding-right: 12px;
+}
+a.left:hover {
+	background-position: 100% -13px;
+}
+
+
+ul#curmenu_list li a {
+	padding-left: 4px;
+	padding-right: 15px;
+}
+
+dl.compact_userinfo dd {
+	padding-left: 0;
+	padding-right: 3px;
+}

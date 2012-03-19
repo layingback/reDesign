@@ -1,0 +1,83 @@
+/* Opera Mini etc*/
+/*.headsearchfield {
+  width: 80px;
+}
+
+#main, .sideclass {
+  display: table-row;
+  clear: both;
+}*/
+
+/* style.css in not used when this stylesheet is used*/
+
+
+/*#mobiletest {
+  display: block !important;
+}*/
+
+html {
+  /*background-color: #cccccc;*/
+  margin: 0;
+  padding: 0;
+}
+html body {
+  font: 12px/1.5 "helvetica neue", "helvetica", Arial, sans-serif;
+  padding: 5px 6px 0;
+  background: #ffffff !important;
+}
+
+/*body img { }*/
+
+body {
+  /*width: 320px;*/
+  margin: 0 auto;
+  background-color: #B9B9B9;
+  position: relative;
+}
+
+a.skiplink {
+  font-size: 0.8em;
+  color: #8B97B4;
+  line-height: 2em;
+}
+
+#masterpage {
+}
+
+#pic600, #pic601, #pe601, #pe600 {
+  display: none;
+}
+
+#main {
+  width: 100%;
+  background-color: #FFF;
+}
+
+/*No menu icons*/
+#menu span {
+  display: none;
+}
+
+#menu ul {
+  margin: 0;
+  padding: 0;
+  padding-left: 15px;
+  list-style-position: inside;
+  list-style-type: none;
+}
+
+/*Don't show skilpinks double if no center blocks*/
+a.skiplink + a[name="skiptocontent"] + a.skiplink,
+a.skiplink + a[name="skiptocontent"] + a.skiplink + a.skiplink,
+a.skiplink + a[name="skiptocontent"] + a.skiplink + a.skiplink + a.skiplink{
+  display: none;
+}
+
+kbd {
+	display: none;
+}
+
+/* Disable banners */
+.header_banner img, .banner img, #banner_after_header img, #banner_main img, #banner_footer img {
+	display: none;
+}

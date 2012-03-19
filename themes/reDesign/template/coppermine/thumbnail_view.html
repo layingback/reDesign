@@ -1,0 +1,39 @@
+<h3 style="float:left;clear:left;">{TITLE}</h3>
+
+<!-- IF SORT_OPTIONS -->
+<form style="float:right;padding:0;margin:0;" action="index.php" method="get">
+
+<select name="sort" onchange="submit();">
+<option value="ta"{TA_SELECTED}>{SORT_TA}</option>
+<option value="na"{NA_SELECTED}>{SORT_NA}</option>
+<option value="nd"{ND_SELECTED}>{SORT_ND}</option>
+<option value="da"{DA_SELECTED}>{SORT_DA}</option>
+<option value="dd"{DD_SELECTED}>{SORT_DD}</option>
+<option value="ra"{RA_SELECTED}>{SORT_RA}</option>
+<option value="rd"{RD_SELECTED}>{SORT_RD}</option>
+</select>
+
+{HIDDEN_INPUT}
+<noscript><input type="submit" value="_(GO)" /></noscript>
+</form>
+<!-- ENDIF -->
+<div class="clear"></div>
+
+
+
+	<!-- BEGIN thumb_cell -->
+	<div class="picture">
+		<a class="picture_link" href="{thumb_cell.LINK_TGT}">{thumb_cell.THUMB}
+		<span class="picture_frame"></span></a>
+	<div class="picture_caption"><!-- IF thumb_cell.CAPTION -->{thumb_cell.CAPTION}<!-- ELSE -->&nbsp;<!-- ENDIF --></div>
+	</div>
+
+  <!-- END thumb_cell -->
+
+  <!-- BEGIN empty_cell --><!-- END empty_cell -->
+
+<div class="clear"></div>
+
+
+<!-- IF IS_TABS -->{TABS_THUMBS}<!-- ENDIF -->
+<div style="margin-bottom: 20px;">&nbsp;</div>

@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{S_TEXTDIR}" xml:lang="{S_LANGCODE}" lang="{S_LANGCODE}">
+<head>
+    <!-- IF B_DRAGON_10 -->
+    <base href="{BASEHREF}" />
+    <title>{S_SITENAME}<!-- IF B_PAGETITLE --> {S_DELIM} {S_PAGETITLE}<!-- ENDIF --></title>
+    <!-- ENDIF -->
+    {S_HEADER_TAGS}
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <!-- IF B_DRAGON_10 -->
+    <link rel="shortcut icon" href="{BASEHREF}favicon.ico" type="image/x-icon" />
+    <script type="text/javascript" src="includes/javascript/blockscript.js"></script>
+    <!-- ENDIF -->
+    <link rel="stylesheet" type="text/css" media="screen" href="{THEME_PATH}/style/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{THEME_PATH}/style/mainstyle.css" />
+    <!-- IF BANNER_HEADER --><link rel="stylesheet" type="text/css" media="screen" href="{THEME_PATH}/style/header_banner.css" /><!-- ENDIF -->
+    <!-- IF S_IS_ADMIN --><link rel="stylesheet" type="text/css" media="screen" href="{THEME_PATH}/style/admin.css" /><!-- ENDIF -->
+    <link rel="stylesheet" type="text/css" media="handheld" href="{THEME_PATH}/style/browsers/smallscreen.css" />
+    <!-- IF S_MAIN_MENU or S_ADMIN_CSSMENU -->
+    <link rel="stylesheet" type="text/css" media="screen" href="{THEME_PATH}/style/cpgmm.css" />
+    <!-- ENDIF -->
+    {BROWSER_CSS}
+    {S_MODULE_SPECIFIC_CSS}
+    <link rel="stylesheet" type="text/css" media="print" href="{THEME_PATH}/style/print.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{THEME_PATH}/style/specific.css" />
+    <script type="text/javascript" src="{THEME_PATH}/javascript/disableselection.js"></script>
+    <script type="text/javascript" src="{THEME_PATH}/javascript/blocks.js"></script>
+    <!-- IF B_DRAGON_10 and B_NEWSRSS-->
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="rss/news2.php" />
+    <!-- ENDIF -->
+    <!-- IF IS_RTL -->
+    <link rel="stylesheet" type="text/css" media="screen" href="{THEME_PATH}/style/rtl/style.css" />
+    <!-- IF BANNER_HEADER -->
+    <link rel="stylesheet" type="text/css" media="screen" href="{THEME_PATH}/style/rtl/header_banner.css" />
+    <!-- ENDIF -->
+    <!-- ENDIF -->
+
+    <!-- IF PNG_FIX -->
+    <!-- Speed is more important than slow and sloppy ie6 transparency
+     <script type="text/javascript" src="{THEME_PATH}/ie6pngfix/iepngfix_tilebg.js"></script>
+     <style type="text/css">
+     img, a {
+         behavior: url({THEME_PATH}/ie6pngfix/iepngfix.htc);
+     }
+     </style>
+     -->
+    <!-- ENDIF -->
+
+</head>
+<!-- IF PUBLIC_HEADER -->
+<body>
+<!-- ELSE -->
+<body id="admin_pages">
+<!-- ENDIF -->
+<a name="skiptotop"></a>
+<a href="{CURRENT_URL}#skiptomain" class="skiplink">Skip to main</a>
+<a href="{CURRENT_URL}#skiptocontent" class="skiplink">Skip to content</a>
+<a href="{CURRENT_URL}#skiptomenu" class="skiplink">Skip to menu</a>
+
+<div id="head">
+    <h1><a href="{U_MAININDEX}" title="{S_SITENAME}">{S_SITENAME}</a></h1>
+    <!-- IF BANNER_HEADER --><div class="header_banner">{S_BANNER}</div><!-- ENDIF -->
+
+    <!-- IF S_MULTILANG -->
+    <a href="#" onclick="showlangs();return false;" id="langselection" title="_(SELECTLANGUAGE)"></a>
+
+    <div id="languages_popup" style="display:none;">
+        <h4><a href="#" onclick="closelangs();return false;" class="closebutton" title="{S_CLOSE_WIN}"></a> _(SELECTLANGUAGE)</h4>
+
+        <!-- BEGIN sitelanguage -->
+        <!-- IF sitelanguage.B_CURRENTLANG -->
+        <span>{sitelanguage.S_SITELANGUAGE}</span>
+        <!-- ELSE -->
+        <span><a href="{sitelanguage.U_SITELANGUAGE}">{sitelanguage.S_SITELANGUAGE}</a></span>
+        <!-- ENDIF -->
+        <!-- END sitelanguage -->
+    </div>
+    <!-- ENDIF -->
+
+    <!-- IF S_SEARCH_ACT -->
+    <form id="headsearch" class="special" action="{U_SEARCH}" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+        <label for="search_word">_(SearchLANG) (<a href="{U_SEARCH}">_(EXTENDEDTEXT)</a>):</label>
+        <em></em><input id="search_word" class="specialtext" type="text" name="search" size="20" maxlength="40" /><b></b>
+        <tt></tt><button type="submit">_(SEARCH)</button><i></i>
+    </form>
+    <!-- ENDIF -->
+
+    <!-- IF B_ANONYMOUS -->
+    <div id="log_in_box" style="display:none;">
+        <h4><a href="#" onclick="closelogin();return false;" class="closebutton" title="{S_CLOSE_WIN}"></a> _(LOGIN)</h4>
+        <form action="{S_LOGINRDRT}" class="special" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+            <div>
+                <label for="u_name">_(NICKNAME):</label>
+                <em></em><input tabindex="5" class="specialtext" type="text" id="u_name" name="ulogin" size="15" maxlength="25" /><b></b><br />
+                <!-- IF S_REG_ALLOWED --><a href="{U_REGISTER}" class="losspass">_(BREG)</a><!-- ENDIF -->
+            </div>
+            <div>
+                <label for="u_pass">_(PASSWORD):</label>
+                <em></em><input tabindex="6" class="specialtext" type="password" id="u_pass" name="user_password" size="15" maxlength="15" /><b></b>
+                <tt></tt><button tabindex="7" type="submit">_(LOGIN)</button><i></i><br />
+                <a href="{U_PASSLOSS}" class="losspass">_(PASSWORDLOST)</a>
+            </div>
+        </form>
+    </div>
+    <!-- ENDIF -->
+
+    <div id="headertools">
+        <div id="userinfo">
+            <!-- IF S_NEW_PM --><a href="{U_PM}" class="pmnotice">{S_NEW_PM}</a><!-- ENDIF -->
+            <!-- IF S_IS_USER -->
+            _(BWEL), <a href="{U_MY_ACCOUNT}">{S_USER_NAME}</a> <a href="{U_LOGOUT}">_(LOGOUT)</a>
+            <!-- ELSE -->
+        <span id="loginandregister">
+        <a href="{U_LOG_IN}" onclick="showlogin();return false;">_(LOGIN)</a>
+        <!-- IF S_REG_ALLOWED --><a href="{U_REGISTER}">_(BREG)</a><!-- ENDIF -->
+        </span>
+            <!-- ENDIF -->
+        </div>
+    </div>
+
+</div><!-- -#head -->
+
+<!-- IF BANNER_AFTER_HEADER --><div id="banner_after_header">{S_BANNER}</div><!-- ENDIF -->
+
+<div id="maincontainer">
+    {ADM_L_PLUSMINUS}
+    {ADM_R_PLUSMINUS}
+
+    <!-- IF S_RIGHTBLOCKS -->
+    <div id="pe601"{ADM_R_VISIBILITY}>
+    <!-- BEGIN rightblock -->
+    <div id="pe{rightblock.S_BID}" class="block<!-- IF rightblock.S_VISIBLE --> collapsed<!-- ENDIF -->">
+        <h2><kbd title="_(TOGGLE)" onclick="toggleBlockCollapsed('{rightblock.S_BID}');">&plusmn;</kbd>{rightblock.S_TITLE}</h2>
+        <div class="blockcontent">{rightblock.S_CONTENT}</div>
+    </div>
+    <!-- END rightblock -->
+</div>
+<!-- ENDIF -->
+
+
+
+<!-- IF S_LEFTBLOCKS -->
+<div id="pe600"{ADM_L_VISIBILITY}>
+<!-- BEGIN leftblock -->
+<div id="pe{leftblock.S_BID}" class="block<!-- IF leftblock.S_VISIBLE --> collapsed<!-- ENDIF -->">
+    <h2><kbd title="_(TOGGLE)" onclick="toggleBlockCollapsed('{leftblock.S_BID}');">&plusmn;</kbd>{leftblock.S_TITLE}</h2>
+    <div class="blockcontent">{leftblock.S_CONTENT}</div>
+</div>
+<!-- END leftblock -->
+</div>
+<!-- ENDIF -->
+
+<!-- Start the main content area between left and right blocks -->
+<div id="main">
+    <a name="skiptomain" class="skiplink"></a>
+    <a href="{CURRENT_URL}#skiptotop" class="skiplink">{BACK_TO_TOP}</a>
+    <a href="{CURRENT_URL}#skiptocontent" class="skiplink">Skip to content</a>
+    <a href="{CURRENT_URL}#skiptomenu" class="skiplink">Skip to menu</a>
+    <!-- IF IMPORTANT_MESSAGE --><div class="imp_message">{IMPORTANT_MESSAGE}</div><!-- ENDIF -->
+    <!-- IF PNG_FIX -->
+    <div class="imp_message">
+        <strong>Please Update Your Web Browser</strong>
+        <div>You are using an outdated browser Internet Explorer 6.
+            Please download
+            <a href="http://www.microsoft.com/windows/internet-explorer/">Internet Explorer 8</a>,
+            <a href="http://www.opera.com/browser/">Opera</a>,
+            <a href="http://www.mozilla.com/">Firefox</a>,
+            <a href="http://www.google.com/chrome/">Google Chrome</a>
+            or any other modern browser.
+        </div>
+    </div>
+    <!-- ENDIF -->
+
+    <!-- IF BANNER_MAIN --><div id="banner_main">{S_BANNER}</div><!-- ENDIF -->
+
+    <!-- IF SHORT_PAGETITLE --><h2 class="page_title">{SHORT_PAGETITLE}</h2><!-- ENDIF -->
+
+    <!-- IF IS_BREADCRUMB -->
+    <p class="breadcrumb_traces">
+        <!-- BEGIN trace -->
+        <!-- IF trace.IS_LAST --><i><!-- ENDIF -->
+        <!-- IF trace.HAS_URL -->
+        <a href="{trace.URL}">{trace.TITLE}</a>
+        <!-- ELSE -->
+        <span>{trace.TITLE}</span>
+        <!-- ENDIF -->
+        <!-- IF trace.IS_LAST --></i><!-- ENDIF -->
+        <!-- END trace -->
+    </p>
+    <!-- ENDIF -->
+
+
+    <!-- BEGIN messageblock -->
+    <div class="centerblock message">
+
+        <h2>{messageblock.S_TITLE}</h2>
+
+        <div class="blockcontent">
+            {messageblock.S_CONTENT}
+            <div class="date">
+                <span>{messageblock.S_DATE}</span>
+                <!-- IF S_CAN_ADMIN -->
+                <small>{messageblock.S_OUTPUT} - {messageblock.S_REMAIN} - <a href="{messageblock.U_EDITMSG}">{messageblock.S_EDIT}</a></small>
+                <!-- ENDIF -->
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!-- END messageblock -->
+
+    <!-- IF S_NOT_NEWS --><!-- BEGIN centerblock -->
+    <div id="pe{centerblock.S_BID}" class="centerblock<!-- IF centerblock.S_VISIBLE --> collapsed<!-- ENDIF -->">
+        <h2 title="_(TOGGLE)" onclick="toggleBlockCollapsed('{centerblock.S_BID}');" unselectable="on">{centerblock.S_TITLE}</h2>
+        <span class="state_indicator"></span>
+        <div class="blockcontent">
+            {centerblock.S_CONTENT}
+        </div>
+    </div>
+    <!-- END centerblock --><!-- ENDIF -->
+
+    <a name="skiptocontent" class="skiplink"></a>
+    <a href="{CURRENT_URL}#skiptotop" class="skiplink">{BACK_TO_TOP}</a>
+    <a href="{CURRENT_URL}#skiptomain" class="skiplink">Back to main</a>
+    <a href="{CURRENT_URL}#skiptomenu" class="skiplink">Skip to menu</a>

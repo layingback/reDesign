@@ -1,0 +1,61 @@
+<!-- INCLUDE forums/overall_header.html -->
+<h2 class="page_title">{L_FAQ_TITLE}</h2>
+
+<p class="breadcrumb_traces">
+	<a href="{U_MAININDEX}">_(HOME)</a>
+	<a href="{U_INDEX}">{L_INDEX}</a>
+	<a href="{U_FAQ}">{L_FAQ}</a>
+</p>
+
+
+<div class="gensmall" style="margin-bottom: 5px;">
+<a href="{U_FAQ}">{L_FAQ}</a>
+ • <a href="{U_SEARCH}">{L_SEARCH}</a>
+<!-- IF S_LOGGED_IN -->
+ • <a href="{U_SEARCH_NEW}">{S_NEW_POSTS}</a>
+ • <a href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a>
+<!-- ENDIF -->
+ • <a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a>
+<br style="clear:both;" />
+</div>
+
+<div class="panel bg1" id="faqlinks">
+  <div class="inner"><span class="corners-top"><span></span></span>
+    <div class="column1">
+    <!-- BEGIN faq_block_link -->
+      <dl class="faq">
+        <dt><strong>{faq_block_link.BLOCK_TITLE}</strong></dt>
+        <!-- BEGIN faq_row_link -->
+          <dd><a href="{faq_block_link.faq_row_link.U_FAQ_LINK}">{faq_block_link.faq_row_link.FAQ_LINK}</a></dd>
+        <!-- END faq_row_link -->
+      </dl>
+    <!-- END faq_block_link -->
+    </div>
+  <span class="corners-bottom"><span></span></span></div>
+</div>
+
+
+
+<div class="clear"></div>
+
+<!-- BEGIN faq_block -->
+  <div class="panel">
+    <div class="inner"><span class="corners-top"><span></span></span>
+
+    <div class="content">
+      <h2>{faq_block.BLOCK_TITLE}</h2>
+      <!-- BEGIN faq_row -->
+        <dl class="faq">
+          <dt id="{faq_block.faq_row.U_FAQ_ID}"><strong>{faq_block.faq_row.FAQ_QUESTION}</strong></dt>
+          <dd>{faq_block.faq_row.FAQ_ANSWER}</dd>
+          <dd><a href="{faq_block.faq_row.REQUEST_URI}#top" class="top2">{L_BACK_TO_TOP}</a></dd>
+        </dl>
+      <!-- END faq_row -->
+    </div>
+
+    <span class="corners-bottom"><span></span></span></div>
+  </div>
+<!-- END faq_block -->
+
+<!-- INCLUDE forums/jumpbox.html -->
+<!-- INCLUDE forums/overall_footer.html -->

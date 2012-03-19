@@ -1,0 +1,76 @@
+<!-- INCLUDE forums/overall_header.html -->
+<h2 class="page_title">{L_SEARCH_MATCHES}</h2>
+
+<p class="breadcrumb_traces">
+	<a href="{U_MAININDEX}">_(HOME)</a>
+	<a href="{U_INDEX}">{L_INDEX}</a>
+	<i><a href="{U_SEARCH}">{L_SEARCH}</a></i>
+</p>
+
+
+<div class="gensmall" style="margin-bottom: 5px;">
+<a href="{U_FAQ}">{L_FAQ}</a>
+ • <a href="{U_SEARCH}">{L_SEARCH}</a>
+<!-- IF S_LOGGED_IN -->
+ • <a href="{U_SEARCH_NEW}">{S_NEW_POSTS}</a>
+ • <a href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a>
+<!-- ENDIF -->
+ • <a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a>
+<br style="clear:both;" />
+</div>
+
+
+
+<table cellspacing="0" class="forum_topics">
+  <tr>
+    <td></td>
+    <td>{L_FORUM}</td>
+    <td>{L_TOPICS} / {L_AUTHOR}</td>
+    <td>{L_LASTPOST}</td>
+    <td style="width:50px;">&nbsp;{L_REPLIES}&nbsp;</td>
+    <td style="width:50px;">&nbsp;{L_VIEWS}&nbsp;</td>
+  </tr>
+
+<!-- BEGIN searchresults -->
+  <tr class="topic">
+    <td style="text-align:center;">&nbsp;<img src="{searchresults.TOPIC_FOLDER_IMG}" alt="{searchresults.L_TOPIC_FOLDER_ALT}" title="{searchresults.L_TOPIC_FOLDER_ALT}" />&nbsp;</td>
+    <td style="width:20%;"><a href="{searchresults.U_VIEW_FORUM}" class="topictitle">{searchresults.FORUM_NAME}</a></td>
+    <td style="width:80%;">
+    <div>
+      {searchresults.NEWEST_POST_IMG}
+      <span class="topictitle">{searchresults.TOPIC_TYPE} <a href="{searchresults.U_VIEW_TOPIC}" class="topictitle">{searchresults.TOPIC_TITLE}</a></span>
+      {searchresults.GOTO_PAGE}
+    </div>
+    <div class="name">
+      {searchresults.TOPIC_AUTHOR}
+    </div>
+    </td>
+    <td style="text-align: right;white-space: nowrap;">
+      <div>{searchresults.LAST_POST_TIME}</div>
+      <div>{searchresults.LAST_POST_AUTHOR} {searchresults.LAST_POST_IMG}</div>
+    </td>
+    <td class="postdetails" style="text-align:center;">{searchresults.REPLIES}</td>
+    <td class="postdetails" style="text-align:center;">{searchresults.VIEWS}</td>
+  </tr>
+<!-- END searchresults -->
+</table>
+
+<div class="afterposts">
+  <div class="leftinfo">
+    <a class="left-box left" href="{U_INDEX}" accesskey="f">{L_INDEX}</a>
+    <br style="clear:both;" />
+  </div>
+  <div class="rightinfo">
+    <span class="nav">{PAGE_NUMBER}</span>
+    <!-- IF PAGINATION --><br />{PAGINATION}<br /><!-- ENDIF -->
+  </div>
+  <br style="clear:both;" />
+</div>
+
+<div class="afterposts">
+  <div class="rightinfo">
+    <!-- INCLUDE forums/jumpbox.html -->
+  </div>
+  <br style="clear:both;" />
+</div>
+<!-- INCLUDE forums/overall_footer.html -->

@@ -1,0 +1,75 @@
+body {
+    font: normal 12pt "Times New Roman", Arial, sans-serif, Verdana, Helvetica;
+    font: normal 12pt "Times New Roman", Arial, sans-serif, Verdana, Helvetica !important;
+    background-color: #FFF;
+    background-color: #FFF !important;
+    color: #000;
+    color: #000 !important;
+}
+p, strong, span, a, a:link, a:visited {
+    background-color: #FFF;
+    background-color: #FFF !important;
+    color: #000;
+    color: #000 !important;
+}
+a, a:link, a:visited {
+    text-decoration: none;
+}
+.headertitle img, .userstuff, .headerinfo, .menurow, .headsearch, #footer, .sideclass, .storymore, .storytime img, .commview, .comfooter,
+.topicimage, .pagination, .storylinks, .block {
+    display: none;
+}
+#headertools, #log_in_box, .skiplink, #headsearch, #pic600, #pic601, #pe601, #pe600, #menu {
+    display: none;
+}
+
+.headertitle {
+    font-size: 1.6em;
+    font-weight: bold;
+    font-family: Verdana;
+    border-bottom: 1px solid #000;
+    text-indent: 15px;
+}
+.pagetitle {
+    font-weight: bold;
+    font-family: Helvetica;
+    margin-bottom: 2em;
+    text-indent: 18px;
+}
+h2 {
+    font-size: 1.1em;
+    margin: 0;
+    padding: 0;
+}
+.storytime {
+    margin-bottom: 1em;
+}
+.storycontent {
+    font: normal 12pt "Times New Roman", Arial, sans-serif, Verdana, Helvetica;
+}
+.newsindex, .webblock {
+    margin-bottom: 2em;
+}
+
+.table1,.table2, .block {
+    margin-bottom: 20px;
+}
+
+#maintable {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+
+/*Used if viewing print mode of Forum Topic Print...*/
+@media print {
+    .forumtopicprint {
+        display: none;
+    }
+
+/*to step against includes/style/print.css*/
+    td {
+        font-size: 12pt !important;
+    }
+}

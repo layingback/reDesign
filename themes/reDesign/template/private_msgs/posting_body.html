@@ -1,0 +1,123 @@
+<script language="JavaScript" type="text/javascript">
+<!--
+function checkForm() {
+    formErrors = false;
+    if (document.post.message.value.length < 2) {
+        formErrors = "{L_EMPTY_MESSAGE}";
+    }
+    if (formErrors) {
+        alert(formErrors);
+        return false;
+    } else {
+        bbstyle(-1);
+        return true;
+    }
+}
+//-->
+</script>
+
+<div id="tabs"><b></b><ul>
+  <li>{INBOX}</li>
+  <li>{SENTBOX}</li>
+  <li>{OUTBOX}</li>
+  <li>{SAVEBOX}</li>
+</ul></div>
+
+<!-- PHP -->
+  global $cpgtpl, $images, $lang;
+
+  $cpgtpl->assign_vars(array(
+    'FROM_HREF'   => getlink('Your_Account&amp;profile='.$this->_tpldata['.'][0]['MESSAGE_FROM']),
+    'TO_HREF'     => getlink('Your_Account&amp;profile='.$this->_tpldata['.'][0]['MESSAGE_TO']),
+  ));
+<!-- ENDPHP -->
+
+<form action="{S_POST_ACTION}" method="post" name="post" onsubmit="return checkForm(this)" {S_FORM_ENCTYPE}>
+<!-- IF S_PREVIEW_BOX -->
+<h3>{L_PREVIEW}</h3>
+
+<div class="wip_post row1"><b class="corner-lt"></b><b class="corner-rt"></b>
+
+  <div class="wip_postbody">
+  	<ul class="post-tasks">
+  		<!-- IF QUOTE_PM --><li class="quote-icon" style="background-image: url('{ICON_QUOTE}')" title="{L_QUOTE}"><span>{QUOTE_PM}</span>{QUOTE_PM_IMG}</li><!-- ENDIF -->
+  		<!-- IF EDIT_PM --><li class="edit-icon" style="background-image: url('{ICON_EDIT}')" title="{L_EDIT}"><span>{EDIT_PM}</span>{EDIT_PM_IMG}</li><!-- ENDIF -->
+  	</ul>
+
+    <h3>{POST_SUBJECT}</h3>
+    <p class="wip_postdetails">
+      <strong>{L_POSTED}:</strong> {POST_DATE}<br />
+      <strong>{L_FROM}:</strong> <a href="{FROM_HREF}">{MESSAGE_FROM}</a><br />
+      <strong>{L_TO}:</strong> <a href="{TO_HREF}">{MESSAGE_TO}</a>
+    </p>
+    <div class="wip_content">{PREVIEW_MESSAGE}</div>
+  </div>
+
+<span class="corners-bottom"><span></span></span></div>
+<br />
+<!-- ENDIF -->
+
+<!-- IF ERROR_MESSAGE -->
+<div class="wip_post row1"><b class="corner-lt"></b><b class="corner-rt"></b>
+{ERROR_MESSAGE}
+<span class="corners-bottom"><span></span></span></div>
+<br />
+<!-- ENDIF -->
+
+<div class="post_reply">
+
+	<h4><label for="subject">{L_USERNAME}</label>:</h4>
+	<input type="text" name="username" id="username" size="25" maxlength="25" style="width:350px" tabindex="1" class="post" value="{USERNAME}" />&nbsp;
+  <input type="submit" name="usersubmit" value="{L_FIND_USERNAME}" class="liteoption"
+	 onclick="window.open('{U_SEARCH_USER}', '_phpbbsearch', 'HEIGHT=250,resizable=yes,WIDTH=400');return false;" />
+	<hr />
+
+	<h4><label for="subject">{L_SUBJECT}</label>:</h4>
+	<input type="text" name="subject" id="subject" size="60" maxlength="60" style="width:450px" tabindex="2" class="post" value="{SUBJECT}" /><br />
+	<hr />
+
+  <div class="bbcode_table" style="float:left;width: 80%;">
+  <h4><label for="message">{L_MESSAGE_BODY}</label>:</h4>
+  {BBCODE_TABLE}
+  </div>
+
+  <div class="smilies" style="float:right">{SMILES_TABLE}</div>
+
+
+  <textarea name="message" id="message" class="post" rows="15" cols="35" tabindex="3" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onchange="storeCaret(this);">{MESSAGE}</textarea>
+
+  <hr />
+  <div class="options">
+    <h4>{L_OPTIONS}:</h4>
+
+    <!-- BEGIN switch_signature_checkbox -->
+      <input type="checkbox" name="attach_sig" id="attach_sig" {S_SIGNATURE_CHECKED} /><label for="attach_sig">{L_ATTACH_SIGNATURE}</label>
+    <!-- END switch_signature_checkbox -->
+
+    <!-- BEGIN switch_html_checkbox -->
+      <input type="checkbox" name="disable_html" id="disable_html" {S_HTML_CHECKED} /><label for="disable_html">{L_DISABLE_HTML}</label>
+    <!-- END switch_html_checkbox -->
+
+    <!-- BEGIN switch_bbcode_checkbox -->
+      <input type="checkbox" name="disable_bbcode" id="disable_bbcode" {S_BBCODE_CHECKED} /><label for="disable_bbcode">{L_DISABLE_BBCODE}</label>
+    <!-- END switch_bbcode_checkbox -->
+
+    <!-- BEGIN switch_smilies_checkbox -->
+      <input type="checkbox" name="disable_smilies" id="disable_smilies" {S_SMILIES_CHECKED} /><label for="disable_smilies">{L_DISABLE_SMILIES}</label>
+    <!-- END switch_smilies_checkbox -->
+
+	</div>
+
+  {S_HIDDEN_FORM_FIELDS}
+  <input type="submit" tabindex="5" name="preview" class="subm" value="{L_PREVIEW}" />
+  <input type="submit" accesskey="s" tabindex="6" name="post" class="subm" value="{L_SUBMIT}" /></td>
+</form>
+
+</div>
+
+
+{L_OPTIONS}:<br />
+{HTML_STATUS}<br />
+{BBCODE_STATUS}<br />
+{SMILIES_STATUS}<br />
+

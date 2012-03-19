@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" xml:lang="en" lang="en">
+<head>
+{S_HEADER_TAGS}
+<link rel="stylesheet" type="text/css" media="screen" href="{THEME_PATH}/style/style.css" />
+<!-- IF S_MAIN_MENU or S_ADMIN_CSSMENU --><link rel="stylesheet" type="text/css" media="screen" href="{THEME_PATH}/style/cpgmm.css" /><!-- ENDIF -->
+{BROWSER_CSS}
+{PNG_FIX}
+<link rel="stylesheet" type="text/css" media="print" href="{THEME_PATH}/style/print.css" />
+</head>
+<body>
+<script language="javascript" type="text/javascript">
+<!--
+function jump_to_inbox()
+{
+    opener.document.location.href = "{U_PRIVATEMSGS}";
+    window.close();
+}
+//-->
+</script>
+
+<div class="curved" style="margin: 20px;width: 350px">
+<b class="b1"></b><b class="b2"></b><b class="b3"></b><b class="b4"></b>
+<div class="boxcontent">
+<p style="text-align:center;padding:10px;">{L_MESSAGE}</p>
+<p style="text-align:center;"><a href="javascript:window.close();" class="genmed">{L_CLOSE_WINDOW}</a></p>
+</div>
+<b class="bottom"><b class="b4"></b><b class="b3"></b><b class="b2"></b><b class="b1"></b></b>
+</div>
+
+</body>
+</html>

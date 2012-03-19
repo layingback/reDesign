@@ -1,0 +1,15 @@
+.header_banner {
+	float: left;
+	margin-right: 0;
+	margin-left: 40px;
+}
+
+form#headsearch {
+	margin-left: 60px;
+}
+
+form#headsearch label {
+	margin-right: 0;
+	margin-left: 3px;
+	float: right;
+}

@@ -1,0 +1,11 @@
+/*This will make content 100% wide without disturbing side float*/
+.widthfixer:after {
+  content: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut odio nisl, tempus et, pretium ut, iaculis ut, ipsum. Maecenas et mauris at orci lacinia porttitor. Mauris gravida sapien quis metus. Quisque venenatis, tortor id venenatis interdum, leo augue cursus mi, sed imperdiet neque lectus vel urna. Pellentesque congue enim ut turpis. Nullam posuere lorem laoreet augue. Integer fermentum augue vel enim. Nulla ultricies felis. Integer dignissim, justo vel aliquam fermentum, magna eros hendrerit ante, elementum fermentum magna libero tempus nunc. Maecenas dignissim, ipsum id tincidunt porta, arcu purus vehicula leo, ac lacinia tellus purus non lacus. Ut blandit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In ut lacus eget felis ultricies pharetra. Fusce cursus, augue vitae laoreet viverra, odio purus laoreet ipsum, eget semper pede risus quis ligula. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In sagittis arcu quis eros. Praesent placerat lacus id mi. Aliquam erat volutpat.";
+  visibility: hidden;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+}

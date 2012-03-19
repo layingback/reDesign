@@ -1,0 +1,139 @@
+<!-- PHP -->
+  global $cpgtpl, $images;
+
+  $cpgtpl->assign_vars(array(
+    'ICON_NEWPM'  => $images['pm_replymsg']
+  ));
+<!-- ENDPHP -->
+
+<div class="replypm">{REPLY_PM_IMG}</div>
+
+<form method="post" action="{S_PRIVMSGS_ACTION}" {I18N}>
+{S_HIDDEN_FIELDS}
+<input type="submit" name="save" value="{L_SAVE_MSG}" class="button" />
+<input type="submit" name="delete" value="{L_DELETE_MSG}" class="button" />
+</form>
+
+<a name="top"></a>
+
+<div id="tabs"><b></b><ul>
+  <li>{INBOX}</li>
+  <li>{SENTBOX}</li>
+  <li>{OUTBOX}</li>
+  <li>{SAVEBOX}</li>
+</ul></div>
+<h4>{BOX_NAME}: {L_MESSAGE}</h4>
+
+<!-- PHP -->
+  global $cpgtpl, $images, $lang;
+
+  $cpgtpl->assign_vars(array(
+    'FROM_HREF'   => getlink('Your_Account&amp;profile='.$this->_tpldata['.'][0]['MESSAGE_FROM']),
+    'TO_HREF'     => getlink('Your_Account&amp;profile='.$this->_tpldata['.'][0]['MESSAGE_TO']),
+    'PM_BG'       => $images['icon_pm'],
+    'EMAIL_BG'    => $images['icon_email'],
+    'WWW_BG'      => $images['icon_www'],
+    'AIM_BG'      => $images['icon_aim'],
+    'YIM_BG'      => $images['icon_yim'],
+    'MSN_BG'      => $images['icon_msnm'],
+    'ICQ_BG'      => $images['icon_icq'],
+    'ICON_QUOTE'  => $images['pm_quotemsg'],
+    'ICON_EDIT'   => $images['pm_editmsg'],
+    'L_PM'        => $lang['Send_private_message'],
+    'L_EMAIL'     => $lang['Send_email'],
+    'L_WWW'       => $lang['Visit_website'],
+    'L_AIM'       => $lang['AIM'],
+    'L_YIM'       => $lang['YIM'],
+    'L_MSN'       => $lang['MSNM'],
+    'L_ICQ'       => $lang['ICQ'],
+    'L_QUOTE'     => $lang['Reply_with_quote']
+  ));
+<!-- ENDPHP -->
+
+<!-- An extra class "online" could be used, but it would require some enhancements to viewtopic -->
+<div class="wip_post row1"><b class="corner-lt"></b><b class="corner-rt"></b>
+  <div class="wip_postbody">
+  	<ul class="post-tasks">
+  		<!-- IF QUOTE_PM --><li class="quote-icon" style="background-image: url('{ICON_QUOTE}')" title="{L_QUOTE}"><span>{QUOTE_PM}</span>{QUOTE_PM_IMG}</li><!-- ENDIF -->
+  		<!-- IF EDIT_PM --><li class="edit-icon" style="background-image: url('{ICON_EDIT}')" title="{L_EDIT}"><span>{EDIT_PM}</span>{EDIT_PM_IMG}</li><!-- ENDIF -->
+  	</ul>
+
+    <h3>{POST_SUBJECT}</h3>
+    <p class="wip_postdetails">
+      <strong>{L_POSTED}:</strong> {POST_DATE}<br />
+      <strong>{L_FROM}:</strong> <a href="{FROM_HREF}">{MESSAGE_FROM}</a><br />
+      <strong>{L_TO}:</strong> <a href="{TO_HREF}">{MESSAGE_TO}</a>
+    </p>
+    <div class="wip_content">{MESSAGE}</div>
+  </div>
+
+  <dl class="wip_profile">
+    <dt><a href="{FROM_HREF}">{MESSAGE_FROM}</a></dt>
+    <dd>
+      <ul class="profile-icons">
+        <!-- IF PM_IMG --><li title="{L_PM}" style="background-image: url('{PM_BG}');width: 28px;">{PM_IMG}</li><!-- ENDIF -->
+        <!-- IF EMAIL_IMG --><li title="{L_EMAIL}" style="background-image: url('{EMAIL_BG}');width: 20px;">{EMAIL_IMG}</li><!-- ENDIF -->
+        <!-- IF WWW_IMG --><li title="{L_WWW}" style="background-image: url('{WWW_BG}');width: 20px;">{WWW_IMG}</li><!-- ENDIF -->
+        <!-- IF AIM_IMG --><li title="{L_AIM}" style="background-image: url('{AIM_BG}');width: 20px;">{AIM_IMG}</li><!-- ENDIF -->
+        <!-- IF YIM_IMG --><li title="{L_YIM}" style="background-image: url('{YIM_BG}');width: 20px;">{YIM_IMG}</li><!-- ENDIF -->
+        <!-- IF MSN_IMG --><li title="{L_MSN}" style="background-image: url('{MSN_BG}');width: 20px;">{MSN_IMG}</li><!-- ENDIF -->
+        <!-- IF ICQ_IMG --><li title="{L_ICQ}" style="background-image: url('{ICQ_BG}');width: 20px;">{ICQ_IMG}</li><!-- ENDIF -->
+      </ul>
+    </dd>
+  </dl>
+
+  <div class="back2top"></div>
+<span class="corners-bottom"><span></span></span></div>
+
+<br /><br />
+
+<!-- BEGIN quickreply -->
+<script language="JavaScript" type="text/javascript">
+<!--
+function checkForm() {
+  if (document.post.message.value.length < 2) {
+    alert("{L_EMPTY_MESSAGE}");
+    return false;
+  } else {
+    return true;
+  }
+}
+//-->
+</script>
+
+<form action="{quickreply.POST_ACTION}" method="post" name="qreply" onsubmit="return checkForm(this)" {I18N}>
+<div class="quickreply">
+  <h3>{L_QUICK_REPLY}</h3>
+
+  <input type="text" name="subject" size="45" maxlength="60" style="width:450px" tabindex="2" class="post" value="{quickreply.SUBJECT}" /><br />
+
+	{quickreply.BBCODEBUTTONS}
+	{quickreply.SMILIES}
+  <textarea name="message" rows="10" cols="70" tabindex="3" onselect="storeCaret(this);" onclick="storeCaret(this);"
+   onkeyup="storeCaret(this);" onchange="storeCaret(this);"></textarea>
+
+  <input type="checkbox" name="quick_quote" id="quick_quote" value="{quickreply.S_QREPLY_MSG}" /><label for="quick_quote">{L_QUOTE_LAST_MESSAGE}</label>
+  <input type="checkbox" name="attach_sig" id="attach_sig"{quickreply.S_SIG_CHECKED} /><label for="attach_sig">{L_ATTACH_SIGNATURE}</label>
+  <!-- IF quickreply.S_HTMLCB -->
+  	<input type="checkbox" name="disable_html" id="disable_html"{quickreply.S_HTML_CHECKED} /><label for="disable_html">{L_DISABLE_HTML}</label>
+  <!-- ENDIF -->
+  <!-- IF quickreply.S_BBCODECB -->
+  	<input type="checkbox" name="disable_bbcode" id="disable_bbcode"{quickreply.S_BBCODE_CHECKED} /><label for="disable_bbcode">{L_DISABLE_BBCODE}</label>
+  <!-- ENDIF -->
+  <!-- IF quickreply.S_SMILIESCB -->
+  	<input type="checkbox" name="disable_smilies" id="disable_smilies"{quickreply.S_SMILIES_CHECKED} /><label for="disable_smilies">{L_DISABLE_SMILIES}</label>
+  <!-- ENDIF -->
+  <br />
+
+  <!-- IF S_IS_ANON -->
+  <b>{L_USERNAME}:</b> <input class="post" type="text" name="username" size="25" maxlength="25" style="width:200px;" value="" /><br />
+  <!-- ENDIF -->
+
+
+  <input type="submit" accesskey="p" name="preview" class="subm" value="{L_PREVIEW}" />
+  <input type="submit" accesskey="s" name="post" class="subm" value="{L_SUBMIT}" />
+  {quickreply.S_HIDDEN_FIELDS}
+
+</div>
+</form>
+<!-- END quickreply -->

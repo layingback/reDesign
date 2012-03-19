@@ -1,0 +1,16 @@
+<!-- INCLUDE forums/overall_header.html -->
+<div class="breadcrumb_trail custom_breadcrumb_trail">  
+<a href="{U_MAININDEX}">_(HOME)</a> {BC_DELIM} <a href="{U_INDEX}">{L_INDEX}</a> {BC_DELIM} {NAV_CAT_DESC}   
+</div>
+
+<form name="post" action="{S_ACTION}" method="post" {I18N}>
+<table width="100%" cellspacing="2" cellpadding="2" border="0" align="center">
+<tr>
+    <td align="right" valign="bottom">
+        <span class="gen">{S_LIST_FORUMS}&nbsp;<input type="submit" name="go" value="{L_GO}" class="liteoption" /><br /></span>
+        <span class="nav">{PAGINATION}</span>
+    </td>
+</tr>
+</table>
+{MERGE_BOX}{S_HIDDEN_FIELDS}</form>
+<!-- INCLUDE forums/overall_footer.html -->

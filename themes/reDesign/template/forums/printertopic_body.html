@@ -1,0 +1,64 @@
+<!-- INCLUDE forums/overall_header.html -->
+<!-- PHP -->
+  global $cpgtpl, $sitename, $mainindex, $module_name;
+  $cpgtpl->assign_vars(array(
+      'S_SITENAME'    => $sitename,
+      'U_MAININDEX'   => $mainindex,
+      'S_MODULE_NAME' => $module_name,
+      'S_FROM'        => _GO,
+      'S_TO'          => _GO,
+      'S_GO'          => _GO
+   ));
+<!-- ENDPHP -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="{S_CONTENT_DIRECTION}" xml:lang="en" lang="en">
+<head>
+<base href="{S_CONTENT_BASE}" />
+<meta http-equiv="Content-Type" content="text/html; charset={S_CONTENT_ENCODING}" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+{META}
+<title>{S_SITENAME} {BC_DELIM} {PAGE_TITLE} {FORUM_NAME} {BC_DELIM} {TOPIC_TITLE}</title>
+<link rel="stylesheet" type="text/css" href="{THEME_PATH}/style/print.css" />
+</head>
+<body>
+<a name="top"></a>
+
+<h1><a href="{U_INDEX}">{S_SITENAME}</a></h1>
+
+<span class="gensmall">{PAGINATION}</span>
+<!-- <form action="{U_VIEW_TOPIC}" method="get"> -->
+<form action="{S_CONTENT_BASE}{U_MAININDEX}" method="get">
+<div class="forumtopicprint">
+  <input type="hidden" name="name" value="{S_MODULE_NAME}" />
+  <input type="hidden" name="file" value="viewtopic" />
+  <label for="start_rel">From:</label>
+  <input type="text" maxlength="5" size="5" name="start_rel" id="start_rel" value="{START_REL}" />
+  <label for="finish_rel">To:</label>
+  <input type="text" maxlength="5" size="5" name="finish_rel" id="finish_rel" value="{FINISH_REL}" />
+  <input type="hidden" name="t" value="{TOPIC_ID}" />
+  <input type="hidden" name="printertopic" value="1" />
+  <input type="submit" value="{S_GO}" />
+</div>
+</form>
+
+<h2><a href="{U_VIEW_FORUM}">{FORUM_NAME}</a></h2>
+<h2><a href="{U_VIEW_TOPIC}">{TOPIC_TITLE}</a></h2>
+
+{POLL_DISPLAY}
+
+<!-- BEGIN postrow -->
+<!-- PHP -->$cpgtpl->assign_var('S_POST_URL', getlink('&amp;file=viewtopic&amp;printertopic=1&amp;p='.$this->_tpldata['postrow'][$this->_postrow_i]['U_POST_ID']).'#'.$this->_tpldata['postrow'][$this->_postrow_i]['U_POST_ID']);<!-- ENDPHP -->
+<a name="{postrow.U_POST_ID}"></a>
+<h3><a href="{S_POST_URL}">{postrow.POST_SUBJECT}</a></h3>
+
+<span class="postdetails">{L_POSTED}: {postrow.POST_DATE}</span><br />
+<span class="postdetails">{L_AUTHOR}: <b>{postrow.POSTER_NAME}</b> {postrow.POSTER_FROM}</span><br />
+
+<span class="postbody">{postrow.MESSAGE}</span><span class="gensmall">{postrow.EDITED_MESSAGE}</span>
+<hr />
+<!-- END postrow -->
+
+<span class="gensmall">{S_TIMEZONE}<br />{PAGE_NUMBER} {PAGINATION}<br />{S_CONTENT_BASE}</span>
+
+<!-- INCLUDE forums/overall_footer.html -->

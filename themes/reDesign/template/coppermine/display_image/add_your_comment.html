@@ -1,0 +1,28 @@
+<div>
+<h3>{ADD_YOUR_COMMENT}</h3>
+
+<form method="post" name="post" {ACTION}>
+
+  <!-- BEGIN username_input -->
+    {NAME}
+    <input type="text" class="textinput" name="msg_author" size="10" maxlength="20" value="{username}" />
+  <!-- END username_input -->
+
+  <!-- BEGIN input_box_smilies -->
+    <!-- BEGIN smilies -->{SMILIES}<!-- END smilies -->
+    {COMMENT}<br />
+    <textarea class="textinput" id="message" name="msg_body" rows="5" cols="60" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" maxlength="{MAX_COM_LENGTH}" size="80"></textarea>
+  <!-- END input_box_smilies -->
+
+  <!-- BEGIN input_box_no_smilies -->
+    <textarea class="textinput" id="message" name="msg_body" rows="5" cols="60" maxlength="{MAX_COM_LENGTH}" size="80"></textarea>
+  <!-- END input_box_no_smilies -->
+
+  <input type="hidden" name="event" value="comment" />
+  <input type="hidden" name="pid" value="{PIC_ID}" />
+  <br /><input type="submit" class="comment_button" name="submit" value="{OK}" />
+</form>
+
+
+
+</div>

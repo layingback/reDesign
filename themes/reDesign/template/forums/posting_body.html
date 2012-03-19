@@ -1,0 +1,151 @@
+<!-- INCLUDE forums/overall_header.html -->
+<h2 class="page_title">{FORUM_NAME}</h2>
+
+<p class="breadcrumb_traces">
+	<a href="{U_MAININDEX}">_(HOME)</a>
+	<a href="{U_INDEX}">{L_INDEX}</a>
+	<i><a href="{U_VIEW_FORUM}">{FORUM_NAME}</a></i>
+</p>
+
+
+<div style="padding-bottom: 10px;">{FORUM_DESC}</div>
+
+<script language="JavaScript" type="text/javascript">
+<!--
+function checkForm() {
+    formErrors = false;
+    if (document.post.message.value.length < 2) {
+        formErrors = "{L_EMPTY_MESSAGE}";
+    }
+    if (formErrors) {
+        alert(formErrors);
+        return false;
+    } else {
+        bbstyle(-1);
+        return true;
+    }
+}
+//-->
+</script>
+
+<form action="{S_POST_ACTION}" method="post" name="post" onsubmit="return checkForm(this)" {I18N}>
+
+{POST_PREVIEW_BOX}
+{ERROR_BOX}
+
+<div class="post_reply">
+
+  <h4><label for="subject">{L_SUBJECT}</label>:</h4>
+  <input type="text" name="subject" id="subject" size="60" maxlength="60" style="width:450px" tabindex="2" class="post" value="{SUBJECT}" /><br />
+
+  <hr />
+
+  <div class="bbcode_table" style="float:left;width: 80%;">
+  <h4><label for="message">{L_MESSAGE_BODY}</label>:</h4>
+  {BBCODE_TABLE}
+  </div>
+  <div class="smilies" style="float:right">{SMILES_TABLE}</div>
+
+
+
+  <textarea name="message" id="message" class="post" rows="15" cols="35" tabindex="3" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onchange="storeCaret(this);">{MESSAGE}</textarea>
+
+  <hr />
+  <div class="options">
+    <h4>{L_OPTIONS}:</h4>
+
+    <!-- BEGIN switch_notify_checkbox -->
+      <input type="checkbox" name="notify" id="notify" {S_NOTIFY_CHECKED} /><label for="notify">{L_NOTIFY_ON_REPLY}</label>
+    <!-- END switch_notify_checkbox -->
+
+    <!-- BEGIN switch_signature_checkbox -->
+      <input type="checkbox" name="attach_sig" id="attach_sig" {S_SIGNATURE_CHECKED} /><label for="attach_sig">{L_ATTACH_SIGNATURE}</label>
+    <!-- END switch_signature_checkbox -->
+
+    <!-- BEGIN switch_html_checkbox -->
+      <input type="checkbox" name="disable_html" id="disable_html" {S_HTML_CHECKED} /><label for="disable_html">{L_DISABLE_HTML}</label>
+    <!-- END switch_html_checkbox -->
+
+    <!-- BEGIN switch_bbcode_checkbox -->
+      <input type="checkbox" name="disable_bbcode" id="disable_bbcode" {S_BBCODE_CHECKED} /><label for="disable_bbcode">{L_DISABLE_BBCODE}</label>
+    <!-- END switch_bbcode_checkbox -->
+
+    <!-- BEGIN switch_smilies_checkbox -->
+      <input type="checkbox" name="disable_smilies" id="disable_smilies" {S_SMILIES_CHECKED} /><label for="disable_smilies">{L_DISABLE_SMILIES}</label>
+    <!-- END switch_smilies_checkbox -->
+
+    <!-- BEGIN switch_delete_checkbox -->
+      <input type="checkbox" name="delete" id="delete" /><label for="delete">{L_DELETE_POST}</label>
+    <!-- END switch_delete_checkbox -->
+
+    <!-- BEGIN switch_type_toggle -->
+    <hr />
+      {S_TYPE_TOGGLE}
+    <!-- END switch_type_toggle -->
+
+  </div>
+
+  {ATTACHBOX}
+
+
+  {POLLBOX}
+
+
+
+
+
+
+<!-- BEGIN switch_username_select -->
+<b>{L_USERNAME}:</b> <input type="text" class="post" tabindex="1" name="username" size="25" maxlength="25" value="{USERNAME}" /><br />
+<!-- END switch_username_select -->
+
+
+
+<!-- IF S_TOPIC_ICON_SELECT -->
+Topic icon:
+
+<script type="text/javascript"><!--
+  {ICONS_ARRAY}
+  function iconpreview() {
+    document.images.icon_preview.src=icons_array[document.post.topic_icon.options[document.post.topic_icon.selectedIndex].value];
+  }
+  iconpreview();
+//--></script>
+
+
+<select style="width:175px" name="topic_icon" onclick="iconpreview()">
+  <option value="0">No icon</option>
+  <!-- BEGIN topic_icon_option -->
+  <option value="{topic_icon_option.S_ICON_ID}" {topic_icon_option.S_SELECTED}>{topic_icon_option.S_ICON_NAME}</option>
+  <!-- END topic_icon_option -->
+</select>
+<img width="15" height="15" src="images/spacer.gif" name="icon_preview" alt="" />
+<br />
+<hr />
+<!-- ENDIF -->
+
+
+<!-- IF S_GUEST_CAPTCHA -->
+<b>{L_TYPESECCODE}:</b> {S_GFX_IMG} <input type="text" name="gfx_contact_check" size="10" maxlength="8" /><br />
+<!-- ENDIF -->
+
+  {S_HIDDEN_FORM_FIELDS}
+  <input type="submit" tabindex="5" name="preview" class="subm liteoption" value="{L_PREVIEW}" />
+  <input type="submit" accesskey="s" tabindex="6" name="post" class="subm mainoption" value="{L_SUBMIT}" /></td>
+</form>
+
+</div>
+
+
+
+{L_OPTIONS}:<br />
+{HTML_STATUS}<br />
+{BBCODE_STATUS}<br />
+{SMILIES_STATUS}<br /><br />
+
+{S_TIMEZONE}
+
+
+<!-- INCLUDE forums/jumpbox.html -->
+{TOPIC_REVIEW_BOX}
+<!-- INCLUDE forums/overall_footer.html -->

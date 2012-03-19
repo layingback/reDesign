@@ -1,0 +1,343 @@
+<!-- INCLUDE forums/overall_header.html -->
+<h2 class="page_title">{TOPIC_TITLE}</h2>
+
+<p class="breadcrumb_traces">
+	<a href="{U_MAININDEX}">_(HOME)</a>
+	<a href="{U_INDEX}">{L_INDEX}</a>
+	<a href="{U_VIEW_FORUM}">{FORUM_NAME}</a>
+	<i><a href="{U_VIEW_TOPIC}">{TOPIC_TITLE}</a></i>
+</p>
+
+<!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
+<div style="display: none">{FORUM_DESC}</div>
+
+<div style="margin: 10px 0;zoom:1;">
+<a href="{U_POST_REPLY_TOPIC}" title="{L_POST_REPLY_TOPIC}" class="forumbutton" style="float:left;background-image:url('{REPLY_IMG}');"><img src="{REPLY_IMG}" alt="{L_POST_REPLY_TOPIC}" /><span>{L_POST_REPLY_TOPIC}</span></a>
+<a href="{U_PRINTER_TOPIC}" title="{L_PRINTER_TOPIC}" style="display:block;float:right;"><img src="{PRINTER_IMG}" alt="{L_PRINTER_TOPIC}" /></a>
+<br style="clear:both;" /></div>
+
+<!--
+<a href="{U_VIEW_OLDER_TOPIC}">{L_VIEW_PREVIOUS_TOPIC}</a>
+<a href="{U_VIEW_NEWER_TOPIC}">{L_VIEW_NEXT_TOPIC}</a>
+-->
+
+<div style="margin-bottom: 5px;float:left;">
+<a href="{U_FAQ}">{L_FAQ}</a>
+ • <a href="{U_SEARCH}">{L_SEARCH}</a>
+<!-- IF S_LOGGED_IN -->
+ • <a href="{U_SEARCH_NEW}">{S_NEW_POSTS}</a>
+ • <a href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a>
+<!-- ENDIF -->
+ • <a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a>
+</div>
+<span style="display:block;float:right;"><b>{PAGINATION}</b></span>
+<br style="clear:both;" />
+
+<!-- IF S_HAS_POLL -->
+<div class="pollpanel">
+<h3>{POLL_QUESTION}</h3>
+<form method="post" action="{S_POLL_ACTION}" {I18N}>
+
+<fieldset class="polls">
+<!-- PHP -->
+  $vid = 0;
+  global $cpgtpl;
+<!-- ENDPHP -->
+
+<!-- BEGIN poll_option -->
+  <dl>
+<!-- IF S_POLL_RESULTS -->
+<!-- PHP -->
+  $vid++;
+  $cpgtpl->assign_var('POLL_OPTION_ID',$vid);
+<!-- ENDPHP -->
+    <dt>
+      <label for="poll_{POLL_OPTION_ID}">{poll_option.POLL_OPTION_CAPTION}</label>
+    </dt>
+    <dd class="resultbar">
+      <div id="poll_{POLL_OPTION_ID}" style="width:{poll_option.POLL_OPTION_PERCENT};">{poll_option.POLL_OPTION_RESULT}</div>
+    </dd>
+    <dd>{poll_option.POLL_OPTION_PERCENT}</dd>
+<!-- ELSE -->
+    <dt>
+      <label for="vote_{poll_option.POLL_OPTION_ID}">{poll_option.POLL_OPTION_CAPTION}</label>
+    </dt>
+    <dd style="width: auto;">
+      <input type="radio" name="vote_id" id="vote_{poll_option.POLL_OPTION_ID}" value="{poll_option.POLL_OPTION_ID}" />
+    </dd>
+<!-- ENDIF -->
+  <br style="clear:both;" />
+  </dl>
+<!-- END poll_option -->
+
+<!-- IF S_POLL_RESULTS -->
+  <dl style="border-top: none;">
+  <dt>&nbsp;</dt>
+  <dd class="resultbar">{L_TOTAL_VOTES}: {TOTAL_VOTES}</dd>
+  </dl>
+<!-- ELSE -->
+  <dl style="border-top: none;">
+    <dt>&nbsp;</dt>
+    <dd class="resultbar">
+      <input type="submit" name="submit" value="{L_SUBMIT_VOTE}" class="liteoption" />
+    </dd>
+  </dl>
+  <dl style="border-top: none;">
+    <dt>&nbsp;</dt>
+    <dd class="resultbar">
+      <a href="{U_VIEW_RESULTS}">{L_VIEW_RESULTS}</a>
+    </dd>
+  </dl>
+<!-- ENDIF -->
+</fieldset>
+
+{S_HIDDEN_FIELDS}</form>
+</div>
+<hr />
+<!-- ENDIF -->
+
+
+<!-- PHP -->
+  global $db, $prefix, $user_prefix, $cpgtpl, $userinfo;
+
+  //Initiate array
+  $members_online = array();
+
+  $members_query = $db->sql_query("SELECT s.uname AS name, u.user_allow_viewonline AS allowed FROM ".$prefix."_session AS s
+   LEFT JOIN ".$user_prefix."_users AS u ON u.username=s.uname WHERE guest IN (0,2) ORDER BY s.uname");
+  while($row = $db->sql_fetchrow($members_query)) {
+    if($row['allowed'] || is_admin()) {
+      $members_online[] = $row['name'];
+    }
+  }
+  $db->sql_freeresult($members_query);
+<!-- ENDPHP -->
+
+
+<!-- BEGIN postrow -->
+
+
+<!-- PHP -->
+
+  /*IF USER ONLINE MODIFICATION ETC */
+
+  $poster_name = $this->_tpldata['postrow'][$this->_postrow_i]['POSTER_NAME'];
+  $username = $userinfo['username'];//My username
+
+  //If not anonymous
+  if ($this->_tpldata['postrow'][$this->_postrow_i]['POSTER_POSTS']) {
+    $mypost = (strtolower($poster_name) == strtolower($username))? ' my_post' : '';
+    $poster_online = in_array($poster_name,$members_online)? 1 : 0;
+  } else {
+    $mypost = '';
+    $poster_online = 0;
+  }
+
+  global $images, $lang;
+
+  //If poster is online
+  if($poster_online) {
+    $online_class = ' online';
+    //Because of language specific image, we have to give style aswell
+    $online_style = ' style="background-image: url('.$images['user_online'].');"';
+  } else {
+    $online_class = $online_style = '';
+  }
+
+  $cpgtpl->assign_vars(array(
+    'MY_POST'       => $mypost,
+    'ONLINE_CLASS'  => $online_class,
+    'ONLINE_STYLE'  => $online_style,
+    'ICON_QUOTE'    => $images['icon_quote'],
+    'ICON_EDIT'     => $images['icon_edit'],
+    'ICON_DELPOST'  => $images['icon_delpost'],
+    'ICON_IP'       => $images['icon_ip'],
+    'L_QUOTE'       => $lang['Reply_with_quote'],
+    'L_EDIT'        => $lang['Edit_delete_post'],
+    'L_DELPOST'     => $lang['Delete_post'],
+    'L_IP'          => $lang['View_IP']
+  ));
+
+<!-- ENDPHP -->
+
+<!-- An extra class "online" could be used, but it would require some enhancements to viewtopic -->
+<div class="wip_post {postrow.ROW_CLASS}{MY_POST}{ONLINE_CLASS}"{ONLINE_STYLE}><b class="corner-lt"></b><b class="corner-rt"></b>
+<div class="wip_postbody">
+
+  <ul class="post-tasks">
+  <!-- IF postrow.QUOTE --><li class="quote-icon" style="background-image: url('{ICON_QUOTE}')" title="{L_QUOTE}"><span>{postrow.QUOTE}</span>{postrow.QUOTE_IMG}</li><!-- ENDIF -->
+  <!-- IF postrow.EDIT --><li class="edit-icon" style="background-image: url('{ICON_EDIT}')" title="{L_EDIT}"><span>{postrow.EDIT}</span>{postrow.EDIT_IMG}</li><!-- ENDIF -->
+  <!-- IF postrow.DELETE --><li class="delete-icon" style="background-image: url('{ICON_DELPOST}')" title="{L_DELPOST}"><span>{postrow.DELETE}</span>{postrow.DELETE_IMG}</li><!-- ENDIF -->
+  <!-- IF postrow.IP_IMG --><li class="ip-icon" style="background-image: url('{ICON_IP}')" title="{L_IP}"><span>{postrow.IP}</span>{postrow.IP_IMG}</li><!-- ENDIF -->
+  </ul>
+
+  <h3><a name="{postrow.U_POST_ID}" href="{postrow.U_MINI_POST}">{postrow.POST_SUBJECT}</a></h3>
+  <p class="wip_postdetails">
+  <a href="{postrow.U_MINI_POST}"><img src="{postrow.MINI_POST_IMG}" alt="{postrow.L_MINI_POST_ALT}" title="{postrow.L_MINI_POST_ALT}" /></a>
+  {L_POSTED}: {postrow.POST_DATE}
+  </p>
+  <div class="wip_content">
+  {postrow.MESSAGE}
+
+<!-- IF postrow.S_HAS_ATTACHMENTS -->
+<!-- BEGIN attachment -->
+<hr style="width:95%;" />
+
+<div class="attachtable" style="overflow: auto;">
+
+<!-- IF postrow.attachment.L_ALLOWED -->
+<ul class="attachmentbox">
+  <!-- IF postrow.attachment.L_DENIED --><b>[{postrow.attachment.L_DENIED}]</b><br /><!-- ENDIF -->
+
+  <!-- IF postrow.attachment.S_DEF_CAT -->
+    <li class="attach_name thtop">{postrow.attachment.DOWNLOAD_NAME}</li>
+  <!-- ELSE -->
+    <li class="attach_name thtop">{postrow.attachment.DOWNLOAD_NAME}</li>
+  <!-- ENDIF -->
+
+  <li><b>{L_DESCRIPTION}:</b> {postrow.attachment.COMMENT}</li>
+  <li><b>{L_FILESIZE}:</b> {postrow.attachment.FILESIZE}</li>
+  <li><b>{postrow.attachment.L_DOWNLOADED_VIEWED}:</b> {postrow.attachment.L_DOWNLOAD_COUNT}</li>
+  <!-- IF postrow.attachment.S_IMAGE_CAT -->
+    <li class="attach_image">
+      <img src="{postrow.attachment.U_DOWNLOAD_LINK}" alt="{postrow.attachment.DOWNLOAD_NAME}" border="0" />
+    </li>
+  <!-- ELSEIF postrow.attachment.S_THUMB_CAT -->
+    <li class="attach_image">
+      <a href="{postrow.attachment.U_DOWNLOAD_LINK}" target="_blank"><img src="{postrow.attachment.IMG_THUMB_SRC}" alt="{postrow.attachment.DOWNLOAD_NAME}" border="0" /></a>
+    </li>
+  <!-- ELSEIF postrow.attachment.S_DEF_CAT -->
+    <li class="attach_image" style="font-weight:bold;">
+      {postrow.attachment.S_UPLOAD_IMAGE}
+      <a href="{postrow.attachment.U_DOWNLOAD_LINK}" {postrow.attachment.TARGET_BLANK} class="gen">{postrow.attachment.DOWNLOAD_NAME}</a>
+    </li>
+  <!-- ELSEIF postrow.attachment.S_STREAM_CAT -->
+    <object id="wmp" classid="CLSID:22d6f312-b0f6-11d0-94ab-0080c74c7e95" codebase="http://activex.microsoft.com/activex/controls/mplayer/en/nsmp2inf.cab#Version=6,0,0,0" standby="Loading Microsoft Windows Media Player components..." type="application/x-oleobject">
+    <param name="FileName" value="{postrow.attachment.U_DOWNLOAD_LINK}">
+    <param name="ShowControls" value="1">
+    <param name="ShowDisplay" value="0">
+    <param name="ShowStatusBar" value="1">
+    <param name="AutoSize" value="1">
+    <param name="AutoStart" value="0">
+    <param name="Visible" value="1">
+    <param name="AnimationStart" value="0">
+    <param name="Loop" value="0">
+    <embed type="application/x-mplayer2" pluginspage="http://www.microsoft.com/windows95/downloads/contents/wurecommended/s_wufeatured/mediaplayer/default.asp" src="{postrow.attachment.U_DOWNLOAD_LINK}" name=MediaPlayer2 showcontrols=1 showdisplay=0 showstatusbar=1 autosize=1 autostart=0 visible=1 animationatstart=0 loop=0></embed>
+    </object>
+  <!-- ELSEIF postrow.attachment.S_SWF_CAT -->
+    <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="{postrow.attachment.WIDTH}" height="{postrow.attachment.HEIGHT}">
+    <param name="movie" value="{postrow.attachment.U_DOWNLOAD_LINK}">
+    <param name="loop" value="1">
+    <param name="quality" value="high">
+    <param name="scale" value="noborder">
+    <param name="wmode" value="transparent">
+    <param name="bgcolor" value="#000000">
+    <embed src="{postrow.attachment.U_DOWNLOAD_LINK}" loop="1" quality="high" scale="noborder" wmode="transparent" bgcolor="#000000"  width="{postrow.attachment.WIDTH}" height="{postrow.attachment.HEIGHT}" type="application/x-shockwave-flash" pluginspace="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></embed>
+    </object>
+  <!-- ENDIF -->
+</ul>
+<!-- ENDIF -->
+</div>
+<!-- END attachment -->
+<!-- ENDIF -->
+
+  <span class="signature">{postrow.SIGNATURE}</span>{postrow.EDITED_MESSAGE}
+  </div>
+</div>
+
+<dl class="wip_profile">
+  <!-- PHP -->
+  $cpgtpl->assign_var('U_USER_ACCOUNT',getlink('Your_Account&amp;profile='.$this->_tpldata['postrow'][$this->_postrow_i]['POSTER_NAME']));
+  <!-- ENDPHP -->
+  <dt><!-- IF postrow.POSTER_POSTS --><script type="text/javascript"><!--
+  maketip('user_info_{postrow.U_POST_ID}','{postrow.POSTER_NAME}','{postrow.POSTER_POSTS}<br />{postrow.POSTER_JOINED}<br />{postrow.POSTER_FROM}');
+  //--></script>
+  <a href="{U_USER_ACCOUNT}" onmouseover="tip('user_info_{postrow.U_POST_ID}')" onmouseout="untip()"><!-- ENDIF -->{postrow.POSTER_AVATAR}<!-- IF postrow.POSTER_POSTS --></a><!-- ENDIF --><br />
+  <!-- IF postrow.POSTER_POSTS --><a href="{U_USER_ACCOUNT}" onmouseover="tip('user_info_{postrow.U_POST_ID}')" onmouseout="untip()"><!-- ENDIF -->{postrow.POSTER_NAME}<!-- IF postrow.POSTER_POSTS --></a><!-- ENDIF --></dt>
+  <dd>{postrow.POSTER_RANK}<br />{postrow.RANK_IMAGE}</dd>
+  <dd>&nbsp;</dd>
+
+  <!-- If not anonymous-->
+  <!-- IF postrow.POSTER_POSTS -->
+  <dd>
+    <ul class="profile-icons">
+      <!-- PHP -->
+        //Lets remove profile icon as username already links there
+        $isnotprofilelink = 0;
+      <!-- ENDPHP -->
+      <!-- BEGIN user_details -->
+      <!-- PHP -->
+      $contact_image = $this->_tpldata['postrow'][$this->_postrow_i]['user_details'][$this->_user_details_i]['IMG'];
+      $size = getimagesize($contact_image);
+      $cpgtpl->assign_vars(array(
+        'IS_NOT_PROFILE_LINK' => $isnotprofilelink,
+        'WIDTH'               => $size[0]
+      ));
+      <!-- ENDPHP -->
+      <!-- IF IS_NOT_PROFILE_LINK -->
+      <li style="background-image: url('{postrow.user_details.IMG}');width: {WIDTH}px;">
+        <!-- IF postrow.user_details.TARGET -->
+        <a href="{postrow.user_details.URL}" title="{postrow.user_details.TITLE}" target="{postrow.user_details.TARGET}"><span>{postrow.user_details.TITLE}</span></a>
+        <!-- ELSE -->
+        <a href="{postrow.user_details.URL}" title="{postrow.user_details.TITLE}"><span>{postrow.user_details.TITLE}</span></a>
+        <!-- ENDIF -->
+      </li>
+      <!-- ENDIF -->
+      <!-- PHP -->
+        //Lets show other icons
+        $isnotprofilelink = 1;
+      <!-- ENDPHP -->
+      <!-- END user_details -->
+    </ul>
+  </dd>
+  <!-- ENDIF -->
+</dl>
+
+<div class="back2top"><a href="{L_BACK_TO_TOP_LINK}#top" class="top" title="{L_BACK_TO_TOP}">{L_BACK_TO_TOP}</a></div>
+<span class="corners-bottom"><span></span></span></div>
+<!-- END postrow -->
+
+
+<div class="afterposts">
+  <div class="leftinfo">
+    <a href="{U_POST_REPLY_TOPIC}" title="{L_POST_REPLY_TOPIC}" class="forumbutton" style="float:left;background-image:url('{REPLY_IMG}');"><img src="{REPLY_IMG}" alt="{L_POST_REPLY_TOPIC}" /><span>{L_POST_REPLY_TOPIC}</span></a>
+    <br style="clear:both;" /><br />
+    {S_WATCH_TOPIC}
+  </div>
+  <div class="rightinfo">
+    <span class="nav">{PAGE_NUMBER}</span>
+    <!-- IF PAGINATION --><br />{PAGINATION}<!-- ENDIF -->
+  </div>
+  <br style="clear:both;" />
+</div>
+
+<div class="afterposts">
+  <div class="leftinfo">
+    <a class="left-box left" href="{U_INDEX}" accesskey="f">{L_INDEX}</a>
+    <a href="{U_VIEW_FORUM}" class="left-box left" accesskey="r">{FORUM_NAME}</a>
+    <a href="{U_VIEW_TOPIC}" class="left-box left" style="font-style: italic;" accesskey="t">{TOPIC_TITLE}</a>
+    <br style="clear:both;" />
+  </div>
+  <div class="rightinfo">
+    <form method="post" action="{S_POST_DAYS_ACTION}" {I18N}>
+      <label>{L_DISPLAY_POSTS}:</label>
+      {S_SELECT_POST_DAYS} {S_SELECT_POST_ORDER}
+      <input type="submit" name="submit" value="{L_GO}" />
+    </form>
+    <!-- INCLUDE forums/jumpbox.html -->
+  </div>
+  <br style="clear:both;" />
+</div>
+
+
+
+
+{QUICK_REPLY_FORM}<br />
+
+<div class="topic_admin">{S_TOPIC_ADMIN}</div>
+
+<div class="left-box">{S_AUTH_LIST}</div>
+<br style="clear:both" />
+<!--<p class="right-box">{S_TIMEZONE}</p>
+<br style="clear:both" />-->
+<!-- INCLUDE forums/overall_footer.html -->

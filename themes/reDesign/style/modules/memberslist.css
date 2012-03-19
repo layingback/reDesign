@@ -1,0 +1,57 @@
+/* User in Members List */
+.memberslist_user {
+  float: left;
+  width: 200px;
+  margin: 0;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  padding-bottom: 0px;
+  zoom: 1;
+  position: relative;
+}
+/* To correctly position bottom corners (absolute positioning didn't work well with IE6) */
+.memberslist_user .user_container {
+  height: 200px;
+}
+
+.memberslist_user .user_info {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+/* Avatar */
+.memberslist_user a.user_avatar img {
+  display: block;
+  margin: 0 auto;
+}
+/* Avatar and user name */
+.memberslist_user a.user_name {
+
+  text-align: center;
+}
+
+
+/* Avatar image and user name */
+.memberslist_user a.useravatar {
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center 2em;
+  text-align: center;
+  font: bold 1em arial, verdana, sans-serif;
+  clear: both;
+  width: 100%;
+  height: 120px;
+}
+/* Contains the PM etc icons */
+.memberslist_user .user_icons {
+  position: absolute;
+  right: 5px;
+  bottom: 9px;
+}
+
+/* An icon (inherents from style.css) */
+.memberslist_user .ml_icon {
+  float: right;
+  margin-right: 3px;
+}

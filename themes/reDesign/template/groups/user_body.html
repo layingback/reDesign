@@ -1,0 +1,40 @@
+<!-- BEGIN switch_groups_joined -->
+  <h3>{L_GROUP_MEMBERSHIP_DETAILS}</h3>
+
+  <!-- BEGIN switch_groups_member -->
+    <h4>{L_YOU_BELONG_GROUPS}:</h4>
+    <form method="post" action="{S_USERGROUP_ACTION}" {I18N}>
+      {GROUP_MEMBER_SELECT}
+      {S_HIDDEN_FIELDS}
+      <input type="submit" value="{L_VIEW_INFORMATION}" class="liteoption" />
+    </form>
+  <!-- END switch_groups_member -->
+
+  <!-- BEGIN switch_groups_pending -->
+    <h4>{L_PENDING_GROUPS}:</h4>
+
+    <form method="post" action="{S_USERGROUP_ACTION}" {I18N}>
+      {GROUP_PENDING_SELECT}
+      {S_HIDDEN_FIELDS}
+      <input type="submit" value="{L_VIEW_INFORMATION}" class="liteoption" />
+    </form>
+  <!-- END switch_groups_pending -->
+
+<!-- END switch_groups_joined -->
+
+<br />
+
+<!-- BEGIN switch_groups_remaining -->
+  <!--<h3>{L_JOIN_A_GROUP}</h3>-->
+
+  <h4>{L_SELECT_A_GROUP}:</h4>
+
+  <form method="post" action="{S_USERGROUP_ACTION}">
+    {GROUP_LIST_SELECT}
+    {S_HIDDEN_FIELDS}
+    <input type="submit" value="{L_VIEW_INFORMATION}" class="liteoption" />
+  </form>
+<!-- END switch_groups_remaining -->
+
+
+<br style="clear:both" />

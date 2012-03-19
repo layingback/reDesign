@@ -1,0 +1,251 @@
+/*********************************************
+  CPG Dragonfly™ CMS
+  ********************************************
+  Copyright © 2004 - 2009 by CPG-Nuke Dev Team
+  http://dragonflycms.org
+
+  Dragonfly is released under the terms and conditions
+  of the GNU GPL version 2 or any later version
+
+  $Source: /cvs/themes/reDesign/style/cpgmm.css,v $
+  $Revision: 1.38 $
+  $Author: estlane $
+  $Date: 2010/03/22 20:22:55 $
+**********************************************/
+
+/*    ------  Basic style ------    */
+
+
+#menu li {
+    background: transparent url('../images/backgrounds/header/menu/arrow_down.gif') no-repeat top right;
+
+}
+#menu li:hover {
+    background-position: right 1px;
+}
+
+#menu li:hover a {
+    background-color: transparent;
+    color: #FFF;
+}
+
+/* Current category */
+/*some is in style.css already*/
+
+#menu li.currentcategory a {
+    color: #000;
+    font-weight: bold;
+    background-color: #FFF;
+    padding-left: 10px;
+    padding-right: 10px;
+/* Add top padding for better visual, which also means take same amount off from bottom padding */
+    padding-top: 2px;
+    padding-bottom: 1px;
+}
+#menu li.currentcategory:hover a {
+    background-color: #323232;
+    xbackground-color: transparent;
+    color: #FFF;
+}
+
+/*
+ We could disable drop down for active category and use menu block for that category instead.
+ As most people probably won't do it, then we can't make such decision for them.
+*/
+/*#menu li.currentcategory {
+	background: none;
+}
+#menu li.currentcategory ul {
+	display: none;
+}
+#menu li.currentcategory:hover a {
+	background-color: #FFF;
+	color: #000;
+}*/
+
+/*
+	1) Undo anything that we just did for li.currentcategory a
+	2) Make sure the undo has padding left from #menu li ul li a
+*/
+#menu li.currentcategory li a, #menu li.currentcategory:hover li a {
+    font-weight: normal;
+    color: #FFF;
+    background-color: transparent;
+    border: 0;
+    padding-left: 24px;
+    padding-right: 3px;
+}
+
+/* Current submenu item */
+#menu li.currentcategory li.current a {
+    font-weight: bold;
+}
+
+
+/* Submenu */
+#menu li ul {
+    position: absolute;
+    z-index: 10;
+    visibility: hidden;
+    margin: 0;
+    padding: 2px;
+    width: 160px; /* width of the dropdown lists*/
+/*background: #222222;*/
+    background: #323232; /* same colour as black on white with 80% opacity */
+    background: rgba(0, 0, 0, 0.8);
+    border: 0;
+    line-height: normal;
+    text-align: left;
+
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    -moz-border-radius-bottomleft: 6px;
+    -moz-border-radius-bottomright: 6px;
+
+    box-shadow: 3px 1px 3px #737373;
+    -webkit-box-shadow: 3px 1px 3px #737373;
+    -moz-box-shadow: 3px 1px 3px #737373;
+}
+
+/* Submenu's item */
+#menu li ul li, #menu li ul li:hover {
+    font: normal 12px Arial, Tahoma, sans-serif;
+    width: 100%;
+    position: relative;
+    background-image: none;
+    margin: 0; /*for no effect from horizontal menu*/
+    padding: 0; /*for no effect from horizontal menu (give padding to A instead) */
+    border: 0;
+    text-align: left;
+    line-height: 2.3em;
+    height: 2.3em;
+    text-shadow: #000 0px 1px 2px;
+}
+#menu li ul li {
+    background-color: transparent;/*Override horizontal menu's bg*/
+    color: #FFF;
+}
+
+/* Submenu's item while hovering*/
+#menu li ul li:hover {
+    background: #5C5C5C;
+    background: rgba(79, 79, 79, 0.8);
+    color: #FFF;
+    text-shadow: #000 0px 1px 2px;
+}
+
+/* If item has submenu
+ (this is for the triangular right-pointing arrow on the end of a admincategory link) */
+#menu li ul li a.submenu, #menu li ul li:hover li a.submenu {
+    background: url('../images/backgrounds/header/menu/arrow_right.gif') no-repeat 98% top;
+}
+#menu li ul li:hover a.submenu, #menu li ul li li:hover a.submenu {
+    background-position: 98% -22px;
+}
+
+/*Default color*/
+#menu li:hover li a, #menu li li a, #menu li li:hover li a, #menu li li li a,
+#menu li li:hover li:hover li a, #menu li li li li a {
+    background-color: transparent;
+    color: #FFF;
+    border: 0;
+}
+/*Hover color*/
+#menu li li:hover a, #menu li li li:hover a, #menu li li:hover li:hover li:hover a {
+    color: #FFF;
+    border: 0;
+}
+
+#menu li ul li a {
+    display: block;
+    margin: 0;
+    padding: 0;
+    position: relative;/*just to allow z-index*/
+    z-index: 2;/*override the adminicon or other*/
+    padding-left: 24px; /* width of #menu li ul li span + some extra padding */
+    border: 0;
+    height: 2.3em; /* we can't use inherit because ie6 is dumb */
+    line-height: 2.3em;
+    text-align: left;
+    font-weight: inherit;
+}
+
+
+
+/* next 2 classes control the small images/symbols for categories, list links*/
+#menu li ul li span {
+    float: left;
+    display: block;
+    position: relative;/*just to allow z-index*/
+    z-index: 1;/*behind the menulink itself, makes it clickable*/
+    width: 12px;/*same as adminicon*/
+    height: inherit !important;/* if no content */
+    line-height: inherit !important;
+    margin: 0px 0px 0px 3px; /* top margin must be line-height-12 or sth */
+    background-position: center left !important;
+    padding: 0;
+    text-align: center;
+    font: bold 11px Tahoma, Arial, sans-serif;
+    color: #5F5F5F;
+}
+#menu li ul li:hover span {
+    color: #FFF;
+}
+/*admin horizontal menu dot*/
+#menu li b {
+    font: bold 11px Tahoma, Arial, sans-serif;
+    display: none;/*disable*/
+}
+
+
+#menu li ul li.disabled, #menu li ul li.hidden {
+    font-style: italic;
+}
+
+/* If something is hidden from menu, maybe even admin won't wanna see it */
+#menu li ul li.hidden {
+    display: none;
+}
+
+/* fix the position */
+#menu ul li ul li ul {
+    top: 0;
+    left: 100%;
+}
+
+/* simulate child selector for IE */
+div#menu li:hover ul, #menu li:hover li:hover ul, #menu li:hover li:hover li:hover ul {
+    visibility: visible;
+}
+
+
+
+
+
+
+/*  -webkit-transition-property: opacity;
+  -webkit-transition-duration: 1s;
+*/
+
+#menu li:hover li ul, #menu li:hover li:hover li ul, #menu li:hover li:hover li:hover li ul {
+    visibility: hidden;
+}
+
+#menu ul#menuList li > ul {
+/* close time */
+    transition-property: visibility;
+    transition-delay: 0.45s;
+    -o-transition-property: visibility;
+    -o-transition-delay: 0.45s;
+    -webkit-transition-property: visibility;
+    -webkit-transition-delay: 0.45s;
+}
+/* do the normal show, with increased specificity */
+#menu ul#menuList li:hover > ul {
+/* open time (chrome needs this duplicated) */
+/* good if same as close time, or else one menu would pop on another */
+    transition-delay: 0.45s;
+    -o-transition-delay: 0.45s;
+    -webkit-transition-delay: 0.45s;
+    visibility: visible;
+}

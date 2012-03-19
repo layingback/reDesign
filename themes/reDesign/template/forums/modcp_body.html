@@ -1,0 +1,63 @@
+<!-- INCLUDE forums/overall_header.html -->
+<div class="breadcrumb_trail custom_breadcrumb_trail">  
+<a href="{U_MAININDEX}">_(HOME)</a> {BC_DELIM} <a href="{U_INDEX}">{L_INDEX}</a> {BC_DELIM} <a href="{U_VIEW_FORUM}">{FORUM_NAME}</a>
+</div>
+
+<h2><a href="{U_VIEW_FORUM}">{FORUM_NAME}</a></h2>
+
+<h3 style="margin:0;padding-bottom:0;">{L_MOD_CP}</h3>
+{L_MOD_CP_EXPLAIN}<br /><br />
+
+
+<form method="post" action="{S_MODCP_ACTION}" {I18N}>
+<table cellspacing="0" class="forum_topics">
+  <tr>
+    <td></td>
+    <td>{L_TOPICS}</td>
+    <td>{L_LASTPOST}</td>
+    <td style="width:50px;">&nbsp;{L_REPLIES}&nbsp;</td>
+    <td style="width:50px;">&nbsp;{L_SELECT}&nbsp;</td>
+  </tr>
+  <!-- BEGIN topicrow -->
+  <tr class="topic">
+    <td style="text-align:center;"><img src="{topicrow.TOPIC_FOLDER_IMG}" alt="{topicrow.L_TOPIC_FOLDER_ALT}" title="{topicrow.L_TOPIC_FOLDER_ALT}" /></td>
+    <td style="width:100%; padding-left: 4px;">
+    <div>
+      {topicrow.TOPIC_ATTACHMENT_IMG}
+      <span class="topictitle">{topicrow.TOPIC_TYPE} <a href="{topicrow.U_VIEW_TOPIC}" class="topictitle">{topicrow.TOPIC_TITLE}</a></span>
+    </div>
+    </td>
+    <td style="text-align: right;white-space: nowrap;"><div>{topicrow.LAST_POST_TIME}</div></td>
+    <td class="postdetails" style="text-align:center;">{topicrow.REPLIES}</td>
+    <td class="postdetails" style="text-align:center;"><input type="checkbox" name="topic_id_list[]" value="{topicrow.TOPIC_ID}" /></td>
+  </tr>
+  <!-- END topicrow -->
+</table>
+
+<div class="right-box" style="margin-top: 10px;">
+  {S_HIDDEN_FIELDS}
+  <input type="submit" name="delete" value="{L_DELETE}" />
+  &nbsp;
+  <input type="submit" name="move" value="{L_MOVE}" />
+  &nbsp;
+  <input type="submit" name="lock" value="{L_LOCK}" />
+  &nbsp;
+  <input type="submit" name="unlock" value="{L_UNLOCK}" />
+</div>
+<div class="clear"></div>
+
+
+<div style="margin: 10px 0;padding: 10px 0;border-top: 1px solid #EBEBEB;">
+  <a href="{U_INDEX}" class="left-box left" style="float: left;" accesskey="r">{L_INDEX}</a>
+  <span class="nav" style="display:block;float:right;">{PAGE_NUMBER}</span> <b>{PAGINATION}</b>
+  <br style="clear:both" />
+</div>
+
+<div class="right-box"><!-- INCLUDE forums/jumpbox.html --></div>
+
+</form>
+
+<!--<br style="clear:both" />
+<p class="right-box">{S_TIMEZONE}</p>-->
+<br style="clear:both;" />
+<!-- INCLUDE forums/overall_footer.html -->

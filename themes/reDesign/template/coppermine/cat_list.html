@@ -1,0 +1,43 @@
+<!-- BEGIN catrow_noalb -->
+<h2 class="cattitle"><b class="corner-lt"></b><b class="corner-rt"></b>
+	<span class="plusminus" onclick="blockslide('{catrow_noalb.CAT_BLOCK_ID}');" title="_(TOGGLE)">+/-</span>
+	{catrow_noalb.CAT_TITLE}
+<span class="corners-bottom"><span></span></span></h2>
+
+<div id="pe{catrow_noalb.CAT_BLOCK_ID}" class="cop_cat"{catrow_noalb.S_VISIBLE}>
+	<p>{catrow_noalb.CAT_DESC}</p>
+</div>
+<!-- END catrow_noalb -->
+
+
+<!-- BEGIN catrow -->
+<h2 class="cattitle"><b class="corner-lt"></b><b class="corner-rt"></b>
+	<span class="plusminus" onclick="blockslide('{catrow.CAT_BLOCK_ID}');" title="_(TOGGLE)">+/-</span>
+	{catrow.CAT_TITLE}
+<span class="corners-bottom"><span></span></span></h2>
+
+<div id="pe{catrow.CAT_BLOCK_ID}" class="cop_cat"{catrow.S_VISIBLE}>
+	<p>{catrow.CAT_DESC} (_(ALBUMS): {catrow.ALB_COUNT} _(PICTURES): {catrow.PIC_COUNT})</p>
+	{catrow.CAT_ALBUMS}
+</div>
+<!-- END catrow -->
+
+
+<!-- BEGIN catrow_empty -->
+<h2 class="cattitle"><b class="corner-lt"></b><b class="corner-rt"></b>
+	<span class="plusminus" onclick="blockslide('{catrow_empty.CAT_BLOCK_ID}');" title="_(TOGGLE)">+/-</span>
+	{catrow_empty.CAT_TITLE}
+<span class="corners-bottom"><span></span></span></h2>
+
+<div id="pe{catrow_empty.CAT_BLOCK_ID}" class="cop_cat"{catrow_empty.S_VISIBLE}>
+	<p>{catrow_empty.CAT_DESC} (_(ALBUMS): {catrow_empty.ALB_COUNT} _(PICTURES): {catrow_empty.PIC_COUNT})</p>
+</div>
+<!-- END catrow_empty -->
+
+
+<hr />
+<!-- IF STATISTICS -->{STATISTICS}<!-- ENDIF -->
+
+<div style="margin: 10px 0;padding: 10px 0;border-top: 1px solid #EBEBEB;">
+
+</div>

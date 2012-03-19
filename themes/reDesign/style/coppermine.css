@@ -1,0 +1,429 @@
+/*.star-rating,
+.star-rating a:hover,
+.star-rating a:active,
+.star-rating a:focus,
+.star-rating .rater:hover,
+.star-rating .rater:active,
+.star-rating .rater:focus,
+.star-rating .current-rating {
+	background: url('../images/coppermine/star.gif') left -1000px repeat-x;
+}
+.star-rating {
+	position:relative;
+	width:150px;
+	height:25px;
+	overflow:hidden;
+	list-style:none;
+	margin:0;
+	padding:0;
+	background-position: left top;
+}
+.star-rating li {
+	display: inline;
+}
+.star-rating a,
+.star-rating .rater,
+.star-rating .current-rating {
+	position:absolute;
+	top:0;
+	left:0;
+	text-indent:-1000em;
+	height:25px;
+	line-height:25px;
+	outline:none;
+	overflow:hidden;
+	border: none;
+}
+.star-rating a:hover,
+.star-rating a:active,
+.star-rating a:focus,
+.star-rating .rater:hover,
+.star-rating .rater:active,
+.star-rating .rater:focus {
+	background-position: left bottom;
+}
+.star-rating .one-star {
+	width: 16%;
+	z-index: 7;
+}
+.star-rating .two-stars {
+	width: 32%;
+	z-index:6;
+}
+.star-rating a.three-stars {
+	width: 50%;
+	z-index:5;
+}
+.star-rating a.four-stars {
+	width: 66%;
+	z-index:4;
+}
+.star-rating a.five-stars {
+	width: 82%;
+	z-index:3;
+}
+.star-rating a.six-stars {
+	width: 100%;
+	z-index:2;
+}
+.star-rating .current-rating {
+	z-index:1;
+	background-position: left center;
+}
+*/
+/* for an inline rater */
+/*.inline-rating {
+	display:-moz-inline-block;
+	display:-moz-inline-box;
+	display:inline-block;
+	vertical-align: middle;
+}*/
+
+/* smaller star */
+/*.small-star {
+	width:50px;
+	height:10px;
+}
+.small-star,
+.small-star a:hover,
+.small-star a:active,
+.small-star a:focus,
+.star-rating .rater:hover,
+.star-rating .rater:active,
+.star-rating .rater:focus,
+.small-star .current-rating {
+	background-image: url('../images/coppermine/star_small.gif');
+	line-height: 10px;
+	height: 10px;
+}*/
+
+
+
+
+
+
+
+
+/*coppermine's table cell */
+.tableh1, .tableh2 {
+	vertical-align: middle;
+	padding-left: 3px;
+}
+
+
+/*core drop shadow rules*/
+.wrap1, .wrap2, .wrap3 {
+	display: inline-table;
+	/* \*/display:block;/**/
+}
+.wrap1 {
+	background: url('../images/coppermine/shadows/v3/shadow.gif') right bottom no-repeat;
+	float: left;
+}
+.wrap2 {
+	background: url('../images/coppermine/shadows/v3/corner_bl.gif') -12px 100% no-repeat;
+}
+.wrap3 {
+	padding: 0 9px 9px 0;
+	background: url('../images/coppermine/shadows/v3/corner_tr.gif') 100% -12px no-repeat;
+}
+.wrap3 img {
+	display: block;
+	border: 3px solid #ccc;
+	border-color: #efefef #ccc #ccc #efefef;
+}
+.wrap3 img:hover {
+	border-color: #008000 #00C100 #00C100 #008000;
+}
+
+
+ul.pictures {
+	display: block;
+	width: 100%;
+	margin: 0;
+	margin-top: 4px;
+	padding: 0;
+	list-style: none;
+}
+/* Thumbnail Picture */
+ul.pictures li {
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0;
+	margin-bottom: 5px;
+	/*text-align:center;*/
+}
+
+ul.pictures li div.image {
+	margin-right: 3px;
+	background-color: #DFDFDF;
+	padding: 3px;
+	border: 1px solid #A3A3A3;
+}
+
+/*ul.pictures li div.image:hover {
+	border-color: #C9C9C9;
+}*/
+
+ul.pictures li div.image a.thumbnail {
+	display: block;
+	width: 100%;
+	margin-right: 3px;
+	overflow: hidden;/*in case of too large thumbnails*/
+	background-color: #c0c0c0;
+	padding: 4px 0;
+}
+
+/*Disable the forced shrinking in album_list*/
+ul.pictures li div.image a.thumbnail img {
+	width: auto;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+}
+/* Thumbnail image description, rank etc wrapper */
+ul.pictures li div.image div {
+	margin: 0;
+	margin-top: 3px;
+	padding: 0;
+	color: #5F5F5F;
+	text-align: center;
+}
+
+/* Thumbnail title, style previous instead */
+.thumb_title {
+	font-size: 0.9em;
+}
+
+/* Thumbnail image description */
+ul.pictures li div.image div .thumb_caption {
+	/*display: none;*/
+	display: block; /* because we want to have linebreaks */
+	font-size: 0.9em;
+	font-style: italic;
+}
+
+ul.album_list li {
+	margin-bottom: 20px;
+}
+
+.display_picture {
+	width: 100%;
+	padding: 10px 0;
+	border: 1px solid #A3A3A3;
+	background-color: #DFDFDF;
+	text-align: center;
+}
+
+.filmstrip {
+	margin: 10px;
+	margin-top: 20px;
+	padding: 5px;
+	border-top: 1px dashed #000;
+	border-bottom: 1px dashed #000;
+}
+
+.filmstrip div.currentpic .picpos {
+	font-weight: bold;
+}
+
+.filmstrip div.currentpic img {
+	border-color: #FFFF00 #EAEA00 #EAEA00 #FFFF00;
+}
+
+.filmstrip div img:hover {
+	border-color: #008000 #00C100 #00C100 #008000;
+}
+
+.ratings form {
+	float: left;
+	margin-right: 10px;
+}
+
+#picinfo {
+	margin-top: 10px;
+}
+
+#picinfo ul {
+	list-style: none;
+}
+#picinfo ul li{
+	height: 1.8em;
+}
+#picinfo li span.key {
+	display: block;
+	width: 100px;
+	float:left;
+	clear: left;
+	text-align: right;
+	margin-right: 3px;
+}
+.comment_button {
+	margin-top: 4px;
+}
+
+
+/*.navmenu {
+	color: #000;
+	background: #0E72A4;
+	border-style: none;
+	font-weight: bold;
+	font-size: 12px;
+}
+.navmenu img {
+}
+.navmenu a {
+	position: relative;
+	display: block;
+	text-decoration: none;
+	color: #617098;
+}
+.navmenu a:hover {
+	background: #EFEFEF;
+	color: #000;
+}*/
+
+
+.picture {
+	position: relative;
+	width: 132px;
+	height: 135px;
+	overflow: hidden;
+	float: left;
+	text-align: center;
+	margin-right: 10px;
+	font-size: 0.8em;
+}
+
+.picture_link {
+	display: block;
+	background-color: #FEFFF2;
+	margin: 2px 2px 2px 2px;
+	width: 128px;
+	height: 100px;
+	overflow: hidden;
+}
+
+.picture_frame {
+	display: block;
+	height: 109px;
+	width: 132px;
+	background: transparent url('../images/coppermine/picture_frame.png');
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.picture_link img {
+	display: block;
+	margin: 0 auto;
+}
+
+
+
+/*Disable the forced shrinking in album_list*/
+img.image {
+	width: auto;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+}
+
+/*.picture .thumb_title {
+	display: block;
+	padding-top: 2px;
+}*/
+
+/* Thumbnail image description */
+.picture .thumb_caption {
+	/*display: none;*/
+	display: block; /* because we want to have linebreaks */
+	font-style: italic;
+}
+
+.album_info {
+
+}
+
+.album_info .admin_menu {
+	font-size: 0.7em;
+	position: absolute;
+	left: 20px;
+	bottom: 0;
+	background-color: #000;
+	background-color: rgba(0, 0, 0, 0.5);
+	overflow: hidden;
+	padding: 3px;
+	display: none;
+}
+.album_info .admin_menu input {
+	font-size: 0.8em;
+	color: #FFF;
+	background-color: transparent;
+	border: 0;
+	border-bottom: 1px solid #FFF;
+	padding: 0;
+	margin: 0;
+	margin-right: 8px;
+	cursor: pointer;
+}
+.album_info .admin_menu input:hover {
+	border-bottom: 0;
+	margin-bottom: 1px;
+}
+.album_info .admin_menu input:focus {
+	border: 0;
+}
+
+.album {
+	position: relative;
+	overflow: hidden;
+	width: 49%;
+	float: left;
+}
+
+.album:hover .album_info .admin_menu {
+	display: block;
+}
+
+.album_info h4 a {
+	color: #000000;
+}
+
+.album_info .stats {
+	color: #727272;
+	font-size: 0.8em;
+}
+
+.picture_caption {
+	padding-top: 2px;
+}
+
+.stats {
+	color: #727272;
+	font-size: 0.8em;
+}
+
+
+/* Category */
+.cop_cat {
+	margin-left: 10px;
+}
+
+
+/***********
+* HELP PAGE
+***********/
+/*.navbar {
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 10px;
+	background: transparent none;
+	color: #000;
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}*/
+.sqlname {  color: #006600; text-decoration: none; font-size: small; background-color: #FFFFFF}
+.doc_title {  font-size: large; font-weight: bold}
+.doc_desc {  font-size: small; text-decoration: none}
+.cur_name { text-decoration: none; font-size: small }
+.doc_head {  font-size: large; font-style: italic; color: #333333; background-color: #FFFFFF}

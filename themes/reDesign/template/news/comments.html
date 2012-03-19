@@ -1,0 +1,201 @@
+<!-- IF S_NOCOMMENTS -->{S_NOCOMMENTS}<!-- ENDIF -->
+
+<!-- IF S_TITLE --><h3>{S_COUNT} {S_COMMENTS}</h3><!-- ENDIF -->
+
+<div class="commwarn">{S_COMMWARN}</div>
+
+<div class="commview"><form method="post" action="{U_ARTICLE}" {I18N}>
+	{S_THRESHOLD} {S_SELTHOLD} {S_SELMODE} {S_SELORDER}
+	<input type="submit" class="mainoption" value="{S_REFRESH}" />
+</form></div>
+
+
+<!-- IF U_MODERATE -->
+<form action="{U_MODERATE}" method="post">
+<!-- ENDIF -->
+
+<!-- PHP -->
+$i = 0;
+global $cpgtpl, $MAIN_CFG, $CPG_SESS;
+
+$cpgtpl->assign_vars(array(
+  'S_CURADRESS'     => get_uri()
+));
+<!-- ENDPHP -->
+
+<a name="comments"></a>
+<!-- IF S_ONECOMMENT -->
+<!-- BEGIN single -->
+<div class="combox1">
+	<div class="cominnerbox">
+
+	<!-- IF single.S_EMAIL -->
+	<b>{single.S_SUBJECT}</b> <span class="content" style="color:{single.S_TEXTCOLOR2};">({single.S_SCORE} {single.I_SCORE})<br />{single.S_BY} <a href="mailto:{single.S_EMAIL}"><span style="color:{single.S_BGCOLOR2};">{single.S_NAME}</span></a> <span class="content"><b>({single.S_EMAIL})</b></span> {single.S_ON} {single.S_DATE}
+	<!-- ELSE -->
+	<b>[{single.S_SUBJECT}]</b> <span class="content">({single.S_SCORE} {single.I_SCORE})<br />{single.S_BY} {single.S_NAME} {single.S_ON} {single.S_DATE}</span>
+	<!-- ENDIF -->
+
+	<br /><br />{single.S_COMMENT}
+
+	<span class="content">[ {single.U_REPLY} - {single.S_MODERATE2} ]</span>
+	{single.S_MODERATE3}
+
+	</div>
+</div>
+<!-- END single -->
+<!-- ENDIF -->
+
+<!-- BEGIN comment -->
+
+<!-- PHP -->
+$username = isset($this->_tpldata['comment'][$this->_comment_i]['U_USERINFO'])? ($this->_tpldata['comment'][$this->_comment_i]['S_BYNAME']) : '';
+$username = substr($username, strlen(_BY)+1);
+$commenterinfo = getusrdata($username,'user_avatar_type,user_avatar');
+
+  if ($commenterinfo['user_avatar_type'] == 1) {
+    $avatar = $MAIN_CFG['avatar']['path'].'/'.$commenterinfo['user_avatar'];
+  } else if ($commenterinfo['user_avatar_type'] == 2) {
+    $avatar = $commenterinfo['user_avatar'];
+  } else if ($commenterinfo['user_avatar_type'] == 3 && !empty($commenterinfo['user_avatar'])) {
+    $avatar = $MAIN_CFG['avatar']['gallery_path'].'/'.$commenterinfo['user_avatar'];
+  } else if (file_exists('themes/'.$CPG_SESS['theme'].'/'.$MAIN_CFG['avatar']['gallery_path'].'/'.$MAIN_CFG['avatar']['default'])) {
+    $avatar = 'themes/'.$CPG_SESS['theme'].'/'.$MAIN_CFG['avatar']['gallery_path'].'/'.$MAIN_CFG['avatar']['default'];
+  } else {
+    $avatar = $MAIN_CFG['avatar']['gallery_path'].'/'.$MAIN_CFG['avatar']['default'];
+  }
+  /*if ($avatar) {
+    $avatar = '<img src="'.$avatar.'" alt="" />';
+  }*/
+
+$commenter_profile = (isset($username) && $username !=_ANONYMOUS)? getlink('Your_Account&amp;profile='.$username): false;
+$cpgtpl->assign_vars(array(
+  'S_COMMENTER_NAME'  => $username,
+  'S_COMMENTER_PROF'  => $commenter_profile,
+  'S_AVATAR_IMG'      => $avatar
+));
+<!-- ENDPHP -->
+
+<!-- IF comment.IS_NESTED -->
+<div style="margin-left:20px;">
+<!-- ELSEIF comment.IS_FIRST -->
+
+<!-- ENDIF -->
+
+<!-- IF comment.IS_NESTED_END -->
+</div>
+<!-- ELSEIF comment.IS_FIRST_END -->
+
+<!-- ELSEIF comment.IS_LIST -->
+  <div>
+  	<a href="{comment.U_READCOMM}">{comment.S_READCOMM}</a> {comment.S_BYNAME} {comment.S_ON} {comment.S_DATE}
+  </div>
+<!-- ELSE -->
+  <a name="{comment.I_COMMENTID}"></a>
+
+  <!-- PHP -->
+    $style = ( !($i % 2) ) ? '1' : '2';
+    $i++;
+    $cpgtpl->assign_vars(array(
+    	'COM_CLASS'	=> 'combox'.$style,
+    	'COM_NR'		=> $i
+    ));
+  <!-- ENDPHP -->
+	<div class="{COM_CLASS}">
+    <span class="avatar_name"><!-- IF S_COMMENTER_PROF --><a href="{S_COMMENTER_PROF}"><!-- ENDIF -->{S_COMMENTER_NAME}<!-- IF S_COMMENTER_PROF --></a><!-- ENDIF --></span>
+  	<div class="avatar_img" style="background-image: url('{S_AVATAR_IMG}');"></div>
+  	<h4>{COM_NR}. {comment.S_SUBJECT}</h4>
+
+  	<div class="cominnerbox">
+  		<div class="comtime"><a href="{S_CURADRESS}#{comment.I_COMMENTID}" title="">{comment.S_DATE}</a></div>
+  		<!--<b>{comment.S_SUBJECT}</b><br />-->
+  		{comment.S_COMMENT}<br style="clear:both;"/></div>
+  		<!-- IF comment.U_COMMENTEXT --><br /><br /><b><a href="{comment.U_COMMENTEXT}">{comment.S_COMMENTEXT}</a></b><!-- ENDIF -->
+  		<br /><br />
+  		<div class="comfooter">
+  		<!-- IF comment.U_REPLY --><a href="{comment.U_REPLY}">{comment.S_REPLY}</a> | <!-- ENDIF -->
+  		<!-- IF comment.I_SCORE -->{comment.S_SCORE} {comment.I_SCORE}<!-- IF comment.S_REASON -->, {comment.S_REASON}<!-- ENDIF --> | <!-- ENDIF -->
+  		<!-- IF comment.U_PARENT --><a href="{comment.U_PARENT}">{comment.S_PARENT}</a>  | <!-- ENDIF -->
+  		<!-- IF comment.S_MODERATE -->{comment.S_MODERATE} | <!-- ENDIF -->
+  		<!-- IF comment.U_DELETE --><a href="{comment.U_DELETE}">{comment.S_DELETE}</a> | <!-- ENDIF --> {comment.S_IP}
+  	</div>
+  </div>
+<!-- ENDIF -->
+
+<!-- END comment -->
+
+
+<!-- IF U_MODERATE -->
+{F_MODHIDE}
+<div style="margin-top:10px;text-align:center;">
+  <input type="submit" name="submit" value="_(CASTMYVOTE)" />
+</div>
+</form>
+<!-- ENDIF -->
+
+<!-- IF S_POSTCOMM -->
+
+  <!-- PHP -->
+  global $userinfo, $cpgtpl, $module_name;
+
+  $sid_name = 'sid';
+  if ($module_name == 'News') {
+    $sid_name = 'sid';
+  } else if ($module_name == 'Surveys') {
+    $sid_name = 'pollid';
+  }
+  $sid = intval($_GET[$sid_name]);
+
+
+  $pid = 0;
+  //$subject = $this->_tpldata['.'][0]['S_TITLE'];
+  //if (!eregi('Re:',$subject)) $subject = 'Re: '.substr($subject,0,81);
+
+  if (is_user()) {
+    $user = '<a href="'.getlink('Your_Account').'">'.$userinfo['username'].'</a>';
+  } else {
+    $user = _ANONYMOUS.' [ <a href="'.getlink('Your_Account').'">'._LOGIN.'</a>/<a href="'.getlink('Your_Account&amp;file=register').'">'._NEWUSER.'</a> ]';
+  }
+
+  $cpgtpl->assign_vars(array(
+    'S_COMFORM'     => getlink(),
+    'V_USER'        => $user,
+    //'V_SUBJECT'     => htmlprepare($subject),
+    'S_BBCODETABLE' => bbcode_table('comment', 'postcomment'),
+    'S_SMILIES'     => smilies_table('inline', 'comment', 'postcomment'),
+    'S_PID'         => $pid,
+    'S_SID_NAME'    => $sid_name,
+    'S_SID'         => $sid,
+    'S_POSTCOM'     => _REPLYMAIN,
+    'S_YOURNAME'    => _YOURNAME,
+    'S_PREVIEW'     => _PREVIEW,
+    'S_OK'          => _OK,
+    'S_SUBJECT'     => _SUBJECT,
+    'S_UCOMMENT'    => _UCOMMENT
+  ));
+  <!-- ENDPHP -->
+
+  <div class="quickreply">
+    <h3>{S_POSTCOM}</h3>
+    <form action="{S_COMFORM}" method="post" name="postcomment" enctype="multipart/form-data" accept-charset="utf-8">
+
+    <div style="float:right;margin-left: 20px;">{S_SMILIES}</div>
+
+    <div style="margin-right: 200px">
+      <!-- IF B_ANONYMOUS --><p>{S_YOURNAME}: {V_USER}</p><!-- ENDIF -->
+      _(TITLE):<br />
+      <input type="text" name="subject" size="50" maxlength="85" value="" />
+      {S_BBCODETABLE}
+      <textarea cols="70" rows="10" name="comment" ></textarea>
+    </div>
+
+    <div class="clear"></div>
+    <input type="hidden" name="pid" value="{S_PID}" />
+    <input type="hidden" name="{S_SID_NAME}" value="{S_SID}" />
+
+    <input type="submit" accesskey="p" name="preview" class="subm" value="{S_PREVIEW}" />
+    <input type="submit" accesskey="s" name="postreply" class="subm" value="{S_OK}" />
+
+    </form>
+  </div>
+
+<!-- ENDIF -->

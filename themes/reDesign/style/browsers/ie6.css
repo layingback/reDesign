@@ -1,0 +1,36 @@
+body {
+    behavior: url(includes/css/csshover.htc);
+}
+
+
+/*
+We could also use
+* html body element for any ie6 specific stuff in
+ main style.css file, as IE6 is the only browser that thinks there's something before <html>
+*/
+
+
+/*In user account "Contact" header is too high*/
+table.forumline tr td.catleft {
+    line-height: 0.5em;
+}
+
+/* For some odd reason IE6 thinks that 20px is 26px */
+/* and 14 is 20 */
+ul.profile-icons li a {
+    height: 14px;
+}
+
+/* IE6 would cause a bug if margin is not 0 while hovering */
+fieldset.adminitems {
+    margin: 0;
+}
+
+span#tack {
+    background: none;
+}
+
+/*map icon*/
+#langselection {
+    background-image: url('../../images/backgrounds/header/world_map.gif');
+}

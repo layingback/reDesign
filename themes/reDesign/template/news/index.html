@@ -1,0 +1,73 @@
+<!-- BEGIN newsempty -->
+<div class="newsindex">
+    <div class="storytitle">{newsempty.S_SITENAME}</div>
+    <div class="storycontent">
+        {newsempty.S_NOTOPIC}<br /><br />
+        [ <a href="{newsempty.U_NEWSINDEX}">{newsempty.S_GONEWS}</a> | <a href="{newsempty.U_TOPICS}">{newsempty.S_SELECT}</a> ]
+    </div>
+</div>
+<!-- END newsempty -->
+
+<!-- BEGIN newscat -->
+<div class="table1" style="text-align: center;padding:20px;">
+    <h4>{newscat.S_SEARCHON}: {newscat.S_TOPIC_T}</h4>
+    <form action="{newscat.U_SEARCH}" method="post" {I18N}>
+    <input type="name" class="post" name="search" size="30" maxlength="255" />
+    <input type="submit" class="mainoption" value="{newscat.S_SEARCH}" />
+    <input type="hidden" name="topic" value="{newscat.I_TOPIC}" />
+    </form>
+    [ <a href="{newscat.U_HOME}">{newscat.S_GOHOME}</a> | <a href="{newscat.U_TOPICS}">{newscat.S_SELECT}</a> ]
+</div>
+<!-- END newscat -->
+
+<!-- PHP -->
+global $cpgtpl;
+<!-- ENDPHP -->
+
+<!-- BEGIN newstopic -->
+<!-- PHP -->
+$catlnk_length = strlen($this->_tpldata['newstopic'][$this->_newstopic_i]['S_CATLINK']);
+$scorenr = ($this->_tpldata['newstopic'][$this->_newstopic_i]['S_SCORLINK'])? substr($this->_tpldata['newstopic'][$this->_newstopic_i]['S_SCORLINK'], strlen(_SCORE)+1) : '';
+
+$cpgtpl->assign_vars(array(
+'S_STORYLINK'   => getlink('News&amp;file=article&amp;sid='.$this->_tpldata['newstopic'][$this->_newstopic_i]['S_SID']),
+'S_PRINTLINK'   => getlink('News&amp;file=print&amp;sid='.$this->_tpldata['newstopic'][$this->_newstopic_i]['S_SID']),
+'S_FRIENDLINK'  => getlink('News&amp;file=friend&amp;sid='.$this->_tpldata['newstopic'][$this->_newstopic_i]['S_SID']),
+'S_STORYTITLE'  => substr($this->_tpldata['newstopic'][$this->_newstopic_i]['S_TITLE'], $catlnk_length),
+'S_COMMENTLINK' => ($this->_tpldata['newstopic'][$this->_newstopic_i]['S_COMMLINK'])? substr($this->_tpldata['newstopic'][$this->_newstopic_i]['S_COMMLINK'], 0, -3) : '',
+'S_CATLINK'     => ($this->_tpldata['newstopic'][$this->_newstopic_i]['S_CATLINK'])? substr($this->_tpldata['newstopic'][$this->_newstopic_i]['S_CATLINK'], 0, -3) : '',
+'S_SCORENR'     => $scorenr,
+'S_SCOREPERC'   => $scorenr? ($scorenr*20): 0
+));
+<!-- ENDPHP -->
+
+<div class="newsindex">
+    <h3><a href="{S_STORYLINK}">{S_STORYTITLE}</a></h3>
+    <div class="storycontent">
+        <div class="storytime">{newstopic.S_TIME}</div>
+        {newstopic.S_STORY}
+        <!-- IF newstopic.S_NOTES --><br /><br /><b>{newstopic.S_NOTE}</b> <i>{newstopic.S_NOTES}</i><!-- ENDIF -->
+
+        <!-- IF newstopic.S_MORELINK --><div class="storymore"><a href="{S_STORYLINK}">_(READMORE)</a></div><!-- ENDIF -->
+        <ul class="storydetails">
+            <li>{newstopic.S_POSTEDBY}: {newstopic.S_INFORMANT}</li>
+            <li>_(TOPIC): <a href="{newstopic.U_NEWTOPIC}"><!-- IF newstopic.S_TOPIC -->{newstopic.S_TOPIC}<!-- ELSE -->_(ALL)<!-- ENDIF --></a></li>
+            <!-- IF newstopic.S_CATLINK --><li>_(CATEGORY): {S_CATLINK}</li><!-- ENDIF -->
+            <!-- IF newstopic.S_SCORLINK -->
+            <li>_(SCORE) <span class="smallrating" title="{S_SCORENR} / 5"><span style="width: {S_SCOREPERC}%;"><span>{S_SCORENR} / 5</span></span></span></li>
+            <!-- ENDIF -->
+        </ul>
+        <ul class="storylinks">
+            <!-- IF newstopic.S_COMMLINK --><li style="font-weight: bold;">{S_COMMENTLINK}</li><!-- ENDIF -->
+            <li><a href="{S_PRINTLINK}">_(PRINTER)</a></li>
+            <li><a href="{S_FRIENDLINK}">_(FRIEND)</a></li>
+            <!-- IF S_IS_ADMIN --><li class="float_right"><a href="{U_NEWSADMIN}{newstopic.S_SID}">{S_EDIT}</a></li><!-- ENDIF -->
+        </ul>
+    </div>
+</div>
+<!-- END newstopic -->
+
+
+
+
+<!-- IF B_PAGINATION --><!-- INCLUDE pagination.html --><!-- ENDIF -->

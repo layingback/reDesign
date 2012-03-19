@@ -1,0 +1,20 @@
+<!-- INCLUDE forums/overall_header.html -->
+<div style="padding: 10px;overflow:auto;">
+  <h3>{L_RULES_TITLE}</h3>
+
+  <!-- BEGIN switch_nothing -->
+  {L_EMPTY_GROUP_PERMS}
+  <!-- END switch_nothing -->
+
+  <!-- BEGIN group_row -->
+  <h4 style="margin-top:5px;">{group_row.GROUP_RULE_HEADER}</h4>
+
+    <!-- BEGIN extension_row -->
+    <span style="float:left;background-color: #FCFDE3;border:1px solid #9F9F9F;padding: 2px;margin-right:3px;font-weight:bold;">{group_row.extension_row.EXTENSION}</span>
+    <!-- END extension_row -->
+    <div class="clear"></div>
+  <!-- END group_row -->
+
+  <a href="javascript:window.close();" class="genmed" style="display:block;float:left;margin-top: 10px; clear:both;">{L_CLOSE_WINDOW}</a>
+</div>
+<!-- INCLUDE forums/overall_footer.html -->

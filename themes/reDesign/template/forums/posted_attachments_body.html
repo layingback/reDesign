@@ -1,0 +1,30 @@
+<h4>{L_POSTED_ATTACHMENTS}:</h4>
+<hr />
+
+<!-- BEGIN attach_row -->
+
+  {L_FILE_NAME}:<br />
+  <a class="gen" href="{attach_row.U_VIEW_ATTACHMENT}" target="_blank">{attach_row.FILE_NAME}</a>
+
+  <br />
+  {L_FILE_COMMENT}:<br />
+  <textarea name="comment_list[]" rows="3" cols="35" wrap="virtual" size="40">{attach_row.FILE_COMMENT}</textarea>
+
+  <br />
+  {L_OPTIONS}:<br />
+
+
+  <input type="submit" name="edit_comment[{attach_row.ATTACH_FILENAME}]" value="{L_UPDATE_COMMENT}" />
+
+  <!-- BEGIN switch_update_attachment -->
+      &nbsp; <input type="submit" name="update_attachment[{attach_row.ATTACH_ID}]" value="{L_UPLOAD_NEW_VERSION}" />
+  <!-- END switch_update_attachment -->
+      &nbsp; <input type="submit" name="del_attachment[{attach_row.ATTACH_FILENAME}]" value="{L_DELETE_ATTACHMENT}" />
+  <!-- BEGIN switch_thumbnail -->
+      &nbsp; <input type="submit" name="del_thumbnail[{attach_row.ATTACH_FILENAME}]" value="{L_DELETE_THUMBNAIL}" />
+  <!-- END switch_thumbnail -->
+
+
+  {attach_row.S_HIDDEN}
+  <hr />
+<!-- END attach_row -->

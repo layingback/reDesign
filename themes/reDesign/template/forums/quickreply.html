@@ -1,0 +1,32 @@
+<script language="JavaScript" type="text/javascript">
+<!--
+function checkForm() {
+  if (document.post.message.value.length < 2) {
+    alert("{L_EMPTY_MESSAGE}");
+    return false;
+  } else {
+    return true;
+  }
+}
+//-->
+</script>
+
+<form action="{U_POST_ACTION}" method="post" name="post" onsubmit="return checkForm(this)" {I18N}>
+<div class="quickreply">
+  <h3>{L_QUICK_REPLY}</h3>
+  <textarea name="message" rows="10" cols="70"></textarea>
+
+  <input type="checkbox" name="quick_quote" id="quick_quote" value="{S_QREPLY_MSG}" /><label for="quick_quote">{L_QUICK_QUOTE}</label>
+  <input type="checkbox" name="attach_sig" id="attach_sig" {S_QREPLY_SIG} /><label for="attach_sig">{L_ATTACH_SIGNATURE}</label><br />
+
+  <!-- IF S_IS_ANON -->
+  <b>{L_USERNAME}:</b> <input class="post" type="text" name="username" size="25" maxlength="25" style="width:200px;" value="" /><br />
+  <!-- ENDIF -->
+
+
+  <input type="submit" accesskey="p" name="preview" class="subm liteoption" value="{L_PREVIEW}" />
+  <input type="submit" accesskey="s" name="post" class="subm mainoption" value="{L_SUBMIT}" />
+  {S_HIDDEN_QREPLY_FIELDS}
+
+</div>
+</form>

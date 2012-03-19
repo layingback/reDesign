@@ -1,0 +1,67 @@
+<!-- INCLUDE forums/overall_header.html -->
+<h2 class="page_title">{L_SEARCH_MATCHES}</h2>
+
+<p class="breadcrumb_traces">
+	<a href="{U_MAININDEX}">_(HOME)</a>
+	<a href="{U_INDEX}">{L_INDEX}</a>
+	<i><a href="{U_SEARCH}">{L_SEARCH}</a></i>
+</p>
+
+<div class="gensmall" style="margin-bottom: 5px;">
+<a href="{U_FAQ}">{L_FAQ}</a>
+ • <a href="{U_SEARCH}">{L_SEARCH}</a>
+<!-- IF S_LOGGED_IN -->
+ • <a href="{U_SEARCH_NEW}">{S_NEW_POSTS}</a>
+ • <a href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a>
+<!-- ENDIF -->
+ • <a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a>
+<br style="clear:both;" />
+</div>
+
+<!-- BEGIN searchresults -->
+<div class="wip_post row1"><b class="corner-lt"></b><b class="corner-rt"></b>
+<div class="wip_postbody">
+  <h3><a href="{searchresults.U_POST}">{searchresults.POST_SUBJECT}</a>
+  </h3>
+  <p class="wip_postdetails">
+  <a href="{searchresults.U_POST}"><img src="{searchresults.MINI_POST_IMG}" alt="{searchresults.L_MINI_POST_ALT}" title="{searchresults.L_MINI_POST_ALT}" /></a>
+  {L_POSTED}: {searchresults.POST_DATE}
+  </p>
+  <div class="wip_content">
+  {searchresults.MESSAGE}
+  </div>
+</div>
+
+<dl class="wip_profile">
+  <dt>
+  {searchresults.POSTER_NAME}</dt>
+  <dd><b>{L_TOPIC}: <a href="{searchresults.U_TOPIC}">{searchresults.TOPIC_TITLE}</a></b></dd>
+  <dd>{L_REPLIES}: <b>{searchresults.TOPIC_REPLIES}</b></dd>
+  <dd>{L_VIEWS}: <b>{searchresults.TOPIC_VIEWS}</b></dd>
+  <dd>&nbsp;</dd>
+</dl>
+
+<div class="back2top"><a href="{CURRENT_URL}#top" class="top" title="{BACK_TO_TOP}">{BACK_TO_TOP}</a></div>
+<span class="corners-bottom"><span></span></span></div>
+<!-- END searchresults -->
+
+<div class="afterposts">
+  <div class="leftinfo">
+    <a class="left-box left" href="{U_INDEX}" accesskey="f">{L_INDEX}</a>
+    <br style="clear:both;" />
+  </div>
+  <div class="rightinfo">
+    <span class="nav">{PAGE_NUMBER}</span>
+    <!-- IF PAGINATION --><br />{PAGINATION}<br /><!-- ENDIF -->
+  </div>
+  <br style="clear:both;" />
+</div>
+
+<div class="afterposts">
+  <div class="rightinfo">
+    <!-- INCLUDE forums/jumpbox.html -->
+  </div>
+  <br style="clear:both;" />
+</div>
+
+<!-- INCLUDE forums/overall_footer.html -->

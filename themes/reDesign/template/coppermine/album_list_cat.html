@@ -1,0 +1,26 @@
+
+<!-- BEGIN c_album_cell -->
+  <div class="album">
+	<div class="picture">
+		<a class="picture_link" href="{c_album_cell.ALB_LINK_TGT}">{c_album_cell.ALB_LINK_PIC}
+		<span class="picture_frame"></span></a>
+	</div>
+
+    <div class="album_info" style="float:left;width: 50%;">
+      <h4><a href="{c_album_cell.ALB_LINK_TGT}">{c_album_cell.ALBUM_TITLE}</a></h4>
+      <span class="thumb_caption">{c_album_cell.ALB_DESC}</span><br /><br />
+      <span class="stats">{c_album_cell.ALB_INFOS}</span>
+      <!-- IF c_album_cell.ADMIN_MENU --><div class="admin_menu">{c_album_cell.ADMIN_MENU}</div><!-- ENDIF -->
+    </div>
+  </div>
+<!-- END c_album_cell -->
+
+<div class="clear"></div>
+
+<!-- IF STATISTICS -->
+<span class="stats"><b>{STATISTICS}</b></span>
+<!-- ENDIF -->
+
+<!-- BEGIN c_empty_cell --><!-- END c_empty_cell -->
+
+<!-- BEGIN c_tabs -->{c_tabs.TABS}<br class="clear" /><!-- END c_tabs -->

@@ -1,0 +1,76 @@
+<form method="post" action="{S_MODE_ACTION}" {I18N}>
+	<div style="float:right;">
+		{L_SELECT_SORT_METHOD}:&nbsp;{S_MODE_SELECT}&nbsp;&nbsp;{L_ORDER}:&nbsp;{S_ORDER_SELECT}&nbsp;&nbsp;
+        <input type="submit" name="submit" value="{L_SUBMIT}" />
+    </div>
+</form>
+<br /><br />
+
+<!-- PHP -->
+global $cpgtpl, $MAIN_CFG, $CPG_SESS;
+<!-- ENDPHP -->
+
+<!-- BEGIN memberrow -->
+
+<!-- PHP -->
+$username = $this->_tpldata['memberrow'][$this->_memberrow_i]['USERNAME'];
+
+$commenterinfo = getusrdata($username,'user_avatar_type,user_avatar');
+
+if ($commenterinfo['user_avatar_type'] == 1) {
+	$avatar = $MAIN_CFG['avatar']['path'].'/'.$commenterinfo['user_avatar'];
+} else if ($commenterinfo['user_avatar_type'] == 2) {
+	$avatar = $commenterinfo['user_avatar'];
+} else if ($commenterinfo['user_avatar_type'] == 3 && !empty($commenterinfo['user_avatar']) && $commenterinfo['user_avatar'] != 'gallery/blank.gif') {
+	$avatar = $MAIN_CFG['avatar']['gallery_path'].'/'.$commenterinfo['user_avatar'];
+} else if (file_exists('themes/'.$CPG_SESS['theme'].'/'.$MAIN_CFG['avatar']['gallery_path'].'/'.$MAIN_CFG['avatar']['default'])) {
+	$avatar = 'themes/'.$CPG_SESS['theme'].'/'.$MAIN_CFG['avatar']['gallery_path'].'/'.$MAIN_CFG['avatar']['default'];
+} else {
+	$avatar = $MAIN_CFG['avatar']['gallery_path'].'/'.$MAIN_CFG['avatar']['default'];
+}
+$avatar = '<img src="'.$avatar.'" alt="" />';
+
+// We test the location to verify if it's set or is an empty string (btw, &nbsp is returned instead of normal space)
+$from = $this->_tpldata['memberrow'][$this->_memberrow_i]['FROM'];
+// Replace nbsp with normal space, so that trim can find it
+$from = str_replace('&nbsp;',' ',$from);
+// Remove spaces from beginning and end
+$from = trim($from);
+
+$cpgtpl->assign_vars(array(
+      'S_AVATAR_IMG'      => $avatar,
+      'B_LOCATION'        => $from,
+));
+<!-- ENDPHP -->
+
+<div class="memberslist_user {memberrow.ROW_CLASS}"><b class="corner-lt"></b><b class="corner-rt"></b>
+	<div class="user_container">
+	<div class="user_info">
+	<a href="{memberrow.U_VIEWPROFILE}" class="user_avatar">{S_AVATAR_IMG}</a>
+	<a href="{memberrow.U_VIEWPROFILE}" class="user_name">{memberrow.USERNAME}</a>
+	</div>
+	{L_JOINED}: {memberrow.JOINED}<br />
+	{L_POSTS}: {memberrow.POSTS}<br />
+
+	{memberrow.EMAIL_IMG}<br /><!-- This is actually rank not email -->
+	<!-- IF B_LOCATION -->{L_FROM}: {memberrow.FROM}<br /><!-- ENDIF -->
+
+	<div class="user_icons">
+    <!-- IF S_IS_USER --><!-- IF memberrow.PM_IMG -->
+		<div class="ml_icon pm_image" style="background-image: url('{PM_IMAGE}');">{memberrow.PM_IMG}</div>
+	<!-- ENDIF --><!-- ENDIF -->
+	<!-- IF memberrow.WWW_IMG --><div class="ml_icon www_image" style="background-image: url('{WWW_IMAGE}');">{memberrow.WWW_IMG}</div><!-- ENDIF -->
+	</div>
+
+	</div>
+
+<span class="corners-bottom"><span></span></span></div>
+<!-- END memberrow -->
+
+<div class="clear"></div>
+
+<div>
+  <div class="nav" style="float:left;">{PAGE_NUMBER}</div>
+    <div class="nav" style="float:right;">{PAGINATION}</div>
+</div><br />
+

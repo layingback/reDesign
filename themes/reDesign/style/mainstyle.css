@@ -1,0 +1,23 @@
+/* This file is loaded only if real header.html template is used.
+ Anything here will overwrite style.css counterpart
+*/
+
+
+/*Apply the full width fix*/
+@import url('hack.css');
+
+html {
+  /*background-color: #699B64;*/
+  /*background: #699B64 url('../images/backgrounds/body/html_background.gif') no-repeat 0% 100%;*/
+  background-color: #FFF;
+  xpadding-top: 10px;
+}
+/* The main values */
+body {
+  width: 98%; /* for full width design use 100% */
+  width: 100%;
+  min-width: 820px; /* to enable scrollbar if windows is too tiny, so it won't mess up */
+  margin: 0 auto; /* aligns site to horizontally middle of the page */
+  background: transparent url('../images/backgrounds/header/headerbg_exp.jpg') repeat-x top left;/*menu expandable bg here*/
+  position: relative;
+}

@@ -1,0 +1,92 @@
+<script language="Javascript" type="text/javascript">
+<!--
+// Should really check the browser to stop this whining ...
+function select_switch(status)
+{
+  for (i = 0; i < document.privmsg_list.length; i++)
+  {
+    document.privmsg_list.elements[i].checked = status;
+  }
+}
+//-->
+</script>
+
+<!-- PHP -->
+  global $cpgtpl, $images, $lang;
+
+  $cpgtpl->assign_vars(array(
+    'ICON_NEWPM'	=> $images['pm_postmsg'],
+    'URL_NEWPM'		=> getlink("&amp;mode=post"),
+    'L_NEWPM'		=> $lang['Post_new_pm']
+  ));
+<!-- ENDPHP -->
+
+
+<a href="{URL_NEWPM}" title="{L_NEWPM}" class="forumbutton replypm" style="background-image:url('{ICON_NEWPM}');"><img src="{ICON_NEWPM}" alt="{L_NEWPM}" /><span>{L_NEWPM}</span></a>
+
+<form method="post" name="privmsg_list" action="{S_PRIVMSGS_ACTION}" {I18N}>
+
+{S_HIDDEN_FIELDS}
+<input type="submit" name="save" value="{L_SAVE_MARKED}" class="button" />
+<input type="submit" name="delete" value="{L_DELETE_MARKED}" class="button" />
+<input type="submit" name="deleteall" value="{L_DELETE_ALL}" class="button" />
+
+<div id="tabs"><b></b><ul>
+  <li>{INBOX}</li>
+  <li>{SENTBOX}</li>
+  <li>{OUTBOX}</li>
+  <li>{SAVEBOX}</li>
+</ul></div>
+<table class="forumline" style="width:100%;">
+  <tr>
+    <th> </th>
+    <th>{L_FROM_OR_TO}</th>
+    <th>{L_SUBJECT}</th>
+    <th>{L_DATE}</th>
+    <th> </th>
+  </tr>
+  <!-- BEGIN listrow -->
+  <tr class="{listrow.ROW_CLASS}">
+    <td style="text-align: center;"><img src="{listrow.PRIVMSG_FOLDER_IMG}" alt="{listrow.L_PRIVMSG_FOLDER_ALT}" title="{listrow.L_PRIVMSG_FOLDER_ALT}" /></td>
+    <td style="width: 20%;cursor: pointer;" onclick="location.href='{listrow.U_FROM_USER_PROFILE}'"><span class="name">&nbsp;<a href="{listrow.U_FROM_USER_PROFILE}" class="name">{listrow.FROM}</a></span></td>
+    <td style="width: 50%;cursor: pointer;" onclick="location.href='{listrow.U_READ}'"><span class="topictitle">&nbsp;<a href="{listrow.U_READ}" class="topictitle">{listrow.SUBJECT}</a></span></td>
+    <td style="width: 20%;"><span class="postdetails">{listrow.DATE}</span></td>
+    <td style="text-align: center;"><input type="checkbox" name="mark[]2" value="{listrow.S_MARK_ID}" /></td>
+  </tr>
+  <!-- END listrow -->
+  <!-- BEGIN switch_no_messages -->
+  <tr>
+    <td class="row1" style="text-align: center;height: 3em;" colspan="5"><span class="gen">{L_NO_MESSAGES}</span></td>
+  </tr>
+  <!-- END switch_no_messages -->
+</table>
+
+<div style="float: left; padding: 4px;">
+{L_DISPLAY_MESSAGES}: <select name="msgdays">
+{S_SELECT_MSG_DAYS}
+</select>
+<input type="submit" value="{L_GO}" name="submit_msgdays" class="liteoption" /><br />
+{PAGE_NUMBER}
+</div>
+<div style="float: right;">
+<a href="javascript:select_switch(true);" class="gensmall">{L_MARK_ALL}</a>
+<a href="javascript:select_switch(false);" class="gensmall">{L_UNMARK_ALL}</a><br />
+{PAGINATION}
+</div>
+
+</form>
+
+
+<!-- BEGIN switch_box_size_notice -->
+<div id="pmstatus">
+<span>{BOX_SIZE_STATUS}</span>
+<div class="pmbar" style="width:{INBOX_LIMIT_IMG_WIDTH}px;"></div>
+<table class="pmpercent">
+  <tr>
+    <td style="width:33%;">0%</td>
+    <td style="width:34%;text-align:center;">50%</td>
+    <td style="width:33%;text-align:right;">100%</td>
+  </tr>
+</table>
+</div>
+<!-- END switch_box_size_notice -->

@@ -1,0 +1,86 @@
+<!-- INCLUDE forums/overall_header.html -->
+<h2 class="page_title">{L_SEARCH}</h2>
+
+<p class="breadcrumb_traces">
+	<a href="{U_MAININDEX}">_(HOME)</a>
+	<a href="{U_INDEX}">{L_INDEX}</a>
+	<i><a href="{U_SEARCH}">{L_SEARCH}</a></i>
+</p>
+
+<div class="gensmall" style="margin-bottom: 5px;">
+<a href="{U_FAQ}">{L_FAQ}</a>
+ • <a href="{U_SEARCH}">{L_SEARCH}</a>
+<!-- IF S_LOGGED_IN -->
+ • <a href="{U_SEARCH_NEW}">{S_NEW_POSTS}</a>
+ • <a href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a>
+<!-- ENDIF -->
+ • <a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a>
+<br style="clear:both;" />
+</div>
+
+
+<form action="{S_SEARCH_ACTION}" method="post" {I18N}>
+
+<fieldset class="forums_search">
+	<legend>{L_SEARCH_QUERY}</legend>
+
+	<div style="float:left;width:45%">
+	<h4>{L_SEARCH_KEYWORDS}</h4>
+	<p class="tiny">{L_SEARCH_KEYWORDS_EXPLAIN}</p>
+	<p><input type="text" class="post" style="width: 300px" name="search_keywords" size="30" /></p>
+	<p style="padding-bottom:1em;">
+		<input type="radio" id="search_all_terms" name="search_terms" value="all" checked="checked" /><label class="gensmall" for="search_all_terms">{L_SEARCH_ALL_TERMS}</label><br />
+		<input type="radio" id="search_any_terms" name="search_terms" value="any" /><label class="gensmall" for="search_any_terms">{L_SEARCH_ANY_TERMS}</label>
+	</p>
+
+	<p>
+		<label for="search_author">{L_SEARCH_AUTHOR}:</label> <input type="text" name="search_author" id="search_author" class="post tiny" style="width: 170px;" size="20" /><br />
+		<span class="tiny">{L_SEARCH_AUTHOR_EXPLAIN}</span>
+	</p>
+	</div>
+
+
+	<div style="float:left;width:54%;">
+	<h4>{L_SEARCH_OPTIONS}</h4>
+
+    <p class="gensmall" style="border-bottom: 1px solid #F7EBE8;padding-bottom:1em;">
+    	<label class="fixedfloat" for="search_cat">{L_CATEGORY}:</label> <select id="search_cat" name="search_cat">{S_CATEGORY_OPTIONS}</select><br />
+		<label class="fixedfloat" for="search_forum">{L_FORUM}:</label> <select id="search_forum" name="search_forum">{S_FORUM_OPTIONS}</select><br />
+		<label class="fixedfloat">{L_SEARCH_PREVIOUS}:</label> <select class="post" name="search_time">{S_TIME_OPTIONS}</select><br />
+		<label class="fixedfloat"></label> <input type="radio" name="search_fields" value="all" checked="checked" id="search_all" /><label for="search_all">{L_SEARCH_MESSAGE_TITLE}</label><br />
+		<label class="fixedfloat"></label> <input type="radio" name="search_fields" value="msgonly" id="search_msgonly" /><label for="search_msgonly">{L_SEARCH_MESSAGE_ONLY}</label>
+	</p>
+
+	<p class="gensmall">
+		<label class="fixedfloat">{L_SORT_BY}:</label> <select class="post" name="sort_by">{S_SORT_OPTIONS}</select><br />
+		<label class="fixedfloat"></label> <input type="radio" name="sort_dir" value="ASC" id="sort_asc" /><label for="sort_asc">{L_SORT_ASCENDING}</label>
+		<input type="radio" name="sort_dir" value="DESC" checked="checked" id="sort_desc" /><label for="sort_desc">{L_SORT_DESCENDING}</label><br />
+
+    	<label class="fixedfloat">{L_RETURN_FIRST}:</label> <select class="post" name="return_chars">{S_CHARACTER_OPTIONS}</select> {L_CHARACTERS}<br />
+
+		<label class="fixedfloat">{L_DISPLAY_RESULTS}:</label>
+		<input type="radio" name="show_results" id="show_posts" value="posts" /><label for="show_posts">{L_POSTS}</label>
+		<input type="radio" name="show_results" value="topics" id="show_topics" checked="checked" /><label for="show_topics">{L_TOPICS}</label>
+	</p>
+
+	<p>{S_HIDDEN_FIELDS}</p>
+	</div>
+
+	<br class="clear" />
+
+	<input class="liteoption" type="submit" value="{L_SEARCH}" />
+</fieldset>
+
+
+</form>
+
+<div class="afterposts">
+  <div class="rightinfo">
+    <!-- INCLUDE forums/jumpbox.html -->
+  </div>
+  <br style="clear:both;" />
+</div>
+
+<!--{S_TIMEZONE}-->
+
+<!-- INCLUDE forums/overall_footer.html -->

@@ -1,0 +1,224 @@
+/* ThemeOfficeMenu Style Sheet */
+
+.ThemeOfficeMenu,.ThemeOfficeSubMenuTable
+{
+    padding: 1px;
+    white-space: nowrap;
+    cursor: default;
+    width: 214px;
+    height: 22px;
+  /*  background-color: #FAFAFA;*/
+}
+
+.ThemeOfficeSubMenu
+{
+    position:    absolute;
+    visibility:  hidden;
+
+    /*
+       Netscape/Mozilla renders borders by increasing
+       their z-index.  The following line is necessary
+       to cover any borders underneath
+    */
+    z-index:     100;
+    border:      0;
+    padding:     0;
+
+    overflow:    visible;
+    border:      1px solid #868686;
+
+    filter:progid:DXImageTransform.Microsoft.Shadow(color=#BDC3BD, Direction=135, Strength=4);
+}
+
+.ThemeOfficeSubMenuTable
+{
+    overflow:    visible;
+}
+
+.ThemeOfficeMainItem,.ThemeOfficeMainItemHover,.ThemeOfficeMainItemActive,
+.ThemeOfficeMenuItem,.ThemeOfficeMenuItemHover,.ThemeOfficeMenuItemActive
+{
+    border:        0;
+    cursor:        default;
+    white-space:   nowrap;
+}
+
+.ThemeOfficeMainItem
+{
+    color: #949B60;
+    background-color: transparent;
+}
+
+.ThemeOfficeMainItemHover, .ThemeOfficeMainItemActive
+{
+/* Üleval kasti sisemus ületamisel */
+    background-color: transparent;
+    color: #000;
+}
+
+.ThemeOfficeMenuItem
+{
+/* Alammenüü põhivärv */
+    background-color: #FAFAFA;
+    color: #000;
+}
+
+.ThemeOfficeMenuItemHover, .ThemeOfficeMenuItemActive
+{
+/* Alammenüü asjade ületamisel tekkiv taust kokku v+p */
+    background-image: url(../images/cookmenu/bg.png);
+    height: 22px;
+    color: #000;
+}
+
+
+/* horizontal main menu */
+
+.ThemeOfficeMainItem
+{
+/* ülemise menüü äär */
+    padding:    1px;
+    text-align: center;
+    border:     0;
+}
+
+td.ThemeOfficeMainItemHover,td.ThemeOfficeMainItemActive
+{
+/* ülemise menüü äär ületamisel */
+    padding: 0px;
+    border: 1px solid #F2F2EA;
+    text-align: center;
+    background-color: #D5D6B4;
+}
+
+.ThemeOfficeMainFolderLeft,.ThemeOfficeMainItemLeft,
+.ThemeOfficeMainFolderText,.ThemeOfficeMainItemText,
+.ThemeOfficeMainFolderRight,.ThemeOfficeMainItemRight
+{
+/* ülemise menüü taust koguaeg */
+    background-color: inherit;
+}
+
+/* sub menu sub components */
+
+.ThemeOfficeMenuFolderLeft,.ThemeOfficeMenuItemLeft
+{
+/* alammenüü ületamisel vasak osa */
+    padding: 0;
+    border: 0;
+    text-align: center;
+    background-color: inherit;
+    white-space: nowrap;
+}
+
+.ThemeOfficeMenuFolderText,.ThemeOfficeMenuItemText
+{
+/* alammenüü ületamisel keskmine osa*/
+    font: normal 10px Segoe UI, comic sans ms, times new roman;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left:    5px;
+    padding-right:    5px;
+    vertical-align: middle;
+
+    border: 0;
+
+    background-color:    inherit;
+    white-space:    nowrap;
+}
+
+.ThemeOfficeMenuFolderRight,.ThemeOfficeMenuItemRight
+{
+/* alammenüü ületamisel parem osa*/
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 9px;
+    text-align: right;
+
+    border: 0;
+
+    background-color:    inherit;
+    white-space:    nowrap;
+}
+
+.ThemeOfficeMenuItem .ThemeOfficeMenuFolderLeft,
+.ThemeOfficeMenuItem .ThemeOfficeMenuItemLeft
+{
+/* alammenüü vasak osa niisama*/
+    padding: 0;
+    text-align: center;
+    width: 24px;
+    height: 22px;
+
+    white-space: nowrap;
+
+    border-right: 1px solid #C5C5C5;
+    border-left: 0;
+    border-top: 0;
+    border-bottom: 0;
+
+    /* alammenüü vasakpoolse osa taust */
+    background-color: #E9EEEE;
+}
+
+.ThemeOfficeMenuItem .ThemeOfficeMenuFolderText,
+.ThemeOfficeMenuItem .ThemeOfficeMenuItemText
+{
+/* alammenüü keskmine osa niisama*/
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left:    5px;
+    padding-right:    5px;
+    vertical-align: middle;
+    height: 22px;
+
+    border: 0;
+    background-color: inherit;
+}
+
+.ThemeOfficeMenuItem .ThemeOfficeMenuFolderRight,
+.ThemeOfficeMenuItem .ThemeOfficeMenuItemRight
+{
+/* alammenüü parem osa niisama*/
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 9px;
+    text-align: right;
+    height: 22px;
+
+    border: 0;
+    background-color:    inherit;
+}
+
+/* menu splits */
+
+.ThemeOfficeMenuSplit
+{
+    margin:        2px;
+    height:        1px;
+    overflow:    hidden;
+    background-color:    inherit;
+    border-top:    1px solid #C6C3BD;
+}
+
+/* image shadow animation */
+
+.ThemeOfficeMenuItem img.seq1
+{
+    display:    inline;
+}
+
+.ThemeOfficeMenuItemHover seq2,
+.ThemeOfficeMenuItemActive seq2
+{
+    display:    inline;
+}
+
+.ThemeOfficeMenuItem .seq2,
+.ThemeOfficeMenuItemHover .seq1,
+.ThemeOfficeMenuItemActive .seq1
+{
+    display:    none;
+}

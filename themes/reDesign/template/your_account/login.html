@@ -1,0 +1,29 @@
+<!-- IF S_LOGIN_ERROR -->
+	<h4>_(ERROR)</h4>
+	{S_LOGIN_ERROR}
+<!-- ENDIF -->
+
+<div id="log_in_page">
+<form action="{U_LOGIN}" method="post" class="special" enctype="multipart/form-data" accept-charset="utf-8">
+	<div>
+		<label for="ulogin2">_(NICKNAME):</label> <em></em><input tabindex="1" class="specialtext" type="text" id="ulogin2" name="ulogin" size="20" maxlength="25" /><b></b>
+		<!-- IF U_REGISTER --><br /><a href="{U_REGISTER}" class="sublink">_(REGNEWUSER)</a><!-- ENDIF -->
+	</div>
+  <div>
+  	<label for="user_password2">_(PASSWORD):</label> <em></em><input tabindex="2" class="specialtext" type="password" id="user_password2" name="user_password" size="20" maxlength="20" /><b></b>
+		<tt></tt><button tabindex="7" type="submit">_(LOGIN)</button><i></i><br />
+		<a href="{U_PASSLOSS}" class="sublink">_(PASSWORDLOST)</a>
+	</div>
+	</form>
+	<br style="clear:both" /><br />
+
+  <!-- IF S_SEC_IMG -->
+  <fieldset class="security_fieldset">
+    <legend>_(SECURITYCODE)</legend>
+    <label class="set" for="gfx_check">_(TYPESECCODE)</label><br />
+    <input type="text" class="post" name="gfx_check" id="gfx_check" tabindex="3" size="8" maxlength="8" /> {S_SEC_IMG}
+  </fieldset><br />
+<!-- ENDIF -->
+</div>
+
+</form>

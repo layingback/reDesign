@@ -1,0 +1,83 @@
+<br style="clear: both;" />
+<!-- BEGIN bottomblock -->
+<div id="pe{bottomblock.S_BID}" class="centerblock<!-- IF bottomblock.S_VISIBLE --> collapsed<!-- ENDIF -->">
+    <h2 title="_(TOGGLE)" onclick="toggleBlockCollapsed('{bottomblock.S_BID}');" unselectable="on">{bottomblock.S_TITLE}</h2>
+    <span class="state_indicator"></span>
+    <div class="blockcontent">
+        {bottomblock.S_CONTENT}
+    </div>
+</div>
+<!-- END bottomblock -->
+<div class="widthfixer"></div>
+</div><!-- -#main -->
+
+<br style="clear:both" />
+</div><!-- -#maincontainer -->
+
+<div id="footer">
+    <div id="messagesbox"></div>
+
+    <a href="{CURRENT_URL}#skiptotop" class="navtop">{BACK_TO_TOP}</a>
+
+    <div class="footer_parts">
+        <div class="footer_1">
+            {FOOTER_1}
+        </div>
+        <div class="footer_2">
+            {FOOTER_2}
+        </div>
+        <div class="footer_3">
+            {FOOTER_3}
+        </div>
+        <div style="clear: both;"></div>
+        <!-- IF U_EDIT_FOOTER --><a href="{U_EDIT_FOOTER}">_(EDIT)</a><!-- ENDIF -->
+    </div>
+
+    <!-- IF BANNER_FOOTER --><div id="banner_footer">{S_BANNER}</div><!-- ENDIF -->
+
+    <div class="footer_info">
+        {S_FOOTER}
+    </div>
+
+    <!-- IF S_DEBUG_SQL -->
+    <div id="pe{DSQL_ID}" class="table1<!-- IF S_DEBUG_SQL_COLLAPSED --> collapsed<!-- ENDIF -->">
+        <span onclick="toggleBlockCollapsed('{DSQL_ID}');" unselectable="on" style="cursor:pointer;color:#547781;">Toggle SQL Debug Info:</span>
+
+        <div class="blockcontent">
+            {S_DEBUG_SQL}
+        </div>
+    </div>
+    <!-- ENDIF -->
+
+    <!-- IF S_DEBUG_PHP -->
+    <div id="pe{DPHP_ID}" class="table1<!-- IF S_DEBUG_PHP_COLLAPSED --> collapsed<!-- ENDIF -->">
+        <span onclick="toggleBlockCollapsed('{DPHP_ID}');" unselectable="on" style="cursor:pointer;color:#707CA7;">Toggle PHP Debug Info:</span>
+
+        <div class="blockcontent">
+            {S_DEBUG_PHP}
+        </div>
+    </div>
+    <!-- ENDIF -->
+</div>
+
+
+
+<a name="skiptomenu" class="skiplink"></a>
+<a href="{CURRENT_URL}#skiptotop" class="skiplink">{BACK_TO_TOP}</a>
+<a href="{CURRENT_URL}#skiptomain" class="skiplink">Back to main</a>
+<a href="{CURRENT_URL}#skiptocontent" class="skiplink">Back to content</a>
+
+<!-- IF S_ADMIN_CSSMENU or S_MAIN_MENU-->
+<div id="menu">{S_MAIN_MENU}</div>
+<!-- ELSE -->
+<div id="menu"><ul>
+    <li><a href="{U_MAININDEX}">{S_HOME}</a></li>
+    <!-- IF S_DOWNLOADS --><li><a href="{U_DOWNLOADS}">{S_DOWNLOADS}</a></li><!-- ENDIF -->
+    <li><a href="{U_FORUMS}">{S_FORUMS}</a></li>
+    <li><a href="{U_MY_ACCOUNT}">{S_MY_ACCOUNT}</a></li>
+    <!-- IF S_IS_ADMIN --><li><a href="{U_ADMININDEX}">{S_ADMINISTR}</a></li><!-- ENDIF -->
+</ul></div>
+<!-- ENDIF -->
+
+</body>
+</html>

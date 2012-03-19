@@ -1,0 +1,27 @@
+<div class="pagetitle forumpagetitle">
+<span style="float: left;"><a href="{U_MAININDEX}">_(HOME)</a> {BC_DELIM}&nbsp;</span>{U_CRUMBS}
+</div>
+
+<div class="table1">
+<!-- IF G_ID -->
+<span style="float: right;">{U_ADDPAGE}{U_EDITPAGE}</span><br />
+<hr />
+<div style="float:left;width:20%;">{U_TREE}</div>
+<div style="float:left;width:80%;">
+	<h1>{S_PAGE}{S_SUBPAGE}:&nbsp;{S_TITLE}</h1>{S_COMMENT}<p>{S_BODY}</p><br />
+	{S_AUTHOR}<br />
+	{S_CREATED}<br />
+	{S_UPDATED}
+</div>
+<!-- ELSE -->
+<h2 align="center">{S_TITLE}</h2>
+<ul>
+<!-- BEGIN pages -->
+{pages.U_PAGE}
+<!-- END pages -->
+</ul>
+<br />
+{U_ADDPAGE}
+<!-- ENDIF -->
+<br style="clear: both" />
+</div>

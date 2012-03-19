@@ -1,0 +1,160 @@
+<h4>{L_ADD_A_POLL}:</h4>
+
+<br />
+
+
+
+
+<div id="javascript_poll" style="display: none;">
+
+  <!-- PHP -->
+    global $cpgtpl, $lang;
+
+    $anyops = isset($this->_tpldata['poll_option_rows']) && count($this->_tpldata['poll_option_rows']);
+    $hp = isset($_POST['havepoll'])? intval($_POST['havepoll']) : ($anyops?1:0); //whether poll is used
+    $cpgtpl->assign_vars(array(
+      'S_HP_VALUE'    => $hp? '1' : '0',
+      'S_HAVEPOLL'    => $hp? 'block' : 'none',
+      'S_POLLBUTTON'  => $hp? $lang['Delete_poll'] : $lang['Add_poll'],
+      'B_NOT_FILLED'  => !$anyops
+      //!isset($_POST['poll_option_text'][0]) || strlen($_POST['poll_option_text'][0])==0
+    ));
+  <!-- ENDPHP -->
+  <input type="hidden" name="havepoll" id="havepoll" value="{S_HP_VALUE}" />
+
+
+
+  <script type="text/javascript"><!--
+    function emptyOption() {
+      var li = document.createElement('li');
+      var po  = document.createElement('input');
+      var pas = document.getElementById('poll_alternatives');
+
+      po.type = 'text';
+      po.name = 'poll_option_text[]';
+      po.size = '50';
+      po.maxsize = '255';
+      po.value = '';
+
+      li.appendChild(po);
+      pas.appendChild(li);
+    }
+
+  --></script>
+
+  <input type="button" value="{S_POLLBUTTON}" onclick="
+    var e = document.getElementById('poll');
+    var hp = document.getElementById('havepoll');
+    if (e.style.display == 'block') {
+      e.style.display = 'none';
+      this.value = &quot;{L_ADD_A_POLL}&quot;;
+      hp.value = '0';
+      var pa = document.getElementById('poll_alternatives');
+      pa.innerHTML = '';
+
+      if(document.getElementById('poll_delete')) {
+        document.getElementById('poll_delete').checked = true;
+      }
+    } else {
+
+      e.style.display = 'block';
+      this.value = &quot;{L_POLL_DELETE}&quot;;
+      hp.value = '1';
+      emptyOption();
+
+      if(document.getElementById('poll_delete')) {
+        document.getElementById('poll_delete').checked = false;
+      }
+    }
+  " />
+
+  <div class="pollopts" id="poll" style="display: {S_HAVEPOLL};">
+
+    <label for="poll_title">{L_POLL_QUESTION}:</label><br />
+    <input type="text" name="poll_title" id="poll_title" size="50" maxlength="255" value="{POLL_TITLE}" />
+
+
+
+
+    <ol id="poll_alternatives">
+      <!-- IF B_NOT_FILLED -->
+
+
+      <!-- ELSE -->
+
+        <!-- BEGIN poll_option_rows -->
+          <li>
+            <input type="text" name="poll_option_text[]" size="50" maxlength="255" value="{poll_option_rows.POLL_OPTION}" />
+            <input type="submit" name="edit_poll_option" value="{L_UPDATE_OPTION}" />
+            <input type="submit" name="del_poll_option[]" value="{L_DELETE_OPTION}" />
+          </li>
+        <!-- END poll_option_rows -->
+
+      <!-- ENDIF -->
+    </ol>
+
+         <input type="button" value="{L_ADD_OPTION}" onclick="emptyOption();">
+
+
+
+{L_POLL_LENGTH}:
+
+<input type="text" name="poll_length" size="3" maxlength="3" class="post" value="{POLL_LENGTH}" />
+{L_DAYS}
+{L_POLL_LENGTH_EXPLAIN}
+  </div>
+
+
+
+
+  <script type="text/javascript"><!--
+    var b = document.getElementById('javascript_poll');
+    b.style.display = 'block';
+  --></script>
+
+</div>
+
+
+
+<noscript>
+{L_ADD_POLL_EXPLAIN}<br />
+<label for="poll_title">{L_POLL_QUESTION}:</label><br />
+<input type="text" name="poll_title" id="poll_title" size="50" maxlength="255" value="{POLL_TITLE}" />
+
+<ol id="poll_alternatives">
+<!-- BEGIN poll_option_rows -->
+  <li>
+    <input type="text" name="poll_option_text[{poll_option_rows.S_POLL_OPTION_NUM}]" size="50" maxlength="255" value="{poll_option_rows.POLL_OPTION}" />
+    <input type="submit" name="edit_poll_option" value="{L_UPDATE_OPTION}" />
+    <input type="submit" name="del_poll_option[{poll_option_rows.S_POLL_OPTION_NUM}]" value="{L_DELETE_OPTION}" />
+  </li>
+<!-- END poll_option_rows -->
+  <li>
+    <input type="text" name="add_poll_option_text" size="50" maxlength="255" value="" />
+    <input type="submit" name="add_poll_option" value="{L_ADD_OPTION}" />
+  </li>
+</ol>
+
+
+{L_POLL_LENGTH}:
+
+<input type="text" name="poll_length" size="3" maxlength="3" class="post" value="{POLL_LENGTH}" />
+{L_DAYS}
+{L_POLL_LENGTH_EXPLAIN}
+</noscript>
+
+
+
+
+
+<!-- BEGIN switch_poll_delete_toggle -->
+<div id="toggle_delete">
+{L_POLL_DELETE}
+<input type="checkbox" name="poll_delete" id="poll_delete" />
+<script type="text/javascript"><!--
+  document.getElementById('toggle_delete').style.visibility = 'hidden';
+--></script>
+</div>
+<!-- END switch_poll_delete_toggle -->
+
+<hr />

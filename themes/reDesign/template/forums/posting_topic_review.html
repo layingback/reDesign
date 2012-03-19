@@ -1,0 +1,50 @@
+<!-- IF S_NOT_INLINE -->
+<!-- INCLUDE forums/overall_header.html -->
+
+<div class="topic_review">
+<!-- PHP -->
+$i = 1;
+global $cpgtpl;
+<!-- ENDPHP -->
+<!-- BEGIN postrow -->
+<!-- PHP -->
+$style = ($i % 2) ? '1' : '2';
+$fixed_row_class = 'row'.$style;
+$cpgtpl->assign_var('FIXED_ROW_CLASS', $fixed_row_class);
+$i++;
+<!-- ENDPHP -->
+
+<div class="wip_post {FIXED_ROW_CLASS}"><b class="corner-lt"></b><b class="corner-rt"></b>
+<div class="wip_postbody">
+
+  <h3>{postrow.POST_SUBJECT}</h3>
+  <p class="wip_postdetails">
+  <img src="{postrow.MINI_POST_IMG}" alt="{postrow.L_MINI_POST_ALT}" title="{postrow.L_MINI_POST_ALT}" />
+  {L_POSTED}: {postrow.POST_DATE}
+  </p>
+  <div class="wip_content">
+  {postrow.MESSAGE}
+  </div>
+</div>
+
+<dl class="wip_profile">
+  <dt>{postrow.POSTER_NAME}</dt>
+</dl>
+
+<span class="corners-bottom"><span></span></span></div>
+
+
+<!-- END postrow -->
+</div>
+
+<!-- INCLUDE forums/overall_footer.html -->
+<!-- ELSE -->
+
+
+<br /><br /><h4>{L_TOPIC_REVIEW}</h4>
+
+<iframe src="{U_REVIEW_TOPIC}" style="width: 100%; height: 300px; border: 0; overflow: scroll;">
+  <p>Your browser does not support iframes.</p>
+</iframe>
+
+<!-- ENDIF -->

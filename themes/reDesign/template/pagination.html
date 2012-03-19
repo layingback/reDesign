@@ -1,0 +1,24 @@
+<!-- IF B_PAGINATION -->
+  <div class="pagination"><ul>
+  <!-- IF PAGINATION_PREV -->
+    <li><a href="{PAGINATION_PREV}" class="prevnext" title="{L_PREVIOUS}">« {L_PREVIOUS}</a></li>
+  <!-- ELSE -->
+    <li><a class="prevnext disablelink" title="{L_PREVIOUS}">« {L_PREVIOUS}</a></li>
+  <!-- ENDIF -->
+
+  <!-- BEGIN pagination -->
+    <!-- IF pagination.URL -->
+      <li><a href="{pagination.URL}">{pagination.PAGE}</a></li>
+    <!-- ELSE -->
+      <li><a class="currentpage">{pagination.PAGE}</a></li>
+    <!-- ENDIF -->
+  <!-- END pagination -->
+
+  <!-- IF PAGINATION_NEXT -->
+    <li><a href="{PAGINATION_NEXT}" class="prevnext" title="{L_NEXT}">{L_NEXT} »</a></li>
+  <!-- ELSE -->
+    <li><a class="prevnext disablelink" title="{L_NEXT}">{L_NEXT} »</a></li>
+  <!-- ENDIF -->
+
+  </ul></div>
+<!-- ENDIF -->

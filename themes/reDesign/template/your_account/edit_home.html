@@ -1,0 +1,25 @@
+
+<form name="edit_home" action="{U_SAVEHOME}" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+<table border="0" cellpadding="3" cellspacing="1" width="100%" class="forumline">
+	<!-- IF S_USER_NEWS -->
+		<tr>
+			<td class="row1"><span class="gen">_(STORIESHOME)</span></td>
+			<td class="row2">{S_USER_NEWS}</td>
+		</tr>
+	<!-- ELSE -->
+		<input type="hidden" name="storynum" value="{S_STORY_NUM}" />
+	<!-- ENDIF -->
+	<tr>
+		<td class="row1"><span class="gen">_(ACTIVATEPERSONAL)</span></td>
+		<td class="row2">{S_UBLOCKON}</td>
+	</tr><tr>
+		<td class="row1"><span class="gen">_(PERSONALMENUCONTENT)</span><br />{S_CONT_SIZE}</td>
+		<td class="row2">
+			{S_BBCODETBL}
+			<textarea cols="63" rows="7" name="ublock" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onchange="storeCaret(this);">{S_UBLOCK}</textarea></td>
+	</tr><tr>
+		<td class="catbottom" colspan="2" align="center" height="28">
+			<input type="submit" value="_(SAVECHANGES)" class="mainoption" />&nbsp;&nbsp;
+			<input type="reset" value="_(RESET)" name="reset" class="liteoption" /></td>
+	</tr>
+</table></form>

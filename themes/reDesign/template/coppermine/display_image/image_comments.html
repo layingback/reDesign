@@ -1,0 +1,43 @@
+<div>
+
+<b>{MSG_AUTHOR}</b><!-- BEGIN ipinfo -->({HDR_IP} [{RAW_IP}])<!-- END ipinfo -->
+
+<!-- BEGIN buttons -->
+<a href="javascript:;" onclick="blocking('cbody{MSG_ID}','', 'block'); blocking('cedit{MSG_ID}','', 'block'); return false;" title="{EDIT_TITLE}">
+<img src="{THEMEDIR}/images/edit.gif" border="0" align="absmiddle" alt="" >
+</a>
+
+<form method="post" action="{DELETE_LINK}">
+	<input type="hidden" name="what" value="comment" />
+	<input type="hidden" name="msg_id" value="{MSG_ID}" />
+	<input name="submit" title="{DELETE_TEXT}" type="image" src="{THEMEDIR}/images/delete.gif" />
+</form>
+
+<!-- END buttons -->
+
+{MSG_DATE}
+
+
+<div id="cbody{MSG_ID}" style="display:block">{MSG_BODY}</div>
+
+<div id="cedit{MSG_ID}" style="display:none">
+	<form name="f{MSG_ID}" method="post" {ACTION}>
+  	<input type="hidden" name="event" value="comment_update" />
+    <input type="hidden" name="msg_id" value="{MSG_ID}" />
+
+    <input type="{MSG_TYPE}" name="msg_author" value="{MSG_AUTHOR}" size="10" />
+
+    <textarea cols="40" rows="2" name="msg_body" onselect="storeCaret_f{MSG_ID}(this);" onclick="storeCaret_f{MSG_ID}(this);" onkeyup="storeCaret_f{MSG_ID}(this);" style="width: 100%;">{MSG_BODY_RAW}</textarea>
+
+    <input type="submit" class="comment_button" name="submit" value="{OK}" />
+
+    {SMILIES}
+  </form>
+
+<!-- BEGIN edit_box_smilies --><!-- END edit_box_smilies -->
+<!-- BEGIN edit_box_no_smilies --><!-- END edit_box_no_smilies -->
+
+</div>
+
+
+</div>

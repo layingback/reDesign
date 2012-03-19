@@ -1,0 +1,173 @@
+<!-- INCLUDE forums/overall_header.html -->
+<h2 class="page_title">{FORUM_NAME}</h2>
+
+<p class="breadcrumb_traces">
+	<a href="{U_MAININDEX}">_(HOME)</a>
+	<a href="{U_INDEX}">{L_INDEX}</a>
+	<i><a href="{U_VIEW_FORUM}">{FORUM_NAME}</a></i>
+</p>
+
+<p style="margin-top:0;padding-bottom: 10px;font-size: 12px;">
+  {FORUM_DESC}
+</p>
+
+<!-- IF SUB_FORUMS -->
+  <!-- PHP -->$i = 1;<!-- ENDPHP -->
+  <!-- BEGIN forumrow -->
+    <!-- PHP -->
+    global $cpgtpl;
+    $cpgtpl->assign_var('COLOUR_CLASS',(!($i % 2))?'forumblock1':'forumblock2');
+    $i++;
+  <!-- ENDPHP -->
+
+  <!-- IF forumrow.S_IS_LINK -->
+  <div class="forumblock {COLOUR_CLASS}" onclick="location.href='{forumrow.U_VIEWFORUM}'"><b class="corner-lt"></b><b class="corner-rt"></b>
+     <img src="{forumrow.FORUM_FOLDER_IMG}" alt="{forumrow.L_FORUM_FOLDER_ALT}" title="{forumrow.L_FORUM_FOLDER_ALT}" class="folder" />
+    <h3><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></h3>
+    <div class="clear"></div>
+    <!-- IF forumrow.FORUM_DESC --><div class="forumdesc">{forumrow.FORUM_DESC}</div><!-- ENDIF -->
+    <br style="clear:both;" />
+  <span class="corners-bottom"><span></span></span></div>
+  <!-- ELSE -->
+  <div class="forumblock {COLOUR_CLASS}" onclick="location.href='{BASE_URL}{forumrow.U_VIEWFORUM}'"><b class="corner-lt"></b><b class="corner-rt"></b>
+    <img src="{forumrow.FORUM_FOLDER_IMG}" alt="{forumrow.L_FORUM_FOLDER_ALT}" title="{forumrow.L_FORUM_FOLDER_ALT}" class="folder" />
+    <div class="last_post">
+      <!-- IF forumrow.LAST_POST_TIME -->
+        {L_LAST_POST}: <a href="{forumrow.U_LAST_POST}">{forumrow.LAST_POST_TIME}</a><br />
+        _(BY): <!-- IF forumrow.U_LAST_POSTER --><a href="{forumrow.U_LAST_POSTER}">{forumrow.LAST_POSTER}</a><!-- ELSE -->{forumrow.LAST_POSTER}<!-- ENDIF -->
+      <!-- ELSE -->{L_NO_POSTS}<!-- ENDIF -->
+    </div>
+    <h3><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></h3>
+    <div class="clear"></div>
+    <!-- IF forumrow.FORUM_DESC --><div class="forumdesc">{forumrow.FORUM_DESC}</div><!-- ENDIF -->
+    <div class="topicsposts">
+      <div class="topicsposts_numbers">{forumrow.TOPICS}<br />{forumrow.POSTS}</div>
+      <div class="topicsposts_name">{L_TOPICS}:<br />{L_POSTS}:</div>
+    </div>
+    <br style="clear:both;" />
+  <span class="corners-bottom"><span></span></span></div>
+  <!-- ENDIF -->
+  <!-- END forumrow -->
+  <br/>
+<!-- ENDIF -->
+
+<div style="margin: 10px 0;zoom:1;">
+<a href="{U_POST_NEW_TOPIC}" title="{L_POST_NEW_TOPIC}" class="forumbutton" style="background-image:url('{POST_IMG}');"><img src="{POST_IMG}" alt="{L_POST_NEW_TOPIC}" /><span>{L_POST_NEW_TOPIC}</span></a>
+<span style="display:block;float:right;"><b>{PAGINATION}</b></span>
+<br style="clear:both;" /> </div>
+
+<div style="margin-bottom: 5px;">
+<a href="{U_MARK_READ}" style="float:right;display:block;">{L_MARK_TOPICS_READ}</a>
+<a href="{U_FAQ}">{L_FAQ}</a>
+ • <a href="{U_SEARCH}">{L_SEARCH}</a>
+<!-- IF S_LOGGED_IN -->
+ • <a href="{U_SEARCH_NEW}">{S_NEW_POSTS}</a>
+ • <a href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a>
+<!-- ENDIF -->
+ • <a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a>
+</div>
+
+<table cellspacing="0" class="forum_topics">
+  <tr>
+    <td colspan="2"></td>
+    <td>{L_TOPICS} / {L_AUTHOR}</td>
+    <td>{L_LASTPOST}</td>
+    <td style="width:50px;">&nbsp;{L_REPLIES}&nbsp;</td>
+    <td style="width:50px;">&nbsp;{L_VIEWS}&nbsp;</td>
+  </tr>
+<!-- BEGIN topicrow -->
+  <!-- IF topicrow.L_HEADER -->
+  <tr>
+    <td colspan="6">
+      <div class="topic_header"><b class="corner-lt"></b><b class="corner-rt"></b>
+        {topicrow.L_HEADER}
+      <span class="corners-bottom"><span></span></span></div>
+    </td>
+  </tr>
+  <!-- ENDIF -->
+  <tr class="topic">
+    <td style="text-align:center;"><img src="{topicrow.TOPIC_FOLDER_IMG}" alt="{topicrow.L_TOPIC_FOLDER_ALT}" title="{topicrow.L_TOPIC_FOLDER_ALT}" /></td>
+    <td style="text-align:center;width:20px;">{topicrow.TOPIC_ICON}</td>
+    <td style="width:100%;">
+    <div>
+      {topicrow.NEWEST_POST_IMG}{topicrow.TOPIC_ATTACHMENT_IMG}
+      <span class="topictitle">{topicrow.TOPIC_TYPE} <a href="{topicrow.U_VIEW_TOPIC}" class="topictitle">{topicrow.TOPIC_TITLE}</a></span>
+      {topicrow.GOTO_PAGE}
+    </div>
+    <div class="name">
+      {topicrow.TOPIC_AUTHOR}
+    </div>
+    </td>
+    <td style="text-align: right;white-space: nowrap;">
+      <div>{topicrow.LAST_POST_TIME}</div>
+      <div>{topicrow.LAST_POST_AUTHOR} {topicrow.LAST_POST_IMG}</div>
+    </td>
+    <td class="postdetails" style="text-align:center;">{topicrow.REPLIES}</td>
+    <td class="postdetails" style="text-align:center;">{topicrow.VIEWS}</td>
+  </tr>
+<!-- END topicrow -->
+</table>
+
+<!-- BEGIN switch_no_topics -->
+<div style="text-align: center;border: 1px solid;">
+  <span class="gen">{L_NO_TOPICS}</span>
+</div>
+<!-- END switch_no_topics -->
+
+<div class="afterposts">
+  <div class="leftinfo">
+    <a href="{U_POST_NEW_TOPIC}" title="{L_POST_NEW_TOPIC}" class="forumbutton" style="float:left;background-image:url('{POST_IMG}');"><img src="{POST_IMG}" alt="{L_POST_NEW_TOPIC}" /><span>{L_POST_NEW_TOPIC}</span></a>
+    <br style="clear:both;" /><br />
+    <!-- IF U_FORUM_WATCH -->
+    <a href="{U_FORUM_WATCH}" title="{L_FORUM_WATCH}">{L_FORUM_WATCH}</a>
+    <!-- ENDIF -->
+    <!-- IF U_FORUM_UNWATCH -->
+    <a href="{U_FORUM_UNWATCH}" title="{L_FORUM_UNWATCH}">{L_FORUM_UNWATCH}</a>
+    <!-- ENDIF -->
+  </div>
+  <div class="rightinfo">
+    <span class="nav">{PAGE_NUMBER}</span>
+    <!-- IF PAGINATION --><br />{PAGINATION}<br /><!-- ENDIF -->
+  </div>
+  <br style="clear:both;" />
+</div>
+
+<div class="afterposts">
+  <div class="leftinfo">
+    <a class="left-box left" href="{U_INDEX}" accesskey="f">{L_INDEX}</a>
+    <a href="{U_VIEW_FORUM}" class="left-box left" style="font-style: italic;" accesskey="r">{FORUM_NAME}</a>
+    <br style="clear:both;" />
+  </div>
+  <div class="rightinfo">
+    <form method="post" action="{S_POST_DAYS_ACTION}" {I18N}>
+      {L_DISPLAY_TOPICS}: {S_SELECT_TOPIC_DAYS} <input type="submit" value="{L_GO}" name="submit" />
+    </form>
+    <!-- INCLUDE forums/jumpbox.html -->
+  </div>
+  <br style="clear:both;" />
+</div>
+
+<div class="afterposts">
+  <div class="leftinfo" style="font-weight:bold;margin-top:10px;">
+    {L_MODERATOR}: {MODERATORS}
+    <br style="clear:both;" />
+  </div>
+  <div class="rightinfo right-box">
+    {S_AUTH_LIST}
+  </div>
+  <br style="clear:both;" />
+</div>
+
+<ul class="forumlegend">
+<li><img src="{FOLDER_NEW_IMG}" alt="" />{L_NEW_POSTS}</li>
+<li><img src="{FOLDER_IMG}" alt="" />{L_NO_NEW_POSTS}</li>
+<li><img src="{FOLDER_ANNOUNCE_IMG}" alt="" />{L_ANNOUNCEMENT}</li>
+<li><img src="{FOLDER_HOT_NEW_IMG}" alt="" />{L_NEW_POSTS_HOT}</li>
+<li><img src="{FOLDER_HOT_IMG}" alt="" />{L_NO_NEW_POSTS_HOT}</li>
+<li><img src="{FOLDER_STICKY_IMG}" alt="" />{L_STICKY}</li>
+<li><img src="{FOLDER_LOCKED_NEW_IMG}" alt="" />{L_NEW_POSTS_LOCKED}</li>
+<li><img src="{FOLDER_LOCKED_IMG}" alt="" />{L_NO_NEW_POSTS_LOCKED}</li>
+</ul>
+
+<br style="clear:both;" />
+<!-- INCLUDE forums/overall_footer.html -->

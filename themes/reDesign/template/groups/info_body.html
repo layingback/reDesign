@@ -1,0 +1,178 @@
+<!--<h3>{L_GROUP_INFORMATION}</h3>-->
+<form action="{S_GROUPCP_ACTION}" method="post" {I18N}>
+
+<!--<h4>{L_GROUP_NAME}:</h4>
+  {GROUP_NAME}
+<h4>{L_GROUP_DESC}:</h4>-->
+<p>{GROUP_DESC}</p>
+<!--<h4>{L_GROUP_MEMBERSHIP}:</h4>-->
+
+<p><b>{L_GROUP_MEMBERSHIP}:</b> {GROUP_DETAILS}</p>
+
+<!-- BEGIN switch_subscribe_group_input -->
+<input class="mainoption" type="submit" name="joingroup" value="{L_JOIN_GROUP}" />
+<!-- END switch_subscribe_group_input -->
+
+<!-- BEGIN switch_unsubscribe_group_input -->
+<input class="mainoption" type="submit" name="unsub" value="{L_UNSUBSCRIBE_GROUP}" />
+<!-- END switch_unsubscribe_group_input -->
+
+<!-- BEGIN switch_mod_option -->
+<hr />
+<h4>{L_GROUP_TYPE}:</h4>
+
+<input type="radio" name="group_type" id="group_type_open" value="{S_GROUP_OPEN_TYPE}" {S_GROUP_OPEN_CHECKED} />
+<label for="group_type_open">{L_GROUP_OPEN}</label>
+
+<input type="radio" name="group_type" id="group_type_closed" value="{S_GROUP_CLOSED_TYPE}" {S_GROUP_CLOSED_CHECKED} />
+<label for="group_type_closed">{L_GROUP_CLOSED}</label>
+
+<input type="radio" name="group_type" id="group_type_hidden" value="{S_GROUP_HIDDEN_TYPE}" {S_GROUP_HIDDEN_CHECKED} />
+<label for="group_type_hidden">{L_GROUP_HIDDEN}</label>
+
+<input class="mainoption" type="submit" name="groupstatus" value="{L_UPDATE}" />
+<!-- END switch_mod_option -->
+
+{S_HIDDEN_FIELDS}
+</form>
+
+
+
+
+
+
+<br />
+<form action="{S_GROUPCP_ACTION}" method="post" name="post">
+
+<h4>{L_GROUP_MODERATOR}:</h4>
+<table cellspacing="0" cellpadding="0" class="forumline" style="width:100%;">
+	<tr>
+		<!-- IF S_IS_USER -->
+		<th>{L_PM}</th>
+		<!-- ENDIF -->
+		<th style="width:25%;">{L_USERNAME}</th>
+		<th style="width:25%;">{L_POSTS}</th>
+		<th style="width:25%;">{L_FROM}</th>
+		<th style="width:25%;">{L_EMAIL}</th>
+		<th>{L_WEBSITE}</th>
+	</tr>
+	<tr class="row1">
+		<!-- IF S_IS_USER -->
+		<td style="text-align:center;"><!-- IF MOD_PM_IMG --><div class="ml_icon pm_image" style="background-image: url('{PM_IMAGE}');">{MOD_PM_IMG}</div><!-- ENDIF --></td>
+		<!-- ENDIF -->
+		<td style="text-align:center;"><a href="{U_MOD_VIEWPROFILE}" class="gen">{MOD_USERNAME}</a></td>
+		<td style="text-align:center;">{MOD_POSTS}</td>
+		<td style="text-align:center;">{MOD_FROM}</td>
+		<td style="text-align:center;">{MOD_EMAIL_IMG}</td>
+		<td style="text-align:center;"><!-- IF MOD_WWW_IMG --><div class="ml_icon www_image" style="background-image: url('{WWW_IMAGE}');">{MOD_WWW_IMG}</div><!-- ENDIF --></td>
+	</tr>
+</table>
+
+<hr />
+<h3>{L_GROUP_MEMBERS}</h3>
+<table cellspacing="0" cellpadding="0" class="forumline" style="width:100%;">
+	<tr>
+		<!-- IF S_IS_USER -->
+		<th>{L_PM}</th>
+		<!-- ENDIF -->
+		<th style="width:25%;">{L_USERNAME}</th>
+		<th style="width:25%;">{L_POSTS}</th>
+		<th style="width:25%;">{L_FROM}</th>
+		<th style="width:25%;">{L_EMAIL}</th>
+		<th>{L_WEBSITE}</th>
+		<!-- BEGIN switch_mod_option -->
+		<th>{L_SELECT}</th>
+		<!-- END switch_mod_option -->
+	</tr>
+	<!-- BEGIN member_row -->
+	<tr class="{member_row.ROW_CLASS}">
+		<!-- IF S_IS_USER -->
+		<td style="text-align:center;"><!-- IF member_row.PM_IMG --><div class="ml_icon pm_image" style="background-image: url('{PM_IMAGE}');">{member_row.PM_IMG}</div><!-- ENDIF --></td>
+		<!-- ENDIF -->
+		<td style="text-align:center;"><a href="{member_row.U_VIEWPROFILE}" class="gen">{member_row.USERNAME}</a></td>
+		<td style="text-align:center;">{member_row.POSTS}</td>
+		<td style="text-align:center;">{member_row.FROM}</td>
+		<td style="text-align:center;">{member_row.EMAIL_IMG}</td>
+		<td style="text-align:center;"><!-- IF member_row.WWW_IMG --><div class="ml_icon www_image" style="background-image: url('{WWW_IMAGE}');">{member_row.WWW_IMG}</div><!-- ENDIF --></td>
+		<!-- BEGIN switch_mod_option -->
+		<td style="text-align:center;">
+			<input type="checkbox" name="members[]" value="{member_row.USER_ID}" />
+		</td>
+		<!-- END switch_mod_option -->
+	</tr>
+	<!-- END member_row -->
+
+	<!-- BEGIN switch_no_members -->
+	<tr>
+		<td class="row1" colspan="7" style="text-align:center;"><span class="gen">{L_NO_MEMBERS}</span></td>
+	</tr>
+	<!-- END switch_no_members -->
+
+	<!-- BEGIN switch_hidden_group -->
+	<tr>
+		<td class="row1" colspan="7" style="text-align:center;"><span class="gen">{L_HIDDEN_MEMBERS}</span></td>
+	</tr>
+	<!-- END switch_hidden_group -->
+</table>
+
+<!-- BEGIN switch_mod_option -->
+<div style="text-align: right;">
+  <input type="submit" name="remove" value="{L_REMOVE_SELECTED}" />
+</div>
+<!-- END switch_mod_option -->
+<br />
+
+<div>
+<!-- BEGIN switch_mod_option -->
+<input type="text" name="username" maxlength="50" size="20" />
+<input type="submit" name="add" value="{L_ADD_MEMBER}" class="mainoption" />
+<input type="submit" name="usersubmit" value="{L_FIND_USERNAME}" class="liteoption" onclick="window.open('{U_SEARCH_USER}', '_phpbbsearch', 'height=250,resizable=yes,width=350');return false;" />
+<!-- END switch_mod_option -->
+<br />
+{PAGE_NUMBER}
+<div style="float: right;">{PAGINATION}</div>
+<br style="clear:both;" />
+</div>
+
+
+
+
+
+<!-- IF S_PENDING_USERS -->
+<br style="clear:both;" />
+
+<hr />
+<h3>{L_PENDING_MEMBERS}</h3>
+
+<div class="topicrow" style="margin-bottom:3px;"><b class="corner-lt"></b><b class="corner-rt"></b>
+<table cellspacing="0" cellpadding="0" class="forumline" style="width:100%;">
+    <tr>
+      <th>{L_PM}</th>
+      <th style="width:25%;">{L_USERNAME}</th>
+      <th style="width:25%;">{L_POSTS}</th>
+      <th style="width:25%;">{L_FROM}</th>
+      <th style="width:25%;">{L_EMAIL}</th>
+      <th>{L_WEBSITE}</th>
+      <th>{L_SELECT}</th>
+    </tr>
+   <!-- BEGIN pending_members_row -->
+    <tr class="{pending_members_row.ROW_CLASS}">
+      <td style="text-align:center;"><!-- IF pending_members_row.PM_IMG --><div class="ml_icon pm_image" style="background-image: url('{PM_IMAGE}');">{pending_members_row.PM_IMG}</div><!-- ENDIF --></td>
+      <td style="text-align:center;"><a href="{pending_members_row.U_VIEWPROFILE}" class="gen">{pending_members_row.USERNAME}</a></td>
+      <td style="text-align:center;">{pending_members_row.POSTS}</td>
+      <td style="text-align:center;">{pending_members_row.FROM}</td>
+      <td style="text-align:center;">{pending_members_row.EMAIL_IMG}</td>
+      <td style="text-align:center;"><!-- IF pending_members_row.WWW_IMG --><div class="ml_icon www_image" style="background-image: url('{WWW_IMAGE}');">{pending_members_row.WWW_IMG}</div><!-- ENDIF --></td>
+      <td style="text-align:center;"><input type="checkbox" name="pending_members[]" value="{pending_members_row.USER_ID}" /></td>
+    </tr>
+    <!-- END pending_members_row -->
+</table><span class="corners-bottom"><span></span></span></div>
+
+<div style="text-align: right;">
+  <input type="submit" name="approve" value="{L_APPROVE_SELECTED}" class="mainoption" />
+  <input type="submit" name="deny" value="{L_DENY_SELECTED}" class="liteoption" />
+</div>
+<!-- ENDIF -->
+
+{S_HIDDEN_FIELDS}
+</form>

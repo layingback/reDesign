@@ -1,0 +1,33 @@
+.header_banner {
+  /*width: 468px;
+  height: 60px;*/
+  background-color: #000;
+  color: #FFF;
+  float: right;
+  margin-right: 40px;
+  margin-top: 45px;
+}
+
+.header_banner a {
+  color: #FFF;
+}
+
+form#headsearch {
+	margin: 12px 60px 0 0;
+}
+
+form#headsearch label {
+	margin-right: 3px;
+	float: left;
+}
+
+#log_in_box {
+	background-color: #000;
+	padding: 3px;
+	border: 1px solid #747474;
+}
+
+/* For CSS3 supportive browsers */
+body:last-child #log_in_box {
+  background-color: rgba(0, 0, 0, 0.8);
+}

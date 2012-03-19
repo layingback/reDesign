@@ -1,0 +1,75 @@
+/* This file is loaded only if a site user is logged in as administrator */
+
+/***************BEGIN GRAPHICAL ADMIN INTERFACE********************/
+/* fieldset around each admin item, used for collapsibility on edge of screen */
+fieldset.adminitems {
+  margin: 0;/*IE6 would cause a bug if not 0 while hovering*/
+  margin-bottom: 20px;/*But we add specific value to ie6.css*/
+  padding: 10px;
+  border: 1px solid #C0DCC0;
+}
+fieldset.adminitems a {
+  display: -moz-inline-block;
+  display: inline-block;
+  width: 120px;
+  height: 80px;
+  overflow: hidden;
+  margin: 0px 3px 3px 0px;
+  padding: 26px 0px 0px 0px;
+  border: 1px solid #DDDDDD;
+  vertical-align: top;
+  background-color: #F9F9F9;
+  font: 11px Arial, Helvetica, sans-serif;
+  color: #9A9A9A;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+/*Hover effects*/
+fieldset.adminitems a:hover {
+  text-decoration: none;
+  color: #FF8000;
+  border: 1px solid #FF8000;
+  background-color: #FBFBFB;
+}
+
+/*Adminmodule title*/
+fieldset.adminitems a span {
+  display: block;
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+/***************END GRAPHICAL ADMIN INTERFACE********************/
+
+
+/*cpg main menu admin*/
+table#groups {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  /*background-color: #FFF !important;*/
+}
+
+/* Main page message admin info on date hovering */
+.message .date small {
+  visibility: hidden;
+  display: block;
+  padding-top: 2px;
+  font: 11px arial;
+  position:absolute;
+  z-index: 3;
+  top: -20px;
+  right: 10px;
+  background-color: #000;
+  padding: 4px 6px;
+  color: #FFF;
+  white-space: nowrap;
+}
+.message .date small a {
+  color: #FBEFCA;
+}
+
+.message .date:hover small {
+  visibility: visible;
+}

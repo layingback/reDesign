@@ -1,0 +1,7 @@
+/*Fixes for Opera "Merlin". That means anything below 9.5 */
+
+#main {
+  /*Weird bug where padding-left is also transferred as padding-right,
+    so avoid doubleing, we disable padding-right */
+  padding-right: 0;
+}

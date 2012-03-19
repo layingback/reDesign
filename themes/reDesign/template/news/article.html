@@ -1,0 +1,32 @@
+<!-- PHP -->
+  global $cpgtpl;
+  //$catlnk_length = strlen($this->_tpldata['.'][0]['S_CATLINK']);
+  $cpgtpl->assign_vars(array(
+    'S_PRINTLINK'   => getlink('News&amp;file=print&amp;sid='.$this->_tpldata['.'][0]['S_SID']),
+    'S_FRIENDLINK'  => getlink('News&amp;file=friend&amp;sid='.$this->_tpldata['.'][0]['S_SID'])
+  ));
+<!-- ENDPHP -->
+
+<div class="newsarticle">
+  <div class="storycontent">
+    <div class="storytime">{S_TIME}</div>
+    {S_STORY}
+    <!-- IF S_STORYEXT --><br /><br />{S_STORYEXT}<!-- ENDIF -->
+    <!-- IF S_NOTES --><br /><br /><b>{S_NOTE}</b> <i>{S_NOTES}</i><!-- ENDIF -->
+
+    <ul class="storydetails">
+      <li>{S_POSTEDBY}: {S_INFORMANT}</li>
+      <li>_(TOPIC): <a href="{U_NEWTOPIC}"><!-- IF S_TOPIC -->{S_TOPIC}<!-- ELSE -->_(ALL)<!-- ENDIF --></a></li>
+    </ul>
+    <ul class="storylinks">
+      <li><a href="{S_PRINTLINK}">_(PRINTER)</a></li>
+      <li><a href="{S_FRIENDLINK}">_(FRIEND)</a></li>
+      <!-- IF NEWS_ADMIN -->
+      <li class="float_right">{NEWS_ADMIN}</li>
+      <!-- ELSEIF S_IS_ADMIN -->
+      <li class="float_right">{S_ADMIN}</li>
+      <!-- ENDIF -->
+    </ul>
+  </div>
+
+</div>
