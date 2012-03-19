@@ -1,5 +1,7 @@
 The reDesign3 Theme update for DragonflyCMS.
 
-Goal of enhancing, maintianing, updating and improving reDesign3.
+Goal of enhancing, maintaining, updating and improving reDesign3.
 
-Initial commit is reDesign3 as found on http://dragonflycms.org/cvs/themes/reDesign/
+Initial commit is reDesign3 as found on http://dragonflycms.org/cvs/themes/reDesign/ and retrived from reDesign3_final and found here: http://dragonflycms.org/Downloads/details/id=551/
+
+Goal is reDesign4 supporting DragonflyCMS 9.3.3 (in addtion to 9.2.1) which is primarily adding support for ForumsPlus; and improving both the separation of code from the presentation layer and the number of reported XHTML errors.  Improvements to the UI which are completed, integrated and tested within the project schedule will be included in the release, but are neither a driving force or gating item for teh release of reDesign 4.
