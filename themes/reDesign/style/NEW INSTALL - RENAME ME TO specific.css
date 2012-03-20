@@ -1,0 +1,24 @@
+/***********************************************
+ This stylesheet file is meant for ALL SITE SPECIFIC CHANGES to normal reDesign theme.
+ Changes made here will not be lost when applying release updates to reDesign theme.
+ Will be loaded after other stylesheets, so will override styles in those stylesheets.
+ Media is screen.
+
+ DO NOT MAKE ANY CHANGES to style.css or mainstyle.css - MAKE ALL CHANGES HERE
+************************************************/
+
+/* Style Overrides to mainstyle.css go in this section.  Some examples follow (commented out) */
+
+html {
+/*  background-color: #699B64; */
+/*  background: #699B64 url('../images/backgrounds/body/html_background.gif') no-repeat 0% 100%; */
+/*  padding-top: 10px; */			/* leave white space above header */
+}
+
+body {
+/*  width: 98%; */						/* comment out for full width design, ie. to use 100% */
+/*  background: transparent url('../images/backgrounds/header/headerbg_exp.jpg') repeat-x top left; */				/* menu expandable bg here */
+}
+
+/* Style Overrides to style.css go below here. */
+
