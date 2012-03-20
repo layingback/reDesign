@@ -57,7 +57,7 @@ _(VISIBLEINMODULES):
 <!-- <br /><em>{L_VIEW_COMMENT}</em> -->
 	<br /><select id="inmodule" name="in_module[]" multiple="multiple" size="9">
 		<optgroup label="_(AUTHORSADMIN)">
-			<option value="-1">{S_ADMIN}</option>
+			<option value="-1">{S_ADMIN}&nbsp;</option>
 		</optgroup>
 		<optgroup label="_(ACTIVE)">
 <!-- BEGIN active -->
@@ -81,28 +81,20 @@ _(VISIBLEINMODULES):
 
 <!-- Blocks List Table Start -->
 <div id="blist">
-<div id="tack_home"><span id="tack" class="grab" onmouseover="Tack.hover(this)"></span></div>
-<table id="ciao">
+<div id="tack_home"><span id="tack" class="grab" onmouseover="Tack.hover(this)" title="Pull me"></span></div>
+<table id="ciao" summary="">
 <tr style="background-color:{S_BGCOLOR2};white-space:nowrap;">
-	<td><b>Move</b> | </td>
+	<td><b>Move</b></td>
 	<td colspan="2"><b>_(TITLE)</b></td>
 </tr>
 <!-- BEGIN list -->
 <tr class="first">
 <td title="{list.S_TITLE}.{list.S_BID}" onmouseover="Block.hover(this)" class="drag_img"></td>
 <td><a href="{U_BLOCKS}&amp;show={list.S_BID}" title="_(SHOW)">{list.S_TITLE}</a></td>
-<td><span class="infoarea"><img src="{THEME_PATH}/images/information.png"/>
-	<span>
-		_(TYPE): {list.S_TYPE}<br />
-		_(ACTIVE): <a href="{U_BLOCKS}&amp;change={list.S_BID}"><img src="images/{list.S_IMG_ACTIVE}" alt="{list.L_CHANGE} {list.S_TITLE}" title="{list.L_CHANGE} {list.S_TITLE}" style="border:0;" /></a><br />
-		_(VIEW): {list.L_WHO_VIEW}<br />
-		<!-- IF B_MULTILINGUAL -->
-		_(LANGUAGE): {list.L_BLANGUAGE}<br />
-		<!-- ENDIF -->
-		_(FUNCTIONS): <a href="{U_BLOCKS}&amp;edit={list.S_BID}" title="_(EDIT) {list.S_TITLE}">_(EDIT)</a><!-- IF list.S_BKEY --> / <a href="{U_BLOCKS}&amp;del={list.S_BID}" title="_(DELETE) {list.S_TITLE}">_(DELETE)</a><!-- ENDIF -->
-	</span>
-	</span>
-</td>
+<td><span class="infoarea"><img style="vertical-align:middle;" src="{THEME_PATH}/images/information.png" title="_(TYPE): {list.S_TYPE}   _(VIEW): {list.L_WHO_VIEW}   <!-- IF B_MULTILINGUAL -->_(LANGUAGE): {list.L_BLANGUAGE}<!-- ENDIF -->" alt="" />&nbsp;<span class="gensmall">_(ACTIVE): <a href="{U_BLOCKS}&amp;change={list.S_BID}"><img src="images/{list.S_IMG_ACTIVE}" alt="{list.L_CHANGE} {list.S_TITLE}" title="{list.L_CHANGE} {list.S_TITLE}" style="border:0;vertical-align:bottom;" /></a></span>&nbsp;<a href="{U_BLOCKS}&amp;edit={list.S_BID}" title="_(EDIT) {list.S_TITLE}">_(EDIT)</a><!-- IF list.S_BKEY -->&nbsp;/&nbsp;<a href="{U_BLOCKS}&amp;del={list.S_BID}" title="_(DELETE) {list.S_TITLE}">_(DELETE)</a><!-- ENDIF --><br /></span></td>
+<td><span class="expandinfo">&nbsp;_(TYPE): {list.S_TYPE}</span></td>
+<td><span class="expandinfo">_(VIEW): {list.L_WHO_VIEW}</span></td>
+<td><!-- IF B_MULTILINGUAL --><span class="expandinfo">_(LANGUAGE): {list.L_BLANGUAGE}</span><!-- ENDIF --></td>
 </tr>
 <!-- END list -->
 </table>
@@ -110,15 +102,16 @@ _(VISIBLEINMODULES):
 <!-- Block List Table End -->
 
 <!-- Module List Table Start -->
-<div id="mlist">
+<br /><br /><div id="mlist" style="max-width: 48%;">
  <form action="{U_BLOCKS}" method="post" id="bform">
 <!-- BEGIN modules -->
   <div class="mgroup"><span class="bcode" onclick="Block.activate('bform', '{modules.S_MODULE_OTITLE}.{modules.S_MODULE_ID}', 'div')">{modules.S_MODULE_TITLE}</span>
   <div id="{modules.S_MODULE_OTITLE}.{modules.S_MODULE_ID}" style="display:none;">
-  <table>
+  <table summary="">
    <tr>
-    <td><div><ul class="unselectable" unselectable="on">
-       <li class="parent" onmouseup="Block.setparent(this)">_(LEFT)
+<!--<td><div><ul class="unselectable" unselectable="on"> -->
+    <td><div><ul class="unselectable">
+        <li class="parent" onmouseup="Block.setparent(this)">_(LEFT)
         <input type="hidden" name="id[]" value="-1" />
         <input type="hidden" name="mid[]" value="{modules.S_MODULE_ID}" />
         <input type="hidden" name="module[]" value="{modules.S_MODULE_OTITLE}" />
@@ -135,7 +128,8 @@ _(VISIBLEINMODULES):
        </li>
 <!-- END loop_l -->
     </ul></div></td>
-    <td><div><ul class="unselectable" unselectable="on">
+<!--<td><div><ul class="unselectable" unselectable="on"> -->
+    <td><div><ul class="unselectable">
        <li class="parent" onmouseup="Block.setparent(this)">_(CENTERUP)
         <input type="hidden" name="id[]" value="-1" />
         <input type="hidden" name="mid[]" value="{modules.S_MODULE_ID}" />
@@ -154,7 +148,8 @@ _(VISIBLEINMODULES):
 <!-- END loop_c -->
      </ul></div>
      <div class="spacer_div"></div>
-     <div><ul class="unselectable" unselectable="on">
+<!-- <div><ul class="unselectable" unselectable="on"> -->
+     <div><ul class="unselectable">
        <li class="parent" onmouseup="Block.setparent(this)">_(CENTERDOWN)
         <input type="hidden" name="id[]" value="-1" />
         <input type="hidden" name="mid[]" value="{modules.S_MODULE_ID}" />
@@ -173,7 +168,8 @@ _(VISIBLEINMODULES):
 <!-- END loop_d -->
      </ul></div>
     </td>
-    <td><div><ul class="unselectable" unselectable="on">
+<!--<td><div><ul class="unselectable" unselectable="on"> -->
+    <td><div><ul class="unselectable">
        <li class="parent" onmouseup="Block.setparent(this)">_(RIGHT)
         <input type="hidden" name="id[]" value="-1" />
         <input type="hidden" name="mid[]" value="{modules.S_MODULE_ID}" />
