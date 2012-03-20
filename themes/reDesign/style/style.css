@@ -1,16 +1,19 @@
 /*********************************************
-  CPG Dragonfly™ CMS
+  reDesign CSS Theme for Dragonfly™ CMS
   ********************************************
-  Copyright © 2004 - 2010 by CPG-Nuke Dev Team
-  http://dragonflycms.org
+  Copyright © 2004 - 2010 by Midas aka Eestlane
+  Copyright © 2012 by reDesign Development Team
+  https://github.com/layingback/reDesign
 
-  Dragonfly is released under the terms and conditions
+  reDesign theme is released under the terms and conditions
   of the GNU GPL version 2 or any later version
+  http://www.gnu.org/licenses/gpl-2.0.html
 
-  $Source: /cvs/themes/reDesign/style/style.css,v $
-  $Revision: 1.170 $
-  $Author: estlane $
-  $Date: 2010/03/22 21:39:48 $
+***********************************************
+
+!!!  DO NOT MAKE ANY CHANGES TO THIS FILE  -  Changes will be lost on update !!!
+!!!  Instead put all your custom changes in specific.css in this same folder !!!
+
 **********************************************/
 
 /* Used if normal header isn't used, i.e Printer Friendly Article */
@@ -674,7 +677,7 @@ b.corner-rt {
 }
 
 
-.wip_post b.corner-lt, .wip_post	b.corner-rt {
+.wip_post b.corner-lt, .wip_post b.corner-rt {
 /* As wip_post cant have top padding, we dont need negative margin */
     margin-top: 0;/*top padding of .wip_post */
 }
@@ -2460,7 +2463,7 @@ ul.post-tasks li img {
     visibility: hidden;
     margin: 0;
     margin-bottom: -20px;
-    padding: 0;  
+    padding: 0;
 }
 ul.post-tasks li span {
     display: none;
@@ -2758,3 +2761,17 @@ dl.compact_userinfo ul {
     list-style-position: inside;
 }
 /********END COMPACT USERINFO BLOCK********/
+
+/*  Admin -> General -> Blocks Administration  */
+/*  Space saving & Reuse Pin/Tack for details  */
+#blist_fixed {
+ width: 100%;
+ position: relative;
+ background: white;
+}
+.expandinfo {
+ font-size: 0.9em;
+}
+#blist .expandinfo {
+ display: none;
+}
