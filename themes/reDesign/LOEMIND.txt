@@ -1,0 +1,32 @@
+﻿------------------------------------------------------------------------------------------------------------------------
+reDesign 3 RC, kujundus sisuhaldussüsteemile Dragonfly, LoeMind fail
+------------------------------------------------------------------------------------------------------------------------
+
+Versioon: 9.2.3.0
+Väljalaskekuupäev: 10. veebruar, 2010. a.
+==============================================================
+
+PAIGALDAMINE:
+Lae lihtsalt reDesign kataloog asukohast themes sinu veebisaidi themes kataloogi.
+
+Samuti on sul võimalus ainult selle kujundusega kasutada kaasasolevat "Current Menu" plokki. 
+See näitab menüülinke vaid kategooriast kus antud menüülink on. Leiad selle EXTRA kataloogist.
+
+Juhul kui tahad muuta mõnda taustapilti leiad sa arhiivi "reDesign PSDs" EXTRA kataloogist.
+See sisaldab PSD faile valmis lõikudega ning on väga hõlbus kasutada Adobe Photoshopiga.
+Sa võid kasutada näiteks 7-Zip nimelist programmi arhiivi lahti pakkimiseks.
+7-Zipi leiad siit: http://www.7-zip.org/
+
+Palun ütle oma arvamus mu veebilehel: http://000.pri.ee
+
+==============================================================
+
+Tänunimekiri:
+--------------------------
+* DF inimesi, nende soovituste ning abi eest - http://dragonflycms.org/Forums/viewtopic/t=19220.html
+* Dragonfly CMS'i oma täiusliku mootori eest - http://dragonflycms.org
+* Araneae'd täiusliku koodikirjutamise programmi eest - http://www.ornj.net/araneae/
+* Operat suurepärase brauseri eest ning ideede eest mida Opera veebilehelt leida võib
+
+Autor: Madis
+http://000.pri.ee
