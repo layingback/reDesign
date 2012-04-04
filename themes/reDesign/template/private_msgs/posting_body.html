@@ -16,7 +16,7 @@ function checkForm() {
 //-->
 </script>
 
-<div id="tabs"><b></b><ul>
+<div id="tabs"><b>&nbsp;</b><ul>
   <li>{INBOX}</li>
   <li>{SENTBOX}</li>
   <li>{OUTBOX}</li>
@@ -36,7 +36,7 @@ function checkForm() {
 <!-- IF S_PREVIEW_BOX -->
 <h3>{L_PREVIEW}</h3>
 
-<div class="wip_post row1"><b class="corner-lt"></b><b class="corner-rt"></b>
+<div class="wip_post row1"><b class="corner-lt">&nbsp;</b><b class="corner-rt">&nbsp;</b>
 
   <div class="wip_postbody">
   	<ul class="post-tasks">
@@ -53,14 +53,14 @@ function checkForm() {
     <div class="wip_content">{PREVIEW_MESSAGE}</div>
   </div>
 
-<span class="corners-bottom"><span></span></span></div>
+<span class="corners-bottom"><span>&nbsp;</span></span></div>
 <br />
 <!-- ENDIF -->
 
 <!-- IF ERROR_MESSAGE -->
-<div class="wip_post row1"><b class="corner-lt"></b><b class="corner-rt"></b>
+<div class="wip_post row1"><b class="corner-lt">&nbsp;</b><b class="corner-rt">&nbsp;</b>
 {ERROR_MESSAGE}
-<span class="corners-bottom"><span></span></span></div>
+<span class="corners-bottom"><span>&nbsp;</span></span></div>
 <br />
 <!-- ENDIF -->
 
@@ -110,14 +110,14 @@ function checkForm() {
 
   {S_HIDDEN_FORM_FIELDS}
   <input type="submit" tabindex="5" name="preview" class="subm" value="{L_PREVIEW}" />
-  <input type="submit" accesskey="s" tabindex="6" name="post" class="subm" value="{L_SUBMIT}" /></td>
-</form>
-
+  <input type="submit" accesskey="s" tabindex="6" name="post" class="subm" value="{L_SUBMIT}" />
 </div>
 
+</form>
 
+<!--
 {L_OPTIONS}:<br />
 {HTML_STATUS}<br />
 {BBCODE_STATUS}<br />
 {SMILIES_STATUS}<br />
-
+-->
