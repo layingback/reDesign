@@ -1,0 +1,48 @@
+<script type="text/javascript">
+<!--
+// Should really check the browser to stop this whining ...
+function select_switch(status)
+{
+	for (i = 0; i < document.priv_list.length; i++)
+	{
+		document.priv_list.elements[i].checked = status;
+	}
+}
+//-->
+</script>
+<h2>{L_AUTH_TITLE} for {USERNAME}</h2>
+<p>{USER_GROUP_MEMBERSHIPS}</p>
+
+<p><b>{L_PRIVILEGES}</b><br />{L_AUTH_EXPLAIN}</p>
+
+<form method="post" name="priv_list" action="{U_USER_FORUMS}" {I18N}>
+  <table cellspacing="1" cellpadding="1" border="0" align="center" class="forumline" summary="">
+	<tr> 
+	  <th width="50%" class="thCornerL">{L_FORUM}</th>
+	  <th class="thCornerR">{L_PRIVILEGES}</th>
+	</tr>
+	<!-- BEGIN forums -->
+	<tr> 
+	  <td class="{forums.ROW_CLASS}" style="white-space:nowrap;">{forums.FORUM_NAME}</td>
+	  <td class="{forums.ROW_CLASS}" align="center">
+		<input type="checkbox" name="forum_id_list[]" value="{forums.FORUM_ID}" {forums.PRIV_CHECK} />
+	  </td>
+	</tr>
+	<!-- END forums -->
+	<tr> 
+	  <td colspan="2" class="row1" align="center"><span class="gensmall"><b><span class="gensmall"><a href="javascript:select_switch(true);">{L_MARK_ALL}</a> :: <a href="javascript:select_switch(false);">{L_UNMARK_ALL}</a></span></b></span></td>
+	</tr>
+	<tr>
+	  <td colspan="2" class="catBottom" align="center">{S_HIDDEN_FIELDS} 
+		<input type="submit" name="submit" value="{L_SUBMIT}" class="mainoption" />
+		&nbsp;&nbsp; 
+		<input type="reset" value="{L_RESET}" class="liteoption" name="reset" />
+	  </td>
+	</tr>
+	<tr>
+	  <td colspan="2" class="row1" align="center">
+	  	<a href="{U_USER_FORUMS}"><b>{L_ANOTHER_USER}?</b></a>
+	  </td>
+	</tr>
+  </table>
+</form>
