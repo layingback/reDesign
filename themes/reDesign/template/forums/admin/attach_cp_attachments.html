@@ -21,16 +21,16 @@
 </script>
 
 <form method="post" name="attach_list" action="{S_MODE_ACTION}" {I18N}>
-  <table width="100%" cellspacing="2" cellpadding="2" border="0" align="center">
-	<tr> 
-	  <td align="right" nowrap="nowrap"><span class="genmed">{L_VIEW}:&nbsp;{S_VIEW_SELECT}&nbsp;&nbsp;{L_SELECT_SORT_METHOD}:&nbsp;{S_MODE_SELECT}&nbsp;&nbsp;{L_ORDER}&nbsp;{S_ORDER_SELECT}&nbsp;&nbsp; 
+  <table width="100%" cellspacing="2" cellpadding="2" border="0" style="margin:auto;" summary="">
+	<tr>
+	  <td align="right" nowrap="nowrap"><span class="genmed">{L_VIEW}:&nbsp;{S_VIEW_SELECT}&nbsp;&nbsp;{L_SELECT_SORT_METHOD}:&nbsp;{S_MODE_SELECT}&nbsp;&nbsp;{L_ORDER}&nbsp;{S_ORDER_SELECT}&nbsp;&nbsp;
 		<input type="submit" name="submit" value="{L_SUBMIT}" class="liteoption" />
 		</span>
 	  </td>
 	</tr>
   </table>
-  <table width="100%" cellpadding="3" cellspacing="1" border="0" class="forumline">
-	<tr> 
+  <table width="100%" cellpadding="3" cellspacing="1" border="0" class="forumline" summary="">
+	<tr>
 	  <th height="25" class="thCornerL">#</th>
 	  <th class="thTop">{L_FILENAME}</th>
 	  <th class="thTop">{L_FILECOMMENT}</th>
@@ -42,7 +42,7 @@
 	  <th class="thCornerR">{L_DELETE}</th>
 	</tr>
 	<!-- BEGIN attachrow -->
-	<tr> 
+	<tr>
 	  <td class="{attachrow.ROW_CLASS}" align="center"><span class="gen">&nbsp;{attachrow.ROW_NUMBER}&nbsp;</span></td>
 	  <td class="{attachrow.ROW_CLASS}" align="center"><span class="gen"><a href="{attachrow.U_VIEW_ATTACHMENT}" class="gen" target="_blank">{attachrow.FILENAME}</a></span></td>
 	  <td class="{attachrow.ROW_CLASS}" align="center"><span class="gen"><input type="text" size="40" maxlength="200" name="attach_comment_list[]" value="{attachrow.COMMENT}" class="post" /></span></td>
@@ -55,10 +55,10 @@
 	  {attachrow.S_HIDDEN}
 	</tr>
 	<!-- END attachrow -->
-	<tr> 
-	  <td class="catBottom" colspan="9" height="28" align="right"> 
+	<tr>
+	  <td class="catBottom" colspan="9" height="28" align="right">
 		<input type="submit" name="submit_change" value="{L_SUBMIT_CHANGES}" class="mainoption" />
-		&nbsp; 
+		&nbsp;
 		<input type="submit" name="delete" value="{L_DELETE_MARKED}" class="liteoption" />
 	  </td>
 	</tr>
@@ -68,18 +68,18 @@
   {S_USER_HIDDEN}
 <!-- END switch_user_based -->
 
-  <table width="100%" cellspacing="2" border="0" align="center" cellpadding="2">
-	<tr> 
+  <table width="100%" cellspacing="2" border="0" style="margin:auto;" cellpadding="2" summary="">
+	<tr>
 	  <td align="right" valign="top" nowrap="nowrap"><b><span class="gensmall"><a href="javascript:select_switch(true);" class="gensmall">{L_MARK_ALL}</a> :: <a href="javascript:select_switch(false);" class="gensmall">{L_UNMARK_ALL}</a></span></b></td>
 	</tr>
   </table>
 
-<table width="100%" cellspacing="0" cellpadding="0" border="0">
-  <tr> 
+<table width="100%" cellspacing="0" cellpadding="0" border="0" summary="">
+  <tr>
 	<td><span class="nav">{PAGE_NUMBER}</span></td>
 	<td align="right"><span class="nav">{PAGINATION}&nbsp;</span></td>
   </tr>
 </table></form>
 
 <br />
-<div align="center"><span class="copyright">{ATTACH_VERSION}</span></div>
+<div style="text-align:center;"><span class="copyright">{ATTACH_VERSION}</span></div>

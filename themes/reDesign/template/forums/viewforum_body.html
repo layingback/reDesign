@@ -21,13 +21,13 @@
   <!-- ENDPHP -->
 
   <!-- IF forumrow.S_IS_LINK -->
-  <div class="forumblock {COLOUR_CLASS}" onclick="location.href='{forumrow.U_VIEWFORUM}'"><b class="corner-lt"></b><b class="corner-rt"></b>
+  <div class="forumblock {COLOUR_CLASS}" onclick="location.href='{forumrow.U_VIEWFORUM}'"><b class="corner-lt">&nbsp;</b><b class="corner-rt">&nbsp;</b>
      <img src="{forumrow.FORUM_FOLDER_IMG}" alt="{forumrow.L_FORUM_FOLDER_ALT}" title="{forumrow.L_FORUM_FOLDER_ALT}" class="folder" />
     <h3><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></h3>
     <div class="clear"></div>
     <!-- IF forumrow.FORUM_DESC --><div class="forumdesc">{forumrow.FORUM_DESC}</div><!-- ENDIF -->
     <br style="clear:both;" />
-  <span class="corners-bottom"><span></span></span></div>
+  <span class="corners-bottom">&nbsp;<span>&nbsp;</span></span></div>
   <!-- ELSE -->
   <div class="forumblock {COLOUR_CLASS}" onclick="location.href='{BASE_URL}{forumrow.U_VIEWFORUM}'"><b class="corner-lt"></b><b class="corner-rt"></b>
     <img src="{forumrow.FORUM_FOLDER_IMG}" alt="{forumrow.L_FORUM_FOLDER_ALT}" title="{forumrow.L_FORUM_FOLDER_ALT}" class="folder" />
@@ -45,7 +45,7 @@
       <div class="topicsposts_name">{L_TOPICS}:<br />{L_POSTS}:</div>
     </div>
     <br style="clear:both;" />
-  <span class="corners-bottom"><span></span></span></div>
+  <span class="corners-bottom"><span>&nbsp;</span></span></div>
   <!-- ENDIF -->
   <!-- END forumrow -->
   <br/>
@@ -53,7 +53,7 @@
 
 <div style="margin: 10px 0;zoom:1;">
 <a href="{U_POST_NEW_TOPIC}" title="{L_POST_NEW_TOPIC}" class="forumbutton" style="background-image:url('{POST_IMG}');"><img src="{POST_IMG}" alt="{L_POST_NEW_TOPIC}" /><span>{L_POST_NEW_TOPIC}</span></a>
-<span style="display:block;float:right;"><b>{PAGINATION}</b></span>
+<span style="display:block;float:right;"><b>&nbsp;{PAGINATION}</b></span>
 <br style="clear:both;" /> </div>
 
 <div style="margin-bottom: 5px;">
@@ -61,13 +61,15 @@
 <a href="{U_FAQ}">{L_FAQ}</a>
  • <a href="{U_SEARCH}">{L_SEARCH}</a>
 <!-- IF S_LOGGED_IN -->
- • <a href="{U_SEARCH_NEW}">{S_NEW_POSTS}</a>
+<br />
+<a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a>
+ • <a href="{U_SEARCH_24}">{L_SEARCH_24}</a>
  • <a href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a>
 <!-- ENDIF -->
  • <a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a>
 </div>
 
-<table cellspacing="0" class="forum_topics">
+<table cellspacing="0" class="forum_topics" summary="">
   <tr>
     <td colspan="2"></td>
     <td>{L_TOPICS} / {L_AUTHOR}</td>
@@ -79,9 +81,9 @@
   <!-- IF topicrow.L_HEADER -->
   <tr>
     <td colspan="6">
-      <div class="topic_header"><b class="corner-lt"></b><b class="corner-rt"></b>
+      <div class="topic_header"><b class="corner-lt">&nbsp;</b><b class="corner-rt">&nbsp;</b>
         {topicrow.L_HEADER}
-      <span class="corners-bottom"><span></span></span></div>
+      <span class="corners-bottom"><span>&nbsp;</span></span></div>
     </td>
   </tr>
   <!-- ENDIF -->
@@ -149,7 +151,9 @@
 
 <div class="afterposts">
   <div class="leftinfo" style="font-weight:bold;margin-top:10px;">
-    {L_MODERATOR}: {MODERATORS}
+	<!-- IF S_IS_ADMIN or S_IS_MOD -->
+		{L_MODERATOR}: {MODERATORS}
+    <!-- ENDIF -->
     <br style="clear:both;" />
   </div>
   <div class="rightinfo right-box">
@@ -171,3 +175,19 @@
 
 <br style="clear:both;" />
 <!-- INCLUDE forums/overall_footer.html -->
+
+
+<!-- IF S_IS_USER and (SUB_FORUMS or IS_SUBFORUM) -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'auto',
+//    includedLanguages: 'sq,bg,ca,hr,cs,da,nl,en,et,fi,fr,de,el,hu,ga,it,lv,lt,mk,no,pl,pt,ro,ru,sr,sk,sl,es,sv,tr,cy',
+    includedLanguages: '{S_LANGCODE},en,de,nl',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- ENDIF -->

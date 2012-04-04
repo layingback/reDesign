@@ -4,7 +4,7 @@
 <p>{L_CONFIGURATION_EXPLAIN}</p>
 
 <form action="{S_CONFIG_ACTION}" method="post" {I18N}>
-<table width="99%" cellpadding="4" cellspacing="1" border="0" align="center" class="forumline">
+<table width="99%" cellpadding="4" cellspacing="1" border="0" align="center" class="forumline" summary="">
     <tr>
       <th class="thHead" colspan="2">{L_GENERAL_SETTINGS}</th>
     </tr>
@@ -45,33 +45,56 @@
         <td class="row2">{TIMEZONE_SELECT}</td>
     </tr>
     <tr>
+        <td class="row1">{L_ENABLE_ARCHIVE}</td>
+        <td class="row2"><input type="radio" name="archive_enable" value="1" {ARCHIVE_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" name="archive_enable" value="0" {ARCHIVE_NO} /> {L_NO}</td>
+    </tr>
+    <tr>
         <td class="row1">{L_ENABLE_PRUNE}</td>
         <td class="row2"><input type="radio" name="prune_enable" value="1" {PRUNE_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" name="prune_enable" value="0" {PRUNE_NO} /> {L_NO}</td>
     </tr>
     <tr>
-        <th class="thHead" colspan="2">{L_PRIVATE_MESSAGING}</th>
+        <td class="row1">{L_RECYCLE_ALLOW}</td>
+        <td class="row2"><input type="radio" name="allow_topic_recycle" value="1" {RECYCLE_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" name="allow_topic_recycle" value="0" {RECYCLE_NO} /> {L_NO}</td>
     </tr>
     <tr>
-        <td class="row1">{L_INBOX_LIMIT}</td>
-        <td class="row2"><input class="post" type="text" maxlength="4" size="4" name="max_inbox_privmsgs" value="{INBOX_LIMIT}" /></td>
+        <td class="row1">{L_RECYCLE_FORUM}</td>
+        <td class="row2">{RECYCLE_SELECT}</td>
     </tr>
     <tr>
-        <td class="row1">{L_SENTBOX_LIMIT}</td>
-        <td class="row2"><input class="post" type="text" maxlength="4" size="4" name="max_sentbox_privmsgs" value="{SENTBOX_LIMIT}" /></td>
+        <td class="row1">{L_ALLOW_ONLINE_INDEX}</td>
+        <td class="row2">{ALLOW_ONLINE_INDEX}</td>
     </tr>
     <tr>
-        <td class="row1">{L_SAVEBOX_LIMIT}</td>
-        <td class="row2"><input class="post" type="text" maxlength="4" size="4" name="max_savebox_privmsgs" value="{SAVEBOX_LIMIT}" /></td>
-    </tr>
-        <tr><th class="thHead" colspan="2">{L_ROPM_QUICK_REPLY}</th>
+        <td class="row1">{L_ONLINE_INDEX_GROUP}</td>
+        <td class="row2">{ONLINE_INDEX_GROUP}</td>
     </tr>
     <tr>
-        <td class="row1">{L_ENABLE_ROPM_QUICK_REPLY}</td>
-        <td class="row2"><input type="radio" name="ropm_quick_reply" value="1" {ROPM_QUICK_REPLY_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" name="ropm_quick_reply" value="0" {ROPM_QUICK_REPLY_NO} /> {L_NO}</td>
+        <td class="row1">{L_ALLOW_ONLINE_TODAY}</td>
+        <td class="row2">{ALLOW_ONLINE_TODAY}</td>
     </tr>
     <tr>
-        <td class="row1">{L_ROPM_QUICK_REPLY_BBC}</td>
-        <td class="row2"><input type="radio" name="ropm_quick_reply_bbc" value="1" {ROPM_QUICK_REPLY_BBC_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" name="ropm_quick_reply_bbc" value="0" {ROPM_QUICK_REPLY_BBC_NO} /> {L_NO}</td>
+        <td class="row1">{L_ONLINE_TODAY_GROUP}</td>
+        <td class="row2">{ONLINE_TODAY_GROUP}</td>
+	</tr>
+	<tr>
+		<td class="row1">{L_ADMIN_COLOR}</td>
+		<td class="row2"><input class="post" type="text" name="admin_color" size="7" maxlength="7" value="{ADMIN_COLOR}" /></td>
+	</tr>
+	<tr>
+		<td class="row1">{L_MODERATOR_COLOR}</td>
+		<td class="row2"><input class="post" type="text" name="moderator_color" size="7" maxlength="7" value="{MODERATOR_COLOR}" /></td>
+	</tr>
+	<tr>
+		<td class="row1">{L_MEMBER_COLOR}</td>
+		<td class="row2"><input class="post" type="text" name="member_color" size="7" maxlength="7" value="{MEMBER_COLOR}" /></td>
+	</tr>
+    <tr>
+        <td class="row1">{L_ALLOW_ONLINE_POSTS}</td>
+        <td class="row2"><input type="radio" name="allow_online_posts" value="1" {ONLINE_POSTS_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" name="allow_online_posts" value="0" {ONLINE_POSTS_NO} /> {L_NO}</td>
+    </tr>
+	<tr>
+		<td class="row1">{L_RESTRICTED_GROUP}<br /><span class="gensmall">{L_RESTRICTED_GROUP_EXPLAIN}</span></td>
+		<td class="row2">{RESTRICTED_GROUP}</td>
     </tr>
     <tr>
       <th class="thHead" colspan="2">{L_ABILITIES_SETTINGS}</th>
@@ -101,6 +124,26 @@
         <td class="row2"><input type="radio" name="allow_sig" value="1" {SIG_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" name="allow_sig" value="0" {SIG_NO} /> {L_NO}</td>
     </tr>
     <tr>
+        <td class="row1">{L_ALLOW_FORUM_WATCH}</td>
+        <td class="row2"><input type="radio" name="allow_forum_watch" value="1" {FWATCH_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" name="allow_forum_watch" value="0" {FWATCH_NO} /> {L_NO}</td>
+    </tr>
+    <tr>
+        <td class="row1">{L_ALLOW_USER_CLOAK}<br /><span class="gensmall">{L_ALLOW_USER_CLOAK_EXPLAIN}</span></td>
+        <td class="row2"><input type="radio" name="allow_user_cloak" value="1" {ALLOW_CLOAK_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" name="allow_user_cloak" value="0" {ALLOW_CLOAK_NO} /> {L_NO}</td>
+    </tr>
+    <tr>
+        <td class="row1">{L_ALLOW_CLOAK_GROUP}</td>
+        <td class="row2">{ALLOW_CLOAK_GROUP}</td>
+	</tr>
+    <tr>
+        <td class="row1">{L_EDIT_LAST_POST_ONLY}</td>
+        <td class="row2"><input type="radio" name="edit_last_post_only" value="1" {LAST_POST_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" name="edit_last_post_only" value="0" {LAST_POST_NO} /> {L_NO}</td>
+    </tr>
+    <tr>
+        <td class="row1">{L_GUEST_CAPTCHA}</td>
+        <td class="row2"><input type="radio" name="allow_guest_captcha" value="1" {GUEST_CAPTCHA_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" name="allow_guest_captcha" value="0" {GUEST_CAPTCHA_NO} /> {L_NO}</td>
+    </tr>
+    <tr>
       <th class="thHead" colspan="2">{L_COPPA_SETTINGS}</th>
     </tr>
     <tr>
@@ -110,6 +153,31 @@
     <tr>
         <td class="row1">{L_COPPA_MAIL}<br /><span class="gensmall">{L_COPPA_MAIL_EXPLAIN}</span></td>
         <td class="row2"><textarea name="coppa_mail" rows="5" cols="30">{COPPA_MAIL}</textarea></td>
+    </tr>
+    <tr>
+        <th class="thHead" colspan="2">{L_PRIVATE_MESSAGING}</th>
+    </tr>
+    <tr>
+        <td class="row1">{L_INBOX_LIMIT}</td>
+        <td class="row2"><input class="post" type="text" maxlength="4" size="4" name="max_inbox_privmsgs" value="{INBOX_LIMIT}" /></td>
+    </tr>
+    <tr>
+        <td class="row1">{L_SENTBOX_LIMIT}</td>
+        <td class="row2"><input class="post" type="text" maxlength="4" size="4" name="max_sentbox_privmsgs" value="{SENTBOX_LIMIT}" /></td>
+    </tr>
+    <tr>
+        <td class="row1">{L_SAVEBOX_LIMIT}</td>
+        <td class="row2"><input class="post" type="text" maxlength="4" size="4" name="max_savebox_privmsgs" value="{SAVEBOX_LIMIT}" /></td>
+    </tr>
+        <tr><th class="thHead" colspan="2">{L_ROPM_QUICK_REPLY}</th>
+    </tr>
+    <tr>
+        <td class="row1">{L_ENABLE_ROPM_QUICK_REPLY}</td>
+        <td class="row2"><input type="radio" name="ropm_quick_reply" value="1" {ROPM_QUICK_REPLY_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" name="ropm_quick_reply" value="0" {ROPM_QUICK_REPLY_NO} /> {L_NO}</td>
+    </tr>
+    <tr>
+        <td class="row1">{L_ROPM_QUICK_REPLY_BBC}</td>
+        <td class="row2"><input type="radio" name="ropm_quick_reply_bbc" value="1" {ROPM_QUICK_REPLY_BBC_YES} /> {L_YES}&nbsp;&nbsp;<input type="radio" name="ropm_quick_reply_bbc" value="0" {ROPM_QUICK_REPLY_BBC_NO} /> {L_NO}</td>
     </tr>
 
     <tr>

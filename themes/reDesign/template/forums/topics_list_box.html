@@ -31,8 +31,8 @@ function check_uncheck_all_{topics_list_box.row.header_table.BOX_ID}()
 </script>
 <!-- END multi_selection -->
 
-<table border="0" cellpadding="4" cellspacing="1" width="100%" class="forumline">
-<tr> 
+<table border="0" cellpadding="4" cellspacing="1" width="100%" class="forumline" summary="">
+<tr>
 	<th colspan="{topics_list_box.row.header_table.COLSPAN}" align="center" nowrap="nowrap">&nbsp;{topics_list_box.row.L_TITLE}&nbsp;</th>
 	<th width="50" align="center" nowrap="nowrap">&nbsp;{topics_list_box.row.L_REPLIES}&nbsp;</th>
 	<th width="100" align="center" nowrap="nowrap">&nbsp;{topics_list_box.row.L_AUTHOR}&nbsp;</th>
@@ -49,7 +49,7 @@ function check_uncheck_all_{topics_list_box.row.header_table.BOX_ID}()
 </tr>
 <!-- END header_row -->
 <!-- BEGIN topic -->
-<tr> 
+<tr>
 	<!-- BEGIN single_selection -->
 	<td class="{topics_list_box.row.ROW_CLASS}" align="center" valign="middle" width="20"><input type="radio" name="{topics_list_box.FIELDNAME}" value="{topics_list_box.row.FID}" {topics_list_box.row.L_SELECT} /></td>
 	<!-- END single_selection -->
@@ -76,12 +76,12 @@ function check_uncheck_all_{topics_list_box.row.header_table.BOX_ID}()
 </tr>
 <!-- END topic -->
 <!-- BEGIN no_topics -->
-<tr> 
+<tr>
 	<td class="row1" colspan="{topics_list_box.row.COLSPAN}" height="30" align="center" valign="middle"><span class="gen">{topics_list_box.row.L_NO_TOPICS}</span></td>
 </tr>
 <!-- END no_topics -->
 <!-- BEGIN bottom -->
-<tr> 
+<tr>
 	<td class="catBottom" colspan="{topics_list_box.row.COLSPAN}" align="center" valign="middle"><span class="genmed">{topics_list_box.row.FOOTER}</span></td>
 </tr>
 <!-- END bottom -->

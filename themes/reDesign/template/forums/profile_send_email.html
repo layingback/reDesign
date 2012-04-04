@@ -18,13 +18,13 @@ function checkForm(formObj) {
 </script>
 
 <form action="{S_POST_ACTION}" method="post" name="post" onsubmit="return checkForm(this)" {I18N}>
-<table width="100%" cellspacing="2" cellpadding="2" border="0">
+<table width="100%" cellspacing="2" cellpadding="2" border="0" summary="">
     <tr>
         <td align="left"><span class="nav"><a href="{U_INDEX}" class="nav">{L_INDEX}</a></span></td>
     </tr>
 </table>
 
-<table border="0" cellpadding="3" cellspacing="1" width="100%" class="forumline">
+<table border="0" cellpadding="3" cellspacing="1" width="100%" class="forumline" summary="">
     <tr>
         <th class="thHead" colspan="2" height="25"><b>{L_SEND_EMAIL_MSG}</b></th>
     </tr>
@@ -42,7 +42,7 @@ function checkForm(formObj) {
     </tr>
     <tr>
         <td class="row1" valign="top"><span class="gen"><b>{L_OPTIONS}</b></span></td>
-        <td class="row2"><table cellspacing="0" cellpadding="1" border="0">
+        <td class="row2"><table cellspacing="0" cellpadding="1" border="0" summary="">
             <tr>
                 <td><input type="checkbox" name="cc_email"  value="1" checked="checked" /></td>
                 <td><span class="gen">{L_CC_EMAIL}</span></td>
@@ -54,7 +54,7 @@ function checkForm(formObj) {
     </tr>
 </table>
 
-<table width="100%" cellspacing="2" border="0" cellpadding="2">
+<table width="100%" cellspacing="2" border="0" cellpadding="2" summary="">
     <tr>
         <td align="right" valign="top"><span class="gensmall">{S_TIMEZONE}</span></td>
     </tr>

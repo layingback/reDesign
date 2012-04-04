@@ -1,10 +1,10 @@
 <!-- INCLUDE forums/overall_header.html -->
-<div class="breadcrumb_trail custom_breadcrumb_trail">  
-<a href="{U_MAININDEX}">_(HOME)</a> {BC_DELIM} <a href="{U_INDEX}">{L_INDEX}</a> {BC_DELIM} <a href="{U_VIEW_FORUM}">{FORUM_NAME}</a> 
+<div class="breadcrumb_trail custom_breadcrumb_trail">
+<a href="{U_MAININDEX}">_(HOME)</a> {BC_DELIM} <a href="{U_INDEX}">{L_INDEX}</a> {BC_DELIM} <a href="{U_VIEW_FORUM}">{FORUM_NAME}</a>
 </div>
 
 <form method="post" action="{S_SPLIT_ACTION}"  {I18N}>
-  <table width="100%" cellpadding="4" cellspacing="1" border="0" class="forumline">
+  <table width="100%" cellpadding="4" cellspacing="1" border="0" class="forumline" summary="">
     <tr>
       <th height="25" class="thHead" colspan="3" nowrap="nowrap">{L_SPLIT_TOPIC}</th>
     </tr>
@@ -23,7 +23,7 @@
     </tr>
     <tr>
       <td class="catHead" colspan="3" height="28">
-        <table width="60%" cellspacing="0" cellpadding="0" border="0" align="center">
+        <table width="60%" cellspacing="0" cellpadding="0" border="0" align="center" summary="">
           <tr>
             <td width="50%" align="center">
               <input class="liteoption" type="submit" name="split_type_all" value="{L_SPLIT_POSTS}" />
@@ -44,7 +44,7 @@
     <tr>
       <td align="left" valign="top" class="{postrow.ROW_CLASS}"><span class="name"><a name="{postrow.U_POST_ID}"></a>{postrow.POSTER_NAME}</span></td>
       <td width="100%" valign="top" class="{postrow.ROW_CLASS}">
-        <table width="100%" cellspacing="0" cellpadding="3" border="0">
+        <table width="100%" cellspacing="0" cellpadding="3" border="0" summary="">
           <tr>
             <td valign="middle"><img src="{THEME_PATH}/images/forums/icon_minipost.gif" alt="{L_POST}"><span class="postdetails">{L_POSTED}:
               {postrow.POST_DATE}&nbsp;&nbsp;&nbsp;&nbsp;{L_POST_SUBJECT}: {postrow.POST_SUBJECT}</span></td>
@@ -64,7 +64,7 @@
     <!-- END postrow -->
     <tr>
       <td class="catBottom" colspan="3" height="28">
-        <table width="60%" cellspacing="0" cellpadding="0" border="0" align="center">
+        <table width="60%" cellspacing="0" cellpadding="0" border="0" align="center" summary="">
           <tr>
             <td width="50%" align="center">
               <input class="liteoption" type="submit" name="split_type_all" value="{L_SPLIT_POSTS}" />
@@ -77,7 +77,7 @@
       </td>
     </tr>
   </table>
-  <table width="100%" cellspacing="2" border="0" align="center" cellpadding="2">
+  <table width="100%" cellspacing="2" border="0" align="center" cellpadding="2" summary="">
     <tr>
       <td align="right" valign="top"><span class="gensmall">{S_TIMEZONE}</span></td>
     </tr>

@@ -11,7 +11,9 @@
 <a href="{U_FAQ}">{L_FAQ}</a>
  • <a href="{U_SEARCH}">{L_SEARCH}</a>
 <!-- IF S_LOGGED_IN -->
- • <a href="{U_SEARCH_NEW}">{S_NEW_POSTS}</a>
+<br />
+<a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a>
+ • <a href="{U_SEARCH_24}">{L_SEARCH_24}</a>
  • <a href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a>
 <!-- ENDIF -->
  • <a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a>
@@ -22,8 +24,8 @@
   <!-- PHP -->$i = 0;<!-- ENDPHP -->
   <!-- IF forumrow.S_NOT_FIRST --></div><!-- ENDIF -->
   <a name="{forumrow.CAT_ID}"></a>
-  <h2 class="cattitle"><b class="corner-lt"></b><b class="corner-rt"></b>
-  <span class="plusminus" onclick="blockslide('{forumrow.S_BID}');" title="_(TOGGLE)">+/-</span><a href="{forumrow.U_VIEWCAT}#{forumrow.CAT_ID}" title="{forumrow.CAT_DESC}">{forumrow.CAT_DESC}</a><span class="corners-bottom"><span></span></span></h2>
+  <h2 class="cattitle"><b class="corner-lt">&nbsp;</b><b class="corner-rt">&nbsp;</b>
+  <span class="plusminus" onclick="blockslide('{forumrow.S_BID}');" title="_(TOGGLE)">+/-</span><a href="{forumrow.U_VIEWCAT}#{forumrow.CAT_ID}" title="{forumrow.CAT_DESC}">{forumrow.CAT_DESC}</a><span class="corners-bottom"><span>&nbsp;</span></span></h2>
   <div id="pe{forumrow.S_BID}" {forumrow.S_VISIBLE}>
 <!-- ELSE -->
   <!-- PHP -->
@@ -34,17 +36,17 @@
 
   <!-- IF forumrow.S_IS_LINK -->
 
-  <div class="forumblock {COLOUR_CLASS}" onclick="location.href='{forumrow.U_VIEWFORUM}'"><b class="corner-lt"></b><b class="corner-rt"></b>
+  <div class="forumblock {COLOUR_CLASS}" onclick="location.href='{forumrow.U_VIEWFORUM}'"><b class="corner-lt">&nbsp;</b><b class="corner-rt">&nbsp;</b>
      <img src="{forumrow.FORUM_FOLDER_IMG}" alt="{forumrow.L_FORUM_FOLDER_ALT}" title="{forumrow.L_FORUM_FOLDER_ALT}" class="folder" />
     <h3><a href="{forumrow.U_VIEWFORUM}">{forumrow.FORUM_NAME}</a></h3>
     <div class="clear"></div>
     <!-- IF forumrow.FORUM_DESC --><div class="forumdesc">{forumrow.FORUM_DESC}</div><!-- ENDIF -->
     <br style="clear:both;" />
-  <span class="corners-bottom"><span></span></span></div>
+  <span class="corners-bottom">&nbsp;<span></span></span></div>
 
   <!-- ELSE -->
 
-  <div class="forumblock {COLOUR_CLASS}" onclick="location.href='{BASE_URL}{forumrow.U_VIEWFORUM}'"><b class="corner-lt"></b><b class="corner-rt"></b>
+  <div class="forumblock {COLOUR_CLASS}" onclick="location.href='{BASE_URL}{forumrow.U_VIEWFORUM}'"><b class="corner-lt">&nbsp;</b><b class="corner-rt">&nbsp;</b>
     <img src="{forumrow.FORUM_FOLDER_IMG}" alt="{forumrow.L_FORUM_FOLDER_ALT}" title="{forumrow.L_FORUM_FOLDER_ALT}" class="folder" />
     <div class="last_post">
       <!-- IF forumrow.LAST_POST_TIME -->
@@ -60,7 +62,7 @@
       <div class="topicsposts_name">{L_TOPICS}:<br />{L_POSTS}:</div>
     </div>
     <br style="clear:both;" />
-  <span class="corners-bottom"><span></span></span></div>
+  <span class="corners-bottom"><span>&nbsp;</span></span></div>
 
   <!-- ENDIF -->
 
@@ -75,7 +77,33 @@
 </div>
 <br style="clear:both;" />
 
+<!-- IF S_ONLINE_INDEX or S_ONLINE_TODAY-->
+  <h2 class="cattitle"><b class="corner-lt">&nbsp;</b><b class="corner-rt">&nbsp;</b>
+    {L_WHO_IS_ONLINE}
+  <span class="corners-bottom"><span>&nbsp;</span></span></h2>
+  <div style="float:left;width:15%;margin-left:10px;">
+	<object type="application/x-shockwave-flash" data="{THEME_PATH}/images/forums/whosonline.swf" width="80" height="80">
+	<param name="movie" value="{THEME_PATH}/images/forums/whosonline.swf" />
+	<param name="wmode" value="transparent" />
+	</object>
+  </div>
+  <div style="float:left;width:80%;margin-bottom:25px;">
+		<!-- IF S_ONLINE_INDEX -->
+			<b>{L_WHO_ONLINE_NOW}</b>: {S_ONLINE_INDEX}
+			<br />
+		<!-- ENDIF -->
+		<!-- IF S_ONLINE_TODAY -->
+			<b>{L_WHO_ONLINE_TODAY}</b>: {S_ONLINE_TODAY}
+			<br />
+		<!-- ENDIF -->
+		{TOTAL_POSTS_TOPICS}<br />
+		<div style="float:right;font-size:0.8em;"><i>{L_LEGEND}</i>: <span style="color:{S_ADMINCOLOR};">{L_ADMINISTRATOR}</span> &#8226; <span style="color:{S_MODCOLOR};">{L_MODERATOR}</span> &#8226; <span style="color:{S_MEMCOLOR};">Member</span></div><br />
+  </div>
+<br style="clear:both;" />
+<!-- ENDIF -->
+
 <div class="forumlegend">
 <img src="{FORUM_NEW_IMG}" alt="" />{L_NEW_POSTS}<img src="{FORUM_IMG}" alt="" />{L_NO_NEW_POSTS}<img src="{FORUM_LOCKED_IMG}" alt="" />{L_FORUM_LOCKED}
 </div>
+
 <!-- INCLUDE forums/overall_footer.html -->

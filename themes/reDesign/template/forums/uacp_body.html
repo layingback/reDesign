@@ -15,10 +15,10 @@
 </script>
 
 <form method="post" name="attach_list" action="{S_MODE_ACTION}" {I18N}>
-  <table width="100%" cellspacing="2" cellpadding="2" border="0">
-	<tr> 
+  <table width="100%" cellspacing="2" cellpadding="2" border="0" summary="">
+	<tr>
 	  <td align="left" style="white-space:nowrap;">
-	  <table width="100%" cellspacing="2" cellpadding="2" border="0">
+	  <table width="100%" cellspacing="2" cellpadding="2" border="0" summary="">
 	<tr>
 		<td class="nav" align="left"><a class="nav" href="{U_INDEX}">{L_INDEX}</a></td>
 	</tr>
@@ -30,8 +30,8 @@
 	  </td>
 	</tr>
   </table>
-  <table width="100%" cellpadding="3" cellspacing="1" border="0" class="forumline">
-	<tr> 
+  <table width="100%" cellpadding="3" cellspacing="1" border="0" class="forumline" summary="">
+	<tr>
 	  <th height="25" class="thCornerL">#</th>
 	  <th class="thTop">{L_FILENAME}</th>
 	  <th class="thTop">{L_FILECOMMENT}</th>
@@ -43,7 +43,7 @@
 	  <th class="thCornerR">{L_DELETE}</th>
 	</tr>
 	<!-- BEGIN attachrow -->
-	<tr> 
+	<tr>
 	  <td class="{attachrow.ROW_CLASS}" align="center"><span class="gen">&nbsp;{attachrow.ROW_NUMBER}&nbsp;</span></td>
 	  <td class="{attachrow.ROW_CLASS}" align="center"><span class="gen"><a href="{attachrow.U_VIEW_ATTACHMENT}" class="gen" target="_blank">{attachrow.FILENAME}</a></span></td>
 	  <td class="{attachrow.ROW_CLASS}" align="center"><span class="gen">{attachrow.COMMENT}</span></td>
@@ -56,7 +56,7 @@
 	  {attachrow.S_HIDDEN}
 	</tr>
 	<!-- END attachrow -->
-	<tr> 
+	<tr>
 	  <td class="catBottom" colspan="9" style="height:28px;" align="right">
 		<input type="submit" name="delete" value="{L_DELETE_MARKED}" class="liteoption" />
 	  </td>
@@ -65,14 +65,14 @@
 
   {S_USER_HIDDEN}
 
-  <table width="100%" cellspacing="2" border="0" cellpadding="2">
+  <table width="100%" cellspacing="2" border="0" cellpadding="2" summary="">
 	<tr>
 	  <td align="right" valign="top" style="white-space:nowrap;"><b><span class="gensmall"><a href="javascript:select_switch(true);" class="gensmall">{L_MARK_ALL}</a> :: <a href="javascript:select_switch(false);" class="gensmall">{L_UNMARK_ALL}</a></span></b></td>
 	</tr>
   </table>
 
-<table width="100%" cellspacing="0" cellpadding="0" border="0">
-  <tr> 
+<table width="100%" cellspacing="0" cellpadding="0" border="0" summary="">
+  <tr>
 	<td><span class="nav">{PAGE_NUMBER}</span></td>
 	<td align="right"><span class="nav">{PAGINATION}&nbsp;</span></td>
   </tr>

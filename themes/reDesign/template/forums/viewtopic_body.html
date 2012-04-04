@@ -11,27 +11,32 @@
 <!-- NOTE: remove the style="display: none" when you want to have the forum description on the topic body -->
 <div style="display: none">{FORUM_DESC}</div>
 
-<div style="margin: 10px 0;zoom:1;">
-<a href="{U_POST_REPLY_TOPIC}" title="{L_POST_REPLY_TOPIC}" class="forumbutton" style="float:left;background-image:url('{REPLY_IMG}');"><img src="{REPLY_IMG}" alt="{L_POST_REPLY_TOPIC}" /><span>{L_POST_REPLY_TOPIC}</span></a>
-<a href="{U_PRINTER_TOPIC}" title="{L_PRINTER_TOPIC}" style="display:block;float:right;"><img src="{PRINTER_IMG}" alt="{L_PRINTER_TOPIC}" /></a>
-<br style="clear:both;" /></div>
+<div class="preposts">
+	<div style="margin: 10px 0;zoom:1;">
+		<a href="{U_POST_REPLY_TOPIC}" title="{L_POST_REPLY_TOPIC}" class="forumbutton" style="float:left;background-image:url('{REPLY_IMG}');"><img src="{REPLY_IMG}" alt="{L_POST_REPLY_TOPIC}" /><span>{L_POST_REPLY_TOPIC}</span></a>
+		<a href="{U_PRINTER_TOPIC}" title="{L_PRINTER_TOPIC}" style="display:block;float:right;"><img src="{PRINTER_IMG}" alt="{L_PRINTER_TOPIC}" /></a>
+		<br style="clear:both;" />
+	</div>
 
 <!--
-<a href="{U_VIEW_OLDER_TOPIC}">{L_VIEW_PREVIOUS_TOPIC}</a>
-<a href="{U_VIEW_NEWER_TOPIC}">{L_VIEW_NEXT_TOPIC}</a>
+	<a href="{U_VIEW_OLDER_TOPIC}">{L_VIEW_PREVIOUS_TOPIC}</a>
+	<a href="{U_VIEW_NEWER_TOPIC}">{L_VIEW_NEXT_TOPIC}</a>
 -->
 
-<div style="margin-bottom: 5px;float:left;">
-<a href="{U_FAQ}">{L_FAQ}</a>
- • <a href="{U_SEARCH}">{L_SEARCH}</a>
-<!-- IF S_LOGGED_IN -->
- • <a href="{U_SEARCH_NEW}">{S_NEW_POSTS}</a>
- • <a href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a>
-<!-- ENDIF -->
- • <a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a>
+	<div style="margin-bottom: 5px;float:left;">
+		<a href="{U_FAQ}">{L_FAQ}</a>
+		• <a href="{U_SEARCH}">{L_SEARCH}</a>
+		<!-- IF S_LOGGED_IN -->
+			<br />
+			<a href="{U_SEARCH_NEW}">{L_SEARCH_NEW}</a>
+			 • <a href="{U_SEARCH_24}">{L_SEARCH_24}</a>
+			 • <a href="{U_SEARCH_SELF}">{L_SEARCH_SELF}</a>
+		<!-- ENDIF -->
+		• <a href="{U_SEARCH_UNANSWERED}">{L_SEARCH_UNANSWERED}</a>
+	</div>
+	<span style="display:block;float:right;">{PAGINATION}&nbsp;</span>
+	<br style="clear:both;" />
 </div>
-<span style="display:block;float:right;"><b>{PAGINATION}</b></span>
-<br style="clear:both;" />
 
 <!-- IF S_HAS_POLL -->
 <div class="pollpanel">
@@ -148,10 +153,12 @@
     'MY_POST'       => $mypost,
     'ONLINE_CLASS'  => $online_class,
     'ONLINE_STYLE'  => $online_style,
+    'ICON_CLOAK'    => $images['icon_cloak'],
     'ICON_QUOTE'    => $images['icon_quote'],
     'ICON_EDIT'     => $images['icon_edit'],
     'ICON_DELPOST'  => $images['icon_delpost'],
     'ICON_IP'       => $images['icon_ip'],
+    'L_CLOAK'       => $lang['Cloak_user'],
     'L_QUOTE'       => $lang['Reply_with_quote'],
     'L_EDIT'        => $lang['Edit_delete_post'],
     'L_DELPOST'     => $lang['Delete_post'],
@@ -161,23 +168,33 @@
 <!-- ENDPHP -->
 
 <!-- An extra class "online" could be used, but it would require some enhancements to viewtopic -->
-<div class="wip_post {postrow.ROW_CLASS}{MY_POST}{ONLINE_CLASS}"{ONLINE_STYLE}><b class="corner-lt"></b><b class="corner-rt"></b>
+<div class="wip_post {postrow.ROW_CLASS}{MY_POST}{ONLINE_CLASS}"{ONLINE_STYLE}><b class="corner-lt">&nbsp;</b><b class="corner-rt">&nbsp;</b>
 <div class="wip_postbody">
 
-  <ul class="post-tasks">
-  <!-- IF postrow.QUOTE --><li class="quote-icon" style="background-image: url('{ICON_QUOTE}')" title="{L_QUOTE}"><span>{postrow.QUOTE}</span>{postrow.QUOTE_IMG}</li><!-- ENDIF -->
+  <ul class="post-tasks"><li>&nbsp;</li>
+  <!-- IF postrow.QUOTE and !(postrow.S_CLOAK) --><li class="quote-icon" style="background-image: url('{ICON_QUOTE}')" title="{L_QUOTE}"><span>{postrow.QUOTE}</span>{postrow.QUOTE_IMG}</li><!-- ENDIF -->
   <!-- IF postrow.EDIT --><li class="edit-icon" style="background-image: url('{ICON_EDIT}')" title="{L_EDIT}"><span>{postrow.EDIT}</span>{postrow.EDIT_IMG}</li><!-- ENDIF -->
   <!-- IF postrow.DELETE --><li class="delete-icon" style="background-image: url('{ICON_DELPOST}')" title="{L_DELPOST}"><span>{postrow.DELETE}</span>{postrow.DELETE_IMG}</li><!-- ENDIF -->
   <!-- IF postrow.IP_IMG --><li class="ip-icon" style="background-image: url('{ICON_IP}')" title="{L_IP}"><span>{postrow.IP}</span>{postrow.IP_IMG}</li><!-- ENDIF -->
+  <!-- IF postrow.U_CLOAK -->
+    <li class="quote-icon" style="background-image: url('{CLOAK_IMG}')" title="{L_CLOAK}"><span><a href="{postrow.U_CLOAK}" title="{L_CLOAK}">{L_CLOAK}</a></span><a href="{postrow.U_CLOAK}" title="{L_CLOAK}"><img src="{CLOAK_IMG}" alt="{L_CLOAK}" title="{L_CLOAK}" /></a></li>
+  <!-- ENDIF -->
+  <!-- IF postrow.U_CLOAK_STOP -->
+    <li class="cloak-icon" style="background-image: url('{UNCLOAK_IMG}')" title="{L_CLOAK_STOP}"><span><a href="{postrow.U_CLOAK_STOP}" title="{L_CLOAK_STOP}">{L_CLOAK_STOP}</a></span><a href="{postrow.U_CLOAK_STOP}" title="{L_CLOAK_STOP}"><img src="{UNCLOAK_IMG}" alt="{L_CLOAK_STOP}" title="{L_CLOAK_STOP}" /></a></li>
+  <!-- ENDIF -->
   </ul>
 
   <h3><a name="{postrow.U_POST_ID}" href="{postrow.U_MINI_POST}">{postrow.POST_SUBJECT}</a></h3>
   <p class="wip_postdetails">
-  <a href="{postrow.U_MINI_POST}"><img src="{postrow.MINI_POST_IMG}" alt="{postrow.L_MINI_POST_ALT}" title="{postrow.L_MINI_POST_ALT}" /></a>
+  <a href="{postrow.U_MINI_POST}"><img src="{postrow.MINI_POST_IMG}" alt="{postrow.L_MINI_POST_ALT}" title="{postrow.L_MINI_POST_ALT}" style="width:12px; height:9px;" /></a>
   {L_POSTED}: {postrow.POST_DATE}
   </p>
   <div class="wip_content">
-  {postrow.MESSAGE}
+  <!-- IF postrow.S_CLOAK -->
+    {L_POST_CLOAKED} &raquo; <a href="{postrow.U_CLOAK_BYPASS}" title="{L_CLOAK_BYPASS}">{L_CLOAK_BYPASS}</a>
+  <!-- ELSE -->
+    {postrow.MESSAGE}
+  <!-- ENDIF -->
 
 <!-- IF postrow.S_HAS_ATTACHMENTS -->
 <!-- BEGIN attachment -->
@@ -241,7 +258,9 @@
 <!-- END attachment -->
 <!-- ENDIF -->
 
-  <span class="signature">{postrow.SIGNATURE}</span>{postrow.EDITED_MESSAGE}
+  <!-- IF postrow.S_CLOAK eq 0 -->
+    <div class="signature">{postrow.SIGNATURE}&nbsp;</div><br /><span class="edited_by">{postrow.EDITED_MESSAGE}&nbsp;</span>
+  <!-- ENDIF -->
   </div>
 </div>
 
@@ -252,13 +271,15 @@
   <dt><!-- IF postrow.POSTER_POSTS --><script type="text/javascript"><!--
   maketip('user_info_{postrow.U_POST_ID}','{postrow.POSTER_NAME}','{postrow.POSTER_POSTS}<br />{postrow.POSTER_JOINED}<br />{postrow.POSTER_FROM}');
   //--></script>
-  <a href="{U_USER_ACCOUNT}" onmouseover="tip('user_info_{postrow.U_POST_ID}')" onmouseout="untip()"><!-- ENDIF -->{postrow.POSTER_AVATAR}<!-- IF postrow.POSTER_POSTS --></a><!-- ENDIF --><br />
-  <!-- IF postrow.POSTER_POSTS --><a href="{U_USER_ACCOUNT}" onmouseover="tip('user_info_{postrow.U_POST_ID}')" onmouseout="untip()"><!-- ENDIF -->{postrow.POSTER_NAME}<!-- IF postrow.POSTER_POSTS --></a><!-- ENDIF --></dt>
-  <dd>{postrow.POSTER_RANK}<br />{postrow.RANK_IMAGE}</dd>
-  <dd>&nbsp;</dd>
+  <a href="{U_USER_ACCOUNT}" onmouseover="tip('user_info_{postrow.U_POST_ID}')" onmouseout="untip()"><!-- ENDIF --><!-- IF postrow.S_CLOAK --><img src="images/avatars/gallery/040.gif" alt="" /><!-- ELSE -->{postrow.POSTER_AVATAR}<!-- ENDIF --><!-- IF postrow.POSTER_POSTS --></a><!-- ENDIF --><br />
+  <!-- IF postrow.S_CLOAK eq 0 --><!-- IF postrow.POSTER_POSTS --><a href="{U_USER_ACCOUNT}" onmouseover="tip('user_info_{postrow.U_POST_ID}')" onmouseout="untip()"><!-- ENDIF -->{postrow.POSTER_NAME}<!-- IF postrow.POSTER_POSTS --></a><!-- ENDIF --><!-- ENDIF --></dt>
+  <!-- IF postrow.S_CLOAK eq 0 -->
+    <dd>{postrow.POSTER_RANK}<br />{postrow.RANK_IMAGE}</dd>
+    <dd>&nbsp;</dd>
+<!-- ENDIF -->
 
   <!-- If not anonymous-->
-  <!-- IF postrow.POSTER_POSTS -->
+  <!-- IF postrow.POSTER_POSTS and postrow.S_CLOAK eq 0 -->
   <dd>
     <ul class="profile-icons">
       <!-- PHP -->
@@ -291,12 +312,13 @@
     </ul>
   </dd>
   <!-- ENDIF -->
-</dl>
+</dl><div>&nbsp;</div>  <!-- lb empty div 4 IE7 -->
 
 <div class="back2top"><a href="{L_BACK_TO_TOP_LINK}#top" class="top" title="{L_BACK_TO_TOP}">{L_BACK_TO_TOP}</a></div>
-<span class="corners-bottom"><span></span></span></div>
+<span class="corners-bottom"><span>&nbsp;</span></span></div>
 <!-- END postrow -->
 
+<!-- INCLUDE forums/fm_art_foot.html -->
 
 <div class="afterposts">
   <div class="leftinfo">
@@ -307,6 +329,7 @@
   <div class="rightinfo">
     <span class="nav">{PAGE_NUMBER}</span>
     <!-- IF PAGINATION --><br />{PAGINATION}<!-- ENDIF -->
+    <div class="nexthread"><a href="{U_VIEW_OLDER_TOPIC}">&laquo; {L_VIEW_PREVIOUS_TOPIC}</a> | <a href="{U_VIEW_NEWER_TOPIC}">{L_VIEW_NEXT_TOPIC} &raquo;</a></div>
   </div>
   <br style="clear:both;" />
 </div>
@@ -341,3 +364,19 @@
 <!--<p class="right-box">{S_TIMEZONE}</p>
 <br style="clear:both" />-->
 <!-- INCLUDE forums/overall_footer.html -->
+
+
+<!-- IF S_IS_USER and (SUB_FORUMS or IS_SUBFORUM) -->
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'auto',
+//    includedLanguages: 'sq,bg,ca,hr,cs,da,nl,en,et,fi,fr,de,el,hu,ga,it,lv,lt,mk,no,pl,pt,ro,ru,sr,sk,sl,es,sv,tr,cy',
+    includedLanguages: '{S_LANGCODE},de,nl',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- ENDIF -->

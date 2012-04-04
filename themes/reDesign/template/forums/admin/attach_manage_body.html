@@ -6,7 +6,7 @@
 {ERROR_BOX}
 
 <form action="{S_ATTACH_ACTION}" method="post" {I18N}>
-<table width="99%" cellpadding="4" cellspacing="1" border="0" align="center" class="forumline">
+<table width="99%" cellpadding="4" cellspacing="1" border="0" style="margin:auto;" class="forumline" summary="">
 	<tr>
 	  <th class="thHead" colspan="2">{L_ATTACHMENT_SETTINGS}</th>
 	</tr>
@@ -25,7 +25,7 @@
 	<tr>
 		<td class="row1" width="80%">{L_DISPLAY_ORDER}<br /><span class="gensmall">{L_DISPLAY_ORDER_EXPLAIN}</span></td>
 		<td class="row2">
-		<table border=0 cellpadding=0 cellspacing=0>
+		<table border="0" cellpadding="0" cellspacing="0" summary="">
 			<tr>
 				<td><input type="radio" name="display_order" value="0" {DISPLAY_ORDER_DESC} /> {L_DESC}</td>
             </tr>
@@ -38,21 +38,21 @@
 	  <th class="thHead" colspan="2">{L_ATTACHMENT_FILESIZE_SETTINGS}</th>
 	</tr>
 	<tr>
-		<td class="row1" width="80%">{L_MAX_FILESIZE}<br /><span class="gensmall">{L_MAX_FILESIZE_EXPLAIN}</span></td>
+		<td class="row1" style="width:80%;">{L_MAX_FILESIZE}<br /><span class="gensmall">{L_MAX_FILESIZE_EXPLAIN}</span></td>
 		<td class="row2"><input type="text" size="8" maxlength="15" name="max_filesize" class="post" value="{MAX_FILESIZE}" /> {S_FILESIZE}</td>
 	</tr>
 	<tr>
-		<td class="row1" width="80%">{L_ATTACH_QUOTA}<br /><span class="gensmall">{L_ATTACH_QUOTA_EXPLAIN}</span></td>
+		<td class="row1" style="width:80%;">{L_ATTACH_QUOTA}<br /><span class="gensmall">{L_ATTACH_QUOTA_EXPLAIN}</span></td>
 		<td class="row2"><input type="text" size="8" maxlength="15" name="attachment_quota" class="post" value="{ATTACHMENT_QUOTA}" /> {S_FILESIZE_QUOTA}</td>
 	</tr>
 	<tr>
-		<td class="row1" width="80%">{L_MAX_FILESIZE_PM}<br /><span class="gensmall">{L_MAX_FILESIZE_PM_EXPLAIN}</span></td>
+		<td class="row1" style="width:80%;">{L_MAX_FILESIZE_PM}<br /><span class="gensmall">{L_MAX_FILESIZE_PM_EXPLAIN}</span></td>
 		<td class="row2"><input type="text" size="8" maxlength="15" name="max_filesize_pm" class="post" value="{MAX_FILESIZE_PM}" /> {S_FILESIZE_PM}</td>
 	</tr>
 	<tr>
-		<td class="row1" width="80%">{L_DEFAULT_QUOTA_LIMIT}<br /><span class="gensmall">{L_DEFAULT_QUOTA_LIMIT_EXPLAIN}</span></td>
+		<td class="row1" style="width:80%;">{L_DEFAULT_QUOTA_LIMIT}<br /><span class="gensmall">{L_DEFAULT_QUOTA_LIMIT_EXPLAIN}</span></td>
 		<td class="row2">
-		<table width="100%" align="center" cellpadding="0" cellspacing="0" border="0">
+		<table width="100%" style="margin:auto;" cellpadding="0" cellspacing="0" border="0" summary="">
 		<tr>
 			<td nowrap="nowrap">{S_DEFAULT_UPLOAD_LIMIT}</td>
 			<td nowrap="nowrap"><span class="gensmall">&nbsp;{L_UPLOAD_QUOTA}&nbsp;</span></td>
@@ -138,6 +138,6 @@
 </table></form>
 
 <br />
-<div align="center"><span class="copyright">{ATTACH_VERSION}</span></div>
+<div style="text-align:center;"><span class="copyright">{ATTACH_VERSION}</span></div>
 
 <br clear="all" />
