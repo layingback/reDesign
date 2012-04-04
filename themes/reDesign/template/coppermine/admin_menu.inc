@@ -1,6 +1,6 @@
 <?php
 $html = '
-<table cellpadding="0" cellspacing="1" width="100%">
+<table cellpadding="0" cellspacing="1" width="100%" summary="">
      <tr valign="middle" align="center">
           <td class="admin_menu" width="15%"><a href="'.getlink("&amp;file=editpics&amp;mode=upload_approval").'>'.UPL_APP_LNK.'</a>
           </td>
@@ -13,7 +13,7 @@ $html = '
           </td>
      <td class="admin_menu" width="15%"><a href="'.$CPG_URL.'&file=groupmgr">'.GROUPS_LNK.'</a></td>
           <td class="admin_menu" width="15%"><a href="'.$CPG_URL.'&file=usermgr">'.USERS_LNK.'</a></td>
-     
+
           <td class="admin_menu" width="15%"><a href="'.$CPG_URL.'&file=albmgr'.$cat_l.'">'.ALBUMS_LNK.'</a>
           </td>
           <td class="admin_menu" width="15%"><a href="'.$CPG_URL.'&file=catmgr">'.CATEGORIES_LNK.'</a>
