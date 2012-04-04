@@ -127,7 +127,7 @@ function themeheader() {
     $user_agent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : '';
     $pngfix = 0;
     $specific = 0;
-    if (preg_match('#MSIE ([0-6].[0-9]{1,2})#', $user_agent)) {
+    if (substr($user_agent,0,34) == "Mozilla/4.0 (compatible; MSIE 6.0;") {
         $specific = 'ie6.css';
         $pngfix = 1;
     } else if (preg_match('#Opera/([0-9].[0-2][0-9])#', $user_agent)) {
@@ -172,18 +172,25 @@ function themeheader() {
         $imageRight = '<img alt="+/-" title="'._TOGGLE.'" id="pic601" src="themes/'.$CPG_SESS['theme'].'/images/'.$img.'" onclick="blockswitch(\'601\');" style="cursor:pointer; float:right; padding:2px 0 2px 0;" />';
     }
 
+global $is_auth;
+
     $cpgtpl->assign_vars(array(
         'BROWSER_CSS'		=> $specific ? "\n".'<link rel="stylesheet" type="text/css" href="themes/'.$CPG_SESS['theme'].'/style/browsers/'.$specific.'" />'."\n" : "\n",
         'PNG_FIX'			=> $pngfix,
         'PUBLIC_HEADER'		=> !defined('ADMIN_PAGES'),
         'CURRENT_URL'		=> ereg_replace('&','&amp;',get_uri()),
-        'ADM_L_PLUSMINUS'	=> defined('ADMIN_PAGES')? $imageLeft : '',
-        'ADM_R_PLUSMINUS'	=> defined('ADMIN_PAGES')? $imageRight : '',
-        'ADM_L_VISIBILITY'	=> (defined('ADMIN_PAGES') && $Blocks->hideblock('600')) ? ' style=" display: none"' : '',
-        'ADM_R_VISIBILITY'	=> (defined('ADMIN_PAGES') && $Blocks->hideblock('601')) ? ' style=" display: none"' : '',
+//        'ADM_L_PLUSMINUS'	=> defined('ADMIN_PAGES') || is_admin() ? $imageLeft : '',
+//        'ADM_R_PLUSMINUS'	=> defined('ADMIN_PAGES') || is_admin() ? $imageRight : '',
+//        'ADM_L_VISIBILITY'	=> (defined('ADMIN_PAGES') && $Blocks->hideblock('600')) ? ' style=" display: none"' : '',
+//        'ADM_R_VISIBILITY'	=> (defined('ADMIN_PAGES') && $Blocks->hideblock('601')) ? ' style=" display: none"' : '',
+        'ADM_L_PLUSMINUS'	=> $imageLeft,
+        'ADM_R_PLUSMINUS'	=> $imageRight,
+        'ADM_L_VISIBILITY'	=> $Blocks->hideblock('600') ? ' style=" display: none"' : '',
+        'ADM_R_VISIBILITY'	=> $Blocks->hideblock('601') ? ' style=" display: none"' : '',
         'S_MAIN_MENU'		=> isset($mmcontent) ? $mmcontent : false,
         'S_IS_ADMIN'		=> is_admin(),
         'S_CAN_ADMIN'		=> can_admin(),
+        'S_IS_MOD'			=> $is_auth['auth_mod'],
         'S_IS_USER'			=> is_user(),
         'B_ANONYMOUS'		=> !is_user(),
         'S_NEW_PM'			=> is_user() && is_active('Private_Messages') && ($userinfo['user_new_privmsg'] > 0)?(($userinfo['user_new_privmsg']>1)?$lang['You_new_pms']:$lang['You_new_pm']):false,
@@ -223,7 +230,7 @@ function themeheader() {
         'BACK_TO_TOP'		=> $lang['Back_to_top'],
         'PM_IMAGE'			=> 'themes/'.$CPG_SESS['theme'].'/images/forums/lang_'.$currentlang.'/icon_contact_pm.gif',
         'WWW_IMAGE'			=> 'themes/'.$CPG_SESS['theme'].'/images/forums/lang_'.$currentlang.'/icon_contact_www.gif',
-        'BASE_URL'			=> $BASEHREF,
+        'BASE_URL'			=> urlencode($BASEHREF),
         'HEADVARS_OK'		=> 1, //makes possible to check if we need to reassign some vars in footer if this is false
         'B_DRAGON_10'		=> version_compare(CPG_NUKE, '10.0.0', '>='), //If Dragonfly version is 10+
         'S_MODULE_SPECIFIC_CSS' => $modspecific_css,
