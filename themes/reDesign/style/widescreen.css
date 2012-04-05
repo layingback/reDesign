@@ -1,0 +1,79 @@
+/* CSS/js force reduction in img size */
+div.wip_postbody img {
+max-width: 1790px;
+width: expression(document.body.clientWidth > 1790 ? "1790px" : "auto");
+height: auto;
+}
+
+.wip_post {
+	position: relative;
+	display: inline-block;	/* 4 IE7 */
+	width: 99%;
+}
+.wip_postbody {
+    width: auto;
+	min-height: 175px;
+    margin-left: 152px;
+}
+.wip_profile {
+    border-left: 0;
+    float: left;
+    border-right: 1px solid #FFFFFF;
+    width: 140px;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+.online {
+	background-position: 85px 0;
+}
+ul.post-tasks {
+    position: absolute;
+    left: 780px;
+}
+.wip_content p {
+	max-width: 800px;
+}
+.signature {
+    max-width: 800px;
+}
+blockquote {
+    max-width: 770px;
+}
+.quickreply {
+	max-width: 975px;
+	margin-left: 2px;
+}
+.preposts {
+	max-width: 975px;
+}
+.afterposts {
+	max-width: 975px;
+}
+
+.wip_content blockquote img {
+	max-width: 750px;
+}
+
+
+/* pop-up help item */
+.helphead, .helpcontent {
+    margin: 0;
+    width: 260px;
+    background-color: #ccc;
+    color: #000;
+    filter: alpha(opacity=90);
+    -moz-opacity: 0.9;
+    opacity: 0.9;
+}
+.helphead { /* pop-up help item title */
+    line-height: 1px;
+    text-transform: none;
+}
+.helpcontent { /* pop-up help item content */
+    width: 248px;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    font-size: 9px;
+}
