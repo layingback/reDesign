@@ -216,6 +216,10 @@ ul.album_list li {
 	text-align: center;
 }
 
+.picpos {
+	font-size: 0.8em;
+}
+
 .filmstrip {
 	margin: 10px;
 	margin-top: 20px;
@@ -226,6 +230,7 @@ ul.album_list li {
 
 .filmstrip div.currentpic .picpos {
 	font-weight: bold;
+	font-size: 0.9em;
 }
 
 .filmstrip div.currentpic img {
