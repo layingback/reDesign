@@ -38,14 +38,14 @@ However, it's not important here as outline would be 0 for everything,
 outline is a box that Firefox produces i.e when clicking a link, I don't like it */
 a, a:link, a:visited {
     color: #494183;
-    text-decoration: underline;
+    text-decoration: none;
 }
 a:visited {
     color: #5493B4;
 }
 /* a:link, a:active, a:visited {} */
 a:hover {
-    text-decoration: none;
+    text-decoration: underline;
 }
 a:active, a:focus {
     outline: 0; /* for browsers that understand */
@@ -252,7 +252,7 @@ h3 a:hover {
 h4 {
     margin: 0;
     padding: 0;
-    font-size: 1.3em;
+    font-size: 1.2em;
 }
 h5 {
     margin: 0;
@@ -709,6 +709,8 @@ span.corners-bottom span {
     padding: 0;
     width: 200px;
     height: 100%;
+    font-size: 0.9em;
+    background-color: #fcfcfc;
 }
 
 /* Left side blocks */
@@ -781,12 +783,12 @@ span.corners-bottom span {
 
 /* Left block */
 #pe600 .block {
-    border-right: 1px solid #B1B1B1;
+    border-right: 1px solid #e0e0e0;
 }
 
 /* Right block */
 #pe601 .block {
-    border-left: 1px solid #B1B1B1;
+    border-left: 1px solid #e0e0e0;
 }
 
 
@@ -1290,7 +1292,7 @@ input.helpline, input.helpline:hover, input.helpline:focus, input.helpline:activ
 
 
 .bbcbutton {
-    margin: 4px 3px 6px 1px;
+    margin: 1px 2px 3px 2px;
     background-color: #E6E6E6;
     vertical-align: middle;
 }
@@ -1302,7 +1304,7 @@ input.helpline, input.helpline:hover, input.helpline:focus, input.helpline:activ
 }
 
 .bbcbutton:hover, .bbcbutton:active, .bbcbutton_pressed {
-    margin: 3px 2px 5px 0;
+    margin: 0px 1px 2px 1px;
 }
 
 .bbcbutton_pressed {
@@ -1318,6 +1320,14 @@ input.helpline, input.helpline:hover, input.helpline:focus, input.helpline:activ
     background-color: #E6E6E6;
 }
 
+.bbcodetbl {
+  padding: 2px 6px 1px 5px;
+  background-color: #E6E6E6;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #E6E6E6;
+}
 
 /* Post replying */
 .post_reply {
@@ -1340,10 +1350,12 @@ input.helpline, input.helpline:hover, input.helpline:focus, input.helpline:activ
 
 
 /* BBCode help message */
-.post_reply .helpline {
+input.helpline, .post_reply .helpline {
     color: #797979;
-    font-size: 12px;
-    width: 700px !important;
+    font-size: 10px;
+}
+.post_reply .helpline {
+    width: 500px !important;
 }
 
 .bbcode_table {
@@ -1367,6 +1379,738 @@ input.helpline, input.helpline:hover, input.helpline:focus, input.helpline:activ
 	margin: 5px 2px 5px 0;
 }
 */
+
+/*CMSDesigns BBCode Flags*/
+#countries, #fontsize, #colour {
+	font-size: 6px;
+	letter-spacing: -1px;
+}
+select.bbflags option {
+background-repeat:no-repeat;
+background-position:bottom left;
+padding-left:25px;
+}
+select#countries option[value="ad"] {
+background-image:url(../images/flags/ad.gif);
+}
+select#countries option[value="ae"] {
+background-image:url(../images/flags/ae.gif);
+}
+select#countries option[value="af"] {
+background-image:url(../images/flags/af.gif);
+}
+select#countries option[value="ag"] {
+background-image:url(../images/flags/ag.gif);
+}
+select#countries option[value="ai"] {
+background-image:url(../images/flags/ai.gif);
+}
+select#countries option[value="al"] {
+background-image:url(../images/flags/al.gif);
+}
+select#countries option[value="am"] {
+background-image:url(../images/flags/am.gif);
+}
+select#countries option[value="an"] {
+background-image:url(../images/flags/an.gif);
+}
+select#countries option[value="ao"] {
+background-image:url(../images/flags/ao.gif);
+}
+select#countries option[value="aq"] {
+background-image:url(../images/flags/aq.gif);
+}
+select#countries option[value="ar"] {
+background-image:url(../images/flags/ar.gif);
+}
+select#countries option[value="as"] {
+background-image:url(../images/flags/as.gif);
+}
+select#countries option[value="at"] {
+background-image:url(../images/flags/at.gif);
+}
+select#countries option[value="au"] {
+background-image:url(../images/flags/au.gif);
+}
+select#countries option[value="aw"] {
+background-image:url(../images/flags/aw.gif);
+}
+select#countries option[value="az"] {
+background-image:url(../images/flags/az.gif);
+}
+select#countries option[value="ba"] {
+background-image:url(../images/flags/ba.gif);
+}
+select#countries option[value="bb"] {
+background-image:url(../images/flags/bb.gif);
+}
+select#countries option[value="bd"] {
+background-image:url(../images/flags/bd.gif);
+}
+select#countries option[value="be"] {
+background-image:url(../images/flags/be.gif);
+}
+select#countries option[value="bf"] {
+background-image:url(../images/flags/bf.gif);
+}
+select#countries option[value="bg"] {
+background-image:url(../images/flags/bg.gif);
+}
+select#countries option[value="bh"] {
+background-image:url(../images/flags/bh.gif);
+}
+select#countries option[value="bi"] {
+background-image:url(../images/flags/bi.gif);
+}
+select#countries option[value="bj"] {
+background-image:url(../images/flags/bj.gif);
+}
+select#countries option[value="bl"] {
+background-image:url(../images/flags/bl.gif);
+}
+select#countries option[value="bm"] {
+background-image:url(../images/flags/bm.gif);
+}
+select#countries option[value="bn"] {
+background-image:url(../images/flags/bn.gif);
+}
+select#countries option[value="bo"] {
+background-image:url(../images/flags/bo.gif);
+}
+select#countries option[value="br"] {
+background-image:url(../images/flags/br.gif);
+}
+select#countries option[value="bs"] {
+background-image:url(../images/flags/bs.gif);
+}
+select#countries option[value="bt"] {
+background-image:url(../images/flags/bt.gif);
+}
+select#countries option[value="bu"] {
+background-image:url(../images/flags/bu.gif);
+}
+select#countries option[value="bw"] {
+background-image:url(../images/flags/bw.gif);
+}
+select#countries option[value="by"] {
+background-image:url(../images/flags/by.gif);
+}
+select#countries option[value="bz"] {
+background-image:url(../images/flags/bz.gif);
+}
+select#countries option[value="ca"] {
+background-image:url(../images/flags/ca.gif);
+}
+select#countries option[value="cd"] {
+background-image:url(../images/flags/cd.gif);
+}
+select#countries option[value="cf"] {
+background-image:url(../images/flags/cf.gif);
+}
+select#countries option[value="cg"] {
+background-image:url(../images/flags/cg.gif);
+}
+select#countries option[value="ch"] {
+background-image:url(../images/flags/ch.gif);
+}
+select#countries option[value="ci"] {
+background-image:url(../images/flags/ci.gif);
+}
+select#countries option[value="ck"] {
+background-image:url(../images/flags/ck.gif);
+}
+select#countries option[value="cl"] {
+background-image:url(../images/flags/cl.gif);
+}
+select#countries option[value="cm"] {
+background-image:url(../images/flags/cm.gif);
+}
+select#countries option[value="cn"] {
+background-image:url(../images/flags/cn.gif);
+}
+select#countries option[value="co"] {
+background-image:url(../images/flags/co.gif);
+}
+select#countries option[value="cr"] {
+background-image:url(../images/flags/cr.gif);
+}
+select#countries option[value="ct"] {
+background-image:url(../images/flags/ct.gif);
+}
+select#countries option[value="cu"] {
+background-image:url(../images/flags/cu.gif);
+}
+select#countries option[value="cv"] {
+background-image:url(../images/flags/cv.gif);
+}
+select#countries option[value="cx"] {
+background-image:url(../images/flags/cx.gif);
+}
+select#countries option[value="cy"] {
+background-image:url(../images/flags/cy.gif);
+}
+select#countries option[value="cz"] {
+background-image:url(../images/flags/cz.gif);
+}
+select#countries option[value="de"] {
+background-image:url(../images/flags/de.gif);
+}
+select#countries option[value="dj"] {
+background-image:url(../images/flags/dj.gif);
+}
+select#countries option[value="dk"] {
+background-image:url(../images/flags/dk.gif);
+}
+select#countries option[value="dm"] {
+background-image:url(../images/flags/dm.gif);
+}
+select#countries option[value="do"] {
+background-image:url(../images/flags/do.gif);
+}
+select#countries option[value="dz"] {
+background-image:url(../images/flags/dz.gif);
+}
+select#countries option[value="ec"] {
+background-image:url(../images/flags/ec.gif);
+}
+select#countries option[value="ee"] {
+background-image:url(../images/flags/ee.gif);
+}
+select#countries option[value="eg"] {
+background-image:url(../images/flags/eg.gif);
+}
+select#countries option[value="eh"] {
+background-image:url(../images/flags/eh.gif);
+}
+select#countries option[value="en"] {
+background-image:url(../images/flags/en.gif);
+}
+select#countries option[value="eo"] {
+background-image:url(../images/flags/eo.gif);
+}
+select#countries option[value="er"] {
+background-image:url(../images/flags/er.gif);
+}
+select#countries option[value="es"] {
+background-image:url(../images/flags/es.gif);
+}
+select#countries option[value="et"] {
+background-image:url(../images/flags/et.gif);
+}
+select#countries option[value="eu"] {
+background-image:url(../images/flags/eu.gif);
+}
+select#countries option[value="fi"] {
+background-image:url(../images/flags/fi.gif);
+}
+select#countries option[value="fj"] {
+background-image:url(../images/flags/fj.gif);
+}
+select#countries option[value="fk"] {
+background-image:url(../images/flags/fk.gif);
+}
+select#countries option[value="fm"] {
+background-image:url(../images/flags/fm.gif);
+}
+select#countries option[value="fo"] {
+background-image:url(../images/flags/fo.gif);
+}
+select#countries option[value="fr"] {
+background-image:url(../images/flags/fr.gif);
+}
+select#countries option[value="ga"] {
+background-image:url(../images/flags/ga.gif);
+}
+select#countries option[value="gb"] {
+background-image:url(../images/flags/gb.gif);
+}
+select#countries option[value="gd"] {
+background-image:url(../images/flags/gd.gif);
+}
+select#countries option[value="ge"] {
+background-image:url(../images/flags/ge.gif);
+}
+select#countries option[value="gh"] {
+background-image:url(../images/flags/gh.gif);
+}
+select#countries option[value="gi"] {
+background-image:url(../images/flags/gi.gif);
+}
+select#countries option[value="g"] {
+background-image:url(../images/flags/g.gif);
+}
+select#countries option[value="gl"] {
+background-image:url(../images/flags/gl.gif);
+}
+select#countries option[value="gm"] {
+background-image:url(../images/flags/gm.gif);
+}
+select#countries option[value="gn"] {
+background-image:url(../images/flags/gn.gif);
+}
+select#countries option[value="gq"] {
+background-image:url(../images/flags/gq.gif);
+}
+select#countries option[value="gr"] {
+background-image:url(../images/flags/gr.gif);
+}
+select#countries option[value="gt"] {
+background-image:url(../images/flags/gt.gif);
+}
+select#countries option[value="gu"] {
+background-image:url(../images/flags/gu.gif);
+}
+select#countries option[value="gw"] {
+background-image:url(../images/flags/gw.gif);
+}
+select#countries option[value="gy"] {
+background-image:url(../images/flags/gy.gif);
+}
+select#countries option[value="hk"] {
+background-image:url(../images/flags/hk.gif);
+}
+select#countries option[value="hn"] {
+background-image:url(../images/flags/hn.gif);
+}
+select#countries option[value="hr"] {
+background-image:url(../images/flags/hr.gif);
+}
+select#countries option[value="ht"] {
+background-image:url(../images/flags/ht.gif);
+}
+select#countries option[value="hu"] {
+background-image:url(../images/flags/hu.gif);
+}
+select#countries option[value="id"] {
+background-image:url(../images/flags/id.gif);
+}
+select#countries option[value="ie"] {
+background-image:url(../images/flags/ie.gif);
+}
+select#countries option[value="il"] {
+background-image:url(../images/flags/il.gif);
+}
+select#countries option[value="im"] {
+background-image:url(../images/flags/im.gif);
+}
+select#countries option[value="in"] {
+background-image:url(../images/flags/in.gif);
+}
+select#countries option[value="io"] {
+background-image:url(../images/flags/io.gif);
+}
+select#countries option[value="iq"] {
+background-image:url(../images/flags/iq.gif);
+}
+select#countries option[value="ir"] {
+background-image:url(../images/flags/ir.gif);
+}
+select#countries option[value="is"] {
+background-image:url(../images/flags/is.gif);
+}
+select#countries option[value="it"] {
+background-image:url(../images/flags/it.gif);
+}
+select#countries option[value="je"] {
+background-image:url(../images/flags/je.gif);
+}
+select#countries option[value="jm"] {
+background-image:url(../images/flags/jm.gif);
+}
+select#countries option[value="jo"] {
+background-image:url(../images/flags/jo.gif);
+}
+select#countries option[value="jp"] {
+background-image:url(../images/flags/jp.gif);
+}
+select#countries option[value="ke"] {
+background-image:url(../images/flags/ke.gif);
+}
+select#countries option[value="kg"] {
+background-image:url(../images/flags/kg.gif);
+}
+select#countries option[value="kh"] {
+background-image:url(../images/flags/kh.gif);
+}
+select#countries option[value="ki"] {
+background-image:url(../images/flags/ki.gif);
+}
+select#countries option[value="km"] {
+background-image:url(../images/flags/km.gif);
+}
+select#countries option[value="kn"] {
+background-image:url(../images/flags/kn.gif);
+}
+select#countries option[value="kp"] {
+background-image:url(../images/flags/kp.gif);
+}
+select#countries option[value="kr"] {
+background-image:url(../images/flags/kr.gif);
+}
+select#countries option[value="kw"] {
+background-image:url(../images/flags/kw.gif);
+}
+select#countries option[value="ky"] {
+background-image:url(../images/flags/ky.gif);
+}
+select#countries option[value="kz"] {
+background-image:url(../images/flags/kz.gif);
+}
+select#countries option[value="la"] {
+background-image:url(../images/flags/la.gif);
+}
+select#countries option[value="lb"] {
+background-image:url(../images/flags/lb.gif);
+}
+select#countries option[value="lc"] {
+background-image:url(../images/flags/lc.gif);
+}
+select#countries option[value="li"] {
+background-image:url(../images/flags/li.gif);
+}
+select#countries option[value="lk"] {
+background-image:url(../images/flags/lk.gif);
+}
+select#countries option[value="lr"] {
+background-image:url(../images/flags/lr.gif);
+}
+select#countries option[value="ls"] {
+background-image:url(../images/flags/ls.gif);
+}
+select#countries option[value="lt"] {
+background-image:url(../images/flags/lt.gif);
+}
+select#countries option[value="lu"] {
+background-image:url(../images/flags/lu.gif);
+}
+select#countries option[value="lv"] {
+background-image:url(../images/flags/lv.gif);
+}
+select#countries option[value="ly"] {
+background-image:url(../images/flags/ly.gif);
+}
+select#countries option[value="ma"] {
+background-image:url(../images/flags/ma.gif);
+}
+select#countries option[value="mb"] {
+background-image:url(../images/flags/mb.gif);
+}
+select#countries option[value="mc"] {
+background-image:url(../images/flags/mc.gif);
+}
+select#countries option[value="md"] {
+background-image:url(../images/flags/md.gif);
+}
+select#countries option[value="mg"] {
+background-image:url(../images/flags/mg.gif);
+}
+select#countries option[value="mh"] {
+background-image:url(../images/flags/mh.gif);
+}
+select#countries option[value="mi"] {
+background-image:url(../images/flags/mi.gif);
+}
+select#countries option[value="mk"] {
+background-image:url(../images/flags/mk.gif);
+}
+select#countries option[value="ml"] {
+background-image:url(../images/flags/ml.gif);
+}
+select#countries option[value="mm"] {
+background-image:url(../images/flags/mm.gif);
+}
+select#countries option[value="mn"] {
+background-image:url(../images/flags/mn.gif);
+}
+select#countries option[value="mo"] {
+background-image:url(../images/flags/mo.gif);
+}
+select#countries option[value="mp"] {
+background-image:url(../images/flags/mp.gif);
+}
+select#countries option[value="mr"] {
+background-image:url(../images/flags/mr.gif);
+}
+select#countries option[value="ms"] {
+background-image:url(../images/flags/ms.gif);
+}
+select#countries option[value="mt"] {
+background-image:url(../images/flags/mt.gif);
+}
+select#countries option[value="mu"] {
+background-image:url(../images/flags/mu.gif);
+}
+select#countries option[value="mv"] {
+background-image:url(../images/flags/mv.gif);
+}
+select#countries option[value="mw"] {
+background-image:url(../images/flags/mw.gif);
+}
+select#countries option[value="mx"] {
+background-image:url(../images/flags/mx.gif);
+}
+select#countries option[value="my"] {
+background-image:url(../images/flags/my.gif);
+}
+select#countries option[value="mz"] {
+background-image:url(../images/flags/mz.gif);
+}
+select#countries option[value="na"] {
+background-image:url(../images/flags/na.gif);
+}
+select#countries option[value="nc"] {
+background-image:url(../images/flags/nc.gif);
+}
+select#countries option[value="ne"] {
+background-image:url(../images/flags/ne.gif);
+}
+select#countries option[value="nf"] {
+background-image:url(../images/flags/nf.gif);
+}
+select#countries option[value="ng"] {
+background-image:url(../images/flags/ng.gif);
+}
+select#countries option[value="ni"] {
+background-image:url(../images/flags/ni.gif);
+}
+select#countries option[value="nl"] {
+background-image:url(../images/flags/nl.gif);
+}
+select#countries option[value="no"] {
+background-image:url(../images/flags/no.gif);
+}
+select#countries option[value="np"] {
+background-image:url(../images/flags/np.gif);
+}
+select#countries option[value="nr"] {
+background-image:url(../images/flags/nr.gif);
+}
+select#countries option[value="nu"] {
+background-image:url(../images/flags/nu.gif);
+}
+select#countries option[value="nz"] {
+background-image:url(../images/flags/nz.gif);
+}
+select#countries option[value="om"] {
+background-image:url(../images/flags/om.gif);
+}
+select#countries option[value="pa"] {
+background-image:url(../images/flags/pa.gif);
+}
+select#countries option[value="pe"] {
+background-image:url(../images/flags/pe.gif);
+}
+select#countries option[value="pg"] {
+background-image:url(../images/flags/pg.gif);
+}
+select#countries option[value="ph"] {
+background-image:url(../images/flags/ph.gif);
+}
+select#countries option[value="pk"] {
+background-image:url(../images/flags/pk.gif);
+}
+select#countries option[value="pl"] {
+background-image:url(../images/flags/pl.gif);
+}
+select#countries option[value="pm"] {
+background-image:url(../images/flags/pm.gif);
+}
+select#countries option[value="pr"] {
+background-image:url(../images/flags/pr.gif);
+}
+select#countries option[value="ps"] {
+background-image:url(../images/flags/ps.gif);
+}
+select#countries option[value="pt"] {
+background-image:url(../images/flags/pt.gif);
+}
+select#countries option[value="pw"] {
+background-image:url(../images/flags/pw.gif);
+}
+select#countries option[value="py"] {
+background-image:url(../images/flags/py.gif);
+}
+select#countries option[value="qa"] {
+background-image:url(../images/flags/qa.gif);
+}
+select#countries option[value="ro"] {
+background-image:url(../images/flags/ro.gif);
+}
+select#countries option[value="ru"] {
+background-image:url(../images/flags/ru.gif);
+}
+select#countries option[value="rw"] {
+background-image:url(../images/flags/rw.gif);
+}
+select#countries option[value="sa"] {
+background-image:url(../images/flags/sa.gif);
+}
+select#countries option[value="sb"] {
+background-image:url(../images/flags/sb.gif);
+}
+select#countries option[value="sc"] {
+background-image:url(../images/flags/sc.gif);
+}
+select#countries option[value="sd"] {
+background-image:url(../images/flags/sd.gif);
+}
+select#countries option[value="se"] {
+background-image:url(../images/flags/se.gif);
+}
+select#countries option[value="sg"] {
+background-image:url(../images/flags/sg.gif);
+}
+select#countries option[value="sh"] {
+background-image:url(../images/flags/sh.gif);
+}
+select#countries option[value="s"] {
+background-image:url(../images/flags/s.gif);
+}
+select#countries option[value="si"] {
+background-image:url(../images/flags/si.gif);
+}
+select#countries option[value="sk"] {
+background-image:url(../images/flags/sk.gif);
+}
+select#countries option[value="sl"] {
+background-image:url(../images/flags/sl.gif);
+}
+select#countries option[value="s"] {
+background-image:url(../images/flags/s.gif);
+}
+select#countries option[value="sm"] {
+background-image:url(../images/flags/sm.gif);
+}
+select#countries option[value="sn"] {
+background-image:url(../images/flags/sn.gif);
+}
+select#countries option[value="so"] {
+background-image:url(../images/flags/so.gif);
+}
+select#countries option[value="sr"] {
+background-image:url(../images/flags/sr.gif);
+}
+select#countries option[value="st"] {
+background-image:url(../images/flags/st.gif);
+}
+select#countries option[value="sv"] {
+background-image:url(../images/flags/sv.gif);
+}
+select#countries option[value="sy"] {
+background-image:url(../images/flags/sy.gif);
+}
+select#countries option[value="sz"] {
+background-image:url(../images/flags/sz.gif);
+}
+select#countries option[value="tc"] {
+background-image:url(../images/flags/tc.gif);
+}
+select#countries option[value="td"] {
+background-image:url(../images/flags/td.gif);
+}
+select#countries option[value="tg"] {
+background-image:url(../images/flags/tg.gif);
+}
+select#countries option[value="th"] {
+background-image:url(../images/flags/th.gif);
+}
+select#countries option[value="tj"] {
+background-image:url(../images/flags/tj.gif);
+}
+select#countries option[value="tk"] {
+background-image:url(../images/flags/tk.gif);
+}
+select#countries option[value="tm"] {
+background-image:url(../images/flags/tm.gif);
+}
+select#countries option[value="tn"] {
+background-image:url(../images/flags/tn.gif);
+}
+select#countries option[value="to"] {
+background-image:url(../images/flags/to.gif);
+}
+select#countries option[value="tp"] {
+background-image:url(../images/flags/tp.gif);
+}
+select#countries option[value="tr"] {
+background-image:url(../images/flags/tr.gif);
+}
+select#countries option[value="tt"] {
+background-image:url(../images/flags/tt.gif);
+}
+select#countries option[value="tv"] {
+background-image:url(../images/flags/tv.gif);
+}
+select#countries option[value="tw"] {
+background-image:url(../images/flags/tw.gif);
+}
+select#countries option[value="tz"] {
+background-image:url(../images/flags/tz.gif);
+}
+select#countries option[value="ua"] {
+background-image:url(../images/flags/ua.gif);
+}
+select#countries option[value="ug"] {
+background-image:url(../images/flags/ug.gif);
+}
+select#countries option[value="uk"] {
+background-image:url(../images/flags/uk.gif);
+}
+select#countries option[value="us"] {
+background-image:url(../images/flags/us.gif);
+}
+select#countries option[value="uy"] {
+background-image:url(../images/flags/uy.gif);
+}
+select#countries option[value="uz"] {
+background-image:url(../images/flags/uz.gif);
+}
+select#countries option[value="va"] {
+background-image:url(../images/flags/va.gif);
+}
+select#countries option[value="vc"] {
+background-image:url(../images/flags/vc.gif);
+}
+select#countries option[value="ve"] {
+background-image:url(../images/flags/ve.gif);
+}
+select#countries option[value="vg"] {
+background-image:url(../images/flags/vg.gif);
+}
+select#countries option[value="vi"] {
+background-image:url(../images/flags/vi.gif);
+}
+select#countries option[value="vn"] {
+background-image:url(../images/flags/vn.gif);
+}
+select#countries option[value="vu"] {
+background-image:url(../images/flags/vu.gif);
+}
+select#countries option[value="wa"] {
+background-image:url(../images/flags/wa.gif);
+}
+select#countries option[value="wf"] {
+background-image:url(../images/flags/wf.gif);
+}
+select#countries option[value="ws"] {
+background-image:url(../images/flags/ws.gif);
+}
+select#countries option[value="ye"] {
+background-image:url(../images/flags/ye.gif);
+}
+select#countries option[value="yu"] {
+background-image:url(../images/flags/yu.gif);
+}
+select#countries option[value="za"] {
+background-image:url(../images/flags/za.gif);
+}
+select#countries option[value="zm"] {
+background-image:url(../images/flags/zm.gif);
+}
+select#countries option[value="zw"] {
+background-image:url(../images/flags/zw.gif);
+}
+
 .smilies table, .smilies table td {
     background-color: transparent;
 }
@@ -1471,7 +2215,8 @@ div.forumblock1:hover, div.forumblock2:hover {
 
 /**/
 div.forumdesc {
-    font-weight: bold;
+    font-weight: normal;
+    color: #888;
     margin-top: 0px;
     padding: 2px;
     float: left;
@@ -1500,6 +2245,7 @@ div.forumdesc {
 
 /* Topics table on viewforum */
 table.forum_topics {
+    padding-right: 10px;
     width: 100%;
 }
 
@@ -1539,8 +2285,10 @@ div.forumlegend img {
 
 /*At viewforum*/
 ul.forumlegend {
-    width: 100%;
+    font-size: 12px;
+    width: 75%;
     margin: 0;
+    margin-top: -100px;
     padding: 0;
     list-style: none;
     display: block;
@@ -1549,7 +2297,7 @@ ul.forumlegend {
 ul.forumlegend li {
     display: block;
     float: left;
-    margin-right: 10px;
+    margin-right: 0px;
     padding-bottom: 5px;
     width: 30%;
 }
@@ -1585,6 +2333,11 @@ a.topictitle:hover {
 .postbody {
     font-size: 12px;
 }
+
+.nexthread {
+	padding-top: 10px;
+}
+
 
 /* Links in posts*/
 /*And anywhere where bbcode is used?*/
@@ -1627,7 +2380,7 @@ a.postlink:hover {
 }
 
 blockquote {
-    background: #E3E9EA url('../images/bbcode/quote_left.png') no-repeat top left;
+    background: #F9FFF4 url('../images/bbcode/quote_left.png') no-repeat top left;
     text-indent: 0;
     margin: 0;
     padding: 5px 3px 0.85em 40px;
@@ -1706,6 +2459,7 @@ a.copyright:hover {
 */
 
 .pagination{
+    margin-top: 20px;
     padding: 2px;
 }
 
@@ -1722,21 +2476,24 @@ a.copyright:hover {
 }
 
 .pagination a, .pagination a:link, .pagination a:visited {
-    padding: 0 5px;
-    border: 1px solid #72B6B3;
+    padding: 0 8px;
+    margin-right: -5px;
+    border: none;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
     text-decoration: none;
     color: #72B6B3;
     font-weight: bold;
 }
 
 .pagination a:hover, .pagination a:active, .pagination a.currentpage {
-    border: 1px solid #628483;
+    border: 1px solid #ccc;
     color: #FFF;
     background-color: #72B6B3;
 }
 
 .pagination a.currentpage {
-    background-color: #72B6B3;
+    background-color: #888;
     color: #FFF !important;
     border-color: #628483;
     cursor: default;
@@ -1751,7 +2508,18 @@ a.copyright:hover {
     display: none;
 }
 
+.pagination a.ellipsis, .pagination a.ellipsis:hover {
+    padding-left: 12px;
+    margin-right: -1px;
+    border-top: none;
+    border-bottom: none;
+    color: #72B6B3;
+    background-color: #fff;
+    cursor: default;
+}
+
 .pagination a.prevnext {
+    border: none;
 }
 
 div#messagesbox {
@@ -1827,11 +2595,16 @@ div#messagesbox {
 
 .footer_1, .footer_2, .footer_3 {
     float: left;
+    font-size: 0.8em;
     width: 25%;
     margin-left: 20px;
 }
 .footer_1 {
+    width: 20%;
     margin-left: 0;
+}
+.footer_3 {
+    width: 30%;
 }
 
 #banner_footer {
@@ -2138,6 +2911,9 @@ a.button img {
     border-spacing: 1px;
     color: #000;
     background-color: #EFEFEF;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
 }
 .forumline th {
     padding: 2px 4px;
@@ -2409,7 +3185,7 @@ fieldset.polls dd div {
 }
 /* i.e forums posts, members list and prolly sth else */
 .wip_post, div.row1 {
-    background-color: #F9FFF4;
+    background-color: #E8E8E8;
 }
 div.row2 {
     background-color: #F4F4F4;
@@ -2418,7 +3194,7 @@ div.row2 {
     padding: 0; /*Top or bottom padding can't be added to wip_post itself*/
     line-height: 1.48;
     color: #333333;
-    width: 76%;
+    width: 800px;
     float: left;
 /*Uncomment to have user details on left side:*/
 /*float: right;*/
@@ -2436,8 +3212,14 @@ div.row2 {
 }
 /* User signature span */
 .signature {
-    font-size: 12px;
+    font-size: 0.85em;
+    color: darkgrey;
 }
+.edited_by {
+    font-size: 0.9em;
+    font-style: italic;
+}
+
 /* Forums post task like quote, delete etc icons
 ----------------------------------------*/
 ul.post-tasks {
@@ -2478,8 +3260,10 @@ p.wip_postdetails {
     margin: 0 15em 0.6em 0;
     padding: 0 0 5px 0;
     font-family: Verdana, Helvetica, Arial, sans-serif;
-    font-size: 1em;
+    font-size: 0.85em;
     line-height: 1.2;
+    font-style: italic;
+    color: darkgrey;
 }
 /* Forums post content */
 .wip_content {
@@ -2496,7 +3280,7 @@ p.wip_postdetails {
     min-height: 80px;
     color: #666666;
     border-left: 1px solid #FFFFFF;
-    width: 22%;
+    width: 130px;
     float: right;
 /*Uncomment to have user details on left side:*/
     /*border-left: 0;
@@ -2610,7 +3394,7 @@ ul.profile-icons li a {
     clear: both;
     height: 11px;
     text-align: right;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 a.top {
     background: transparent url('../images/forums/icon_back_top.gif') no-repeat top left;
@@ -2669,7 +3453,7 @@ a.left:hover {
 .breadcrumb_traces a:hover {
     background-position: 0 60%;
     color: #368AD2;
-    text-decoration: none;
+    text-decoration: underline;
 }
 .breadcrumb_traces a, .breadcrumb_traces a:visited, breadcrumb_traces a:active {
     color: #494183;
@@ -2774,4 +3558,37 @@ dl.compact_userinfo ul {
 }
 #blist .expandinfo {
  display: none;
+}
+
+/* Fix for CPGNuCalendar Small Month Block    */
+/* needed because rD loads right blocks early */
+.nucalblk .cat a {
+	color: white;
+}
+.calendartitle {
+	border: #eee solid 1px;
+	border-bottom: solid 0px #fff;
+}
+.caltitledate {
+    font-size: 1.5em;
+	color: #444444;
+}
+.calendarbg {
+	background: #eee;
+}
+.calendarday {
+	background: #ffffff;
+}
+
+.left-box {
+    font: 11px Verdana, Arial, sans-serif;
+}
+/* End CPGNuCalendar small month block fix */
+
+
+/* CSS/js force reduction in img size */
+div.wip_postbody img {
+max-width: 800px;
+width: expression(document.body.clientWidth > 800 ? "800px" : "auto");
+height: auto;
 }
