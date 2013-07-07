@@ -1,0 +1,19 @@
+<div class="table1">
+	<!-- INCLUDE metatag_manager/admin/tabs.html -->
+	<p style="padding-bottom: 10px;">_(MM_ENTER_VALID)</p>
+	<form action="{U_SAVE}" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+		<table class="forumline" width="90%">
+			<tr><th colspan="2">_(MM_SEARCH_ENG)</th>
+			</tr>
+			<!-- BEGIN valid -->
+				<tr>
+					<td class="{valid.F_CLASS}" width="15%">{valid.M_NAME}</td>
+					<td class="{valid.F_CLASS}" width="75%">
+						<input type="text" name="{valid.N_CONTENT}" value="{valid.M_CONTENT}" size="80" maxlength="100" />
+					</td>
+				</tr>
+			<!-- END valid -->
+		</table>
+		<p><input class="mainoption" type="submit" value="_(MM_SAVE)" /></p>
+	</form>
+</div>

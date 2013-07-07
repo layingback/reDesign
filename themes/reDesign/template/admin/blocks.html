@@ -32,7 +32,7 @@ _(FILENAME):<p>
 
 <div id="new_custom" style="display:none;">
 _(CONTENT):<br />
-  {S_BB}<textarea id="new_content" name="content" cols="63" rows="15" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onchange="storeCaret(this);"></textarea>
+  {S_BB}<textarea id="new_content" name="content" cols="60" rows="15" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onchange="storeCaret(this);"></textarea>
   <!-- <br /><em>{L_IFRSSWARNING}</em> --><hr />
 </div>
 <div>
@@ -57,7 +57,7 @@ _(VISIBLEINMODULES):
 <!-- <br /><em>{L_VIEW_COMMENT}</em> -->
 	<br /><select id="inmodule" name="in_module[]" multiple="multiple" size="9">
 		<optgroup label="_(AUTHORSADMIN)">
-			<option value="-1">{S_ADMIN}&nbsp;</option>
+			<option value="-1">_(ADMIN)</option>
 		</optgroup>
 		<optgroup label="_(ACTIVE)">
 <!-- BEGIN active -->
@@ -71,6 +71,7 @@ _(VISIBLEINMODULES):
 		</optgroup>
 	</select>
 	<hr />
+_(CSSNAME):<br /><input id="cssname" type="text" name="cssname" size="30" maxlength="60" /><br /><i>_(OPTIONAL)</i><hr />
 	<input type="submit" name="add" value="_(CREATEBLOCK)" />
 	</div>
   </form>
@@ -90,8 +91,8 @@ _(VISIBLEINMODULES):
 <!-- BEGIN list -->
 <tr class="first">
 <td title="{list.S_TITLE}.{list.S_BID}" onmouseover="Block.hover(this)" class="drag_img"></td>
-<td><a href="{U_BLOCKS}&amp;show={list.S_BID}" title="_(SHOW)">{list.S_TITLE}</a></td>
-<td><span class="infoarea"><img style="vertical-align:middle;" src="{THEME_PATH}/images/information.png" title="_(TYPE): {list.S_TYPE}   _(VIEW): {list.L_WHO_VIEW}   <!-- IF B_MULTILINGUAL -->_(LANGUAGE): {list.L_BLANGUAGE}<!-- ENDIF -->" alt="" />&nbsp;<span class="gensmall">_(ACTIVE): <a href="{U_BLOCKS}&amp;change={list.S_BID}"><img src="images/{list.S_IMG_ACTIVE}" alt="{list.L_CHANGE} {list.S_TITLE}" title="{list.L_CHANGE} {list.S_TITLE}" style="border:0;vertical-align:bottom;" /></a></span>&nbsp;<a href="{U_BLOCKS}&amp;edit={list.S_BID}" title="_(EDIT) {list.S_TITLE}">_(EDIT)</a><!-- IF list.S_BKEY -->&nbsp;/&nbsp;<a href="{U_BLOCKS}&amp;del={list.S_BID}" title="_(DELETE) {list.S_TITLE}">_(DELETE)</a><!-- ENDIF --><br /></span></td>
+<td width="49%"><a href="{U_BLOCKS}&amp;show={list.S_BID}" title="_(SHOW)">{list.S_TITLE}</a></td>
+<td><span class="infoarea"><img style="vertical-align:middle;" src="{THEME_PATH}/images/information.png" title="_(TYPE): {list.S_TYPE}   _(VIEW): {list.L_WHO_VIEW}   <!-- IF B_MULTILINGUAL -->_(LANGUAGE): {list.L_BLANGUAGE}<!-- ENDIF -->" alt="" />&nbsp;<span class="gensmall">_(ACTIVE) </span><a href="{U_BLOCKS}&amp;change={list.S_BID}"><img src="images/{list.S_IMG_ACTIVE}" alt="{list.L_CHANGE} {list.S_TITLE}" title="{list.L_CHANGE} {list.S_TITLE}" style="border:0;vertical-align:bottom;" /></a></span>&nbsp;<a href="{U_BLOCKS}&amp;edit={list.S_BID}" title="_(EDIT) {list.S_TITLE}"><span class="gensmall">_(EDIT)</span></a><!-- IF list.S_BKEY -->/<a href="{U_BLOCKS}&amp;del={list.S_BID}" title="_(DELETE) {list.S_TITLE}"><span class="gensmall">_(DELETE)</span></a><!-- ENDIF --><br /></td>
 <td><span class="expandinfo">&nbsp;_(TYPE): {list.S_TYPE}</span></td>
 <td><span class="expandinfo">_(VIEW): {list.L_WHO_VIEW}</span></td>
 <td><!-- IF B_MULTILINGUAL --><span class="expandinfo">_(LANGUAGE): {list.L_BLANGUAGE}</span><!-- ENDIF --></td>
@@ -148,8 +149,7 @@ _(VISIBLEINMODULES):
 <!-- END loop_c -->
      </ul></div>
      <div class="spacer_div"></div>
-<!-- <div><ul class="unselectable" unselectable="on"> -->
-     <div><ul class="unselectable">
+	 <div><ul class="unselectable" unselectable="on">
        <li class="parent" onmouseup="Block.setparent(this)">_(CENTERDOWN)
         <input type="hidden" name="id[]" value="-1" />
         <input type="hidden" name="mid[]" value="{modules.S_MODULE_ID}" />
@@ -168,8 +168,7 @@ _(VISIBLEINMODULES):
 <!-- END loop_d -->
      </ul></div>
     </td>
-<!--<td><div><ul class="unselectable" unselectable="on"> -->
-    <td><div><ul class="unselectable">
+	<td><div><ul class="unselectable" unselectable="on">
        <li class="parent" onmouseup="Block.setparent(this)">_(RIGHT)
         <input type="hidden" name="id[]" value="-1" />
         <input type="hidden" name="mid[]" value="{modules.S_MODULE_ID}" />

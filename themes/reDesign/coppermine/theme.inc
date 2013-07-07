@@ -23,7 +23,7 @@ if (!defined('IN_COPPERMINE')) die('Not in Coppermine...');
 global $cpgtpl, $template, $template_display_picture, $template_image_comments,
  $template_add_your_comment, $modheader, $no_border;
 
-/*Disable border for OpenTable*/
+/* Disable border for OpenTable */
 global $no_border;
 $no_border = 1;
 $breadcrumbDisabled = true;
@@ -33,7 +33,7 @@ $cop_templ = $rD_path.'/template/coppermine';//coppermine templatespath
 $cop_imag = $rD_path.'/images/coppermine';//coppermine imagespath
 
 define('_ALBUMS', ALBUMS);
-//define('_CATEGORY', CATEGORY); //Already defined in main.php
+// define('_CATEGORY', CATEGORY); //Already defined in main.php
 define('_PICTURES', PICTURES);
 
 
@@ -46,7 +46,7 @@ function tmpl_to_var($file, $load = true) {
     }
 	$var = eval("return '".preg_replace("/'/", "\'", $thefile)."';");
 	if (!$var) {
-		cpg_error('There occured an error while processing '.$cop_templ.'/'.$file);
+		cpg_error('There occured an error while processing '.$cop_templ.'<b>/</b>'.$file);
 	}
 	return $var;
 }
@@ -87,10 +87,10 @@ $cpgtpl->assign_vars(array(
 $cpgtpl->set_filenames(array(
   'image_rating' => 'coppermine/display_image/image_rating.html'
 ));
-//Dragonfly 10 has a new method to_string for cpgtpl object, so we use it
+// Dragonfly 10 has a new method to_string for cpgtpl object, so we use it
 if (version_compare(CPG_NUKE, '10.0.0', '>=')) {
   $template_image_rating = $cpgtpl->to_string('image_rating');
-//We use the alternative for Dragonfly 9 (the idea is exactly the same actually)
+// We use the alternative for Dragonfly 9 (the idea is exactly the same actually)
 } else {
   ob_start();
   $cpgtpl->display('image_rating');
@@ -439,12 +439,24 @@ function theme_display_album_list(&$alb_list,$nbAlb, $cat, $page, $total_pages)
 
 		$thumbImage = getThumbnailImg($album['thumb_pic']);
 
+// print_r($thumbImage);
+		// determine height and edit HTML to vertically center image - layingback
+		$top_offset = '2';		// add for increased pictureframe size of 4 px
+		$height_pos = strpos($thumbImage, 'height=');
+		if ($CONFIG['thumb_use'] == 'any' && $height_pos != '') {
+			$height_end = strpos($thumbImage, ' ', $height_pos);
+			$height = substr($thumbImage, $height_pos+'8', $height_end-$height_pos-'9');
+			$top_offset = $top_offset + intval(($CONFIG['thumb_width'] - (intval($height)*'2'))/'2');  // * 2 becuase image gets doubled before display
+		}
+		$new_str = 'style="margin-top: '.$top_offset.'px" ';
+// echo ' img='.$thumbImage.' h_p='.$height_pos.' h='.$height.' ofst='.$top_offset.' new='.$new_str.'confwidth='.$CONFIG['thumb_width'];
+
         $cpgtpl->assign_block_vars('album_cell', array(
           'COL_WIDTH'         => $column_width,
           'ALBUM_TITLE'       => $album['album_title'],
           'THUMB_CELL_WIDTH'  => $thumb_cell_width,
           'ALB_LINK_TGT'      => getlink('&amp;file=thumbnails&amp;album='.$album['aid']),
-          'ALB_LINK_PIC'      => $thumbImage,
+          'ALB_LINK_PIC'      => $height_pos == '' ? $thumbImage : substr_replace($thumbImage, $new_str, $height_pos, '0'),
           'ADMIN_MENU'        => $album['album_adm_menu'],
           'ALB_DESC'          => $album['album_desc'],
           'ALB_INFOS'         => $album['album_info'],
@@ -463,7 +475,7 @@ function theme_display_album_list(&$alb_list,$nbAlb, $cat, $page, $total_pages)
     //Tab display
     $cpgtpl->assign_block_vars('tabs', array(
         'COLUMNS' => $columns,
-        'TABS' => $tabs,
+        'TABS' => can_admin($module_name) ? $tabs : '',
     ));
 
     $cpgtpl->assign_block_vars('spacer',array());
@@ -504,12 +516,24 @@ function theme_display_album_list_cat(&$alb_list, $nbAlb, $cat, $page, $total_pa
 
 		$thumbImage = getThumbnailImg($album['thumb_pic']);
 
+// print_r($thumbImage);
+		// determine height and edit HTML to vertically center image - layingback
+		$top_offset = '2';		// add for increased pictureframe size of 4 px
+		$height_pos = strpos($thumbImage, 'height=');
+		if ($CONFIG['thumb_use'] == 'any' && $height_pos != '') {
+			$height_end = strpos($thumbImage, ' ', $height_pos);
+			$height = substr($thumbImage, $height_pos+'8', $height_end-$height_pos-'9');
+			$top_offset = $top_offset + intval(($CONFIG['thumb_width'] - (intval($height)*'2'))/'2');  // * 2 becuase image gets doubled before display
+		}
+		$new_str = 'style="margin-top: '.$top_offset.'px" ';
+// echo ' img='.$thumbImage.' h_p='.$height_pos.' h='.$height.' ofst='.$top_offset.' new='.$new_str.'confwidth='.$CONFIG['thumb_width'];
+
         $cpgtpl->assign_block_vars('c_album_cell', array(
           'COL_WIDTH' => $column_width,
           'ALBUM_TITLE' => $album['album_title'],
           'THUMB_CELL_WIDTH' => $thumb_cell_width,
           'ALB_LINK_TGT' => getlink('&amp;file=thumbnails&amp;album='.$album['aid']),
-          'ALB_LINK_PIC' => $thumbImage,
+          'ALB_LINK_PIC' => $height_pos == '' ? $thumbImage : substr_replace($thumbImage, $new_str, $height_pos, '0'),
           'ADMIN_MENU' => $album['album_adm_menu'],
           'ALB_DESC' => $album['album_desc'],
           'ALB_INFOS' => $album['album_info'],
@@ -524,10 +548,10 @@ function theme_display_album_list_cat(&$alb_list, $nbAlb, $cat, $page, $total_pa
       ));
     }
 
-    //Tab display
+    // Tab display
     $cpgtpl->assign_block_vars('c_tabs', array(
       'COLUMNS' => $columns,
-      'TABS'    => $tabs,
+      'TABS'    => can_admin($module_name) ? $tabs : '',
     ));
 
     $cpgtpl->set_filenames(array('album_list_cat' => 'coppermine/album_list_cat.html'));
@@ -564,7 +588,7 @@ function theme_display_thumbnails(&$thumb_list, $nbThumb, $album_name, $page_lin
     // The sort order options are not available for meta albums
     if ($mode == 'thumb') {
       $cpgtpl->assign_vars(array(
-        'TITLE'         => $album_name,
+        'TITLE'         => '<a href="'.str_replace('%d','1',$page_link).'">'.$album_name.'</a>',
         'THUMBCOLS'     => $thumbcols,
         'SORT_OPTIONS'  => 0,
       ));
@@ -602,14 +626,38 @@ function theme_display_thumbnails(&$thumb_list, $nbThumb, $album_name, $page_lin
       ));
     }
 
-    $i = 0;
+    $i = 0;									// layingback: $thumb_list is ([pos] [image] [caption] [user1]...[user4] [admin_menu] [url]) <--- No title !!!
     foreach($thumb_list as $thumb) {
       $i++;
+
+	// determine height and edit HTML to vertically center image - layingback
+	$top_offset = '2';		// add for increased pictureframe size of 4 px
+	$height_pos = strpos($thumb['image'], 'height=');
+	if ($CONFIG['thumb_use'] == 'any') {
+		$height_end = strpos($thumb['image'], ' ', $height_pos);
+		$height = substr($thumb['image'], $height_pos+'8', $height_end-$height_pos-'9');
+		$top_offset = $top_offset + intval(($CONFIG['thumb_width'] - intval($height))/'2');
+	}
+	$new_str = 'style="margin-top: '.$top_offset.'px" ';
+// echo ' img='.$thumb['image'].' h_p='.$height_pos.' h='.$height.' ofst='.$top_offset.' new='.$new_str.'usr1='.$thumb['user1'];
+
+/*	// same for title as HTML tooltip won't work
+	$title_pos = strpos($thumb['image'], 'title=');
+	$title_end = strpos($thumb['image'], '" ', $title_pos);
+	$title_x = ($title_end > $title_pos+'7') ? substr($thumb['image'], $title_pos+'7', $title_end-$title_pos-'8') : "";
+ echo ' t_p='.$title_pos.' t_e='.$title_end.' t='.$title_x;
+*/
+
       $cpgtpl->assign_block_vars('thumb_cell', array(
         'CELL_WIDTH'    => $cell_width,
         'LINK_TGT'      => $thumb['url'],
-        'THUMB'         => $thumb['image'],
+        'THUMB'         => substr_replace($thumb['image'], $new_str, $height_pos, '0'),
+//        'CAPTION'       => $title.'<br />'.$thumb['caption'],
         'CAPTION'       => $thumb['caption'],
+        'USER1'			=> $thumb['user1'],
+        'USER2'			=> $thumb['user2'],
+        'USER3'			=> $thumb['user3'],
+        'USER4'			=> $thumb['user4'],
         'ADMIN_MENU'    => ($mode == 'thumb') ? $thumb['admin_menu'] : '',
         'NEW_LINE'      => ($i>1 && ((($i-1) % $thumbcols) == 0))
       ));
@@ -649,11 +697,28 @@ function theme_display_film_strip(&$thumb_list) {
 
   foreach($thumb_list as $thumb) {
     $i++;
+
+	// determine height and edit HTML to vertically center image - layingback
+	// skip if thumbnail max_dim is set to height (no need) or width (no common height)
+	$top_offset = '2';		// add for increased pictureframe size of 4 px
+	$height_pos = strpos($thumb['image'], 'height=');
+	if ($CONFIG['thumb_use'] == 'any') {
+		$height_end = strpos($thumb['image'], ' ', $height_pos);
+		$height = substr($thumb['image'], $height_pos+'8', $height_end-$height_pos-'9');
+		$top_offset = $top_offset + intval(($CONFIG['thumb_width'] - intval($height))/'2');
+	}
+// echo ' img='.$thumb['image'].' h_p='.$height_pos.' h='.$height.' ofst='.$top_offset.' new='.$new_str.'usr1='.$thumb['user1'];
+	$new_str = 'style="margin-top: '.$top_offset.'px" ';
+
     $cpgtpl->assign_block_vars('thumb_cell',array(
       'CELL_WIDTH'  => $cell_width,
       'LINK_TGT'    => $thumb['url'],
-      'THUMB'       => $thumb['image'],
+      'THUMB'       => substr_replace($thumb['image'], $new_str, $height_pos, '0'),
       'CAPTION'     => $thumb['caption'],
+	  'USER1'		=> $thumb['user1'],
+	  'USER2'		=> $thumb['user2'],
+	  'USER3'		=> $thumb['user3'],
+	  'USER4'		=> $thumb['user4'],
       'ADMIN_MENU'  => $thumb['admin_menu'],
       'CURRENT'     => ($thumb['pos']==$pos)?' class="currentpic"':'',
       'PIC_POSITION'=> sprintf(PIC_POS, $thumb['pos']+1, $pic_count)

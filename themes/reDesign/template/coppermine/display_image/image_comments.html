@@ -1,25 +1,25 @@
 <div>
 
-<b>{MSG_AUTHOR}</b><!-- BEGIN ipinfo -->({HDR_IP} [{RAW_IP}])<!-- END ipinfo -->
+<span class="tiny"><i>{MSG_DATE}: </i></span>
 
 <!-- BEGIN buttons -->
 <a href="javascript:;" onclick="blocking('cbody{MSG_ID}','', 'block'); blocking('cedit{MSG_ID}','', 'block'); return false;" title="{EDIT_TITLE}">
-<img src="{THEMEDIR}/images/edit.gif" border="0" align="absmiddle" alt="" >
+<img src="{THEMEDIR}/images/edit.gif" border="0" alt="" />
 </a>
 
-<form method="post" action="{DELETE_LINK}">
+<form style="display:inline;" method="post" action="{DELETE_LINK}">
 	<input type="hidden" name="what" value="comment" />
 	<input type="hidden" name="msg_id" value="{MSG_ID}" />
 	<input name="submit" title="{DELETE_TEXT}" type="image" src="{THEMEDIR}/images/delete.gif" />
 </form>
 
 <!-- END buttons -->
-
-{MSG_DATE}
+<b>{MSG_AUTHOR}</b> <!-- BEGIN ipinfo -->({HDR_IP} [{RAW_IP}])<!-- END ipinfo --><br />
 
 
 <div id="cbody{MSG_ID}" style="display:block">{MSG_BODY}</div>
 
+<br />
 <div id="cedit{MSG_ID}" style="display:none">
 	<form name="f{MSG_ID}" method="post" {ACTION}>
   	<input type="hidden" name="event" value="comment_update" />

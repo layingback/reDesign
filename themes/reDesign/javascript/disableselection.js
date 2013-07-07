@@ -57,19 +57,19 @@ addLoadEvent(function() {
 
 
 /**
- * Header javascript utilites 
+ * Header javascript utilites
  */
 
 function showlogin() {
   document.getElementById('log_in_box').style.display='';
-  document.getElementById('headsearch').style.display='none';		// need to comment out if you disable Search at top
+//  document.getElementById('headsearch').style.display='none';
 	document.getElementById('loginandregister').style.display='none';
   document.getElementById('u_name').focus();
 }
 
 function closelogin() {
   document.getElementById('log_in_box').style.display='none';
-  document.getElementById('headsearch').style.display='';		// need to comment out if you disable Search at top
+//  document.getElementById('headsearch').style.display='';
   document.getElementById('loginandregister').style.display='';
 }
 

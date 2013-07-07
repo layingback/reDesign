@@ -1,4 +1,3 @@
-<!-- INCLUDE forums/overall_header.html -->
 <!-- PHP -->
   global $cpgtpl, $sitename, $mainindex, $module_name;
   $cpgtpl->assign_vars(array(
@@ -17,6 +16,7 @@
 <base href="{S_CONTENT_BASE}" />
 <meta http-equiv="Content-Type" content="text/html; charset={S_CONTENT_ENCODING}" />
 <meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="robots" content="nofollow" />
 {META}
 <title>{S_SITENAME} {BC_DELIM} {PAGE_TITLE} {FORUM_NAME} {BC_DELIM} {TOPIC_TITLE}</title>
 <link rel="stylesheet" type="text/css" href="{THEME_PATH}/style/print.css" />
@@ -26,7 +26,6 @@
 
 <h1><a href="{U_INDEX}">{S_SITENAME}</a></h1>
 
-<span class="gensmall">{PAGINATION}</span>
 <!-- <form action="{U_VIEW_TOPIC}" method="get"> -->
 <form action="{S_CONTENT_BASE}{U_MAININDEX}" method="get">
 <div class="forumtopicprint">
@@ -41,24 +40,25 @@
   <input type="submit" value="{S_GO}" />
 </div>
 </form>
+<br />
+<span class="gensmall">{PAGINATION}&nbsp;</span>
 
 <h2><a href="{U_VIEW_FORUM}">{FORUM_NAME}</a></h2>
 <h2><a href="{U_VIEW_TOPIC}">{TOPIC_TITLE}</a></h2>
 
 {POLL_DISPLAY}
 
+<hr />
 <!-- BEGIN postrow -->
 <!-- PHP -->$cpgtpl->assign_var('S_POST_URL', getlink('&amp;file=viewtopic&amp;printertopic=1&amp;p='.$this->_tpldata['postrow'][$this->_postrow_i]['U_POST_ID']).'#'.$this->_tpldata['postrow'][$this->_postrow_i]['U_POST_ID']);<!-- ENDPHP -->
 <a name="{postrow.U_POST_ID}"></a>
-<h3><a href="{S_POST_URL}">{postrow.POST_SUBJECT}</a></h3>
+<span class="postdetails">{L_POSTED}:&nbsp;&nbsp;{postrow.POST_DATE}&nbsp;&nbsp;&nbsp;{L_AUTHOR}:&nbsp;&nbsp;<b>{postrow.POSTER_NAME}</b>&nbsp;&nbsp;&nbsp;{postrow.POSTER_FROM}</span><br />
+<span class="postdetails">{L_POST_SUBJECT}:</span>&nbsp;&nbsp;<span class="postsubject"><a href="{S_POST_URL}"><b>{postrow.POST_SUBJECT}</b></a></span><br />
 
-<span class="postdetails">{L_POSTED}: {postrow.POST_DATE}</span><br />
-<span class="postdetails">{L_AUTHOR}: <b>{postrow.POSTER_NAME}</b> {postrow.POSTER_FROM}</span><br />
-
-<span class="postbody">{postrow.MESSAGE}</span><span class="gensmall">{postrow.EDITED_MESSAGE}</span>
+{postrow.MESSAGE}<span class="gensmall">{postrow.EDITED_MESSAGE}&nbsp;</span>
 <hr />
 <!-- END postrow -->
 
-<span class="gensmall">{S_TIMEZONE}<br />{PAGE_NUMBER} {PAGINATION}<br />{S_CONTENT_BASE}</span>
+<span class="gensmall">{S_TIMEZONE}<br />{PAGE_NUMBER}&nbsp;&nbsp;&nbsp;{PAGINATION}<br />{S_CONTENT_BASE}</span>
 
 <!-- INCLUDE forums/overall_footer.html -->

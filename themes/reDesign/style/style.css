@@ -2,7 +2,7 @@
   reDesign CSS Theme for Dragonfly™ CMS
   ********************************************
   Copyright © 2004 - 2010 by Midas aka Eestlane
-  Copyright © 2012 by reDesign Development Team
+  Copyright © 2013 by layingback
   https://github.com/layingback/reDesign
 
   reDesign theme is released under the terms and conditions
@@ -38,14 +38,14 @@ However, it's not important here as outline would be 0 for everything,
 outline is a box that Firefox produces i.e when clicking a link, I don't like it */
 a, a:link, a:visited {
     color: #494183;
-    text-decoration: none;
+    text-decoration: underline;
 }
 a:visited {
     color: #5493B4;
 }
 /* a:link, a:active, a:visited {} */
 a:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 a:active, a:focus {
     outline: 0; /* for browsers that understand */
@@ -306,8 +306,9 @@ a.gen:hover, a.genmed:hover, a.gensmall:hover {
 /* pop-up help item */
 .helphead, .helpcontent {
     margin: 0;
-    background-color: #939393;
-    color: #FFF;
+    width: 260px;
+    background-color: #ccc;
+    color: #000;
     filter: alpha(opacity=90);
     -moz-opacity: 0.9;
     opacity: 0.9;
@@ -315,13 +316,16 @@ a.gen:hover, a.genmed:hover, a.gensmall:hover {
 .helphead { /* pop-up help item title */
     margin: 0;
     padding: 5px 5px;
-    width: 230px;
-    font: normal 12px "Lucida Grande", "Franklin Gothic Medium", tahoma, arial;
-    text-transform: uppercase;
+    line-height: 1px;
+/*  text-transform: uppercase; */
+    text-transform: none;
 }
 .helpcontent { /* pop-up help item content */
     padding: 10px;
-    width: 220px;
+    width: 248px;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    font-size: 9px;
 }
 
 /*The skip to link, which is shown only without stylesheet or on smallscreens(ie mobiles) */
@@ -677,7 +681,7 @@ b.corner-rt {
 }
 
 
-.wip_post b.corner-lt, .wip_post b.corner-rt {
+.wip_post b.corner-lt, .wip_post	b.corner-rt {
 /* As wip_post cant have top padding, we dont need negative margin */
     margin-top: 0;/*top padding of .wip_post */
 }
@@ -710,7 +714,7 @@ span.corners-bottom span {
     width: 200px;
     height: 100%;
     font-size: 0.9em;
-    background-color: #fcfcfc;
+/*    background-color: #fcfcfc; */  /* for continuous grey background */
 }
 
 /* Left side blocks */
@@ -784,11 +788,13 @@ span.corners-bottom span {
 /* Left block */
 #pe600 .block {
     border-right: 1px solid #e0e0e0;
+	background-color: #fcfcfc;  /* for separate grey background per block */
 }
 
 /* Right block */
 #pe601 .block {
     border-left: 1px solid #e0e0e0;
+	background-color: #fcfcfc;  /* for separate grey background per block */
 }
 
 
@@ -819,7 +825,6 @@ span.corners-bottom span {
     -moz-box-shadow: 0px 1px 3px #DFDFDF;
     border-radius: 6px;
     -moz-border-radius: 6px;
-
     -ms-box-shadow: 0px 1px 3px #DFDFDF;
 }
 
@@ -852,6 +857,21 @@ span.corners-bottom span {
     user-select: none;
 }
 
+/* Displayed admin shortcut links */
+.admin_edit {
+	display: none;
+}
+.centerblock:hover .admin_edit, #footer:hover .admin_edit {
+	display: inline;
+}
+.admin_edit img {
+	margin-top: 8px;
+	margin-left: 3px;
+	opacity: 0.3;
+}
+.admin_edit:hover img {
+	opacity: 1;
+}
 
 
 /* onMouseDown */
@@ -862,6 +882,7 @@ span.corners-bottom span {
 }
 
 .centerblock .state_indicator {
+	cursor: pointer;
     display: block;
     float: right;
     width: 15px;
@@ -891,6 +912,26 @@ span.corners-bottom span {
 .centerblock .blockcontent {
     padding: 10px;
 }
+
+/* Multi-block enhancement - change % to enable 2, 3 or 4 blocks side-by-side in centerblock area */
+.multiblock {
+	width: 100%;
+}
+.multiblock .centerblock {
+	float: left;
+	margin-right: 1%;
+	clear: none;
+	width: 100%;		/* 49% for 2, 32% for 3, 24% for 4 blocks & 100% to disable */
+/*	height: 200px;	*/	/* enable & adjust for longest block to balance lengths manually - usually better to just adjust oprder of blocks */
+}
+.multiblock .blockcontent {
+	height: 100%;
+	font-size: 0.9em;
+}
+.multiblock .fullwide {
+	width: 100%;
+}
+
 
 .message h2 {
     background-color: #4A4A4A;
@@ -1116,7 +1157,7 @@ span.corners-bottom span {
 }
 /* div called from function OpenTable2 */
 .table2 {
-    width: 50%;
+    width: 95%;
     text-align: center;
 }
 
@@ -1211,7 +1252,7 @@ h2.cattitle a:link, h2.cattitle a:visited, h2.cattitle a:hover {
 .afterposts {
     margin: 5px 0;
     padding: 5px 0;
-    border-top: 1px solid #EBEBEB;
+    border-bottom: 1px solid #EBEBEB;
     zoom: 1;/*Layout triggerer for IE's*/
 }
 .afterposts .leftinfo {
@@ -1221,7 +1262,9 @@ h2.cattitle a:link, h2.cattitle a:visited, h2.cattitle a:hover {
     float: right;
     text-align: right;
 }
-
+.afterposts .rightinfo select, .afterposts .rightinfo label {
+    font-size: 0.8em;
+}
 
 .quickreply {
     width: 98%;
@@ -1292,7 +1335,7 @@ input.helpline, input.helpline:hover, input.helpline:focus, input.helpline:activ
 
 
 .bbcbutton {
-    margin: 1px 2px 3px 2px;
+    margin: 4px 3px 6px 1px;
     background-color: #E6E6E6;
     vertical-align: middle;
 }
@@ -1304,7 +1347,7 @@ input.helpline, input.helpline:hover, input.helpline:focus, input.helpline:activ
 }
 
 .bbcbutton:hover, .bbcbutton:active, .bbcbutton_pressed {
-    margin: 0px 1px 2px 1px;
+    margin: 3px 2px 5px 0;
 }
 
 .bbcbutton_pressed {
@@ -1320,19 +1363,15 @@ input.helpline, input.helpline:hover, input.helpline:focus, input.helpline:activ
     background-color: #E6E6E6;
 }
 
-.bbcodetbl {
-  padding: 2px 6px 1px 5px;
-  background-color: #E6E6E6;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 6px;
-  border-radius: 6px;
-  border: 1px solid #E6E6E6;
-}
 
 /* Post replying */
 .post_reply {
     background-color: #E6E6E6;
     padding: 10px;
+	border: 1px solid #E6E6E6;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
 }
 .post_reply textarea.post {
     margin: 0 auto;
@@ -1353,13 +1392,29 @@ input.helpline, input.helpline:hover, input.helpline:focus, input.helpline:activ
 input.helpline, .post_reply .helpline {
     color: #797979;
     font-size: 10px;
-}
-.post_reply .helpline {
-    width: 500px !important;
+    width: 700px !important;
 }
 
 .bbcode_table {
     width: 100%;
+}
+.bbcbutton {
+    margin: 1px 2px 3px 2px;
+}
+.bbcbutton:hover, .bbcbutton:active, .bbcbutton_pressed {
+    margin: 0px 1px 2px 1px;
+}
+
+.bbcodetbl {
+  padding: 2px 10px 1px 5px;
+  background-color: #E6E6E6;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #f4f4f4;
+}
+.post_reply .helpline {
+    width: 440px !important;
 }
 
 .bbcode_table option.genmed {
@@ -1379,10 +1434,1556 @@ input.helpline, .post_reply .helpline {
 	margin: 5px 2px 5px 0;
 }
 */
+.smilies table, .smilies table td {
+    background-color: transparent;
+}
+.smilies a, .smilies a:link, .smilies a:visited, .smilies a:hover {
+    text-decoration: underline;
+}
+
+.topic_review {
+    background-color: #FFF !important;
+    height: 100%;
+    min-height: 100%;
+    position: relative;
+}
+
+.forumblock {
+    display: block;
+    clear: both;
+    background: #F7F7F7;
+    zoom: 1;/*Layout triggerer for IE's*/
+    color: #333333;
+    margin: 0;
+    margin-left: 10px;
+    margin-bottom: 4px;
+    padding: 10px;
+    padding-bottom: 0;
+    padding-top: 3px;
+    cursor: pointer;
+    position: relative;
+}
+div.forumblock1 {
+    background-color: #FFF;
+}
+div.forumblock2 {
+    background-color: #F7F7F7;
+}
+div.forumblock1:hover, div.forumblock2:hover {
+    background-color: #F8F8F3;
+}
+
+.forumblock h3 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-shadow: none;
+    line-height: 27px;/*will align it to the middle of folder icon, the height of folder icon*/
+}
+.forumblock h3 a:link, .forumblock h3 a:visited {
+    color: #666666;
+}
+/* Disable hover effect, because the whole row is clickable link*/
+.forumblock h3 a:hover {
+    text-decoration: none;
+    color: #666666;
+}
+.forumblock img.folder {
+    display: block;
+    float: left;
+    margin: 0 5px 5px 0;
+    padding: 0;
+    border: 0;
+    font-size: 1px;
+}
+.forumblock b.corner-lt, .forumblock  b.corner-rt {
+    margin-top: -3px;/*top padding of .forumblock */
+}
+
+/* Last post time and poster container */
+.last_post {
+    display: block;
+    float: right;
+    line-height: 1.2;
+    text-align: right;
+    padding-bottom: 5px;
+}
+/* Labels of last post */
+.last_post span {
+    display: inline;
+    font-size: 0.8em;
+}
+
+.topicsposts {
+    font-size: 0.8em;
+    color: #666666;
+    line-height: 1.2;/*For IE*/
+    text-align: right;
+    clear: right;
+    margin-bottom: 2px;
+    margin-right: 10px;/*same as padding of .forumblock*/
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+.topicsposts .topicsposts_name {
+    float: right;
+    margin-right: 3px;
+}
+.topicsposts .topicsposts_numbers {
+    float: right;
+    font-weight: bold;
+}
+
+/**/
+div.forumdesc {
+    font-weight: normal;
+    color: #888;
+    margin-top: 0px;
+    padding: 2px;
+    float: left;
+    clear: left;
+    width: 70%;
+    line-height: 1.3;/*For IE*/
+    margin-bottom: 2px;
+}
+
+
+/* Topics header (announcement, sticky, normal) in forums */
+.topic_header {
+    margin: 0;
+    margin-top: 10px;
+    clear: both;
+    padding: 4px 4px 0 8px;
+    background-color: #E2E2D6;
+    color: #3D4358;
+    font-weight: bold;
+    zoom: 1;/*Layout triggerer for IE's*/
+}
+/*We have less sidepadding for topic_headers */
+.topic_header b.corner-lt, .topic_header span.corners-bottom { margin-left: -8px; }
+.topic_header b.corner-rt, .topic_header span.corners-bottom { margin-right: -4px; }
+
+
+/* Topics table on viewforum */
+table.forum_topics {
+    width: 100%;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+
+table.forum_topics tr.topic td {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    padding-top: 9px;
+    padding-bottom: 0px;
+}
+
+table.forum_topics tr.topic:hover td {
+    border-bottom: 1px solid #E8AEB6;
+}
+
+.moderators {
+    display: none;/*Remove this line to show moderators on forum index page*/
+    font-size: 0.8em;
+    font-style: italic;
+    width: 30%;
+    text-align: right;
+    clear: right;
+    margin-bottom: 2px;
+    margin-right: 10px;/*same as padding of .forumblock*/
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.clockStyle {
+	background: transparent url('../images/forums/clock_bkgnd.png') no-repeat center;
+	border: #999 3px inset;
+	padding: 6px;
+	color: #eee;
+	font-family: "Arial", Gadget, sans-serif;
+	font-size: 40px;
+	letter-spacing: -2px;
+	display: inline;
+}
+
+/*At forums index_body */
+div.forumlegend {
+    text-align: center;
+    vertical-align: middle;
+    font-size: 11px;
+    font-family: Verdana, Arial, sans-serif;
+    font-weight: normal;
+}
+div.forumlegend img {
+    vertical-align: middle;
+    margin-right: 3px;
+    margin-left: 11px;
+}
+
+/*At viewforum*/
+ul.forumlegend {
+    font-size: 11px;
+    width: 300px;
+    margin: 0;
+    margin-top: 4px;
+    padding: 0;
+    list-style: none;
+    display: block;
+}
+
+ul.forumlegend li {
+    display: block;
+    float: left;
+    margin-right: 0px;
+    padding-bottom: 5px;
+    width: 150px;
+}
+
+ul.forumlegend img {
+    vertical-align: middle;
+    margin-right: 4px;
+}
+
+ul.forumlegend li img {
+    height: 16px;
+    width: 16px;
+}
+
+/* Forum topic titles */
+.topictitle {
+    font-weight: bold;
+    font-size: 13px;
+}
+a.topictitle:link {
+    text-decoration: none;
+}
+a.topictitle:visited {
+    text-decoration: none;
+}
+a.topictitle:hover {
+    text-decoration: underline;
+}
+.name {
+    font-size: 0.85em;
+    color: #000;
+}
+.date {
+    font-size: 0.9em;
+    color: grey;
+}
+.postdetails {
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    line-height: 1.2;
+}
+.postbody {
+    font-size: 12px;
+}
+
+/* Links in posts*/
+/*And anywhere where bbcode is used?*/
+a.postlink:link {
+}
+a.postlink:visited {
+    color: #5493B4;
+}
+a.postlink:hover {
+}
+/*Attachment in forums*/
+.attachtable {
+    border: 0px solid #C0C0C0;
+    border-top: 0;/*this will be handled by items*/
+    width: 100%;
+    margin-left: 2.5%;
+    background-color: #FFFFE1;
+}
+.attachtable ul.attachmentbox {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.attachtable li {
+    font-size: 0.8em;
+    padding: 5px 5px 5px 10px;
+    border-top: 1px solid #C0C0C0;
+}
+/* Attachment, item's name*/
+.attachtable li.attach_name {
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 1em;/*to center the text vertically*/
+    text-shadow: #888 2px 2px 1px;
+    background-color: #E8E8E8;
+}
+/* Attachment's image */
+.attachtable li.attach_image {
+    text-align: center;
+    overflow: auto;
+    background-color: #FFF;
+    border: 0px solid #ECEAE1;
+}
+
+blockquote {
+    background: #F9FFF4 url('../images/bbcode/quote_left.png') no-repeat top left;
+    text-indent: 0;
+    margin: 0;
+    padding: 5px 3px 0.85em 40px;
+    border-bottom: 2px solid #5A848B;
+    position: relative;
+}
+/*IE6*/
+* html blockquote {
+    background-image: url('../images/bbcode/quote_left.gif');
+}
+blockquote .name {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 0.85em;
+    color: #000;
+}
+
+pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+}
+
+.bbcode, .bbphp {
+    border: 1px solid #AAE6BF;
+    clear: right;
+    word-wrap: break-word;
+}
+
+.bbchead, .bbphphead {
+    background-color: #FFFBF0;
+    color: #3CA817;
+    padding-left: 3px;
+    font-weight: bold;
+    height: 25px;
+    line-height: 25px;
+}
+
+.bbphphead {
+    background: #FFFBF0 url('../images/bbcode/bbcode_php.gif') no-repeat top right;
+}
+
+.bbccontent, .bbphpcontent {
+    font: normal 9pt 'Courier New', Verdana, Arial, Helvetica, sans-serif;
+    background-color: #FFF;
+    padding: 3px;
+    overflow: auto;
+}
+.bbccontent pre, .bbphpcontent pre {
+    padding: 0;
+    margin: 0;
+}
+.bbccontent pre {
+    font-family: monospace;
+}
+.copyright {
+    color: #444;
+    letter-spacing: -1px;
+    font-size: 10px;
+}
+a.copyright {
+    color: #444;
+    text-decoration: none;
+}
+a.copyright:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+
+
+/* PAGINATION
+	Credits: Dynamic Drive CSS Library
+	URL: http://www.dynamicdrive.com/style/
+*/
+
+.pagination{
+    padding: 2px;
+    margin-top: 20px;
+}
+
+.pagination ul {
+    margin: 0;
+    padding: 0;
+    text-align: right;
+}
+
+.pagination li {
+    list-style-type: none;
+    display: inline;
+    padding-bottom: 1px;
+}
+
+.pagination a, .pagination a:link, .pagination a:visited {
+    padding: 0 8px;
+    margin-right: -5px;
+    border: none;
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    text-decoration: none;
+    color: #72B6B3;
+    font-weight: bold;
+}
+
+.pagination a:hover, .pagination a:active, .pagination a.currentpage {
+    border: 1px solid #ccc;
+    color: #FFF;
+    background-color: #72B6B3;
+}
+
+.pagination a.currentpage {
+    background-color: #888;
+    color: #FFF !important;
+    border-color: #628483;
+    cursor: default;
+}
+
+.pagination a.disablelink, .pagination a.disablelink:hover {
+    background-color: #FFF;
+    cursor: default;
+    color: #E1E1E1;
+    border-color: #EBEBEB;
+    font-weight: normal !important;
+    display: none;
+}
+
+.pagination a.ellipsis, .pagination a.ellipsis:hover {
+    padding-left: 12px;
+    margin-right: -1px;
+    border-top: none;
+    border-bottom: none;
+    color: #72B6B3;
+    background-color: #fff;
+    cursor: default;
+}
+
+.pagination a.prevnext {
+    border: none;
+}
+
+div#messagesbox {
+    z-index:110;
+    position:fixed;
+    border-style: double;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    display:none;
+    background-color: #F00;
+}
+#messagesbox div.apply {
+    padding: 10px 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFF;
+    text-align: center;
+    cursor: pointer;
+}
+
+.msgnote {
+    text-align: center;
+    font-size: 10px;
+}
+
+/* Footer, where is copyright and are error messages if wanted*/
+#footer {
+    clear: both;
+    padding: 20px;
+/*border-top: 1px solid #6B6B6B;*/
+    background: #EEECEA url('../images/backgrounds/footer/top_border.png') repeat-x top left;
+    font-size: 0.9em;
+}
+
+#footer a, #footer a:link, #footer a:visited, #footer a:hover {
+}
+
+/*#footer .tasks {
+	text-align: left;
+	margin-bottom: 10px;
+	clear: both;
+	height: 1%;
+}
+
+#footer .tasks .info {
+	float: left;
+	padding: 3px;
+	clear: both;
+}*/
+
+#footer a.navtop {
+    display: block;
+    float: right;
+    font: 12px tahoma, verdana, arial;
+    background: url('../images/arrow_up.gif') no-repeat left center;
+    padding-left: 10px;
+}
+#footer a.navtop, #footer a.navtop:link, #footer a.navtop:active, #footer a.navtop:visited {
+    text-decoration: none;
+    border-bottom-width: 0;
+    color: #8A8A8A;
+}
+#footer a.navtop:hover {
+    background-position: left top;
+    background-color: transparent;
+}
+
+.footer_parts {
+    margin-bottom: 20px;
+    color: #8A8A8A;
+}
+
+.footer_1, .footer_2, .footer_3 {
+    float: left;
+    width: 25%;
+    margin-left: 20px;
+    font-size: 0.8em;
+}
+.footer_1 {
+    margin-left: 0;
+    width: 20%;
+}
+.footer_2 {
+    width: 25%;
+}
+.footer_3 {
+    width: 30%;
+}
+
+#banner_footer {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+
+/* contains time measures and dragonfly links */
+.footer_info {
+    color: #8A8A8A;
+    font-size: 0.9em;
+}
+
+
+/* Error or Notice box in footer */
+#footer .table1 {
+    color: #000;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+#footer .table1 a, #footer .table1 a:link, #footer .table1 a:visited, #footer .table1 a:hover {
+    color: #4848FF;
+}
+
+ul.footer_links {
+    margin: 0;
+    padding: 0;
+    list-style: none inside;
+}
+
+ul.footer_links li {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+ul.footer_links a {
+    display: block;
+    margin: 0;
+    padding: 0;
+    padding: 2px;
+    text-decoration: none;
+    color: #000;
+    font-size: 1.1em;
+    border-bottom: 1px dotted #000;
+}
+
+/* Banners */
+/*.banner {
+	padding-bottom: 10px;
+}*/
+
+#banner_after_header {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#banner_main {
+    text-align: center;
+}
+
+
+
+#menu {
+    display: inline;
+    margin: 158px 0px 0px 0px;/*sides must be 0, put to ul instead*/
+    display: block;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    left: 15px;
+    z-index: 10;
+    font: normal 14px Arial, Tahoma, sans-serif;
+    height: 19px;
+    line-height: 19px;
+}
+/* More space saving in admin */
+#admin_pages #menu {
+    font-size: 12px;
+}
+
+#menu ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+#menu li {
+    float: left;
+    display: block;
+    margin: 0px 5px 0px 0px;
+    padding: 0;
+    color: #FFF;
+    white-space: nowrap;
+    position: relative;
+    text-align: center;
+    padding-right: 12px;
+}
+#menu a {
+    text-decoration: none;
+    margin: 0; /*for hover border */
+    padding: 0px 3px;/*If item is longer than min-width*/
+    padding-bottom: 3px; /* To fill gap between menu and end of header */
+    border: 0;
+    float: left;/* \*/float: none;/*	*/
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    color: #FFF;
+    font-weight: normal;
+
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    -moz-border-radius-topleft: 3px;
+    -moz-border-radius-topright: 3px;
+}
+#menu li:hover a {
+}
+
+
+/* Forum search page */
+.forums_search label.fixedfloat {
+    display: block;
+    float: left;
+    width: 110px;
+    margin-right: 3px;
+
+    text-align: right;
+}
+
+.forums_search label, .forums_search select, .forums_search input {
+    margin-top: 2px;
+/*margin-bottom: 2px;*/
+}
+
+/*.forums_search input {
+	margin: 2px 0;
+}*/
+
+/* forums align page links with topic links */
+.nexthread {
+	white-space: nowrap;
+	padding-right: 10px;
+}
+.gotopage {
+	padding-right: 5px;
+	float: right;
+}
+.nav {
+	padding-right: 10px;
+	padding-bottom: 10px;
+}
+
+
+/* Curved cutout Borders */
+/* In error pages etc */
+.curved {background: transparent; width:100%; margin:0 auto;}
+.curved h1, .curved p {margin:0 10px;}
+.curved h1 {font-size:2em; color:#FFF; letter-spacing:1px;}
+.curved p {padding-bottom:0.5em;}
+
+.curved .top, .curved .bottom {display:block; background:transparent; font-size:1px;}
+.curved .b1, .curved .b2, .curved .b3, .curved .b4 {display:block; overflow:hidden; height:1px;}
+.curved .b2, .curved .b3, .curved .b4 {background:#F8F8F8; border-left:1px solid #BBBBBB; border-right:1px solid #BBBBBB;}
+.curved .b1 {margin:0 4px; background:#BBBBBB;}
+.curved .b2 {margin:0 4px; height:2px;}
+.curved .b3 {margin:0 3px;}
+.curved .b4 {margin:0; height:1px; border-width:0 3px 0 3px;}
+
+.curved .boxcontent {display:block; background:#F8F8F8; border:0 solid #BBBBBB; border-width:0 1px;}
+
+
+
+/* Used in Private Messages tabs */
+#tabs {
+    clear: both;
+    height: 23px;
+    background: #FFF url('../images/backgrounds/tabs/tabs_bg.gif') top left repeat-x;
+    margin: 12px 0;
+    text-align: center;
+}
+#tabs b {
+    display: block;
+    float: left;
+    height: 23px;
+    width: 5px;
+    background: #FFF url('../images/backgrounds/tabs/tabs_bgleft.gif') top right no-repeat;
+    margin: 0;
+    text-align: center;
+}
+#tabs ul {
+    margin: 0 0 0 8px;
+    padding: 0;
+    height: 23px;
+    background: transparent url('../images/backgrounds/tabs/tabs_bgright.gif') top right no-repeat;
+}
+#tabs li {
+    float: left;
+    line-height: 20px;
+    width: 84px;
+    height: 20px;
+    overflow: hidden;
+    list-style: none;
+    margin: 3px 2px 0 0;
+    font-size: 11px;
+    font-weight: bold;
+    color: #000;
+    background: transparent url('../images/backgrounds/tabs/tab84.gif');
+}
+/* a means unactive */
+#tabs a {
+    display: block;
+    height: 22px;
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+    background: transparent url('../images/backgrounds/tabs/tab84.gif');
+    font-weight: normal;
+}
+#tabs a:hover, #tabs li {
+    background-position: 100% -20px !important;
+}
+
+div.buttons {
+    float: left;
+}
+div.buttons a {
+    float: left;
+    margin-right: 5px;
+}
+
+a.forumbutton {
+    display: block;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    height: 25px;
+    overflow: hidden;/*For IE6*/
+    float: left;
+}
+a.forumbutton img {
+    visibility: hidden;
+}
+a.forumbutton:hover {
+    background-position: 0 -25px;
+}
+a.forumbutton span {
+    display: none;
+}
+
+.replypm {
+    height: 25px;
+    overflow: hidden;
+    float: left;
+    margin-right: 5px;
+}
+.replypm:hover img {
+    margin-top: -25px;
+}
+/* class named button */
+.button {
+    display: inline;
+    font: 12px 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', arial, helvetica, sans-serif;
+}
+.button a {
+    background: transparent url('../images/backgrounds/input/button-bg.gif') repeat-x top left;
+    padding: 4px 6px;
+    margin-right: 4px;
+    border: 1px solid #ccc;
+    height: 28px;
+    min-height: 28px;
+    text-decoration: none;
+    color: #000;
+}
+
+.button a:hover {
+    border-color: #999;
+    text-decoration:none;
+    color:#000;
+}
+.button a img {
+    vertical-align: middle;
+}
+a.button {
+    background: url('../images/backgrounds/input/button-bg.gif') repeat-x top left;
+    padding: 4px 6px;
+    margin-right: 4px;
+    border: 1px solid #CCC;
+    height: 28px;
+    min-height: 28px;
+    text-decoration: none;
+    color: #000;
+}
+a.button:hover {
+    border-color: #999;
+    text-decoration: none;
+    color: #000;
+}
+a.button img {
+    padding-right: 4px;
+    vertical-align: middle;
+}
+
+
+/* Anywhere used, if not td */
+.row1 {
+    background-color: #FFFFFF;
+}
+.row2 {
+    background-color: #F7F7F7;
+}
+.row3 {
+    background-color: #F7F7F7;
+}
+
+/* table */
+.forumline {
+	border-spacing: 0px;
+	border: 1px solid #ccc;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+}
+.forumline th {
+    padding: 2px 4px;
+    height: 1em;
+    border: 0;
+    white-space: nowrap;
+}
+.forumline tr {
+    height: 1em;
+}
+.forumline td {
+    padding: 2px 4px;
+    height: 1em;
+}
+.forumline tr.row1 td {
+    background-color: #FFFFFF;
+}
+.forumline tr.row2 td {
+    background-color: #F7F7F7;
+}
+.forumline tr.row1:hover td, .forumline tr.row2:hover td {
+    background-color: #F8F8F3;
+}
+
+#pmstatus {
+    clear: both;
+    width: 175px;
+    background-color: #DAFEFB;
+    border: 1px solid #D3DAD9;
+}
+#pmstatus span {
+    display: block;
+    white-space: nowrap;
+    background-color: #EEEEEE;
+    width: 100%;
+    text-align: center;
+    font-size: 10px;
+}
+.pmbar {
+    background-color: #808000;
+    height: 12px;
+    margin: 2px 0 2px 0;
+}
+.pmpercent {
+    width: 100%;
+    background-color: #FFFBF0;
+}
+
+th, .thHead, .catHead, .catSides, .catleft, .catright, .catbottom, .catBottom, .thSides,
+.thleft, .thright, .thtop, .thbottom, .thCornerL, .thCornerR, td.cat {
+    padding: 2px 4px;
+    background-color: #ccc;
+    color: #FFF;
+    height: 1em;
+/*    border-left: 1px solid #FFF;	*/
+    border-left: 1px solid transparent;
+    white-space: nowrap;
+}
+
+th a, .thHead a, .catHead a, .catSides a, .catleft a, .catright a, .catbottom a, .catBottom a, .thSides a,
+.thleft a, .thright a, .thtop a, .thbottom a, .thCornerL a, .thCornerR a, td.cat a,
+a.cattitle {
+    color: #FDF3E1;
+}
+
+/* useraccount */
+table.forumline td.row1 table {
+    color: #000;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 2px solid #FFF;
+    border-collapse: collapse;
+}
+table.forumline td.row1 table td {
+    border: 1px solid #E3E3E3;
+}
+
+td.row1 {
+    background-color: #FFF;
+}
+td.row2 {
+    background-color: #F7F7F7;
+}
+
+
+.topicrow {
+    margin: 0;
+    margin-bottom: 20px;
+    clear: both;
+    padding: 5px 4px;
+    padding-bottom: 0;
+    background-color: #DBDBDB;
+    color: #3D4358;
+    zoom: 1;/*Layout triggerer for IE's*/
+}
+.topicrow table {
+    background-color: transparent;
+    background-image: none;
+}
+.topicrow table th, .topicrow table .tableh1, .topicrow table .tableh2 {
+    background-color: transparent;
+    background-image: none;
+    border: 0;
+    text-transform: uppercase;
+    font-size: 11px;
+    padding-left: 0;
+    color: #000;
+}
+
+/*
+ Rounded corners for .topicrow
+ Used in a lot of places, i.e coppermine, some forums part and other
+*/
+.topicrow b.corner-lt, .topicrow span.corners-bottom { margin-left: -4px; }
+.topicrow b.corner-rt, .topicrow span.corners-bottom { margin-right: -4px; }
+
+
+
+.unselectable {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    -khtml-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+.pollpanel {
+    background-color: #CBFEF7;
+    margin: 5px 0 5px 0;
+    padding: 10px;
+}
+.pollpanel h3 {
+    margin: 0;
+    padding: 0;
+    text-shadow: 0 0;
+    border: 0;
+    color: #5E7582;
+    border-bottom: 1px solid #5E7582;
+}
+
+/* Post poll styles
+----------------------------------------*/
+fieldset.polls {
+    font-family: "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+fieldset.polls dl {
+    margin-top: 5px;
+    border-top: 1px solid #e2e2e2;
+    padding: 5px 0 5px 0;
+    line-height: 120%;
+    color: #666666;
+}
+
+fieldset.polls dl.voted {
+    font-weight: bold;
+    color: #000000;
+}
+
+fieldset.polls dt {
+    text-align: left;
+    float: left;
+    display: block;
+    width: 30%;
+    border-right: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.1em;
+}
+
+fieldset.polls dd {
+    float: left;
+    width: 10%;
+    border-left: none;
+    padding: 0 5px;
+    margin-left: 0;
+    font-size: 1.1em;
+}
+
+fieldset.polls dd.resultbar {
+    width: 50%;
+}
+
+fieldset.polls dd input {
+    margin: 2px 0;
+}
+
+fieldset.polls dd div {
+    text-align: right;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #FFFFFF;
+    font-weight: bold;
+    padding: 0 2px;
+    overflow: visible;
+    min-width: 2%;
+}
+
+#poll_1 {
+    background-color: #aaaaaa;
+    border-bottom: 1px solid #747474;
+    border-right: 1px solid #747474;
+}
+
+#poll_2 {
+    background-color: #bebebe;
+    border-bottom: 1px solid #8c8c8c;
+    border-right: 1px solid #8c8c8c;
+}
+
+#poll_3 {
+    background-color: #D1D1D1;
+    border-bottom: 1px solid #aaaaaa;
+    border-right: 1px solid #aaaaaa;
+}
+
+#poll_4 {
+    background-color: #e4e4e4;
+    border-bottom: 1px solid #bebebe;
+    border-right: 1px solid #bebebe;
+}
+
+#poll_5 {
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #D1D1D1;
+    border-right: 1px solid #D1D1D1;
+    color: #A2A2A2;
+}
+#poll_6 {
+    background-color: #aaaaaa;
+    border-bottom: 1px solid #747474;
+    border-right: 1px solid #747474;
+}
+
+#poll_7 {
+    background-color: #bebebe;
+    border-bottom: 1px solid #8c8c8c;
+    border-right: 1px solid #8c8c8c;
+}
+
+#poll_8 {
+    background-color: #D1D1D1;
+    border-bottom: 1px solid #aaaaaa;
+    border-right: 1px solid #aaaaaa;
+}
+
+#poll_9 {
+    background-color: #e4e4e4;
+    border-bottom: 1px solid #bebebe;
+    border-right: 1px solid #bebebe;
+}
+
+#poll_10 {
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #D1D1D1;
+    border-right: 1px solid #D1D1D1;
+    color: #A2A2A2;
+}
+
+
+/* Forums CSS work in progress - wip */
+.wip_post {
+    margin: 5px 0 5px 0;
+    /*Would cause IE7 flicker bug if top or bottom has padding, instead
+      put it to .wip_postbody AND .wip_profile*/
+    padding: 0 10px;
+}
+/* i.e forums posts, members list and prolly sth else */
+.wip_post, div.row1 {
+    background-color: #E8E8E8;
+}
+div.row2 {
+    background-color: #F4F4F4;
+}
+.wip_postbody {
+    padding: 0; /*Top or bottom padding can't be added to wip_post itself*/
+    line-height: 1.48;
+    color: #333333;
+    width: 76%;
+    float: left;
+/*Uncomment line below to have user details on left side:*/
+/*float: right;*/
+    clear: both;
+}
+
+/*  CSS/js force reduction in img size */
+/* Note this is fallback code so should not need to be changed - actual values used based on user's browser window size */
+div.wip_postbody img {
+max-width: 800px;
+width: expression(document.body.clientWidth > 800 ? "800px" : "auto");
+height: auto;
+}
+div.wip_postbody_pm img {
+max-width: 710px;
+width: expression(document.body.clientWidth > 710 ? "710px" : "auto");
+height: auto;
+}
+
+
+.wip_post {
+	border: 1px solid white;
+	box-shadow: 0px 1px 6px transparent;
+/*	-webkit-box-shadow: 0px 1px 6px transparent;
+	-moz-box-shadow: 0px 1px 6px transparent;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-ms-box-shadow: 0px 1px 6px transparent;	*/
+}
+.wip_post:hover {
+	border: 1px solid #f8f8f8;
+	box-shadow: 0px 1px 6px #DFDFDF;
+	-webkit-box-shadow: 0px 1px 6px #DFDFDF;
+	-moz-box-shadow: 0px 1px 6px #DFDFDF;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-ms-box-shadow: 0px 1px 6px #DFDFDF;
+}
+
+/* Post title*/
+.wip_postbody h3 {
+    margin: 0;
+    padding: 0;
+    text-shadow: 0 0;
+    border: 0;
+    color: #808080;
+    font-size: 1.2em;
+}
+/* User signature span */
+.signature {
+    font-size: 0.85em;
+    color: darkgrey;
+}
+.signature:hover {
+    font-size: 0.85em;
+    color: #444;
+}
+.edited_by {
+    font-size: 0.9em;
+    font-style: italic;
+}
+.back2top {
+    padding-bottom: 5px;
+}
+/* Forums post task like quote, delete etc icons
+----------------------------------------*/
+ul.post-tasks {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    float: right;
+}
+ul.post-tasks li {
+    float: left;
+    padding:0;
+    margin: 0 3px;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    height: 20px;
+    overflow: hidden;/*For IE6*/
+    cursor: pointer;
+}
+ul.post-tasks li:hover {
+    background-position: 0 -20px;
+}
+ul.post-tasks li img {
+    visibility: hidden;
+    margin: 0;
+    margin-bottom: -20px;
+    padding: 0;
+}
+ul.post-tasks li span {
+    display: none;
+}
+ul.post-tasks li a {
+    display: block;
+}
+
+
+/* Post author */
+p.wip_postdetails {
+    margin: 0 15em 0.6em 0;
+    padding: 0 0 5px 0;
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    font-size: 0.85em;
+    font-style: italic;
+    color: darkgrey;
+    line-height: 1.2;
+}
+/* Forums post content */
+.wip_content {
+    min-height: 3em;
+    overflow: hidden;
+    color: #333333;
+}
+
+/* Poster profile block
+----------------------------------------*/
+.wip_profile {
+    margin: 5px 0 10px 0;
+    padding: 0; /*Top or bottom padding can't be added to wip_post itself*/
+    min-height: 80px;
+    color: #666666;
+    border-left: 1px solid #FFFFFF;
+    width: 130px;
+    float: right;
+/*Uncomment to have user details on left side:*/
+    /*border-left: 0;
+     float: left;
+     border-right: 1px solid #FFFFFF;*/
+    display: inline;
+}
+
+.wip_profile dd, .wip_profile dt {
+    line-height: 1.2;
+    margin: 0;
+    margin-left: 8px;
+    padding: 0;
+}
+/* User name at forum post */
+.wip_profile dt {
+    font-weight: bold;
+}
+.wip_profile strong {
+    font-weight: normal;
+    color: #000000;
+}
+
+.avatar {
+    border: none;
+    margin-bottom: 3px;
+}
+
+.online {
+    background-image: none;
+    background-position: 100% 0;
+/*Uncomment to have user details on left side:*/
+/*background-position: 0 0;*/
+    background-repeat: no-repeat;
+}
+
+
+/* Poster profile icons
+----------------------------------------*/
+ul.profile-icons {
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+    list-style: none;
+}
+
+/* Rollover state */
+ul.profile-icons li {
+    float: left;
+    margin: 0 6px 3px 0;
+    padding: 0;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    height: 20px;
+    cursor: pointer;
+}
+ul.profile-icons li:hover {
+    background-position: 0 100%;
+}
+/* Private Messages for example produces it's own image, we disable it, however get the width */
+ul.profile-icons li img {
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+}
+ul.profile-icons li span {
+    display: none;
+}
+
+/* Rolloff state */
+ul.profile-icons li a {
+    display: block;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.user_avatar img, .wip_profile a img {
+	max-width: 120px;
+	max-height: 100px;
+}
+
+/*In use for single image, in memberslist for example*/
+.ml_icon {
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    margin: auto auto;
+    height: 20px;
+    cursor: pointer;
+    zoom: 1;/*Layout triggerer for IE's*/
+    overflow: hidden;
+}
+.ml_icon:hover {
+    background-position: 0 -20px;
+}
+.ml_icon img {
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+}
+.ml_icon a {
+    display: block;
+    height: 20px;
+}
+/* Specify widths of individual icons */
+.pm_image {
+    width: 28px;
+}
+.www_image {
+    width: 20px;
+}
+
+/* Back to top of page */
+.back2top {
+    clear: both;
+    height: 11px;
+    text-align: right;
+    padding-bottom: 10px;
+}
+a.top {
+    background: transparent url('../images/forums/icon_back_top.gif') no-repeat top left;
+    text-decoration: none;
+    width: 11px;
+    height: 11px;
+    display: block;
+    float: right;
+    overflow: hidden;
+    letter-spacing: 1000px;
+    text-indent: 11px;
+}
+
+
+
+/* General classes for placing floating blocks atm used only in forums */
+.left-box {
+    float: left;
+    width: auto;
+    text-align: left;
+    font: 11px Verdana, Arial, sans-serif;
+}
+
+.right-box {
+    float: right;
+    width: auto;
+    text-align: right;
+    font: 9px Verdana, Arial, sans-serif;
+}
+
+.pn_blklnk, .indnttxt {
+	margin-left: 22px;
+	text-indent: -22px;
+}
+
+/* Left arrow navigation, in forums i.e  */
+a.left {
+    background: url('../images/forums/arrow_left.gif') no-repeat 3px 60%;
+    margin-left: 5px;
+}
+a.left, a.left:active, a.left:visited {
+    padding-left: 12px;
+}
+a.left:hover {
+    color: #368AD2;
+    text-decoration: none;
+    background-position: 0 60%;
+}
+
+/* Breadcrumb, copies the forums breadcrumb style  */
+.breadcrumb_traces {
+    zoom: 1;/*Layout triggerer for IE's*/
+    overflow: hidden; /* Clears float and too long breadcrumbs */
+}
+/* a is linkable trace, span is not linkable trace */
+.breadcrumb_traces a, .breadcrumb_traces span {
+    float: left;
+    background: url('../images/forums/arrow_left.gif') no-repeat 3px 60%;
+    margin-left: 5px;
+    padding-left: 12px;
+}
+.breadcrumb_traces a:hover {
+    background-position: 0 60%;
+    color: #368AD2;
+    text-decoration: none;
+}
+.breadcrumb_traces a, .breadcrumb_traces a:visited, breadcrumb_traces a:active {
+    color: #494183;
+}
+
+
+
+/*For example in Contact module*/
+/*Security code box*/
+fieldset.security_fieldset {
+    background-color: #FBF5E3;
+    border: 1px solid #FBBCAC;
+    padding: 10px;
+    width: 200px;
+}
+fieldset.security_fieldset label {
+    font-style: italic;
+    color: #DB0D0D;
+}
+fieldset.security_fieldset input {
+    vertical-align: bottom;
+}
+
+
+/********BEGIN CURRENT MENU BLOCK********/
+/*List of links under current category*/
+ul#curmenu_list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    height: 100%;
+    width: 100%; /*For IE6*/
+    overflow: hidden; /*For IE6*/
+}
+ul#curmenu_list li {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+ul#curmenu_list li a {
+    display: block;
+    margin: 0;
+    border: 0;
+    border-top: 1px solid #FFF;
+    padding: 4px 4px 4px 15px;
+    width: auto;
+    text-decoration: none;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+ul#curmenu_list li a:hover {
+    background-color: #FBD6A4;
+    color: #000;
+    text-decoration: none;
+}
+
+/* Is it browsers bug?*/
+.block ul#curmenu_list li a:hover {
+    text-decoration: none;
+}
+
+/* Currently viewable page link in the list */
+ul#curmenu_list li.curlink a {
+    background-color: #FBD6A4;
+    color: #000;
+    font-weight: bold;
+}
+/********END CURRENT MENU BLOCK********/
+
+/********BEGIN COMPACT USERINFO BLOCK********/
+dl.compact_userinfo, dl.compact_userinfo * {
+    margin: 0;
+    padding: 0;
+}
+dl.compact_userinfo dt {
+    font-weight: bold;
+}
+dl.compact_userinfo dt.admin_logout {
+    padding-top: 10px;
+    font-weight: normal;
+    text-decoration: none;
+    font-size: 10px;
+}
+dl.compact_userinfo dd {
+    padding-left: 3px;
+}
+dl.compact_userinfo ul {
+    list-style-position: inside;
+}
+/********END COMPACT USERINFO BLOCK********/
+
+.formlabel {
+    font-size: 0.9em;
+    color: grey;
+}
+
+
+/*  Admin -> General -> Blocks Administration  */
+/*  Space saving & reusing Pin/Tack to show more details  */
+#blist_fixed {
+ width: 100%;
+ position: relative;
+ background: white;
+}
+.expandinfo {
+ font-size: 0.9em;
+}
+#blist .expandinfo {
+ display: none;
+}
+
 
 /*CMSDesigns BBCode Flags*/
 #countries, #fontsize, #colour {
-	font-size: 6px;
+	font-size: 9px;
 	letter-spacing: -1px;
 }
 select.bbflags option {
@@ -1390,8 +2991,8 @@ background-repeat:no-repeat;
 background-position:bottom left;
 padding-left:25px;
 }
-select#countries option[value="ad"] {
-background-image:url(../images/flags/ad.gif);
+select#countries option[value="ac"] {
+background-image:url(../images/flags/ac.gif);
 }
 select#countries option[value="ae"] {
 background-image:url(../images/flags/ae.gif);
@@ -2109,1486 +3710,4 @@ background-image:url(../images/flags/zm.gif);
 }
 select#countries option[value="zw"] {
 background-image:url(../images/flags/zw.gif);
-}
-
-.smilies table, .smilies table td {
-    background-color: transparent;
-}
-.smilies a, .smilies a:link, .smilies a:visited, .smilies a:hover {
-    text-decoration: underline;
-}
-
-.topic_review {
-    background-color: #FFF !important;
-    height: 100%;
-    min-height: 100%;
-    position: relative;
-}
-
-.forumblock {
-    display: block;
-    clear: both;
-    background: #F7F7F7;
-    zoom: 1;/*Layout triggerer for IE's*/
-    color: #333333;
-    margin: 0;
-    margin-left: 10px;
-    margin-bottom: 4px;
-    padding: 10px;
-    padding-bottom: 0;
-    padding-top: 3px;
-    cursor: pointer;
-    position: relative;
-}
-div.forumblock1 {
-    background-color: #FFF;
-}
-div.forumblock2 {
-    background-color: #F7F7F7;
-}
-div.forumblock1:hover, div.forumblock2:hover {
-    background-color: #F8F8F3;
-}
-
-.forumblock h3 {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    text-shadow: none;
-    line-height: 27px;/*will align it to the middle of folder icon, the height of folder icon*/
-}
-.forumblock h3 a:link, .forumblock h3 a:visited {
-    color: #666666;
-}
-/* Disable hover effect, because the whole row is clickable link*/
-.forumblock h3 a:hover {
-    text-decoration: none;
-    color: #666666;
-}
-.forumblock img.folder {
-    display: block;
-    float: left;
-    margin: 0 5px 5px 0;
-    padding: 0;
-    border: 0;
-    font-size: 1px;
-}
-.forumblock b.corner-lt, .forumblock  b.corner-rt {
-    margin-top: -3px;/*top padding of .forumblock */
-}
-
-/* Last post time and poster container */
-.last_post {
-    display: block;
-    float: right;
-    line-height: 1.2;
-    text-align: right;
-}
-/* Poster of last post */
-.last_post span {
-    display: inline;
-    float: right;
-}
-
-.topicsposts {
-    font-size: 12px;
-    color: #666666;
-    line-height: 1.2;/*For IE*/
-    text-align: right;
-    clear: right;
-    margin-bottom: 2px;
-    margin-right: 10px;/*same as padding of .forumblock*/
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-.topicsposts .topicsposts_name {
-    float: right;
-    margin-right: 3px;
-    text-align: right;
-}
-.topicsposts .topicsposts_numbers {
-    float: right;
-    font-weight: bold;
-    text-align: left;
-}
-
-/**/
-div.forumdesc {
-    font-weight: normal;
-    color: #888;
-    margin-top: 0px;
-    padding: 2px;
-    float: left;
-    clear: left;
-    width: 70%;
-    line-height: 1.3;/*For IE*/
-    margin-bottom: 2px;
-}
-
-
-/* Topics header (announcement, sticky, normal) in forums */
-.topic_header {
-    margin: 0;
-    margin-top: 10px;
-    clear: both;
-    padding: 4px 4px 0 8px;
-    background-color: #E2E2D6;
-    color: #3D4358;
-    font-weight: bold;
-    zoom: 1;/*Layout triggerer for IE's*/
-}
-/*We have less sidepadding for topic_headers */
-.topic_header b.corner-lt, .topic_header span.corners-bottom { margin-left: -8px; }
-.topic_header b.corner-rt, .topic_header span.corners-bottom { margin-right: -4px; }
-
-
-/* Topics table on viewforum */
-table.forum_topics {
-    padding-right: 10px;
-    width: 100%;
-}
-
-table.forum_topics tr.topic td {
-    border-bottom: 1px solid #6CB1C6;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.moderators {
-    display: none;/*Remove this line to show moderators on forum index page*/
-    font-size: 0.8em;
-    font-style: italic;
-    width: 30%;
-    text-align: right;
-    clear: right;
-    margin-bottom: 2px;
-    margin-right: 10px;/*same as padding of .forumblock*/
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-/*At forums index_body */
-div.forumlegend {
-    text-align: center;
-    vertical-align: middle;
-    font-size: 11px;
-    font-family: Verdana, Arial, sans-serif;
-    font-weight: normal;
-}
-div.forumlegend img {
-    vertical-align: middle;
-    margin-right: 3px;
-    margin-left: 11px;
-}
-
-/*At viewforum*/
-ul.forumlegend {
-    font-size: 12px;
-    width: 75%;
-    margin: 0;
-    margin-top: -100px;
-    padding: 0;
-    list-style: none;
-    display: block;
-}
-
-ul.forumlegend li {
-    display: block;
-    float: left;
-    margin-right: 0px;
-    padding-bottom: 5px;
-    width: 30%;
-}
-
-ul.forumlegend img {
-    vertical-align: middle;
-    margin-right: 4px;
-}
-
-/* Forum topic titles */
-.topictitle {
-    font-weight: bold;
-    font-size: 13px;
-}
-a.topictitle:link {
-    text-decoration: none;
-}
-a.topictitle:visited {
-    text-decoration: none;
-}
-a.topictitle:hover {
-    text-decoration: underline;
-}
-.name {
-    font-size: 0.85em;
-    color: #000;
-}
-.postdetails {
-    font-family: Verdana, Helvetica, Arial, sans-serif;
-    font-size: 1em;
-    line-height: 1.2;
-}
-.postbody {
-    font-size: 12px;
-}
-
-.nexthread {
-	padding-top: 10px;
-}
-
-
-/* Links in posts*/
-/*And anywhere where bbcode is used?*/
-a.postlink:link {
-}
-a.postlink:visited {
-    color: #5493B4;
-}
-a.postlink:hover {
-}
-/*Attachment in forums*/
-.attachtable {
-    border: 1px solid #C0C0C0;
-    border-top: 0;/*this will be handled by items*/
-    width: 95%;
-    margin-left: 2.5%;
-    background-color: #FFFFE1;
-}
-.attachtable ul.attachmentbox {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-.attachtable li {
-    padding: 5px 5px 5px 10px;
-    border-top: 1px solid #C0C0C0;
-}
-/* Attachment, item's name*/
-.attachtable li.attach_name {
-    text-align: center;
-    font-weight: bold;
-    line-height: 1em;/*to center the text vertically*/
-}
-/* Attachment's image */
-.attachtable li.attach_image {
-    text-align: center;
-    overflow: auto;
-    background-color: #FFF;
-    border: 4px solid #ECEAE1;
-}
-
-blockquote {
-    background: #F9FFF4 url('../images/bbcode/quote_left.png') no-repeat top left;
-    text-indent: 0;
-    margin: 0;
-    padding: 5px 3px 0.85em 40px;
-    border-bottom: 2px solid #5A848B;
-    position: relative;
-}
-/*IE6*/
-* html blockquote {
-    background-image: url('../images/bbcode/quote_left.gif');
-}
-blockquote .name {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    font-size: 0.85em;
-    color: #000;
-}
-
-pre {
-    white-space: pre;
-    white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-}
-
-.bbcode, .bbphp {
-    border: 1px solid #AAE6BF;
-    clear: right;
-    word-wrap: break-word;
-}
-
-.bbchead, .bbphphead {
-    background-color: #FFFBF0;
-    color: #3CA817;
-    padding-left: 3px;
-    font-weight: bold;
-    height: 25px;
-    line-height: 25px;
-}
-
-.bbphphead {
-    background: #FFFBF0 url('../images/bbcode/bbcode_php.gif') no-repeat top right;
-}
-
-.bbccontent, .bbphpcontent {
-    font: normal 9pt 'Courier New', Verdana, Arial, Helvetica, sans-serif;
-    background-color: #FFF;
-    padding: 3px;
-    overflow: auto;
-}
-.bbccontent pre, .bbphpcontent pre {
-    padding: 0;
-    margin: 0;
-}
-.bbccontent pre {
-    font-family: monospace;
-}
-.copyright {
-    color: #444;
-    letter-spacing: -1px;
-    font-size: 10px;
-}
-a.copyright {
-    color: #444;
-    text-decoration: none;
-}
-a.copyright:hover {
-    color: #000;
-    text-decoration: underline;
-}
-
-
-
-/* PAGINATION
-	Credits: Dynamic Drive CSS Library
-	URL: http://www.dynamicdrive.com/style/
-*/
-
-.pagination{
-    margin-top: 20px;
-    padding: 2px;
-}
-
-.pagination ul {
-    margin: 0;
-    padding: 0;
-    text-align: right;
-}
-
-.pagination li {
-    list-style-type: none;
-    display: inline;
-    padding-bottom: 1px;
-}
-
-.pagination a, .pagination a:link, .pagination a:visited {
-    padding: 0 8px;
-    margin-right: -5px;
-    border: none;
-    border-right: 1px solid #ccc;
-    border-left: 1px solid #ccc;
-    text-decoration: none;
-    color: #72B6B3;
-    font-weight: bold;
-}
-
-.pagination a:hover, .pagination a:active, .pagination a.currentpage {
-    border: 1px solid #ccc;
-    color: #FFF;
-    background-color: #72B6B3;
-}
-
-.pagination a.currentpage {
-    background-color: #888;
-    color: #FFF !important;
-    border-color: #628483;
-    cursor: default;
-}
-
-.pagination a.disablelink, .pagination a.disablelink:hover {
-    background-color: #FFF;
-    cursor: default;
-    color: #E1E1E1;
-    border-color: #EBEBEB;
-    font-weight: normal !important;
-    display: none;
-}
-
-.pagination a.ellipsis, .pagination a.ellipsis:hover {
-    padding-left: 12px;
-    margin-right: -1px;
-    border-top: none;
-    border-bottom: none;
-    color: #72B6B3;
-    background-color: #fff;
-    cursor: default;
-}
-
-.pagination a.prevnext {
-    border: none;
-}
-
-div#messagesbox {
-    z-index:110;
-    position:fixed;
-    border-style: double;
-    bottom: 0;
-    right: 0;
-    width: 300px;
-    display:none;
-    background-color: #F00;
-}
-#messagesbox div.apply {
-    padding: 10px 0;
-    font-size: 12px;
-    font-weight: bold;
-    color: #FFF;
-    text-align: center;
-    cursor: pointer;
-}
-
-.msgnote {
-    text-align: center;
-    font-size: 10px;
-}
-
-/* Footer, where is copyright and are error messages if wanted*/
-#footer {
-    clear: both;
-    padding: 20px;
-/*border-top: 1px solid #6B6B6B;*/
-    background: #EEECEA url('../images/backgrounds/footer/top_border.png') repeat-x top left;
-    font-size: 0.9em;
-}
-
-#footer a, #footer a:link, #footer a:visited, #footer a:hover {
-}
-
-/*#footer .tasks {
-	text-align: left;
-	margin-bottom: 10px;
-	clear: both;
-	height: 1%;
-}
-
-#footer .tasks .info {
-	float: left;
-	padding: 3px;
-	clear: both;
-}*/
-
-#footer a.navtop {
-    display: block;
-    float: right;
-    font: 12px tahoma, verdana, arial;
-    background: url('../images/arrow_up.gif') no-repeat left center;
-    padding-left: 10px;
-}
-#footer a.navtop, #footer a.navtop:link, #footer a.navtop:active, #footer a.navtop:visited {
-    text-decoration: none;
-    border-bottom-width: 0;
-    color: #8A8A8A;
-}
-#footer a.navtop:hover {
-    background-position: left top;
-    background-color: transparent;
-}
-
-.footer_parts {
-    margin-bottom: 20px;
-
-}
-
-.footer_1, .footer_2, .footer_3 {
-    float: left;
-    font-size: 0.8em;
-    width: 25%;
-    margin-left: 20px;
-}
-.footer_1 {
-    width: 20%;
-    margin-left: 0;
-}
-.footer_3 {
-    width: 30%;
-}
-
-#banner_footer {
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-
-/* contains time measures and dragonfly links */
-.footer_info {
-    color: #525252;
-    font-size: 0.9em;
-}
-
-
-/* Error or Notice box in footer */
-#footer .table1 {
-    color: #000;
-    margin-top: 10px;
-    font-size: 0.9em;
-}
-#footer .table1 a, #footer .table1 a:link, #footer .table1 a:visited, #footer .table1 a:hover {
-    color: #4848FF;
-}
-
-ul.footer_links {
-    margin: 0;
-    padding: 0;
-    list-style: none inside;
-}
-
-ul.footer_links li {
-    display: block;
-    margin: 0;
-    padding: 0;
-}
-
-ul.footer_links a {
-    display: block;
-    margin: 0;
-    padding: 0;
-    padding: 2px;
-    text-decoration: none;
-    color: #000;
-    font-size: 1.1em;
-    border-bottom: 1px dotted #000;
-}
-
-/* Banners */
-/*.banner {
-	padding-bottom: 10px;
-}*/
-
-#banner_after_header {
-    margin-top: 10px;
-    text-align: center;
-}
-
-#banner_main {
-    text-align: center;
-}
-
-
-
-#menu {
-    display: inline;
-    margin: 158px 0px 0px 0px;/*sides must be 0, put to ul instead*/
-    display: block;
-    padding: 0;
-    position: absolute;
-    top: 0;
-    left: 15px;
-    z-index: 10;
-    font: normal 14px Arial, Tahoma, sans-serif;
-    height: 19px;
-    line-height: 19px;
-}
-/* More space saving in admin */
-#admin_pages #menu {
-    font-size: 12px;
-}
-
-#menu ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-#menu li {
-    float: left;
-    display: block;
-    margin: 0px 5px 0px 0px;
-    padding: 0;
-    color: #FFF;
-    white-space: nowrap;
-    position: relative;
-    text-align: center;
-    padding-right: 12px;
-}
-#menu a {
-    text-decoration: none;
-    margin: 0; /*for hover border */
-    padding: 0px 3px;/*If item is longer than min-width*/
-    padding-bottom: 3px; /* To fill gap between menu and end of header */
-    border: 0;
-    float: left;/* \*/float: none;/*	*/
-    display: block;
-    text-decoration: none;
-    text-align: center;
-    color: #FFF;
-    font-weight: normal;
-
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
-    -moz-border-radius-topleft: 3px;
-    -moz-border-radius-topright: 3px;
-}
-#menu li:hover a {
-}
-
-
-/* Forum search page */
-.forums_search label.fixedfloat {
-    display: block;
-    float: left;
-    width: 110px;
-    margin-right: 3px;
-
-    text-align: right;
-}
-
-.forums_search label, .forums_search select, .forums_search input {
-    margin-top: 2px;
-/*margin-bottom: 2px;*/
-}
-
-/*.forums_search input {
-	margin: 2px 0;
-}*/
-
-
-
-/* Curved cutout Borders */
-/* In error pages etc */
-.curved {background: transparent; width:100%; margin:0 auto;}
-.curved h1, .curved p {margin:0 10px;}
-.curved h1 {font-size:2em; color:#FFF; letter-spacing:1px;}
-.curved p {padding-bottom:0.5em;}
-
-.curved .top, .curved .bottom {display:block; background:transparent; font-size:1px;}
-.curved .b1, .curved .b2, .curved .b3, .curved .b4 {display:block; overflow:hidden; height:1px;}
-.curved .b2, .curved .b3, .curved .b4 {background:#F8F8F8; border-left:1px solid #BBBBBB; border-right:1px solid #BBBBBB;}
-.curved .b1 {margin:0 4px; background:#BBBBBB;}
-.curved .b2 {margin:0 4px; height:2px;}
-.curved .b3 {margin:0 3px;}
-.curved .b4 {margin:0; height:1px; border-width:0 3px 0 3px;}
-
-.curved .boxcontent {display:block; background:#F8F8F8; border:0 solid #BBBBBB; border-width:0 1px;}
-
-
-
-/* Used in Private Messages tabs */
-#tabs {
-    clear: both;
-    height: 23px;
-    background: #FFF url('../images/backgrounds/tabs/tabs_bg.gif') top left repeat-x;
-    margin: 12px 0;
-    text-align: center;
-}
-#tabs b {
-    display: block;
-    float: left;
-    height: 23px;
-    width: 5px;
-    background: #FFF url('../images/backgrounds/tabs/tabs_bgleft.gif') top right no-repeat;
-    margin: 0;
-    text-align: center;
-}
-#tabs ul {
-    margin: 0 0 0 8px;
-    padding: 0;
-    height: 23px;
-    background: transparent url('../images/backgrounds/tabs/tabs_bgright.gif') top right no-repeat;
-}
-#tabs li {
-    float: left;
-    line-height: 20px;
-    width: 84px;
-    height: 20px;
-    overflow: hidden;
-    list-style: none;
-    margin: 3px 2px 0 0;
-    font-size: 11px;
-    font-weight: bold;
-    color: #000;
-    background: transparent url('../images/backgrounds/tabs/tab84.gif');
-}
-/* a means unactive */
-#tabs a {
-    display: block;
-    height: 22px;
-    color: #000;
-    text-decoration: none;
-    text-align: center;
-    background: transparent url('../images/backgrounds/tabs/tab84.gif');
-    font-weight: normal;
-}
-#tabs a:hover, #tabs li {
-    background-position: 100% -20px !important;
-}
-
-div.buttons {
-    float: left;
-}
-div.buttons a {
-    float: left;
-    margin-right: 5px;
-}
-
-a.forumbutton {
-    display: block;
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    height: 25px;
-    overflow: hidden;/*For IE6*/
-    float: left;
-}
-a.forumbutton img {
-    visibility: hidden;
-}
-a.forumbutton:hover {
-    background-position: 0 -25px;
-}
-a.forumbutton span {
-    display: none;
-}
-
-.replypm {
-    height: 25px;
-    overflow: hidden;
-    float: left;
-    margin-right: 5px;
-}
-.replypm:hover img {
-    margin-top: -25px;
-}
-/* class named button */
-.button {
-    display: inline;
-    font: 12px 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', arial, helvetica, sans-serif;
-}
-.button a {
-    background: transparent url('../images/backgrounds/input/button-bg.gif') repeat-x top left;
-    padding: 4px 6px;
-    margin-right: 4px;
-    border: 1px solid #ccc;
-    height: 28px;
-    min-height: 28px;
-    text-decoration: none;
-    color: #000;
-}
-
-.button a:hover {
-    border-color: #999;
-    text-decoration:none;
-    color:#000;
-}
-.button a img {
-    vertical-align: middle;
-}
-a.button {
-    background: url('../images/backgrounds/input/button-bg.gif') repeat-x top left;
-    padding: 4px 6px;
-    margin-right: 4px;
-    border: 1px solid #CCC;
-    height: 28px;
-    min-height: 28px;
-    text-decoration: none;
-    color: #000;
-}
-a.button:hover {
-    border-color: #999;
-    text-decoration: none;
-    color: #000;
-}
-a.button img {
-    padding-right: 4px;
-    vertical-align: middle;
-}
-
-
-/* Anywhere used, if not td */
-.row1 {
-    background-color: #FFFFFF;
-}
-.row2 {
-    background-color: #F7F7F7;
-}
-.row3 {
-    background-color: #F7F7F7;
-}
-
-/* table */
-.forumline {
-    border-spacing: 1px;
-    color: #000;
-    background-color: #EFEFEF;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
-.forumline th {
-    padding: 2px 4px;
-    height: 1em;
-    border: 0;
-    white-space: nowrap;
-}
-.forumline tr {
-    height: 1em;
-}
-.forumline td {
-    padding: 2px 4px;
-    height: 1em;
-}
-.forumline tr.row1 td {
-    background-color: #FFFFFF;
-}
-.forumline tr.row2 td {
-    background-color: #F7F7F7;
-}
-.forumline tr.row1:hover td, .forumline tr.row2:hover td {
-    background-color: #F8F8F3;
-}
-
-#pmstatus {
-    clear: both;
-    width: 175px;
-    background-color: #DAFEFB;
-    border: 1px solid #D3DAD9;
-}
-#pmstatus span {
-    display: block;
-    white-space: nowrap;
-    background-color: #EEEEEE;
-    width: 100%;
-    text-align: center;
-    font-size: 10px;
-}
-.pmbar {
-    background-color: #808000;
-    height: 12px;
-    margin: 2px 0 2px 0;
-}
-.pmpercent {
-    width: 100%;
-    background-color: #FFFBF0;
-}
-
-th, .thHead, .catHead, .catSides, .catleft, .catright, .catbottom, .catBottom, .thSides,
-.thleft, .thright, .thtop, .thbottom, .thCornerL, .thCornerR, td.cat {
-    padding: 2px 4px;
-    background-color: #444444;
-    color: #FFF;
-    height: 1em;
-    border-left: 1px solid #FFF;
-    white-space: nowrap;
-}
-
-th a, .thHead a, .catHead a, .catSides a, .catleft a, .catright a, .catbottom a, .catBottom a, .thSides a,
-.thleft a, .thright a, .thtop a, .thbottom a, .thCornerL a, .thCornerR a, td.cat a,
-a.cattitle {
-    color: #FDF3E1;
-}
-
-/* useraccount */
-table.forumline td.row1 table {
-    color: #000;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    border: 2px solid #FFF;
-    border-collapse: collapse;
-}
-table.forumline td.row1 table td {
-    border: 1px solid #E3E3E3;
-}
-
-td.row1 {
-    background-color: #FFF;
-}
-td.row2 {
-    background-color: #F7F7F7;
-}
-
-
-.topicrow {
-    margin: 0;
-    margin-bottom: 20px;
-    clear: both;
-    padding: 5px 4px;
-    padding-bottom: 0;
-    background-color: #DBDBDB;
-    color: #3D4358;
-    zoom: 1;/*Layout triggerer for IE's*/
-}
-.topicrow table {
-    background-color: transparent;
-    background-image: none;
-}
-.topicrow table th, .topicrow table .tableh1, .topicrow table .tableh2 {
-    background-color: transparent;
-    background-image: none;
-    border: 0;
-    text-transform: uppercase;
-    font-size: 11px;
-    padding-left: 0;
-    color: #000;
-}
-
-/*
- Rounded corners for .topicrow
- Used in a lot of places, i.e coppermine, some forums part and other
-*/
-.topicrow b.corner-lt, .topicrow span.corners-bottom { margin-left: -4px; }
-.topicrow b.corner-rt, .topicrow span.corners-bottom { margin-right: -4px; }
-
-
-
-.unselectable {
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -o-user-select: none;
-    user-select: none;
-}
-
-
-.pollpanel {
-    background-color: #CBFEF7;
-    margin: 5px 0 5px 0;
-    padding: 10px;
-}
-.pollpanel h3 {
-    margin: 0;
-    padding: 0;
-    text-shadow: 0 0;
-    border: 0;
-    color: #5E7582;
-    border-bottom: 1px solid #5E7582;
-}
-
-/* Post poll styles
-----------------------------------------*/
-fieldset.polls {
-    font-family: "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
-    padding: 0;
-    margin: 0;
-    border: 0;
-}
-
-fieldset.polls dl {
-    margin-top: 5px;
-    border-top: 1px solid #e2e2e2;
-    padding: 5px 0 5px 0;
-    line-height: 120%;
-    color: #666666;
-}
-
-fieldset.polls dl.voted {
-    font-weight: bold;
-    color: #000000;
-}
-
-fieldset.polls dt {
-    text-align: left;
-    float: left;
-    display: block;
-    width: 30%;
-    border-right: none;
-    padding: 0;
-    margin: 0;
-    font-size: 1.1em;
-}
-
-fieldset.polls dd {
-    float: left;
-    width: 10%;
-    border-left: none;
-    padding: 0 5px;
-    margin-left: 0;
-    font-size: 1.1em;
-}
-
-fieldset.polls dd.resultbar {
-    width: 50%;
-}
-
-fieldset.polls dd input {
-    margin: 2px 0;
-}
-
-fieldset.polls dd div {
-    text-align: right;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #FFFFFF;
-    font-weight: bold;
-    padding: 0 2px;
-    overflow: visible;
-    min-width: 2%;
-}
-
-#poll_1 {
-    background-color: #aaaaaa;
-    border-bottom: 1px solid #747474;
-    border-right: 1px solid #747474;
-}
-
-#poll_2 {
-    background-color: #bebebe;
-    border-bottom: 1px solid #8c8c8c;
-    border-right: 1px solid #8c8c8c;
-}
-
-#poll_3 {
-    background-color: #D1D1D1;
-    border-bottom: 1px solid #aaaaaa;
-    border-right: 1px solid #aaaaaa;
-}
-
-#poll_4 {
-    background-color: #e4e4e4;
-    border-bottom: 1px solid #bebebe;
-    border-right: 1px solid #bebebe;
-}
-
-#poll_5 {
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #D1D1D1;
-    border-right: 1px solid #D1D1D1;
-    color: #A2A2A2;
-}
-#poll_6 {
-    background-color: #aaaaaa;
-    border-bottom: 1px solid #747474;
-    border-right: 1px solid #747474;
-}
-
-#poll_7 {
-    background-color: #bebebe;
-    border-bottom: 1px solid #8c8c8c;
-    border-right: 1px solid #8c8c8c;
-}
-
-#poll_8 {
-    background-color: #D1D1D1;
-    border-bottom: 1px solid #aaaaaa;
-    border-right: 1px solid #aaaaaa;
-}
-
-#poll_9 {
-    background-color: #e4e4e4;
-    border-bottom: 1px solid #bebebe;
-    border-right: 1px solid #bebebe;
-}
-
-#poll_10 {
-    background-color: #f8f8f8;
-    border-bottom: 1px solid #D1D1D1;
-    border-right: 1px solid #D1D1D1;
-    color: #A2A2A2;
-}
-
-
-/* Forums CSS work in progress - wip */
-.wip_post {
-    margin: 5px 0 5px 0;
-    /*Would cause IE7 flicker bug if top or bottom has padding, instead
-      put it to .wip_postbody AND .wip_profile*/
-    padding: 0 10px;
-}
-/* i.e forums posts, members list and prolly sth else */
-.wip_post, div.row1 {
-    background-color: #E8E8E8;
-}
-div.row2 {
-    background-color: #F4F4F4;
-}
-.wip_postbody {
-    padding: 0; /*Top or bottom padding can't be added to wip_post itself*/
-    line-height: 1.48;
-    color: #333333;
-    width: 800px;
-    float: left;
-/*Uncomment to have user details on left side:*/
-/*float: right;*/
-    clear: both;
-}
-
-/* Post title*/
-.wip_postbody h3 {
-    margin: 0;
-    padding: 0;
-    text-shadow: 0 0;
-    border: 0;
-    color: #808080;
-    font-size: 1.2em;
-}
-/* User signature span */
-.signature {
-    font-size: 0.85em;
-    color: darkgrey;
-}
-.edited_by {
-    font-size: 0.9em;
-    font-style: italic;
-}
-
-/* Forums post task like quote, delete etc icons
-----------------------------------------*/
-ul.post-tasks {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    float: right;
-}
-ul.post-tasks li {
-    float: left;
-    padding:0;
-    margin: 0 3px;
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    height: 20px;
-    overflow: hidden;/*For IE6*/
-    cursor: pointer;
-}
-ul.post-tasks li:hover {
-    background-position: 0 -20px;
-}
-ul.post-tasks li img {
-    visibility: hidden;
-    margin: 0;
-    margin-bottom: -20px;
-    padding: 0;
-}
-ul.post-tasks li span {
-    display: none;
-}
-ul.post-tasks li a {
-    display: block;
-}
-
-
-/* Post author */
-p.wip_postdetails {
-    margin: 0 15em 0.6em 0;
-    padding: 0 0 5px 0;
-    font-family: Verdana, Helvetica, Arial, sans-serif;
-    font-size: 0.85em;
-    line-height: 1.2;
-    font-style: italic;
-    color: darkgrey;
-}
-/* Forums post content */
-.wip_content {
-    min-height: 3em;
-    overflow: hidden;
-    color: #333333;
-}
-
-/* Poster profile block
-----------------------------------------*/
-.wip_profile {
-    margin: 5px 0 10px 0;
-    padding: 0; /*Top or bottom padding can't be added to wip_post itself*/
-    min-height: 80px;
-    color: #666666;
-    border-left: 1px solid #FFFFFF;
-    width: 130px;
-    float: right;
-/*Uncomment to have user details on left side:*/
-    /*border-left: 0;
-     float: left;
-     border-right: 1px solid #FFFFFF;*/
-    display: inline;
-}
-
-.wip_profile dd, .wip_profile dt {
-    line-height: 1.2;
-    margin: 0;
-    margin-left: 8px;
-    padding: 0;
-}
-/* User name at forum post */
-.wip_profile dt {
-    font-weight: bold;
-}
-.wip_profile strong {
-    font-weight: normal;
-    color: #000000;
-}
-
-.avatar {
-    border: none;
-    margin-bottom: 3px;
-}
-
-.online {
-    background-image: none;
-    background-position: 100% 0;
-/*Uncomment to have user details on left side:*/
-/*background-position: 0 0;*/
-    background-repeat: no-repeat;
-}
-
-
-/* Poster profile icons
-----------------------------------------*/
-ul.profile-icons {
-    margin: 0;
-    padding: 0;
-    padding-top: 10px;
-    list-style: none;
-}
-
-/* Rollover state */
-ul.profile-icons li {
-    float: left;
-    margin: 0 6px 3px 0;
-    padding: 0;
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    height: 20px;
-    cursor: pointer;
-}
-ul.profile-icons li:hover {
-    background-position: 0 100%;
-}
-/* Private Messages for example produces it's own image, we disable it, however get the width */
-ul.profile-icons li img {
-    visibility: hidden;
-    margin: 0;
-    padding: 0;
-}
-ul.profile-icons li span {
-    display: none;
-}
-
-/* Rolloff state */
-ul.profile-icons li a {
-    display: block;
-    height: 20px;
-    margin: 0;
-    padding: 0;
-}
-
-
-/*In use for single image, in memberslist for example*/
-.ml_icon {
-    background-position: 0 0;
-    background-repeat: no-repeat;
-    margin: auto auto;
-    height: 20px;
-    cursor: pointer;
-    zoom: 1;/*Layout triggerer for IE's*/
-    overflow: hidden;
-}
-.ml_icon:hover {
-    background-position: 0 -20px;
-}
-.ml_icon img {
-    visibility: hidden;
-    margin: 0;
-    padding: 0;
-}
-.ml_icon a {
-    display: block;
-    height: 20px;
-}
-/* Specify widths of individual icons */
-.pm_image {
-    width: 28px;
-}
-.www_image {
-    width: 20px;
-}
-
-/* Back to top of page */
-.back2top {
-    clear: both;
-    height: 11px;
-    text-align: right;
-    padding-bottom: 5px;
-}
-a.top {
-    background: transparent url('../images/forums/icon_back_top.gif') no-repeat top left;
-    text-decoration: none;
-    width: 11px;
-    height: 11px;
-    display: block;
-    float: right;
-    overflow: hidden;
-    letter-spacing: 1000px;
-    text-indent: 11px;
-}
-
-
-
-/* General classes for placing floating blocks atm used only in forums */
-.left-box {
-    float: left;
-    width: auto;
-    text-align: left;
-}
-
-.right-box {
-    float: right;
-    width: auto;
-    text-align: right;
-    font: 11px Verdana, Arial, sans-serif;
-}
-
-/* Left arrow navigation, in forums i.e  */
-a.left {
-    background: url('../images/forums/arrow_left.gif') no-repeat 3px 60%;
-    margin-left: 5px;
-}
-a.left, a.left:active, a.left:visited {
-    padding-left: 12px;
-}
-a.left:hover {
-    color: #368AD2;
-    text-decoration: none;
-    background-position: 0 60%;
-}
-
-/* Breadcrumb, copies the forums breadcrumb style  */
-.breadcrumb_traces {
-    zoom: 1;/*Layout triggerer for IE's*/
-    overflow: hidden; /* Clears float and too long breadcrumbs */
-}
-/* a is linkable trace, span is not linkable trace */
-.breadcrumb_traces a, .breadcrumb_traces span {
-    float: left;
-    background: url('../images/forums/arrow_left.gif') no-repeat 3px 60%;
-    margin-left: 5px;
-    padding-left: 12px;
-}
-.breadcrumb_traces a:hover {
-    background-position: 0 60%;
-    color: #368AD2;
-    text-decoration: underline;
-}
-.breadcrumb_traces a, .breadcrumb_traces a:visited, breadcrumb_traces a:active {
-    color: #494183;
-}
-
-
-
-/*For example in Contact module*/
-/*Security code box*/
-fieldset.security_fieldset {
-    background-color: #FBF5E3;
-    border: 1px solid #FBBCAC;
-    padding: 10px;
-    width: 200px;
-}
-fieldset.security_fieldset label {
-    font-style: italic;
-    color: #DB0D0D;
-}
-fieldset.security_fieldset input {
-    vertical-align: bottom;
-}
-
-
-/********BEGIN CURRENT MENU BLOCK********/
-/*List of links under current category*/
-ul#curmenu_list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    height: 100%;
-    width: 100%; /*For IE6*/
-    overflow: hidden; /*For IE6*/
-}
-ul#curmenu_list li {
-    padding: 0;
-    margin: 0;
-    border: 0;
-}
-ul#curmenu_list li a {
-    display: block;
-    margin: 0;
-    border: 0;
-    border-top: 1px solid #FFF;
-    padding: 4px 4px 4px 15px;
-    width: auto;
-    text-decoration: none;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-}
-ul#curmenu_list li a:hover {
-    background-color: #FBD6A4;
-    color: #000;
-    text-decoration: none;
-}
-
-/* Is it browsers bug?*/
-.block ul#curmenu_list li a:hover {
-    text-decoration: none;
-}
-
-/* Currently viewable page link in the list */
-ul#curmenu_list li.curlink a {
-    background-color: #FBD6A4;
-    color: #000;
-    font-weight: bold;
-}
-/********END CURRENT MENU BLOCK********/
-
-/********BEGIN COMPACT USERINFO BLOCK********/
-dl.compact_userinfo, dl.compact_userinfo * {
-    margin: 0;
-    padding: 0;
-}
-dl.compact_userinfo dt {
-    font-weight: bold;
-}
-dl.compact_userinfo dt.admin_logout {
-    padding-top: 10px;
-    font-weight: normal;
-    text-decoration: none;
-    font-size: 10px;
-}
-dl.compact_userinfo dd {
-    padding-left: 3px;
-}
-dl.compact_userinfo ul {
-    list-style-position: inside;
-}
-/********END COMPACT USERINFO BLOCK********/
-
-/*  Admin -> General -> Blocks Administration  */
-/*  Space saving & Reuse Pin/Tack for details  */
-#blist_fixed {
- width: 100%;
- position: relative;
- background: white;
-}
-.expandinfo {
- font-size: 0.9em;
-}
-#blist .expandinfo {
- display: none;
-}
-
-/* Fix for CPGNuCalendar Small Month Block    */
-/* needed because rD loads right blocks early */
-.nucalblk .cat a {
-	color: white;
-}
-.calendartitle {
-	border: #eee solid 1px;
-	border-bottom: solid 0px #fff;
-}
-.caltitledate {
-    font-size: 1.5em;
-	color: #444444;
-}
-.calendarbg {
-	background: #eee;
-}
-.calendarday {
-	background: #ffffff;
-}
-
-.left-box {
-    font: 11px Verdana, Arial, sans-serif;
-}
-/* End CPGNuCalendar small month block fix */
-
-
-/* CSS/js force reduction in img size */
-div.wip_postbody img {
-max-width: 800px;
-width: expression(document.body.clientWidth > 800 ? "800px" : "auto");
-height: auto;
 }

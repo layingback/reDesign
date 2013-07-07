@@ -21,7 +21,7 @@
 
 }
 #menu li:hover {
-    background-position: right 1px;
+    background: transparent url('../images/backgrounds/header/menu/arrow_down_red.gif') no-repeat right 1px;
 }
 
 #menu li:hover a {

@@ -1,0 +1,29 @@
+<div class="table1">
+	<!-- INCLUDE metatag_manager/admin/tabs.html -->
+	<p style="padding-bottom: 10px;">_(MM_ENTER_TAGS)</p>
+	<form action="{U_SAVE}" method="post" enctype="multipart/form-data" accept-charset="utf-8">
+		<table class="forumline" width="90%">
+			<tr>
+				<th>_(MM_MODULE)</th>
+				<th>_(MM_TAGS)</th>
+				<th>_(MM_USE_NAME)</th>
+			</tr>
+			<!-- BEGIN modules -->
+				<tr>
+					<td class="{modules.F_CLASS}" width="15%">{modules.M_TITLE}</td>
+					<td class="{modules.F_CLASS}" width="75%">
+						<input type="text" name="{modules.N_MM_TAGS}" value="{modules.M_MM_TAGS}" size="100" maxlength="255" />
+					</td>
+					<td class="{modules.F_CLASS}" style="text-align: center;" width="10%">
+					<!-- IF modules.C_USE_NAME -->
+  					<input type="checkbox" name="{modules.N_MM_USE_NAME}" value="1" checked="checked" />
+  				<!-- ELSE -->
+						<input type="checkbox" name="{modules.N_MM_USE_NAME}" value="1" />
+					<!-- ENDIF -->
+					</td>
+				</tr>
+			<!-- END modules -->
+		</table>
+		<p><input class="mainoption" type="submit" value="_(MM_SAVE)" /></p>
+	</form>
+</div>

@@ -1,7 +1,7 @@
 /* User in Members List */
 .memberslist_user {
   float: left;
-  width: 200px;
+  width: 220px;
   margin: 0;
   margin-right: 5px;
   margin-bottom: 5px;
@@ -12,46 +12,101 @@
 }
 /* To correctly position bottom corners (absolute positioning didn't work well with IE6) */
 .memberslist_user .user_container {
-  height: 200px;
+  height: 185px;
 }
 
 .memberslist_user .user_info {
-  text-align: center;
-  margin-bottom: 5px;
+/*  text-align: center; */
+	margin-bottom: 5px;
 }
 
 /* Avatar */
+.avatar_box {
+	height: 80px;
+	width: 80px;
+#	border: 1px solid red;
+}
+
+.memberslist_user a.user_avatar {
+	display: block;
+	max-height:60px;
+}
 .memberslist_user a.user_avatar img {
-  display: block;
-  margin: 0 auto;
+	display: block;
+/*	min-height: 80px; */
+	margin: 0 auto;
 }
 /* Avatar and user name */
 .memberslist_user a.user_name {
-
   text-align: center;
+  font-size: 1.3em;
+}
+.sml_avatar {
+	padding-top: 20px;
+}
+/* CSS3 Hover Image Gallery - DynamicDrive.com http://www.dynamicdrive.com/style/csslibrary/item/css3_hover_image_gallery/ */
+.lrg_avatar {
+	max-width: 120px;
+	max-height: 100px;
+	border: 1px solid #f8f8f8;
+	-webkit-transform:scale(0.5); /*Webkit: Scale down image to 0.5x original size*/
+	-moz-transform:scale(0.5); /*Mozilla scale version*/
+	-o-transform:scale(0.5); /*Opera scale version*/
+	-webkit-transition-duration: 0.5s; /*Webkit: Animation duration*/
+	-moz-transition-duration: 0.5s; /*Mozilla duration version*/
+	-o-transition-duration: 0.5s; /*Opera duration version*/
+	margin-top: -15px;
+	margin-left: -15px;
+}
+.lrg_avatar:hover{
+	-webkit-transform:scale(1.0); /*Webkit: Scale up image to 1x original size*/
+	-moz-transform:scale(1.0); /*Mozilla scale version*/
+	-o-transform:scale(1.0); /*Opera scale version*/
+	box-shadow:0px 0px 10px gray; /*CSS3 shadow: 10px blurred shadow all around image*/
+	-webkit-box-shadow:0px 0px 10px gray; /*Safari shadow version*/
+	-moz-box-shadow:0px 0px 10px gray; /*Mozilla shadow version*/
 }
 
 
-/* Avatar image and user name */
-.memberslist_user a.useravatar {
-  display: block;
-  background-repeat: no-repeat;
-  background-position: center 2em;
-  text-align: center;
-  font: bold 1em arial, verdana, sans-serif;
-  clear: both;
-  width: 100%;
-  height: 120px;
-}
 /* Contains the PM etc icons */
 .memberslist_user .user_icons {
   position: absolute;
   right: 5px;
-  bottom: 9px;
+/*  bottom: 9px; */
+  top: 9px;
 }
 
 /* An icon (inherents from style.css) */
 .memberslist_user .ml_icon {
   float: right;
+  clear: right;
   margin-right: 3px;
+  margin-bottom: 3px;
+}
+
+.memlist {
+	font-size: 0.9em;
+	color: #4D4D4D;
+	position: relative;
+	top: 15px;
+}
+.memlist img {
+	padding-top: 3px;
+	padding-bottom: 5px;
+}
+.memlabel {
+	font-size: 0.8em;
+	font-style: italic;
+	color: #A7A7A7;
+}
+.memright {
+	float: right;
+}
+.memloc {
+	float: right;
+	text-align: right;
+	width: 150px;
+	height: 2.5em;
+	overflow: hidden;
+
 }

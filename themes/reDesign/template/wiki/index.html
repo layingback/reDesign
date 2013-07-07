@@ -4,24 +4,40 @@
 
 <div class="table1">
 <!-- IF G_ID -->
-<span style="float: right;">{U_ADDPAGE}{U_EDITPAGE}</span><br />
-<hr />
-<div style="float:left;width:20%;">{U_TREE}</div>
-<div style="float:left;width:80%;">
-	<h1>{S_PAGE}{S_SUBPAGE}:&nbsp;{S_TITLE}</h1>{S_COMMENT}<p>{S_BODY}</p><br />
-	{S_AUTHOR}<br />
-	{S_CREATED}<br />
-	{S_UPDATED}
-</div>
+	<div style="float:right;font-size:0.9em;vertical-align:bottom">
+		<form method="post" action="{U_SEARCH}" style="margin:0;float:right;">
+			<input style="font-size:8px;height: 11px;line-height: 11px !important;vertical-align:bottom" size="12" type="text" name="search" />
+			<input style="font-size:8px;height: 18px;line-height: `8px !important;vertical-align:bottom" type="submit" value="search" />
+		</form>
+	</div><br />
+	<hr style="clear:both;" />
+	<div style="float:left;width:18%;font-size:0.9em;background-color:#fcfcfc;padding:1%;">{U_TREE}</div>
+	<div style="float:left;width:79%;padding-left:1%;">
+		<h3>{S_PAGE}{S_SUBPAGE}&nbsp;&nbsp;{S_TITLE}</h3><i>{S_COMMENT}&nbsp;</i><br /><br />
+		<p>{S_BODY}</p><br />
+		{S_AUTHOR}<br />
+		<hr /><div style="font-size: 0.8em; color: grey;">
+		<!-- IF S_UPDATED -->
+			{S_UPDATED}<br />
+		<!-- ENDIF -->
+		{S_CREATED}</div>
+	</div>
+	<div style="float:right;font-size:0.9em;vertical-align:bottom">
+		<!-- IF S_CAN_ADMIN and U_PENDING -->{U_PENDING}&nbsp;<!-- ENDIF -->
+		{U_ADDPAGE}&nbsp;|&nbsp;{U_EDITPAGE}&nbsp;
+	</div>
+
 <!-- ELSE -->
-<h2 align="center">{S_TITLE}</h2>
-<ul>
-<!-- BEGIN pages -->
-{pages.U_PAGE}
-<!-- END pages -->
-</ul>
-<br />
-{U_ADDPAGE}
+	<hr />
+	<h2 align="center">{S_TITLE}</h2>
+	<ul>
+	<!-- BEGIN pages -->
+		<li style="list-style:none;">{pages.U_PAGE}<br /></li>
+	<!-- END pages -->
+	</ul>
+	<hr />
+	<br />
+	<span style="font-size:0.8em;">{U_ADDPAGE}</span>
 <!-- ENDIF -->
 <br style="clear: both" />
 </div>

@@ -2,7 +2,7 @@
 <!-- IF EDITLINK -->
 <form method="post" action="{L_CPGMM}&amp;savelnk={LNK}" enctype="multipart/form-data" accept-charset="utf-8">
 <input type="hidden" name="id" value="{LID}" />
-<table border="0">
+<table border="0" summary="">
 	<tr><td>_(TITLE)</td><td><!-- IF MOD -->{S_LINK_TITLE}<!-- ELSE --><input type="text" name="lnktitle" maxlength="30" value="{S_TITLE_VALUE}" /></td></tr>
 	<tr><td>{S_URL}</td><td><input type="text" name="lnklink" maxlength="50" value="{S_LINK_VALUE}" /> {SEL_LINK}</td></tr>
 	<tr><td>{S_VIEWPRIV}</td><td>{SEL_GROUP}<!-- ENDIF --></td></tr>
@@ -13,10 +13,21 @@
 <!-- ELSEIF EDITCAT -->
 <form method="post" action="{L_CPGMM}&amp;savecat={MODE}" enctype="multipart/form-data" accept-charset="utf-8">
 		<input type="hidden" name="cid" value="{CID}" />
-		<table border="0">
+		<table border="0" summary="">
 		<tr><td>_(TITLE)</td><td><input type="text" name="catname" maxlength="30" value="{S_CATNAME_VALUE}" /></td></tr>
 		<tr><td>_(IMAGE)</td><td><input type="text" name="catimage" maxlength="50" value="{S_CATIMAGE_VALUE}" /></td></tr>
 		<tr><td>{S_URL}</td><td><input type="text" name="catlink" maxlength="50" value="{S_CATLINK_VALUE}" /> {SEL_LINKTYPE} {S_CPG_MMOPTIONAL}</td></tr>
+		<tr><td colspan="2" align="center"><br /><input type="submit" value="{S_SUBMIT_VALUE}" class="mainoption" /></td></tr>
+		</table>
+		</form>
+<!-- ELSEIF EDITLBL -->
+<form method="post" action="{L_CPGMM}&amp;savelbl={MODE}" enctype="multipart/form-data" accept-charset="utf-8">
+		<input type="hidden" name="id" value="{BID}" />
+		<table border="0" summary="">
+		<tr><td>{S_TITLE}</td><td><input type="text" name="lblname" maxlength="30" value="{S_LBLNAME_VALUE}" /></td></tr>
+		<tr><td>{S_IMAGE}</td><td><input type="text" name="lblimage" maxlength="50" value="{S_LBLIMAGE_VALUE}" /></td></tr>
+		<tr><td>{S_URL}</td><td><input type="text" name="lbllink" maxlength="50" value="{S_LBLLINK_VALUE}" /> {SEL_LINKTYPE} {S_CPG_MMOPTIONAL}</td></tr>
+		<tr><td>{S_CATEGORY}</td><td>{SEL_CAT}</td></tr>
 		<tr><td colspan="2" align="center"><br /><input type="submit" value="{S_SUBMIT_VALUE}" class="mainoption" /></td></tr>
 		</table>
 		</form>

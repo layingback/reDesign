@@ -1,0 +1,12 @@
+/*  CSS file sized for <= 1440 screens */
+
+/* CSS/js force reduction in img size */
+div.wip_postbody img {
+max-width: 1225px;
+width: expression(document.body.clientWidth > 1225 ? "1225px" : "auto");
+height: auto;
+}
+
+.wip_postbody {
+    width: 1225px;
+}

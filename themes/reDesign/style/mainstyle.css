@@ -1,35 +1,24 @@
-/*********************************************
-  reDesign CSS Theme for Dragonfly™ CMS
-  ********************************************
-  Copyright © 2004 - 2010 by Midas aka Eestlane
-  Copyright © 2012 by reDesign Development Team
-  https://github.com/layingback/reDesign
-
-  reDesign theme is released under the terms and conditions
-  of the GNU GPL version 2 or any later version
-  http://www.gnu.org/licenses/gpl-2.0.html
-
-***********************************************
-
-!!!  DO NOT MAKE ANY CHANGES TO THIS FILE  -  Changes will be lost on update !!!
-!!!  Instead put all your custom changes in specific.css in this same folder !!!
-
-**********************************************/
-
-/* This file is loaded only if real header.html template is used.
-   Anything here will overwrite style.css counterpart				*/
+/* This file is loaded only if real header.html template is used (which is mostly).
+ Anything here will overwrite style.css counterpart
+*/
 
 
 /*Apply the full width fix*/
 @import url('hack.css');
 
 html {
+  /*background-color: #699B64;*/
+  /*background: #699B64 url('../images/backgrounds/body/html_background.gif') no-repeat 0% 100%;*/
   background-color: #FFF;
+  xpadding-top: 10px;
 }
+
 /* The main values */
 body {
+  width: 98%; /* for full width design use 100% */
   width: 100%;
   min-width: 820px; /* to enable scrollbar if windows is too tiny, so it won't mess up */
-  margin: 0 auto; /* aligns site to horizontally middle of the page */
+  margin: 0 auto; /* aligns site to horizontal middle of the page */
+/*  background: transparent url('../images/backgrounds/header/headerbg_exp.jpg') repeat-x top left; */	/*menu expandable bg here*/
   position: relative;
 }

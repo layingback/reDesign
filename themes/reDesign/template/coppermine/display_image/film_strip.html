@@ -2,12 +2,23 @@
 
 <!-- BEGIN thumb_cell -->
 <div{thumb_cell.CURRENT} style="float:left;text-align:center;">
-  <span class="picpos">{thumb_cell.PIC_POSITION}</span><br />
-  <div class="wrap1"><div class="wrap2"><div class="wrap3">
-    <a href="{thumb_cell.LINK_TGT}">{thumb_cell.THUMB}</a>
-  </div></div></div><br />
-  <!--{thumb_cell.CAPTION}-->
-  <!--{thumb_cell.ADMIN_MENU}-->
+	<span class="picpos">{thumb_cell.PIC_POSITION}</span><br />
+	<div class="picture">
+		<!-- IF MATURE_FILTER and (not S_IS_USER or FILTER_IMAGES_ON) and thumb_cell.USER1 -->
+			<!-- IF S_IS_USER -->
+				<a class="picture_link" href="{thumb_cell.LINK_TGT}"><img src="{WORK_FILTER}" />
+				<span class="picture_frame">&nbsp;</span></a>
+			<!-- ELSE -->
+				<img src="{MATURE_FILTER}" />
+				<span class="picture_frame">&nbsp;</span>
+			<!-- ENDIF -->
+		<!-- ELSE -->
+			<a class="picture_link" href="{thumb_cell.LINK_TGT}">{thumb_cell.THUMB}
+			<span class="picture_frame">&nbsp;</span></a>
+		<!-- ENDIF -->
+		<br />
+		<div class="picture_caption"><!-- IF thumb_cell.CAPTION -->{thumb_cell.CAPTION}<!-- ELSE -->&nbsp;<!-- ENDIF --></div>
+	</div>
 </div>
 <!-- END thumb_cell -->
 <br style="clear:both" />

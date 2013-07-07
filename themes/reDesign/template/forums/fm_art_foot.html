@@ -26,31 +26,33 @@
 				<!-- IF G_SOCIALNET -->
 					<span class="pn_tiny"><a href="{BASE_URL}{U_VIEW_TOPIC}" title="permalink">Link</a>&nbsp;</span>
 					<span class="pn_tiny"><a href="javascript:void();" title="QR" target="_blank" onclick="PN_qrWinOpn();return false;">QR</a>&nbsp;</span>
-					<span class="pn_tinygrey"><i>Share this</i>:&nbsp;</span>
-					<!-- IF G_PRINTF -->
-						<span class="pn_socnet"><a href="{U_PRINTER_TOPIC}"><img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/print.png" alt="{L_PRINTER_TOPIC}" title="{L_PRINTER_TOPIC}" height="16" width="16" /></a>&nbsp;</span>
-					<!-- ENDIF -->
-					<span class="pn_socnet"><a href="http%3A%2F%2Fwww.facebook.com/sharer.php?u={BASE_URL}{U_VIEW_TOPIC}&amp;t={TOPIC_TITLE_URI}" target="_blank">
-						<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/facebook.png" alt="facebook" title="facebook" height="16" width="16" /></a></span>
-					&nbsp;
-					<span class="pn_socnet"><a href="https%3A%2F%2Fm.google.com/app/plus/x/?v=compose&amp;content={TOPIC_TITLE_URI}%20-%20{BASE_URL}{U_VIEW_TOPIC}&amp;hideloc=1" target="_blank">
-						<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/googleplus.png" alt="google+" title="google+" height="16" width="16" /></a></span>
-					&nbsp;
-					<span class="pn_socnet"><a href="http%3A%2F%2Fwww.linkedin.com/shareArticle?mini=true&amp;url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
-						<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/linkedin.png" alt="linkedin" title="linkedin" height="16" width="16" /></a></span>
-					&nbsp;
-					<span class="pn_socnet"><a href="http%3A%2F%2Ftwitthis.com/twit?url={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
-						<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/twitthis.png" alt="twitthis" title="twitthis" height="16" width="16" /></a></span>
-					&nbsp;
-					<div id='pn_lesssocnet' class="pn_tinygrey" style="display:inline; cursor:pointer;hand" title="all social networks">
-						<i onclick="document.getElementById('pn_lesssocnet').style.display='none'; document.getElementById('pn_moresocnet').style.display='inline';">Show more ...</i>
-					</div>
-					<div id='pn_moresocnet' style="display:none; visibility: hidden">
-						<span class="pn_tinygrey" style="cursor:pointer;hand">
-							<i onclick="document.getElementById('pn_lesssocnet').style.display='inline'; document.getElementById('pn_moresocnet').style.display='none';">Show less</i>
-							&nbsp;
-						</span>
-						<!-- INCLUDE forums/fm_soc_net.html -->
+					<div class="pn_share">
+						<span class="pn_tinygrey"><i>Share this</i>:&nbsp;</span>
+						<!-- IF G_PRINTF -->
+							<span class="pn_socnet"><a href="{U_PRINTER_TOPIC}" rel="nofollow"><img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/print.png" alt="{L_PRINTER_TOPIC}" title="{L_PRINTER_TOPIC}" height="16" width="16" /></a>&nbsp;</span>
+						<!-- ENDIF -->
+						<span class="pn_socnet"><a href="http://www.facebook.com/sharer.php?u={BASE_URL}{U_VIEW_TOPIC}&amp;t={TOPIC_TITLE_URI}" target="_blank" rel="nofollow">
+							<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/facebook.png" alt="facebook" title="facebook" height="16" width="16" /></a></span>
+						&nbsp;
+						<span class="pn_socnet"><a href="https://m.google.com/app/plus/x/?v=compose&amp;content={TOPIC_TITLE_URI}%20-%20{BASE_URL}{U_VIEW_TOPIC}&amp;hideloc=1" target="_blank" rel="nofollow">
+							<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/googleplus.png" alt="google+" title="google+" height="16" width="16" /></a></span>
+						&nbsp;
+						<span class="pn_socnet"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank" rel="nofollow">
+							<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/linkedin.png" alt="linkedin" title="linkedin" height="16" width="16" /></a></span>
+						&nbsp;
+						<span class="pn_socnet"><a href="http://twitthis.com/twit?url={BASE_URL}{U_VIEW_TOPIC}" target="_blank" rel="nofollow">
+							<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/twitthis.png" alt="twitthis" title="twitthis" height="16" width="16" /></a></span>
+						&nbsp;
+						<div id='pn_lesssocnet' class="pn_tinygrey" style="display:inline; cursor:pointer;hand" title="all social networks">
+							<i onclick="document.getElementById('pn_lesssocnet').style.display='none'; document.getElementById('pn_moresocnet').style.display='inline';">Show more ...</i>
+						</div>
+						<div id='pn_moresocnet' style="display:none; visibility: hidden">
+							<span class="pn_tinygrey" style="cursor:pointer;hand">
+								<i onclick="document.getElementById('pn_lesssocnet').style.display='inline'; document.getElementById('pn_moresocnet').style.display='none';">Show less</i>
+								&nbsp;
+							</span>
+							<!-- INCLUDE forums/fm_soc_net.html -->
+						</div>
 					</div>
 				<!-- ENDIF -->
 			</div>

@@ -1,4 +1,16 @@
 <!-- INCLUDE forums/overall_header.html -->
+<script type="text/javascript">
+<!--
+// Should really check the browser to stop this whining ...
+function select_switch(status)
+{
+	for (i = 0; i < document.mod_list.length; i++)
+	{
+		document.mod_list.elements[i].checked = status;
+	}
+}
+//-->
+</script>
 <div class="breadcrumb_trail custom_breadcrumb_trail">
 <a href="{U_MAININDEX}">_(HOME)</a> {BC_DELIM} <a href="{U_INDEX}">{L_INDEX}</a> {BC_DELIM} <a href="{U_VIEW_FORUM}">{FORUM_NAME}</a>
 </div>
@@ -9,7 +21,7 @@
 {L_MOD_CP_EXPLAIN}<br /><br />
 
 
-<form method="post" action="{S_MODCP_ACTION}" {I18N}>
+<form method="post" name="mod_list" action="{S_MODCP_ACTION}" {I18N}>
 <table cellspacing="0" class="forum_topics" summary="">
   <tr>
     <td></td>
@@ -36,6 +48,7 @@
 
 <div class="right-box" style="margin-top: 10px;">
   {S_HIDDEN_FIELDS}
+<b><span class="gensmall"><a href="javascript:select_switch(true);">{L_MARK_ALL}</a> :: <a href="javascript:select_switch(false);">{L_UNMARK_ALL}</a></span></b><br /><br />
   <input type="submit" name="delete" value="{L_DELETE}" />
   &nbsp;
   <input type="submit" name="move" value="{L_MOVE}" />
@@ -53,9 +66,9 @@
   <br style="clear:both" />
 </div>
 
-<div class="right-box"><!-- INCLUDE forums/jumpbox.html --></div>
-
 </form>
+
+<div class="right-box"><!-- INCLUDE forums/jumpbox.html --></div>
 
 <!--<br style="clear:both" />
 <p class="right-box">{S_TIMEZONE}</p>-->

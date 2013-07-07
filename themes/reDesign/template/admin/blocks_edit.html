@@ -4,7 +4,7 @@
 <table border="0" width="100%" summary="">
 	<tr><td>_(TITLE):</td><td><input type="text" name="title" size="30" maxlength="60" value="{S_NAME}" /></td></tr>
 <!-- IF TYPEFILE -->
-	<tr><td>_(FILENAME):</td><td>{S_BLOCK_OP}<font class="tiny">_(FILEINCLUDE)</font></td></tr>
+	<tr><td valign="top">_(FILENAME):</td><td>{S_BLOCK_OP}<br /><font class="tiny"><i>_(FILEINCLUDE)</i></font></td></tr>
 <!-- ELSEIF TYPERSS -->
 	<tr><td>_(RSSFILE):</td><td><input type="text" name="url" size="30" maxlength="200" value="{S_BLOCK_OP}" /> <font class="tiny">_(ONLYHEADLINES)</font></td></tr>
 <!-- ELSEIF TYPEBB -->
@@ -37,6 +37,7 @@
 <!-- END inactive -->
 		</optgroup>
 	</select></td></tr>
+	<tr><td valign="top">_(CSSNAME):</td><td><input type="text" name="cssname" size="30" maxlength="60" value="{S_CSSNAME}" /><br /><font class="tiny"><i>_(OPTIONAL)</i></font></td></tr>
 </table><br /><br />
 <input type="hidden" name="oldposition" value="{BPOSITION}" />
 <input type="hidden" name="blanguage" value="" />

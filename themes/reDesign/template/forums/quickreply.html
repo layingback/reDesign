@@ -13,20 +13,28 @@ function checkForm() {
 
 <form action="{U_POST_ACTION}" method="post" name="post" onsubmit="return checkForm(this)" {I18N}>
 <div class="quickreply">
+<!-- IF G_BBCODE_HACK -->
+  <div class="post_reply">
+    <h4>{L_QUICK_REPLY}</h4>
+    <div class="bbcode_table" style="float:left;width: 80%;padding-top:25px;">{L_BBCODE}</div>
+  	  <div class="smilies" style="float:right">{L_SMILIES}</div><textarea name="message" rows="10" cols="70" onselect="storeCaret(this);" onclick="storeCaret(this);" onkeyup="storeCaret(this);" onchange="storeCaret(this);"></textarea>
+<!-- ELSE -->
   <h3>{L_QUICK_REPLY}</h3>
   <textarea name="message" rows="10" cols="70"></textarea>
+<!-- ENDIF -->
 
-  <input type="checkbox" name="quick_quote" id="quick_quote" value="{S_QREPLY_MSG}" /><label for="quick_quote">{L_QUICK_QUOTE}</label>
-  <input type="checkbox" name="attach_sig" id="attach_sig" {S_QREPLY_SIG} /><label for="attach_sig">{L_ATTACH_SIGNATURE}</label><br />
+    <input type="checkbox" name="quick_quote" id="quick_quote" value="{S_QREPLY_MSG}" /><label for="quick_quote">{L_QUICK_QUOTE}</label>
+    <input type="checkbox" name="attach_sig" id="attach_sig" {S_QREPLY_SIG} /><label for="attach_sig">{L_ATTACH_SIGNATURE}</label><br />
 
-  <!-- IF S_IS_ANON -->
-  <b>{L_USERNAME}:</b> <input class="post" type="text" name="username" size="25" maxlength="25" style="width:200px;" value="" /><br />
-  <!-- ENDIF -->
+    <!-- IF S_IS_ANON -->
+      <b>{L_USERNAME}:</b> <input class="post" type="text" name="username" size="25" maxlength="25" style="width:200px;" value="" /><br />
+    <!-- ENDIF -->
 
-
-  <input type="submit" accesskey="p" name="preview" class="subm liteoption" value="{L_PREVIEW}" />
-  <input type="submit" accesskey="s" name="post" class="subm mainoption" value="{L_SUBMIT}" />
-  {S_HIDDEN_QREPLY_FIELDS}
-
+    <input type="submit" accesskey="p" name="preview" class="subm liteoption" value="{L_PREVIEW}" />
+    <input type="submit" accesskey="s" name="post" class="subm mainoption" value="{L_SUBMIT}" />
+    {S_HIDDEN_QREPLY_FIELDS}
+<!-- IF G_BBCODE_HACK -->
+  </div>
+<!-- ENDIF -->
 </div>
 </form>

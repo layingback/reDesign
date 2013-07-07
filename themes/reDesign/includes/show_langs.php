@@ -10,7 +10,7 @@ function show_langs() {
     'arabic'      => 'عربي',
     'basque'      => 'Basque',
     'bosanski'    => 'Bosanski',
-    'brazilian'   => 'Brazilian Português',
+    'brazilian'   => 'Português Brasileiro',
     'bulgarian'   => 'Български',
     'castellano'  => 'Castellano',
     'czech'       => 'Český',
@@ -52,7 +52,8 @@ function show_langs() {
     'turkish'     => 'Türkçe',
     'uighur'      => 'Uyghurche',
     'ukrainian'   => 'Українська',
-    'vietnamese'  => 'Tiếng Việt'
+    'vietnamese'  => 'Tiếng Việt',
+    'other'       => 'Google Translate'
   );
 
   $langlist = lang_selectbox('', '', false, true);
@@ -67,8 +68,9 @@ function show_langs() {
       $cpgtpl->assign_block_vars('sitelanguage', array(
         'B_CURRENTLANG'   => $langlist[$i]==$currentlang,
         'U_SITELANGUAGE'  => url_from_varval('newlang',$langlist[$i]),
-        'S_SITELANGUAGE'  => $lang_name,
-      ));
+        'S_SITELANGUAGE'  => strtok($lang_name, ' '),
+        'L_SITELANGUAGE'  => $lang_name,
+     ));
 
     }
   }

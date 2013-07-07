@@ -62,3 +62,11 @@ if ($module_name == 'Forums') {
 	$bb_codes['text_start'] = $para_start;
 	$bb_codes['text_end'] = $para_end;
 
+/* Align */
+	if ($module_name == 'Forums') {
+		$bb_codes['align_start'] = $para_end;
+		$bb_codes['align_end'] = $para_start;
+	} else {
+		$bb_codes['align_start'] = '';
+		$bb_codes['align_end'] = '';
+	}

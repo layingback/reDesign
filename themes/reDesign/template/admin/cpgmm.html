@@ -1,7 +1,7 @@
 <!-- cpgmm start -->
-<div style="text-align:center"><a href="{L_CPGMM}&amp;editlnk=new">_(CPG_MMADDLINK)</a> | <a href="{L_CPGMM}&amp;editcat=new">_(CPG_MMADDCAT)</a></div><br />
+<div style="text-align:center"><a href="{L_CPGMM}&amp;editlnk=new">_(CPG_MMADDLINK)</a> | <a href="{L_CPGMM}&amp;editcat=new">_(CPG_MMADDCAT)</a> | <a href="{L_CPGMM}&amp;editlbl=new">{ADD_LBL}</a></div><br />
 <form action="{L_CPGMM}" method="post">
-<table cellspacing="0" cellpadding="2" border="0" id="groups" unselectable="on">
+<table cellspacing="0" cellpadding="2" border="0" id="groups" unselectable="on" summary="">
 <!-- BEGIN cat -->
 <tbody>
 <tr class="first" style="background-color: {cat.BG};">
@@ -21,9 +21,13 @@
     <input type="hidden" name="pos[]" value="{cat.item.POS}" />
   </td>
 
-  <td><img src="<!-- IF cat.item.LINK_TYPE --><!-- IF cat.item.ITEM_STATIC -->{ICON_SELECT}<!-- ELSE -->{ICON_FORBID}<!-- ENDIF --><!-- ELSE --><!-- IF cat.item.ITEM_ACTIVE -->{ICON_SELECT}<!-- ELSE -->{ICON_HIDDEN}<!-- ENDIF --><!-- ENDIF -->" alt="" style="margin-left: 8px;" /> {cat.item.TITLE}</td>
+  <td><!-- IF cat.item.SUBCAT -->&nbsp;<!-- ELSE --><img src="<!-- IF cat.item.LINK_TYPE --><!-- IF cat.item.ITEM_STATIC -->{ICON_SELECT}<!-- ELSE -->{ICON_FORBID}<!-- ENDIF --><!-- ELSE --><!-- IF cat.item.ITEM_ACTIVE -->{ICON_SELECT}<!-- ELSE -->{ICON_HIDDEN}<!-- ENDIF --><!-- ENDIF -->" alt="" style="margin-left: 8px;" /><!-- ENDIF --> {cat.item.TITLE}</td>
   <td align="center">{cat.item.TYPE}</td>
+	<!-- IF cat.item.SUBCAT -->
+		<td>[ <a href="{L_CPGMM}&amp;id={cat.item.ITEM}&amp;editlbl=mod">{S_EDIT}</a> / <a href="{L_CPGMM}&amp;id={cat.item.ITEM}&amp;mode=dellbl">{S_DELETE}</a> ]
+	<!-- ELSE -->
   <td>[ <a href="{L_CPGMM}&amp;id={cat.item.ITEM}&amp;editlnk=<!-- IF cat.item.LINK_TYPE -->mod<!-- ELSE -->link<!-- ENDIF -->">{S_EDIT}</a> <!-- IF cat.item.ITEM_VARIABLE -->| <a href="{L_CPGMM}&amp;id={cat.item.ITEM}&amp;mode=dellnk">{S_DELETE}</a><!-- ENDIF --> ]</td>
+	<!-- ENDIF -->
 </tr>
 <!-- END item -->
 </tbody>
@@ -31,7 +35,7 @@
 </table><br />
 <input type="submit" class="button" name="updatecpgmm" value="Update" style="float: left"/>
 </form>
-<div style="text-align:center"><a href="{L_CPGMM}&amp;editlnk=new">_(CPG_MMADDLINK)</a> | <a href="{L_CPGMM}&amp;editcat=new">_(CPG_MMADDCAT)</a></div>
+<div style="text-align:center"><a href="{L_CPGMM}&amp;editlnk=new">_(CPG_MMADDLINK)</a> | <a href="{L_CPGMM}&amp;editcat=new">_(CPG_MMADDCAT)</a> | <a href="{L_CPGMM}&amp;editlbl=new">{ADD_LBL}</a></div>
 <!-- cpgmm end -->
 
 <!-- INCLUDE admin/cpgmm_footer.html -->

@@ -1,0 +1,248 @@
+<!-- ***********************************************
+	 Pro_News Templates: Designed exclusively for Pro_News on Dragonfly CMS
+	 Copyright (c) 2009 - 2010 by layingback, http://layingback.net.  All Rights Reserved.
+	 Please see the included LICENSE.txt for the terms and conditions that govern your use of this template
+	 This notice MUST stay intact for legal use
+	 Visit http://layingback.net/ for this template and more
+	 $Id: fm_soc_net.html, v1, 2011/02/15 00:00:00 $ layingback
+	 ***********************************************														-->
+<!-- PHP -->
+	global $cpgtpl, $MAIN_CFG;
+
+	$ttl = urlencode($this->_tpldata['.'][0]['TOPIC_TITLE']);
+
+
+	$cpgtpl->assign_vars(array(
+		'TOPIC_TITLE_URI' => $ttl,
+
+	));
+<!-- ENDPHP -->
+<div class="pn_soc_net">
+	<span class="pn_socnet"><a href="http://connect.aim.com/share/?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/aim.png" alt="aim" title="aim" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://myjeeves.ask.com/mysearch/BookmarkIt?v=1.2&amp;t=webpages&amp;url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/ask.png" alt="ask" title="ask" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.bebo.com/c/share?Url={BASE_URL}{U_VIEW_TOPIC}&amp;Title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/bebo.png" alt="bebo" title="bebo" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.blinklist.com/index.php?Action=Blink/addblink.php&amp;Description=&amp;Url={BASE_URL}{U_VIEW_TOPIC}&amp;Title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/blinklist.png" alt="blinklist" title="blinklist" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.blogger.com/blog-this.g?t={TOPIC_TITLE_URI}&amp;u={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/blogger.png" alt="blogger" title="blogger" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://bloglines.com/sub/{BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/bloglines.png" alt="bloglines" title="bloglines" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://blogmarks.net/my/new.php?mini=1&amp;simple=1&amp;url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/blogmarks.png" alt="blogmarks" title="blogmarks" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.blogospherenews.com/submit.php?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/blogospherenews.png" alt="blogospherenews" title="blogospherenews" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://buzz.yahoo.com/submit/?submitUrl={BASE_URL}{U_VIEW_TOPIC}&amp;submitHeadline={TOPIC_TITLE_URI}&amp;submitSummary={TOPIC_TITLE_URI}&amp;submitCategory=science&amp;submitAssetType=text" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/yahoobuzz.png" alt="buzz" title="buzz" height="18" width="18" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://bx.businessweek.com/api/add-article-to-bx.tn?url={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/businessexchange.png" alt="bx" title="bx" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.care2.com/news/compose?share[link_url]={BASE_URL}{U_VIEW_TOPIC}&amp;share[title]={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/care2.png" alt="care2" title="care2" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://co.mments.com/track?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/comments.png" alt="co.mments" title="co.mments" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://current.com/clipper.htm?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}&amp;summary=&amp;source=" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/current.png" alt="current" title="current" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://dealspl.us/add.php?ibm=1&amp;url={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/dealsplus.png" alt="dealspl.us" title="dealspl.us" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://del.icio.us/post?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/delicious.png" alt="del.icio.us" title="del.icio.us" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.designfloat.com/submit.php?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/designfloat.png" alt="designfloat" title="designfloat" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://designmoo.com/submit?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/designmoo.png" alt="designmoo" title="designmoo" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://digg.com/submit?phase=2&amp;url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/digg.png" alt="digg" title="digg" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.diigo.com/post?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/diigo.png" alt="diigo" title="diigo" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.dzone.com/links/add.html?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/dzone.png" alt="dzone" title="dzone" height="16" width="16" /></a></span>
+	&nbsp;
+<!--	<span class="pn_socnet"><a href="http://www.facebook.com/sharer.php?u={BASE_URL}{U_VIEW_TOPIC}&amp;t={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/facebook.png" alt="facebook" title="facebook" height="16" width="16" /></a></span>
+	&nbsp;	-->
+	<span class="pn_socnet"><a href="http://cgi.fark.com/cgi/fark/submit.pl?new_url={BASE_URL}{U_VIEW_TOPIC}&amp;new_comment={TOPIC_TITLE_URI}u=" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/fark.png" alt="fark" title="fark" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://faves.com/Authoring.aspx?u={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/faves.png" alt="faves" title="faves" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.folkd.com/page/submit.html?step2_sent=1&amp;url={BASE_URL}{U_VIEW_TOPIC}&amp;check=page&amp;add_title={TOPIC_TITLE_URI}&amp;add_description=&amp;add_tags_show=&amp;add_tags=&amp;add_state=public" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/folkd.png" alt="folkd" title="folkd" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://friendfeed.com/share?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/friendfeed.png" alt="friendfeed" title="friendfeed" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://ocio.fresqui.com/post?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/fresqui.png" alt="fresqui" title="fresqui" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://funp.com/pages/submit/add.php?title={TOPIC_TITLE_URI}&amp;url={BASE_URL}{U_VIEW_TOPIC}&amp;via=tools" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/funp.png" alt="funp" title="funp" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.furl.net/storeIt.jsp?t={TOPIC_TITLE_URI}&amp;u={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/furl.png" alt="furl" title="furl" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.google.com/bookmarks/mark?op=add&amp;bkmk={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/google.png" alt="google" title="google" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.google.com/reader/link?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/googlebuzz.png" alt="google buzz" title="google buzz via reader" height="16" width="16" /></a></span>
+	&nbsp;
+<!--	<span class="pn_socnet"><a href="https://m.google.com/app/plus/x/?v=compose&amp;content={TOPIC_TITLE_URI}%20-%20{BASE_URL}{U_VIEW_TOPIC}&amp;hideloc=1" target="_blank">
+			<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/googleplus.png" alt="google+" title="google+" height="16" width="16" /></a></span>
+	&nbsp; -->
+	<span class="pn_socnet"><a href="http://www.dotnetkicks.com/kick/?title={TOPIC_TITLE_URI}&amp;url={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/kickit.png" alt="kickit" title="kickit" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.kirtsy.com/submit.php?url={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+			<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/kirtsy.png" alt="kirtsy" title="kirtsy" height="16" width="16" /></a></span>
+	&nbsp;
+<!--	<span class="pn_socnet"><a href="http://www.linkedin.com/shareArticle?mini=true&amp;url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/linkedin.png" alt="linkedin" title="linkedin" height="16" width="16" /></a></span>
+	&nbsp; -->
+	<span class="pn_socnet"><a href="https://favorites.live.com/quickadd.aspx?marklet=1&amp;mkt=en-us&amp;url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}&amp;top=1" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/live.png" alt="live" title="live" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://ma.gnolia.com/bookmarklet/add?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/ma.gnolia.png" alt="magnolia" title="magnolia" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://meneame.net/login.php?return=/submit.php?url={BASE_URL}{U_VIEW_TOPIC}?title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/meneame.png" alt="meneame" title="meneame" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.mister-wong.com/addurl/?bm_url={BASE_URL}{U_VIEW_TOPIC}&amp;bm_description={TOPIC_TITLE_URI}&amp;plugin=soc" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/misterwong.png" alt="mister-wong" title="mister-wong" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.mixx.com/submit?page_url={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/mixx.png" alt="mixx" title="mixx" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.muti.co.za//submit?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/muti.png" alt="muti" title="muti" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.myspace.com/Modules/PostTo/Pages/?c={BASE_URL}{U_VIEW_TOPIC}&amp;t={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/myspace.png" alt="myspace" title="myspace" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.n4g.com/tips.aspx?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/n4g.png" alt="n4g" title="n4g" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.netvibes.com/share?title={TOPIC_TITLE_URI}&amp;url={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/netvibes.png" alt="netvibes" title="netvibes" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.netvouz.com/action/submitBookmark?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/netvouz.png" alt="netvouz" title="netvouz" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.newstrust.net/submit?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/newstrust.png" alt="newstrust" title="newstrust" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.newsvine.com/_tools/seed&amp;save?u={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/newsvine.png" alt="newsvine" title="newsvine" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://view.nowpublic.com/?src={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/nowpublic.png" alt="nowpublic" title="nowpublic" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://oknotizie.alice.it/post?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/oknotizie.png" alt="oknotizie" title="oknotizie" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://ping.fm/ref/?link={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/ping.png" alt="ping" title="ping" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://pownce.com/send/link/?url={BASE_URL}{U_VIEW_TOPIC}&amp;note_body{TOPIC_TITLE_URI}&amp;note_to=all" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/pownce.png" alt="pownce" title="pownce" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.propeller.com/submit/?U={BASE_URL}{U_VIEW_TOPIC}&amp;T={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/propeller.png" alt="propeller" title="propeller" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://reddit.com/submit?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/reddit.png" alt="reddit" title="reddit" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.shoutwire.com/?p=submit&amp;link={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/shoutwire.png" alt="shoutit" title="shoutit" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.dotnetshoutout.com/Submit?title={TOPIC_TITLE_URI}&amp;url={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/shoutout.png" alt="shoutout" title="shoutout" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.simpy.com/simpy/LinkAdd.do?href={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/simpy.png" alt="simpy" title="simpy" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://slashdot.org/submit.pl">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/slashdot.png" alt="slashdot" title="slashdot" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.sphere.com/search?q=sphereit:{BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/sphere.png" alt="sphere" title="sphere" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://sphinn.com/submit.php?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/sphinn.png" alt="sphinn" title="sphinn" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.spurl.net/spurl.php?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/spurl.png" alt="spurl" title="spurl" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.squidoo.com/lensmaster/bookmark{BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/squidoo.png" alt="squidoo" title="squidoo" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.stumbleupon.com/submit?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/stumbleit.png" alt="stumble" title="stumble" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.subbmitt.com/submit.php?url={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/subbmitt.png" alt="subbmitt" title="subbmitt" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.tagza.com/submit.php?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}&amp;popup=no" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/tagza.png" alt="tagza" title="tagza" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://tailrank.com/share/?link_href={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/tailrank.png" alt="tailrank" title="tailrank" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://twitter.com/home/?status=tip%20@Techmeme%20{BASE_URL}{U_VIEW_TOPIC}%20{TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/techmeme.png" alt="techmeme via twitter" title="techmeme via twitter" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://technorati.com/faves?add={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/technorati.png" alt="technorati" title="technorati"height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.tumblr.com/share?v=3&amp;u={BASE_URL}{U_VIEW_TOPIC}&amp;t={TOPIC_TITLE_URI}&amp;s=" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/tumblr.png" alt="tumblr" title="tumblr" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.twackle.com/chicklet?site={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/twackle.png" alt="twackle" title="twackle" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.twine.com/bookmark/basic?u={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/twine.png" alt="twine" title="twine" height="16" width="16" /></a></span>
+	&nbsp;
+<!--	<span class="pn_socnet"><a href="http://twitthis.com/twit?url={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/twitthis.png" alt="twitthis" title="twitthis" height="16" width="16" /></a></span>
+	&nbsp;	-->
+	<span class="pn_socnet"><a href="http://www.webnews.de/einstellen?url={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/webnews.png" alt="webnews" title="webnews" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.wikio.com/vote?url={BASE_URL}{U_VIEW_TOPIC}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/wikio.png" alt="wikio" title="wikio" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.wink.com/_/tag?url={BASE_URL}{U_VIEW_TOPIC}&amp;doctitle={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/wink.png" alt="wink" title="wink" height="16" width="16" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.xanga.com/private/editorx.aspx?t={TOPIC_TITLE_URI}&amp;u={BASE_URL}{U_VIEW_TOPIC}&amp;s=" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/xanga.png" alt="xanga" title="xanga" height="18" width="18" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://myweb2.search.yahoo.com/myresults/bookmarklet?u={BASE_URL}{U_VIEW_TOPIC}&amp;title={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/yahoomyweb.png" alt="yahoomyweb" title="yahoomyweb" height="18" width="18" /></a></span>
+	&nbsp;
+	<span class="pn_socnet"><a href="http://www.yigg.de/neu?exturl={BASE_URL}{U_VIEW_TOPIC}&amp;extitle={TOPIC_TITLE_URI}" target="_blank">
+		<img class="pn_socnet-hovers" src="{THEME_PATH}/images/pro_news/socialnet/yigg.png" alt="yigg" title="yigg" height="16" width="16" /></a></span>
+</div>

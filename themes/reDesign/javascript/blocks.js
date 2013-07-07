@@ -94,7 +94,6 @@ function animateStep(blockcontent, iteration, stepHeight, direction) {
 function toggleBlockCollapsed(blockID) {
 	// block content element id
 	var bpe = document.getElementById('pe'+blockID);
-	document.getElementById('pe'+blockID).attachEvent('onselectstart', rfalse);
 
 	// If was collapsed (show it)
 	if (bpe && hasClass(bpe, PANEL_COLLAPSED_CLASS)) {

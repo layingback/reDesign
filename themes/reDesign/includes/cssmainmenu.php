@@ -12,6 +12,7 @@
   $Revision: 1.19 $
   $Author: estlane $
   $Date: 2010/03/22 17:32:09 $
+								* edits for 2 column MegaMenu layingback
 **********************************************/
 if (!defined('CPG_NUKE')) { exit; }
 global $prefix, $db, $module_name, $language, $currentlang, $mainindex, $userinfo, $adminindex, $MAIN_CFG, $CPG_SESS, $swctgry;
@@ -57,7 +58,7 @@ if (!is_admin()) {
 }
 
 // Load active modules from database
-$sql = 'SELECT m.title as link, m.custom_title as title, m.view, m.active, m.inmenu, m.cat_id AS category, m.pos AS linkpos, c.name, c.image, c.pos AS catpos, c.link AS catlnk, c.link_type AS cattype FROM '.$prefix.'_modules AS m LEFT JOIN '.$prefix.'_modules_cat c ON (c.cid = m.cat_id) '.$modquery;
+$sql = 'SELECT "" AS label, m.title as link, m.custom_title as title, m.view, m.active, m.inmenu, m.cat_id AS category, m.pos AS linkpos, c.name, c.image, c.pos AS catpos, c.link AS catlnk, c.link_type AS cattype FROM '.$prefix.'_modules AS m LEFT JOIN '.$prefix.'_modules_cat c ON (c.cid = m.cat_id) '.$modquery;
 $result = $db->sql_query($sql);
 
 while ($row = $db->sql_fetchrow($result)) {
@@ -77,7 +78,8 @@ while ($row = $db->sql_fetchrow($result)) {
 $db->sql_freeresult($result);
 
 // Load custom links from database
-$sql = "SELECT l.title, l.link, l.link_type, l.view, l.active, l.cat_id AS category, l.pos AS linkpos, c.name, c.image, c.pos AS catpos, c.link AS catlnk, c.link_type AS cattype FROM ".$prefix."_modules_links AS l LEFT JOIN ".$prefix."_modules_cat c ON (c.cid = l.cat_id) $lnkquery";
+$sql = '(SELECT l.title, "" AS label, l.cat_id AS category, l.link, l.link_type, l.view, l.active, l.cat_id, l.pos AS linkpos, c.name, c.image, c.pos AS catpos, c.link AS catlnk, c.link_type AS cattype FROM '.$prefix.'_modules_links AS l LEFT JOIN '.$prefix.'_modules_cat c ON (c.cid = l.cat_id) '.$lnkquery.')';
+$sql .= ' UNION (SELECT b.name AS title, "1" AS label, b.cat_id AS category, b.link, b.link_type, "1" AS view, "0" AS active, cat_id, b.pos AS linkpos, c.name, c.image, c.pos AS catpos, c.link AS catlnk, c.link_type AS cattype FROM '.$prefix.'_modules_lbl AS b LEFT JOIN '.$prefix.'_modules_cat c ON (c.cid = cat_id))';
 $result = $db->sql_query($sql);
 
 while ($row = $db->sql_fetchrow($result)) {
@@ -194,7 +196,7 @@ while (list($ccat, $items) = each($menucats)) {
     }
     $i++;
 
-    $itemclass = $firstincategory? ($current_link?' first current':' first') : ($current_link?' current':'');
+    $itemclass = $firstincategory || $item['label'] ? ($current_link?' first current':' first') : ($current_link?' current':'');
     //normal, active, disabled, hidden
     //black, green, red, gray
 
@@ -209,6 +211,16 @@ while (list($ccat, $items) = each($menucats)) {
     } else {
       $tmpcontent = '<li class="normal'.$itemclass.'"><a href="'.$item['link'].'">'.$item['title'].'</a></li>';
     }
+
+	if ($item['label']) {
+		if (empty($item['link'])) {
+			$tmpcontent = '<li class="label'.$itemclass.'"><p>'.$item['title'].'</p></li>';
+		} else {
+			$tmpcontent = '<li class="labellink'.$itemclass.'"><p><a href="'.$item['link'].'">'.$item['title'].'</a></p></li>';
+		}
+	} else {
+		$tmpcontent = '<li class="'.$itemclass.'"><a href="'.$item['link'].'">'.$item['title'].'</a></li>';
+	}
 
     if (!$item['active'] && !$item['inmenu']) {
       $offcontent .= $tmpcontent;
@@ -252,9 +264,9 @@ while (list($ccat, $items) = each($menucats)) {
   }
 
   if ($ccat >= 0) {
-    $content .= '<li'.$iscurrentcat.'>'.(defined('ADMIN_PAGES')?'':'').$cattitlel.'<ul>'.$catcontent.'</ul></li>';
+    $content .= '<li'.$iscurrentcat.'>'.(defined('ADMIN_PAGES')?'':'').$cattitlel.'<ul class="usr">'.$catcontent.'</ul></li>';
   } else {
-    $nocatcontent = '<li'.$iscurrentcat.'>'.(defined('ADMIN_PAGES')?'':'').'<a>'._NONE.'</a><ul>'.$catcontent.'</ul></li>';
+    $nocatcontent = '<li'.$iscurrentcat.'>'.(defined('ADMIN_PAGES')?'':'').'<a>'._NONE.'</a><ul class="usr">'.$catcontent.'</ul></li>';
   }
 }
 $content .= $nocatcontent;
@@ -274,7 +286,6 @@ if (defined('ADMIN_PAGES') && is_admin()) {
 
 $content .= '</ul>';
 $mmcontent = $content;
-
 
 //Let's define current category
 //Now we can use it for a dynamic block title for example

@@ -194,6 +194,7 @@ ul.pictures li div.image div {
 /* Thumbnail title, style previous instead */
 .thumb_title {
 	font-size: 0.9em;
+	color: grey;
 }
 
 /* Thumbnail image description */
@@ -210,27 +211,28 @@ ul.album_list li {
 
 .display_picture {
 	width: 100%;
-	padding: 10px 0;
+	margin-top: 20px;
+	padding: 50px 0;
 	border: 1px solid #A3A3A3;
 	background-color: #DFDFDF;
 	text-align: center;
 }
 
+.filmstrip {
+	margin: 10px 2.5%;
+	margin-top: 20px;
+	padding: 5px;
+	border-top: 1px solid #DFDFDF;
+	border-bottom: 1px solid #DFDFDF;
+}
 .picpos {
 	font-size: 0.8em;
 }
-
-.filmstrip {
-	margin: 10px;
-	margin-top: 20px;
-	padding: 5px;
-	border-top: 1px dashed #000;
-	border-bottom: 1px dashed #000;
-}
-
 .filmstrip div.currentpic .picpos {
 	font-weight: bold;
-	font-size: 0.9em;
+	color: #FF4071;
+	font-size: 0.8em;
+
 }
 
 .filmstrip div.currentpic img {
@@ -246,10 +248,9 @@ ul.album_list li {
 	margin-right: 10px;
 }
 
-#picinfo {
-	margin-top: 10px;
+.picinfo {
+	margin: -10px 3% 30px 3%;
 }
-
 #picinfo ul {
 	list-style: none;
 }
@@ -263,6 +264,10 @@ ul.album_list li {
 	clear: left;
 	text-align: right;
 	margin-right: 3px;
+	font-size: 0.8em;
+	font-style: italic;
+	color: #A7A7A7;
+	margin-top: 2px;
 }
 .comment_button {
 	margin-top: 4px;
@@ -293,12 +298,20 @@ ul.album_list li {
 .picture {
 	position: relative;
 	width: 132px;
-	height: 135px;
+	height: 140px;
 	overflow: hidden;
 	float: left;
 	text-align: center;
-	margin-right: 10px;
+	margin: auto 5px;
 	font-size: 0.8em;
+}
+/* coppermine user gallery vertical spacing */
+.picture {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+.picture_frame:hover, .picture_link:hover {
+	border-top: 1px solid transparent;
 }
 
 .picture_link {
@@ -306,13 +319,13 @@ ul.album_list li {
 	background-color: #FEFFF2;
 	margin: 2px 2px 2px 2px;
 	width: 128px;
-	height: 100px;
+	height: 104px;
 	overflow: hidden;
 }
 
 .picture_frame {
 	display: block;
-	height: 109px;
+	height: 113px;
 	width: 132px;
 	background: transparent url('../images/coppermine/picture_frame.png');
 	position: absolute;
@@ -333,6 +346,8 @@ img.image {
 	height: auto;
 	display: block;
 	margin: 0 auto;
+	z-index: 10;
+	position: relative;
 }
 
 /*.picture .thumb_title {
@@ -345,6 +360,8 @@ img.image {
 	/*display: none;*/
 	display: block; /* because we want to have linebreaks */
 	font-style: italic;
+	padding-top: 5px;
+	color: grey;
 }
 
 .album_info {
@@ -402,7 +419,7 @@ img.image {
 }
 
 .picture_caption {
-	padding-top: 2px;
+	padding-top: 0px;
 }
 
 .stats {

@@ -96,7 +96,10 @@ function current_time() {
 
 function themeheader() {
     global $slogan, $sitename, $banners, $mainindex, $adminindex, $cpgtpl, $site_logo, $BASEHREF, $CPG_SESS,
-    $MAIN_CFG, $userinfo, $module_name, $home, $Blocks, $multilingual, $currentlang, $show_banner_in_header, $file;
+    $MAIN_CFG, $userinfo, $module_name, $home, $Blocks, $multilingual, $currentlang, $show_banner_in_header,
+    $file, $is_auth;
+
+	$xmas = 1;		// festive decoration: 0 - none,  1 - snow and/or christmas lights,  2 - xmas everyday
 
     // Show following page if site is maintenance mode and non-admin is viewing it
     if ($MAIN_CFG['global']['maintenance'] && !is_admin()) {
@@ -172,8 +175,6 @@ function themeheader() {
         $imageRight = '<img alt="+/-" title="'._TOGGLE.'" id="pic601" src="themes/'.$CPG_SESS['theme'].'/images/'.$img.'" onclick="blockswitch(\'601\');" style="cursor:pointer; float:right; padding:2px 0 2px 0;" />';
     }
 
-global $is_auth;
-
     $cpgtpl->assign_vars(array(
         'BROWSER_CSS'		=> $specific ? "\n".'<link rel="stylesheet" type="text/css" href="themes/'.$CPG_SESS['theme'].'/style/browsers/'.$specific.'" />'."\n" : "\n",
         'PNG_FIX'			=> $pngfix,
@@ -196,10 +197,12 @@ global $is_auth;
         'S_NEW_PM'			=> is_user() && is_active('Private_Messages') && ($userinfo['user_new_privmsg'] > 0)?(($userinfo['user_new_privmsg']>1)?$lang['You_new_pms']:$lang['You_new_pm']):false,
         'S_LOGO'			=> $site_logo,
         'S_SITENAME'		=> $sitename,
+        'S_SLOGAN'			=> $slogan,
         'S_USER_NAME'		=> $userinfo['username'],
         'S_LOGINRDRT'		=> (isset($CPG_SESS['user']['redirect']) ? $CPG_SESS['user']['redirect'] : getlink()),
         'S_REG_ALLOWED'		=> $MAIN_CFG['member']['allowuserreg'],
         'S_NOT_NEWS'		=> ($module_name != 'News') || $home,
+        'S_NOT_HOME'		=> !$home,
         'CUR_LANGUAGE'		=> $currentlang,
         'S_FORUMS'			=> _ForumsLANG,
         'S_DOWNLOADS'		=> is_active('Downloads') ? _DownloadsLANG : false,
@@ -230,7 +233,7 @@ global $is_auth;
         'BACK_TO_TOP'		=> $lang['Back_to_top'],
         'PM_IMAGE'			=> 'themes/'.$CPG_SESS['theme'].'/images/forums/lang_'.$currentlang.'/icon_contact_pm.gif',
         'WWW_IMAGE'			=> 'themes/'.$CPG_SESS['theme'].'/images/forums/lang_'.$currentlang.'/icon_contact_www.gif',
-        'BASE_URL'			=> urlencode($BASEHREF),
+        'BASE_URL'			=> $BASEHREF,
         'HEADVARS_OK'		=> 1, //makes possible to check if we need to reassign some vars in footer if this is false
         'B_DRAGON_10'		=> version_compare(CPG_NUKE, '10.0.0', '>='), //If Dragonfly version is 10+
         'S_MODULE_SPECIFIC_CSS' => $modspecific_css,
@@ -239,6 +242,11 @@ global $is_auth;
         'BANNER_AFTER_HEADER'	=> (BANNER_AFTER_HEADER && $banners),
         'BANNER_MAIN'		=> (BANNER_MAIN && $banners),
         'BANNER_FOOTER'		=> (BANNER_FOOTER && $banners),
+		'WORK_FILTER'		=> 'themes/'.$CPG_SESS['theme'].'/images/coppermine/notsafe4work.png',
+		'MATURE_FILTER'		=> 'themes/'.$CPG_SESS['theme'].'/images/coppermine/noaccess.png',
+		'FILTER_IMAGES_ON'	=> $userinfo['filter_adult_images'],
+		'U_IS_XMAS'				=> $xmas == 2 || ($xmas == 1 && date('n') == 12 && (date('j') == 25 || date('j') == 26)),
+		'U_IS_XMAS_WK'			=> $xmas == 2 || ($xmas == 1 && date('n') == 12 && date('j') >= 24),
     ));
 
 
@@ -277,7 +285,7 @@ function setPagetitleState() {
     // Modules that are not allowed to have global page title (true)
     //  false means that the module MUST have the global page title and thus overrides previous $breadcrumbDisabled (i.e Groups included this via Forum images file)
     $disallowedModules = array(
-        'Wiki'				=> true,
+        'Wiki'				=> false,
         'Groups'			=> false,
         'Private_Messages'	=> false,
     );
@@ -563,4 +571,8 @@ function theme_select_box($name, $value, $array) {
         $select .= '<option value="'.$val.'"'.(($val==$value)? ' selected="selected"' : '').'>'.$title."</option>\n";
     }
     return $select.'</select>';
+}
+
+if (file_exists('themes/'.$CPG_SESS['theme'].'/theme.inc')) {
+	require_once ('themes/'.$CPG_SESS['theme'].'/theme.inc');
 }

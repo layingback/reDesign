@@ -4,10 +4,10 @@
  Will be loaded after other stylesheets, so will override styles in those stylesheets.
  Media is screen.
 
- DO NOT MAKE ANY CHANGES to style.css or mainstyle.css - MAKE ALL CHANGES HERE
+ DO NOT MAKE ANY CHANGES TO style.css OR mainstyle.css - MAKE ALL CHANGES HERE
 ************************************************/
 
-/* Style Overrides to mainstyle.css go in this section.  Some examples follow (commented out) */
+/* STYLE OVERRIDES TO mainstyle.css GO IN THIS SECTION.  Some examples follow (commented out) */
 
 html {
 /*  background-color: #699B64; */
@@ -20,5 +20,244 @@ body {
 /*  background: transparent url('../images/backgrounds/header/headerbg_exp.jpg') repeat-x top left; */				/* menu expandable bg here */
 }
 
-/* Style Overrides to style.css go below here. */
 
+
+/* STYLE OVERRIDES TO style.css GO BELOW HERE. */
+
+
+
+
+
+
+/* Useful CSS segments follow - enable if applicable or use as guides to develop custom CSS */
+
+/* Switch the link decoration (underline) styles between hover and normal */
+a, a:link, a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+.breadcrumb_traces a:hover {
+    text-decoration: underline;
+}
+
+/* Override link colours */
+/*
+	h2.cattitle a:link, h2.cattitle a:visited, h2.cattitle a:hover {
+    color: #E80024;
+}
+a.postlink:link {
+    color: #FF0000;
+}
+a.postlink:visited {
+    color: #FF6666;
+}
+a.postlink:hover {
+    color: #FF4040;
+}
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover {
+    color: #FF4040;
+    text-decoration: underline;
+}
+*/
+
+
+/* Enhanced BBCode - Sample CSS for user-defined BBCode entries in my Enhanced BBCode hack  */
+.title_text {
+	font-weight: 700;
+	font-size: 1.2em;
+	color: #808080;
+}
+.img_right {
+	float: right;
+	padding: 10px;
+}
+.img_left {
+	float: left;
+	padding: 10px;
+}
+
+/* End BBCode Sample CSS */
+
+/* Typical general header adjustments for simple background, logo and change of header height (affects menu position) */
+/*
+#head {
+    height: 130px;
+    background: #353535 url('../images/backgrounds/header/header_bg3.jpg') no-repeat bottom left;
+}
+#head h1 a {
+	font-size: 0.5em;
+    margin-left: 20px;
+}
+#head h1 a img {
+	position: relative;
+	margin: -40px 0 10px -40px;
+}
+#headertools {
+    bottom: 3px;
+}
+#menu {
+    margin: 108px 0px 0px 0px;
+}
+*/
+
+/* Adjust widths of (new) 3-column footer (20%|25%|30% is default setting) */
+/*
+.footer_1 {
+    width: 20%;
+}
+.footer_2 {
+    width: 25%;
+}
+.footer_3 {
+    width: 30%;
+}
+*/
+
+/*		---	layingback double wide menus - must appear before 3rd level menus css - Enable only if using Mega Menu hack */
+/*
+#menu li ul.usr {
+  width: 300px;
+}
+#menu li ul.usr li, #menu li ul.usr li:hover {
+  width: 50%;
+}
+#menu li ul.usr li:hover {
+  background: #5C5C5C;
+  background: rgba(79, 79, 79, 0.8);
+  color: #FFF;
+  text-shadow: #000 0px 1px 2px;
+}
+#menu li ul li.link, #menu li ul li.first {
+  width: 50%;
+}
+*/
+
+/*		------	layingback 3rd level menus - Enable only if using Mega Menu hack	--------			*/
+/*
+#menu li ul li.label, #menu li ul li.labellink, #menu li ul li.label:hover, #menu li ul li.labellink:hover {
+  width: 100%;
+  font-weight: bold;
+  background-color: #5F5F5F;
+}
+#menu li ul li.labellink:hover {
+  background: #5C5C5C;
+  background: rgba(79, 79, 79, 0.8);
+}
+#menu li ul li.label p {
+  padding-left: 12px;
+}
+#menu li ul li.labellink a, #menu li ul li.labellink a:visited {
+  margin-left: -12px;
+  font-weight: bold;
+}
+*/
+
+
+/*   -------------  layingback   Social Network outside of Pro_News (ie Forums) - Enable only if using  ------------  */
+/*
+ * .pn_grey {
+  color: grey;
+}
+.pn_tiny {
+  font-size: 0.8em;
+}
+.pn_tinygrey {
+  font-size: 0.8em;
+  color: grey;
+}
+.pn_interact {
+  margin: 10px 5px 10px 0px;
+  padding: 10px 3% 10px 3%;
+  background: rgba(242, 242, 242, 0.7);
+  border-bottom:  1px solid #eee;
+  border-right:  1px solid #eee;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -moz-border-radius-topleft: 6px;
+  -moz-border-radius-topright: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  -webkit-border-bottom-right-radius: 6px;
+  -webkit-border-top-left-radius: 6px;
+  -webkit-border-top-right-radius: 6px;
+}
+.pn_interact:hover {
+  border-bottom: 1px solid #aaa;
+  border-right: 1px solid #ccc;
+}
+.pn_interact fieldset {
+  float: right;
+  width: 30%;
+}
+.pn_interact .pn_noborder {
+  border: 0;
+  padding: 0px;
+}
+.pn_interact legend {
+  font-size: 0;
+}
+.pn_socnet {
+  font-size: 9px;
+}
+.pn_soc_net {
+  padding-top: 14px;
+  margin: 0 auto;
+  text-align: center;
+}
+.pn_socnet-hovers {
+	opacity: 0.5;
+}
+.pn_socnet-hovers:hover {
+	opacity: 1;
+}
+.pn_share {
+  display: inline-block;
+  padding: 2px 2px 0px 2px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -moz-border-radius-topleft: 6px;
+  -moz-border-radius-topright: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  -webkit-border-bottom-right-radius: 6px;
+  -webkit-border-top-left-radius: 6px;
+  -webkit-border-top-right-radius: 6px;
+}
+.pn_share:hover {
+  background: #fcfcfc;
+}
+.pn_share .pn_tinygrey:hover {
+  color: #444;
+}
+*/
+
+/* CPGNuCalendar CSS override for its blocks - Enable only if using */
+/*
+.nucalblk .cat a {
+	color: white;
+}
+.calendartitle {
+	border: #eee solid 1px;
+	border-bottom: solid 0px #fff;
+}
+.caltitledate {
+    font-size: 1.5em;
+	color: #444444;
+}
+.calendarbg {
+	background: #eee;
+}
+.calendarday {
+	background: #ffffff;
+}
+*/
+
+/*  ---------------------------------------------  */
